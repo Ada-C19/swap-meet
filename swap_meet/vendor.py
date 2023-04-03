@@ -1,7 +1,7 @@
 class Vendor:
     def __init__(self, inventory=[]):
         self.inventory = inventory
-    
+
     def add(self, item):
         self.inventory.append(item)
         return item
@@ -12,3 +12,9 @@ class Vendor:
             return item
         except ValueError:
             return False
+
+    def get_by_id(self, id):
+        for item in self.inventory:
+            if id == item.id:
+                return item
+        return None
