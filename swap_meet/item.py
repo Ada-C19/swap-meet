@@ -12,5 +12,11 @@ class Item:
     def get_category(self):
         # Holds the class name and returns it as a str
         return self.__class__.__name__
+    
+    # This method will return the type this class as a Str not as an "An object of type Item with id <id value>."
+    def __str__(self):
+        return f"An object of type {self.get_category()} with id {self.id}."
+    
+    
 
     
