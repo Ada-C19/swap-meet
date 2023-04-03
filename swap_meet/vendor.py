@@ -15,19 +15,20 @@ class Vendor:
         return item 
 
     def get_by_id(self, id):
+        # if item is in inventory and matches item id the return item
         for item in self.inventory:
             if item.id == id:
                 return item
         return None
     
     def swap_items(self, other_vendor, my_item, their_item):
+        # check if items are in their respective inventories
         if my_item not in self.inventory or their_item not in other_vendor.inventory:
             return False
-        for my_item in self.inventory and their_item in other_vendor.inventory:
-            if len(my_item) == len(their_item):
-                other_vendor.append(my_item)
-                self.inventory.remove(my_item)
-                self.inventory.append(their_item)
-                other_vendor.remove(their_item)
+        # add item to other inventory and remove it from original inventory
+        self.remove(my_item)
+        self.add(their_item)
+        other_vendor.remove(their_item)
+        other_vendor.add(my_item)
         return True
             
