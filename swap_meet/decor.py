@@ -1,12 +1,9 @@
 import uuid
+from swap_meet.item import Item
 
-class Decor:
-    def __init__(self, id=None, width=0, length=0):
-        if not id:
-            self.id = uuid.uuid1().int
-        else:
-            self.id = id
-
+class Decor(Item):
+    def __init__(self, condition=0, id=None, width=0, length=0):
+        super().__init__(condition, id)
         self.width = width
         self.length = length
 

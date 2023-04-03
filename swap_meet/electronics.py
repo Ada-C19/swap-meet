@@ -1,11 +1,9 @@
 import uuid
+from swap_meet.item import Item
 
-class Electronics:
-    def __init__(self, id=None, type="Unknown"):
-        if not id:
-            self.id = uuid.uuid1().int
-        else:
-            self.id = id
+class Electronics(Item):
+    def __init__(self, condition=0, id=None, type="Unknown"):
+        super().__init__(condition, id)
         self.type = type
 
     def get_category(self):
