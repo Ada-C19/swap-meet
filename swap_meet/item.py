@@ -1,2 +1,5 @@
 class Item:
-    pass
+    
+    def __init__(self, id):
+        self.self = self
+        self.id =
