@@ -1,22 +1,33 @@
 class Vendor:
-    def __init__(self, inventory=None):
-        # Initialize a Vendor instance with an empty inventory list
-        # or with a provided inventory list
-        if inventory is None:
-            inventory = []
-        self.inventory = inventory
-        
-        
-        # Add an item to the inventory list and return the item
+    def __init__(self, inventory = None):
+            if inventory is None:
+                inventory = []
+            self.inventory = inventory
+
+    # create instance method called add that takes in one item
+    # add that item to inventory via the instance method and return item
+
     def add(self, item):
         self.inventory.append(item)
         return item
-        
-        # Remove an item from the inventory list if it exists and return the item
-        # Otherwise, return False if the item is not found in the inventory list
+
+    # create instance method called remove that takes in one item
+    # method removes the matching item from inventory
+    # return item
+    # if no matching item, return false
+
     def remove(self, item):
         if item in self.inventory:
             self.inventory.remove(item)
             return item
         else:
             return False
+        
+# create instance method called get_by_id
+# takes one argument: an integer that represents an Item's id
+# method returns item with matching id from inventory 
+# if no matching item in inventory, return None.
+
+
+# Instances of Vendor have an instance method named get_by_id
+
