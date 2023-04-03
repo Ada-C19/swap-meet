@@ -34,4 +34,22 @@ class Vendor:
         self.inventory[0] = friend_first_item
         other_vendor.inventory[0] = our_first_item
         return True
-    
+    def get_by_category(self,given_category):
+        item_by_category = []
+        for item in self.inventory:
+            if item.category == given_category:
+                item_by_category.append(item)
+        return item_by_category
+    def get_best_by_category(self, given_category):
+        
+        max_vale = -1
+        for item in self.inventory:
+            if item.category == given_category and item.condition > max_vale:
+                best_item = item
+                max_vale = item.condition
+        if max_vale == -1:
+            return None 
+              
+        return best_item
+
+
