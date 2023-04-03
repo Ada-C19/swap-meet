@@ -1,9 +1,12 @@
+from swap_meet.item import Item
+
 # 1. create the Vendor class
 class Vendor: 
     
     # 2. Vendor will have an attribute named inventory, 
     # which is an empty list by default
     def __init__(self, inventory=None):
+
         self.inventory =  inventory if inventory is not None else []
         
         

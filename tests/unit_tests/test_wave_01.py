@@ -8,6 +8,7 @@ def test_vendor_has_inventory():
     assert len(vendor.inventory) == 0
 
 # @pytest.mark.skip
+# @pytest.mark.skip
 def test_vendor_takes_optional_inventory():
     inventory = ["a", "b", "c"]
     vendor = Vendor(inventory=inventory)
@@ -16,6 +17,7 @@ def test_vendor_takes_optional_inventory():
     assert "b" in vendor.inventory
     assert "c" in vendor.inventory
 
+# @pytest.mark.skip
 # @pytest.mark.skip
 def test_adding_to_inventory():
     vendor = Vendor()
@@ -27,6 +29,7 @@ def test_adding_to_inventory():
     assert item in vendor.inventory
     assert result == item
 
+# @pytest.mark.skip
 # @pytest.mark.skip
 def test_removing_from_inventory_returns_item():
     item = "item to remove"
@@ -41,6 +44,7 @@ def test_removing_from_inventory_returns_item():
     assert result == item
 
 # @pytest.mark.skip
+# @pytest.mark.skip
 def test_removing_not_found_is_false():
     item = "item to remove"
     vendor = Vendor(
@@ -54,3 +58,5 @@ def test_removing_not_found_is_false():
     # *********************************************************************
     # ****** Complete Assert Portion of this test **********
     # *********************************************************************
+    
+    
