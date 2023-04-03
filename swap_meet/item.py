@@ -7,6 +7,6 @@ class Item:
             id = uuid.uuid4().int    
         self.id = id
 
-    def get_category(self, item):
-        if isinstance(item, Item):
+    def get_category(self):
+        if isinstance(self, Item):
             return "Item"
