@@ -4,7 +4,7 @@ class Vendor:
         if self.inventory == None: 
             self.inventory = []
         else: 
-            self.inventory
+            self.inventory 
 
     # adds single item to inventory and returns item added
     def add(self, item):  
@@ -20,11 +20,11 @@ class Vendor:
 
     def get_by_id(self, item_id):
         # for each item in my inventory
-        for item_id in self.inventory:
-            # if id in question matches any item_id i have,
-            if item_id.id == item_id:
-        # return item with matching id from inventory
-                return item_id
+        for item_instance in self.inventory:
+            # if item_id in question matches any item_instance have,
+            if item_instance.id == item_id:
+                # return item with matching id from inventory
+                return item_instance
             # if no matching item, then return None
             return None  
         
@@ -42,6 +42,10 @@ class Vendor:
             self.add(their_item)
             return True
         return False
+    
+
+    def swap_first_item(self, other_vendor): 
+        pass
 
 
 
