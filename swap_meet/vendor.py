@@ -1,2 +1,3 @@
+# test
 class Vendor:
     pass
