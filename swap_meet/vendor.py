@@ -51,6 +51,14 @@ class Vendor:
             # If there is no matching item in the inventory, 
             # the method should explicitly return None
         return None
+    
+    
+    # instance method named swap_items
+    # takes 3 arguments
+    # other_vendor, my_item
+    def swap_items(self, other_vendor, my_item, their_item):
+    
+    
 
 
                 
