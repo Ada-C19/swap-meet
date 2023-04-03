@@ -22,5 +22,5 @@ print("id", uuid.uuid4().int)
 vendor.inventory.append(chair)
 for item in vendor.inventory:
     # print(type(item))
-    print(item)
+    print(str(item))
     print(vars(item))

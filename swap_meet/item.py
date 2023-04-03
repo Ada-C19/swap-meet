@@ -7,7 +7,10 @@ class Item:
             self.id = uuid.uuid4().int
         else:
             self.id = id
-        
+    
+    def __str__(self):
+        return f"An object of type Item with id {self.id}."
+    #This is going to stringify the id in a sentence shown in the notes today
         
 
     
