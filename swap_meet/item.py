@@ -1,9 +1,9 @@
 import uuid
 
 class Item:
-    def __init__(self, id=uuid.uuid4().int, condition=0):
-        if type(id) != int:
-            raise Exception("id must be an integer")
+    def __init__(self, id=None, condition=0):
+        if not id:
+            id = uuid.uuid4().int
         self.id = id
         self.condition = condition
     
