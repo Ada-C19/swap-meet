@@ -111,7 +111,7 @@ def test_swap_best_by_category():
 
     # Assertions should check:
     # - That the results is truthy
-    assert result == True
+    assert result
     # - That tai and jesse's inventories are the correct length
     assert len(tai.inventory) == 3 and len(jesse.inventory) == 3
     # - That all the correct items are in tai and jesse's inventories, 
