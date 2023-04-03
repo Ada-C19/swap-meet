@@ -1,2 +1,3 @@
 class Vendor:
+    """woaw"""
     pass
