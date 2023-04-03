@@ -15,35 +15,34 @@ class Vendor:
         return False
 
     # this is described as a function and not a method - why? 
-    def get_by_id(id):
-        pass    
-        # returns item with matching id from inventory
-        # if no matching item, then explicitly return None
-
+    def get_by_id(self, item_id):
+        # for each item in my inventory
+        for item_id in self.inventory:
+            # if id in question matches any item_id i have,
+            if item_id == item_id:
+        # return item with matching id from inventory
+                return item_id
+            # if no matching item, then return None
+            return None  
+        
 
 # instantiate a list and optionally pass in a list with keyword arg named inventory
 # vendor_example = Vendor(inventory=[])   
 
-# ******************************************
-# just wanted to write my code to see if i'm understanding how to do this project!!
-# class Vendor:
-#     def __init__(self, inventory=None):
-#         # inventory empty list
-#         if inventory is None:
-#             self.inventory = []
-#         else:
-#             self.inventory = inventory
 
-#     # add item to inventory
-#     def add(self, item):
-#         self.inventory.append(item)
-#         return item
-    
-#     # remove the item from inventory  
-#     def remove(self, item):
-#         if item in self.inventory:
-#             self.inventory.remove(item)
-#             return item
-#         # unless the item isn't there... return false
-#         else:
-#             return False
+    def swap_items(self, other_vendor, my_item, their_item):
+        # if i have item to give and they have their item to give 
+        if my_item in self.inventory and their_item in other_vendor.inventory:
+            # remove item from my list to...
+            self.remove(my_item)
+            # add to the other vendor's list then...
+            other_vendor.add(my_item)
+            # removes their item to give from their list
+            other_vendor.remove(their_item)
+            # and adds their item to my list
+            self.add(their_item)
+            return True
+        return False
+
+
+
