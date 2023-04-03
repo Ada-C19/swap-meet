@@ -2,15 +2,20 @@ import uuid
 
 
 class Item:
-    def __init__(self):
-        self.id = uuid4() 
+    def __init__(self, id = None):
+        if id == None:
+            self.id = uuid.uuid4().int
+        else:
+            self.id = id
+        
+        
 
     
 #need an instance where we pass on integer in the argument id which will manually set the value of id to the instance
 #create function named get_category which will return a string holding the name of the class
 
-    def get_category(self, item):
-        self.item = Item(item)
+    def get_category(self):
+        self.item = Item()
         return self.__class__.__name__
 
 
