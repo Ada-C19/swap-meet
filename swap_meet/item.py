@@ -11,7 +11,7 @@ class Item:
         return self.__class__.__name__
 
     def __str__(self):
-        return f"An object of type {self.__class__.__name__} with id {self.id}. "    
+        return f"An object of type {self.__class__.__name__} with id {self.id}."    
 
     def condition_description(self):
         ratings = {0:"As Bad As It Gets", 1: "Problably Not Worth It", 2: "OK", 3: "Pretty Good", 4: "Like New", 5: "Brand New!"}

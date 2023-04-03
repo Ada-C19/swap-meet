@@ -8,5 +8,5 @@ class Decor(Item):
         self.length = length
 
     def __str__(self):
-        string = super().__str__() + f"It takes up a {self.width} by {self.length} sized space."
+        string = super().__str__() + f" It takes up a {self.width} by {self.length} sized space."
         return string
