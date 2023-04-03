@@ -55,6 +55,12 @@ class Vendor:
         return True
         
 
+    def swap_first_item(self, other_vendor):
+        other_vendor.inventory.remove(self.inventory[0])
+        self.inventory.append(other_vendor.inventory[0])
+
+        # other_vendor.inventory.remove(self.inventory[0])
+        # self.inventory.append(other_vendor.inventory[0])
 
 
         
