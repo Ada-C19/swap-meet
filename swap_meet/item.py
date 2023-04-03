@@ -1,2 +1,11 @@
+import uuid
+
 class Item:
-    pass
+    def __init__(self, id=None):
+        if not id:
+            id = int(uuid.uuid4())
+        self.id = id
+
+    # def get_category(self, item_id):
+    #     try:
+    #         return
