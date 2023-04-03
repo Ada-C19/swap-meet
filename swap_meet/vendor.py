@@ -10,30 +10,35 @@ class Vendor:
     #     word_list = [] if word_list is None else word_list
     # word_list.append(word)
     
-    def add(self, item):
+    def add(self, item): #this method will add item to the list of self.inventory
         self.inventory.append(item)
         return  item
     
-    def remove(self, item):
+    def remove(self, item): #this method will remove the item is present in self.inventory
         if item in self.inventory:
             self.inventory.remove(item)
             return item
         else:
             return False
 
-    def get_by_id(self, id = None):
+    def get_by_id(self, id = None): #this method is going to return the item is the id is present in self.inventory
         for item in self.inventory:
             if item.id == id:
                 return item 
             # else:
         return None
-    #this is iterating through the instances of item
         
-    def swap_items(other_vendor,my_item, their_item):
-        print(f"An object of type Item with id")
+    def swap_items(self, other_vendor,my_item, their_item):
     #other_vender = instance of Vendor() 
     #my_item = instance of Item()
     #their_item = instance of Item() that Vendor() plans to give them
+        if self.get_by_id(my_item.id) == None or other_vendor.get_by_id(their_item.id) == None:
+            return False #get_by_id is None if the item is not in the inventory
+        self.add(their_item) #adding their item to my inventory
+        other_vendor.add(my_item) #adding my item in their inventory
+        self.remove(my_item) #removing my item from my inventory
+        other_vendor.remove(their_item) #removing their item from their inventory
+        return True
 
 
     #removes my_item from Vendor inventory and add it to their friend's inventory Return TRUE
