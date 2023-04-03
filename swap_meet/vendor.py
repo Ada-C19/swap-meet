@@ -22,11 +22,11 @@ class Vendor:
                 return item
     
     def swap_items(self, other_vendor, my_item, their_item):
-        try:
-            self.inventory.remove(my_item)
-            other_vendor.inventory.remove(their_item)
-            other_vendor.inventory.append(my_item)
-            self.inventory.append(their_item)
-            return True
-        except ValueError:
+        if (not my_item in self.inventory 
+            or not their_item in other_vendor.inventory):
             return False
+        self.inventory.remove(my_item)
+        other_vendor.inventory.remove(their_item)
+        other_vendor.inventory.append(my_item)
+        self.inventory.append(their_item)
+        return True
