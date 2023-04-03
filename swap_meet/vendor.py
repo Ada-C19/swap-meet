@@ -1,9 +1,3 @@
-# vendor class attributes
-# init methos (self)
-# -keyword arg (optional) inventory(empty list)
-# add method (return item added to list)
-# remove method (return item removed from list)
-# if no matching item found return False
 class Vendor:
     # passing optional argument called inventory 
     def __init__(self, inventory=None):
@@ -19,3 +13,9 @@ class Vendor:
             return False
         self.inventory.remove(item)
         return item 
+
+    def get_by_id(self, id):
+        for item in self.inventory:
+            if item.id == id:
+                return item
+        return None 
