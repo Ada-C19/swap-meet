@@ -14,8 +14,13 @@
 
 class Vendor:
 
-    def __init__(self, inventory):
-        self.inventory = inventory
+    # def add_to_list_ok(word, word_list=None):
+    # word_list = word_list if word_list is not None else []
+    # word_list.append(word)
+    # return word_list
+
+    def __init__(self,inventory=None):
+        self.inventory = inventory if inventory is not None else []
 
     def add(self, item):
         self.inventory.append(item)
