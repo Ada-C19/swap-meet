@@ -17,15 +17,10 @@ class Vendor:
             self.inventory.remove(item)
             return item
         return False
-<<<<<<< HEAD
- 
+
 
 # instantiate a list and optionally pass in a list with keyword arg named inventory
 # vendor_example = Vendor(inventory=[])   
-
-
-    
-=======
 
     def get_by_id(self, item_id):
         # for each item in my inventory
