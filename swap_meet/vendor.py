@@ -16,3 +16,9 @@ class Vendor:
                 if item_removed == item:
                     (self.inventory).remove(item)
                     return item_removed
+
+# not sure if code below belongs in the Item class
+    def get_by_id(self, id_num):
+        for item in self.inventory:
+            if item.id == id_num:
+                return item
