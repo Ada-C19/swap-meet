@@ -5,7 +5,7 @@ from swap_meet.clothing import Clothing
 from swap_meet.decor import Decor
 from swap_meet.electronics import Electronics
 
-@pytest.mark.skip
+# @pytest.mark.skip
 def test_get_items_by_category():
     item_a = Clothing()
     item_b = Electronics()
@@ -22,7 +22,7 @@ def test_get_items_by_category():
     assert item_a in items
     assert item_c in items
 
-@pytest.mark.skip
+# @pytest.mark.skip
 def test_get_no_matching_items_by_category():
     item_a = Clothing()
     item_b = Item()
@@ -33,12 +33,11 @@ def test_get_no_matching_items_by_category():
 
     items = vendor.get_by_category("Electronics")
 
-    raise Exception("Complete this test according to comments below.")
-    # *********************************************************************
-    # ****** Complete Assert Portion of this test **********
-    # *********************************************************************
+    assert len(items) == 0
 
-@pytest.mark.skip
+
+
+# @pytest.mark.skip
 def test_best_by_category():
     item_a = Clothing(condition=2.0)
     item_b = Decor(condition=2.0)
@@ -54,7 +53,7 @@ def test_best_by_category():
     assert best_item.get_category() == "Clothing"
     assert best_item.condition == pytest.approx(4.0)
 
-@pytest.mark.skip
+# @pytest.mark.skip
 def test_best_by_category_no_matches_is_none():
     item_a = Decor(condition=2.0)
     item_b = Decor(condition=2.0)
@@ -67,7 +66,7 @@ def test_best_by_category_no_matches_is_none():
 
     assert best_item is None
 
-@pytest.mark.skip
+# @pytest.mark.skip
 def test_best_by_category_with_duplicates():
     # Arrange
     item_a = Clothing(condition=2.0)
@@ -84,7 +83,7 @@ def test_best_by_category_with_duplicates():
     assert best_item.get_category() == "Clothing"
     assert best_item.condition == pytest.approx(4.0)
 
-@pytest.mark.skip
+# @pytest.mark.skip
 def test_swap_best_by_category():
     # Arrange
     # me
@@ -110,14 +109,23 @@ def test_swap_best_by_category():
         their_priority="Decor"
     )
 
-    raise Exception("Complete this test according to comments below.")
+    # Assertions should check:
+    # - That the results is truthy
+    assert result == True
+    # - That tai and jesse's inventories are the correct length
+    assert len(tai.inventory) == 3 and len(jesse.inventory) == 3
+    # - That all the correct items are in tai and jesse's inventories, 
+    # including the items which were swapped from one vendor to the other
+    assert tai.inventory == [item_a, item_b, item_f] and jesse.inventory == [item_d, item_e, item_c]
+    
+
+
+    # raise Exception("Complete this test according to comments below.")
     # *********************************************************************
     # ****** Complete Assert Portion of this test **********
     # *********************************************************************
-    # Assertions should check:
-    # - That the results is truthy
-    # - That tai and jesse's inventories are the correct length
-    # - That all the correct items are in tai and jesse's inventories, including the items which were swapped from one vendor to the other
+
+
 
 @pytest.mark.skip
 def test_swap_best_by_category_reordered():

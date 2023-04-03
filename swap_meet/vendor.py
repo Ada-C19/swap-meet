@@ -44,3 +44,32 @@ class Vendor:
         other_vendor.remove(their_first_item)
         return True
 
+    def get_by_category(self, category):
+        category_list = []
+        for item in self.inventory:
+            if item.get_category() == category:
+                category_list.append(item)
+        return category_list
+    
+    def get_best_by_category(self, category):
+        category_list = self.get_by_category(category)
+
+        if not category_list:
+            return None
+        else:
+            highest_rated = category_list[0]
+            for item in category_list:
+                if item.condition > highest_rated.condition:
+                    highest_rated = item
+            return highest_rated
+    
+    def swap_best_by_category(self, other_vendor, my_priority, their_priority):
+        my_best_item = self.get_best_by_category(their_priority)
+        their_best_item = self.get_best_by_category(my_priority) 
+        if my_best_item and their_best_item:
+            self.swap_items(other_vendor, my_best_item, their_best_item)
+            return True
+        else:
+            return False
+
+
