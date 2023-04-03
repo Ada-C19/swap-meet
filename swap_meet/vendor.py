@@ -1,9 +1,12 @@
+from swap_meet.item import Item
+
 # 1. create the Vendor class
 class Vendor: 
     
     # 2. Vendor will have an attribute named inventory, 
     # which is an empty list by default
     def __init__(self, inventory=None):
+
         self.inventory =  inventory if inventory is not None else []
         
         
@@ -31,9 +34,28 @@ class Vendor:
         else:
             return False
         
-            
-
         
+        
+    # instance method get_by_id 
+        # This method takes one argument: an integer, 
+        # representing an Item's id
+    def get_by_id(self, id):
+        
+        
+        for item in self.inventory:
+            # This method returns the item 
+            # with a matching id from the inventory
+            if item.id == id:
+                return item
+            
+            # If there is no matching item in the inventory, 
+            # the method should explicitly return None
+        return None
+
+
+                
+
+            
 
 
 
