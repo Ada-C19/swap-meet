@@ -1,37 +1,13 @@
 class Vendor:
-    ### Wave 1
-
-# In Wave 1 we will create the `Vendor` class.
-
-# - There is a module (file) named `vendor.py` inside of the `swap_meet` package (folder)
-# - Inside this module, there is a class named `Vendor`
-# - Each `Vendor` will have an attribute named `inventory`, which is an empty list by default
-# - When we instantiate an instance of `Vendor`, we can optionally pass in a list with the keyword argument `inventory`
-
-
-# - Every instance of `Vendor` has an instance method named `add`, which takes in one item
-# - This method adds the item to the `inventory`
-# - This method returns the item that was added
-
-# - Similarly, every instance of `Vendor` has an instance method named `remove`, which takes in one item
-# - This method removes the matching item from the `inventory`
-# - This method returns the item that was removed
-# - If there is no matching item in the `inventory`, the method should return `False`
 
     def __init__(self, inventory = None):
         self.inventory = inventory if inventory is not None else []
-
-        # self.inventory = inventory 
-
-        # inventory = inventory if inventory is not None else []
-        # self.inventory = inventory 
 
     def add(self, item = 'new item'):
         self.inventory.append(item)
         return item
     
     def remove(self, item = 'item to remove'):
-        
         try:
             self.inventory.remove(item)
             return item
@@ -42,11 +18,33 @@ class Vendor:
         for item in self.inventory:
             if item.id == id:
                 return item
-    # - Instances of `Vendor` have an instance method named `get_by_id`
-#   - This method takes one argument: an integer, representing an `Item`'s `id`
-#   - This method returns the item with a matching `id` from the inventory
-#   - If there is no matching item in the `inventory`, the method should explicitly return `None`
+            
+    def swap_items(self, other_vendor, my_item, their_item):
+        if their_item not in other_vendor.inventory or my_item not in self.inventory:
+            return False
+        else:
+            self.inventory = self.inventory
+            other_vendor.inventory = other_vendor.inventory
+            other_vendor.remove(my_item)
+            self.add(my_item)
+            self.remove(their_item)
+            other_vendor.add(their_item)
+            
+            return True
+
+
 
 # print()
 # inventory_list = ["a","b","c"]
 # test_item = Vendor(inventory_list)
+
+# Instances of `Vendor` have an instance method named `swap_items`
+#   - It takes 3 arguments:
+#   - `swap_items` takes 3 arguments:
+#     1. an instance of another `Vendor` (`other_vendor`), representing the friend that the vendor is swapping with
+#     2. an instance of an `Item` (`my_item`), representing the item this `Vendor` instance plans to give
+#     3. an instance of an `Item` (`their_item`), representing the item the friend `Vendor` plans to give
+#   - The method removes `my_item` from this `Vendor`'s inventory, and adds it to the friend's inventory
+#   - The method removes `their_item` from the other `Vendor`'s inventory, and adds it to this `Vendor`'s inventory
+#   - The method returns `True`
+#   - If this `Vendor`'s inventory doesn't contain `my_item` or the friend's inventory doesn't contain `their_item`, the method returns `False`
