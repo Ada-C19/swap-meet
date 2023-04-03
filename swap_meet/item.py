@@ -1,14 +1,19 @@
+import swap_meet.vendor as Vendor
 import uuid 
 
 # We can use uuid.uuid4() which will return an object
-# We can then use an attribute
+# which will look like this - UUID('16fd2706-8baf-433b-82eb-8c7fada847da')
+# We can then use an attribute to get the actual integer called 'int'
+
+# Example: id = uuid.uuid4() | then: id_int = id.int
+
+
 class Item:
-    def __init__(self, id):
-        self.id = id
+    def __init__(self, id=None):
+        if id == None: 
+            self.id = uuid.uuid4().int
+        else: 
+            id = None
 
-    def get_category(): 
-        pass
-        # return str of the name of the class
-
-# when initializing an instance of Item, can optionally pass in an intger with a keyword arg id to manually set id
-# item = Item(id)
+    def get_category(self): 
+        return self.__class__.__name__
