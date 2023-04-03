@@ -23,3 +23,27 @@ class Vendor:
 
 # instantiate a list and optionally pass in a list with keyword arg named inventory
 # vendor_example = Vendor(inventory=[])   
+
+# ******************************************
+# just wanted to write my code to see if i'm understanding how to do this project!!
+# class Vendor:
+#     def __init__(self, inventory=None):
+#         # inventory empty list
+#         if inventory is None:
+#             self.inventory = []
+#         else:
+#             self.inventory = inventory
+
+#     # add item to inventory
+#     def add(self, item):
+#         self.inventory.append(item)
+#         return item
+    
+#     # remove the item from inventory  
+#     def remove(self, item):
+#         if item in self.inventory:
+#             self.inventory.remove(item)
+#             return item
+#         # unless the item isn't there... return false
+#         else:
+#             return False
