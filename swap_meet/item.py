@@ -6,6 +6,5 @@ class Item:
             id = int(uuid.uuid4())
         self.id = id
 
-    # def get_category(self, item_id):
-    #     try:
-    #         return
+    def get_category(self):
+        return self.__class__.__name__
