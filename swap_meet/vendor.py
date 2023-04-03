@@ -18,4 +18,4 @@ class Vendor:
         for item in self.inventory:
             if item.id == id:
                 return item
-        return None 
+        return None
