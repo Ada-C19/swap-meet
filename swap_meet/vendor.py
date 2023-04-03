@@ -22,9 +22,9 @@ class Vendor:
             return False
 
     def get_by_id(self, id = None):
-        if id in self.inventory:
-            return id 
-        else:
-            return id
+        for item in self.inventory:
+            if item.id == id:
+                return item 
+        return None
         
         
