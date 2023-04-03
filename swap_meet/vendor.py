@@ -25,7 +25,7 @@ class Vendor:
         # check if items are in their respective inventories
         if my_item not in self.inventory or their_item not in other_vendor.inventory:
             return False
-        # add item to other inventory and remove it from original inventory
+        # add item to other inventory and remove it from original inventory 
         self.remove(my_item)
         self.add(their_item)
         other_vendor.remove(their_item)
