@@ -49,7 +49,7 @@ class Vendor:
                 max_vale = item.condition
         if max_vale == -1:
             return None 
-              
+        print(max_vale)     
         return best_item
 
 
