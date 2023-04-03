@@ -1,3 +1,5 @@
+from swap_meet.item import Item
+
 class Vendor:
     def __init__(self, inventory = None):
             if inventory is None:
@@ -23,11 +25,16 @@ class Vendor:
         else:
             return False
         
-# create instance method called get_by_id
-# takes one argument: an integer that represents an Item's id
-# method returns item with matching id from inventory 
-# if no matching item in inventory, return None.
+    # create instance method called get_by_id
+    # takes one argument: an integer that represents an Item's id
+    # method returns item with matching id from inventory 
+    # if no matching item in inventory, return None.
 
-
-# Instances of Vendor have an instance method named get_by_id
+    def get_by_id(self, id):
+        
+        for item in self.inventory:
+            if id == item.id:
+                return item
+    
+        return None
 
