@@ -105,6 +105,13 @@ class Vendor:
     
     
     # wave 6
+# This method takes one argument:
+#   a string, representing a category
+# This method returns a list of objects in the inventory
+#   with that category
+# If there are no items in the `inventory` 
+#   that match the category argument, 
+# #   the method returns an empty list    
     def get_by_category(self, category):
         filtered_categories = []
         
@@ -113,6 +120,20 @@ class Vendor:
                 filtered_categories.append(item)
         return filtered_categories
 
-
-
-
+# takes one argument:
+#   a string that represents a category
+# This method looks through the instance's `inventory` 
+#   for the item with the highest `condition`
+#   and matching `category`
+# It returns this item
+# If there are no items in the `inventory` that match the category, it returns `None`
+# It returns a single item even
+#   if there are duplicates 
+#   (two or more of the same item with the same condition)        
+    def get_by_best_category(self, category):
+        for item in self.category and condition:
+            return item
+        else:
+            return None
+            if item == 2:
+                return inventory[0]
