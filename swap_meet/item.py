@@ -9,6 +9,9 @@ class Item:
 
     def get_category(class_type):
         return class_type.__class__.__name__
+    
+    def __str__(self):
+        return f"An object of type Item with id {self.id}."
 
 # when calling a function from a class use ClassName.FunctionName() 
 # don't understand "When calling a function bound to an instance of
