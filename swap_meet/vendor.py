@@ -26,3 +26,16 @@ class Vendor:
                 return item
         
         return None
+    
+    # method to swap items between two vendors
+    def swap_items(self, other_vendor, my_item, their_item): 
+        # both vendors need to have their respective items in order to swap
+        if my_item in self.inventory and their_item in other_vendor.inventory: 
+            self.remove(my_item)
+            self.add(their_item)
+
+            other_vendor.remove(their_item)
+            other_vendor.add(my_item)
+            return True
+        
+        return False

@@ -1,7 +1,7 @@
 import uuid
 
 class Item:
-    
+
     # item constructor 
     def __init__(self, id = None):
         if not id: 
@@ -12,4 +12,6 @@ class Item:
     def get_category(self): 
         return "Item"
     
-    
+    # stringify a method using dunder str
+    def __str__(self): 
+        return f"An object of type Item with id {self.id}."
