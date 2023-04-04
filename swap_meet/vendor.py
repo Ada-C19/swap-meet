@@ -43,9 +43,12 @@ class Vendor:
         if not self.inventory or not other_vendor.inventory:
             return False
         my_item = self.inventory[0]
-        their_item = other_vendor.inventory.pop(0)
+        # their_item = other_vendor.inventory.pop(0)
+        their_item = other_vendor.inventory[0]
         self.inventory.append(their_item)
         other_vendor.inventory.append(my_item)
+        self.inventory.pop(0)
+        other_vendor.inventory.pop(0)        
         return True
     
     
