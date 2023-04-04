@@ -56,6 +56,18 @@ class Vendor:
         self.inventory.append(other_first_element)
         other_vendor.inventory.append(self_first_element)
         return True
- 
-        
+    # --- Wave 6 -------------------------------
+    def get_by_category(self, category):
+        """This method takes one argument: a string, representing a category
+        and returns a list of objects in the inventory with that category"""
+        # if category in self.inventory:
+        #     return self.inventory
+        item_by_category = []
+        for item in self.inventory:
+            print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+            print(item)
+            print(category)
+            if category == item.get_category():
+                item_by_category.append(item)
+        return item_by_category
     
