@@ -14,6 +14,20 @@ class Item:
         self.id = id
 
     # each Item has a function called get_category: returns string holding name of class.
-    
+
     def get_category(self):   
         return __class__.__name__
+    
+    # write method to stringify (convert to string) an Item using str() 
+    # write method called swap items
+
+    def __str__(self):
+        return f'An object of type Item with id {self.id}.'
+    
+  
+
+
+
+# When we stringify an instance of Item using str(), it returns "An object of type Item with id <id value>.", where <id value> is the id of the Item instance that str() was called on.
+# For example, if we had an Item instance item_a = Item(id=12345), the output of str(item_a) should be "An object of type Item with id 12345.".
+# To accomplish this, you'll want to investigate what calling str() on a class instance does and how you can override such a method. This type of overriding is known as "operator overloading", put simply, it means that the same method exhibits different behavior across instances of different classes. A simple example would be something like + which for strings means "concatenate" but for numbers, means "add", or for lists, means "combine".
