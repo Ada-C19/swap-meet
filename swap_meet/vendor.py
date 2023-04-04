@@ -5,8 +5,13 @@ class Vendor:
         else:
             self.inventory  = inventory
             
-    def add(self, item):
-        self.inventory.append(item)
+    def add(self, new_item):
+        self.inventory.append(new_item)
+        return new_item
         
-    def remove(self, item):
-        self.inventory.index(item).remove(item)
+    def remove(self, remove_item):
+        if remove_item in self.inventory:
+            self.inventory.remove(remove_item)
+            return remove_item
+        else:
+            return False

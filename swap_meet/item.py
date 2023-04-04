@@ -3,8 +3,8 @@ import uuid
 class Item:
     def __init__(self):
         # self.id = uuid.int_()
-        # self.id = uuid1().int
-        # self.id = uuid4().int
+        # self.id = uuid.uuid1().int
+        self.id = uuid.uuid4().int
         print(f"{self.id = }")
         print(f"{type(self.id) = }")
 
