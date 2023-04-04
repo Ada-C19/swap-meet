@@ -37,6 +37,19 @@ class Vendor:
             return True
         else:
             return False
+        
+    # If 1st item in friends's inventory and itself. Adds them to each inventory
+    # Return True
+    # If EITHER itself or friend = [] inventory Return False
+    def swap_first_item(self, other_vendor):
+        if other_vendor.inventory and self.inventory:
+            first_item_from_friend = other_vendor.inventory[0]
+            my_first_item = self.inventory[0]
+            
+            self.inventory[0] = first_item_from_friend
+            other_vendor.inventory[0] = my_first_item
+            return True
+        return False
 
 
 
