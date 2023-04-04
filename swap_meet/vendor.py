@@ -49,19 +49,39 @@ class Vendor:
     def get_by_category(self, category):
         # Returns a list of objects in inventory with that category
         # If no items in inventory match the category, return an empty list
-        pass
+        category_list = []
+        for item in self.inventory:
+            if item.category == category:
+                category_list.append(item)
+        
+        return category_list
 
-    def get_best_by_category(self):
+        
+    def get_best_by_category(self, category):
         # Look through inventory for item with the highest condition and matching category
         # If no items match, return None
         # Return a single item even if there are 2 + items with the same condition
-        pass
+        highest_condition = 0
+
+        category_list = self.get_by_category(category)
+        for item in category_list:
+            if item.condition > highest_condition:
+                highest_condition = item.condition
+        
+        for item in category_list:
+            if item.condition == highest_condition:
+                return item
+        
+        return None
+
 
     def swap_best_by_category(self, other_vendor, my_priority, their_priority):
+        their_priority = self.get_best_by_category(their_priority)
+        my_priority = other_vendor.get_best_by_category(my_priority)
         # Swap best item of certain category with another vendor
         # Return True
         # If there are no matches, return False
-        pass
+        return self.swap_items(other_vendor, my_priority, their_priority)
         
 
 

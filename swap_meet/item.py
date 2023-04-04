@@ -11,6 +11,7 @@ class Item:
             self.id = uuid.uuid4().int
         
         self.condition = condition
+        self.category = "Item"
         
 
     def get_category(self):
