@@ -14,6 +14,8 @@ class Item:
             return starter_statement
         if category == "Clothing":
             return starter_statement + f" It is made from {self.fabric} fabric."
+        if category == "Decor":
+            return starter_statement + f" It takes up a {self.width} by {self.length} sized space."
 
     def get_category(self):
         if isinstance(self, Item):
