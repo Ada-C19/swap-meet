@@ -3,10 +3,10 @@ from swap_meet.item import Item
 
 class Clothing(Item):
     
-    def __init__(self, id, fabric="Unknown", condition=0):
+    def __init__(self, id=None, condition=0, fabric="Unknown"):
         super().__init__(id, condition)
-        self.id = id
         self.fabric = fabric
+        self.category = "Clothing"
 
     def __str__(self):
         category_id_description = super().__str__()

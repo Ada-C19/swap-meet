@@ -47,12 +47,20 @@ class Vendor:
         return False
     
     def get_by_category(self, category):
+        # Returns a list of objects in inventory with that category
+        # If no items in inventory match the category, return an empty list
         pass
 
     def get_best_by_category(self):
+        # Look through inventory for item with the highest condition and matching category
+        # If no items match, return None
+        # Return a single item even if there are 2 + items with the same condition
         pass
 
     def swap_best_by_category(self, other_vendor, my_priority, their_priority):
+        # Swap best item of certain category with another vendor
+        # Return True
+        # If there are no matches, return False
         pass
         
 

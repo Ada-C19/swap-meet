@@ -11,6 +11,7 @@ class Item:
             self.id = uuid.uuid4().int
         
         self.condition = condition
+        
 
     def get_category(self):
         """Output: the name of the Class"""
@@ -19,18 +20,18 @@ class Item:
     def __str__(self):
         return f"An object of type {self.get_category()} with id {self.id}."
 
-    def condition_description(self, value):
-        if value == 5:
+    def condition_description(self):
+        if self.condition == 5:
             return "This item is like brand new. Amazing!"
-        elif value == 4:
+        elif self.condition == 4:
             return "This item is in a pretty good condition."
-        elif value == 3:
+        elif self.condition == 3:
             return "This item is in a fair condition."
-        elif value == 2:
+        elif self.condition == 2:
             return "There's nothing to write home about here..."
-        elif value == 1:
+        elif self.condition == 1:
             return "This item is disintegrating as we speak!"
-        elif value == 0:
+        elif self.condition == 0:
             return "Ewww! Put that down right now and wash your hands!"
 
 
