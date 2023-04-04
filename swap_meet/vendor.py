@@ -47,7 +47,7 @@ class Vendor:
             return False
         
         # Swap first item of each vendor's inventory
-        other_vendor.inventory.insert(0, self.inventory.pop(0))
-        self.inventory.insert(0, other_vendor.inventory.pop(1))
+        other_vendor.inventory.append(self.inventory.pop(0))
+        self.inventory.append(other_vendor.inventory.pop(0))
         
         return True
