@@ -15,15 +15,18 @@ class Item:
                 ' with id ' + str(self.id) + '.')
     
     def condition_description(self):
-        if self.condition == 0:
-            return 'mint new condition'
-        elif self.condition <= 1:
-            return 'excellent used condition'
+        if self.condition <= 1:
+            return 'almost in tatters'
         elif self.condition <= 2:
-            return 'good used condition'
+            return 'ragged but useable'
         elif self.condition <= 3:
             return 'fair'
         elif self.condition <= 4:
-            return 'ragged but useable'
-        elif self.condition <= 5:
-            return 'almost in tatters'
+            return 'good used condition'
+        elif self.condition < 5:
+            return 'excellent used condition'
+        elif self.condition == 5:
+            return 'mint new condition'
+        
+
+
