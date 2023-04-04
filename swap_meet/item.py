@@ -6,13 +6,12 @@ class Item:
 
     def __init__ (self, id=None, condition=0.0):
         """ Assign a unique id to each item. """
-        self.name = self.__class__.__name__
         self.id = int(u.uuid4()) if id is None else int(id)
         self.condition = condition
     
     def get_category(self):
         """ Return the item's class name as a string. """
-        return self.name
+        return self.__class__.__name__
     
     def __str__(self):
         return f"An object of type {self.get_category()} with id {self.id}."

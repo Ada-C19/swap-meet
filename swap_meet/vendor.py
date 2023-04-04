@@ -4,7 +4,6 @@ class Vendor:
     """ Represents a unique entity from which one can trade items. """
     def __init__(self, inventory=None):
         """ Initiate class vendor with empty inventory. """
-        self.name = 'Vendor'
         self.inventory = [] if inventory is None else inventory
 
     def add (self, item):
