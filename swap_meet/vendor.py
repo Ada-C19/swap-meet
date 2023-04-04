@@ -1,8 +1,3 @@
-from swap_meet.item import Item
-from swap_meet.clothing import Clothing
-from swap_meet.decor import Decor
-from swap_meet.electronics import Electronics
-
 
 class Vendor:
 
@@ -55,10 +50,11 @@ class Vendor:
         if not self.inventory:
             return None
         
-        item_best_condition = self.inventory[0]
         CATEGORY = self.get_by_category(category)
         if not CATEGORY:
             return None
+        
+        item_best_condition = CATEGORY[0]
         for item in CATEGORY:
             if item.condition > item_best_condition.condition:
                 item_best_condition = item
@@ -70,6 +66,5 @@ class Vendor:
         their_best_item = other_vendor.get_best_by_category(my_priority)
         if not my_best_item or not their_best_item:
             return False
-        self.swap_items(other_vendor, my_best_item, their_best_item)
-        return True
+        return self.swap_items(other_vendor, my_best_item, their_best_item)
     
