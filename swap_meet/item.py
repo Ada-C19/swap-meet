@@ -12,5 +12,6 @@ class Item():
         return "Item"
 
 
-
+    def __str__(self) -> str:
+        return f"An object of type Item with id {self.id}."
 
