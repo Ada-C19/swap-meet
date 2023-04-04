@@ -10,23 +10,6 @@ class Decor(Item):
         self.length = length
         self.condition = condition
     
-
-    def get_category(self):
-        return "Decor"
-    
-
     def __str__(self):
         return f"An object of type Decor with id {self.id}. It takes up a {self.width} by {self.length} sized space."
     
-    def condition_description(self):
-        
-        condition_dict = {
-            0: "Horrible",
-            1: "Damaged",
-            2: "Average",
-            3: "Good",
-            4: "Great",
-            5: "Mint"
-        }
-
-        return condition_dict[self.condition]
