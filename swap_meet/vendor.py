@@ -42,3 +42,11 @@ class Vendor:
             self.inventory.append(other_item_to_swap)
             other_vendor.inventory.append(item_to_swap)
         return True
+    
+    def get_by_category(self, category):
+        items = []
+        for item in self.inventory:
+            if item.get_category() == category:
+                items.append(item)
+        return items
+
