@@ -17,5 +17,16 @@ class Item:
         return (f"An object of type {self.get_category()} with id {self.id}.")
 
     def condition_description(self):
-        if self.condition:
-            return "This is a dummy return"
+
+        if self.condition==0:
+            return "Trash"
+        if self.condition==1:
+            return "Has lived"
+        if self.condition==2:
+            return "Trashy but classic"
+        if self.condition==3:
+            return "Above Average"
+        if self.condition==4:
+            return "Almost New"
+        return "Like New"
+        
