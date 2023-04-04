@@ -55,6 +55,12 @@ class Vendor:
         if items:
             return max(items, key=lambda item: item.condition)
         return None
+
+    def get_newest_by_category(self, category):
+        items = self.get_by_category(category)
+        if items:
+            return min(items, key=lambda item: item.age)
+        return None
     
     def swap_best_by_category(self, other_vendor, my_priority, their_priority):
         my_best_item = self.get_best_by_category(their_priority)
@@ -64,4 +70,23 @@ class Vendor:
             return False
         else:
             return self.swap_items(other_vendor, my_best_item, their_best_item)
-        
+
+######################################################################
+############ OPTIONAL ENHANCEMENT ####################################
+######################################################################
+
+
+    def get_newest_by_category(self, category):
+        items = self.get_by_category(category)
+        if items:
+            return min(items, key=lambda item: item.age)
+        return None
+    
+    def swap_by_newest(self, other_vendor, my_priority, their_priority):
+        my_newest_item = self.get_newest_by_category(their_priority)
+        their_newest_item = other_vendor.get_newest_by_category(my_priority)
+
+        if my_newest_item is None or their_newest_item is None:
+            return False
+        else:
+            return self.swap_items(other_vendor, my_newest_item, their_newest_item)

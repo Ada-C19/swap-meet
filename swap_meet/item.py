@@ -1,11 +1,12 @@
 import uuid
 
 class Item:
-    def __init__(self, id = None, condition = 0):
+    def __init__(self, id = None, condition = 0, age = 0):
         '''
         If id does not exist, assign unique id with uuid
         Otherwise, self.id = id
         '''
+        self.age = age
         self.condition = condition
         if not id:
             self.id = int(uuid.uuid4())
