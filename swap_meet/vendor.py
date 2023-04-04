@@ -1,11 +1,10 @@
 class Vendor:
-    def __init__(self, inventory = None):
+    def __init__(self, inventory=None):
         if inventory:
             self.inventory = inventory
         else:
             self.inventory = []
         
-
     def add(self, item):
         self.inventory.append(item)
         if item in self.inventory:
@@ -42,6 +41,5 @@ class Vendor:
         other_vendor_first_item = thier_inventory[0]
         
         self.inventory[0] = other_vendor_first_item
-        thier_inventory[0] = instance_first_item
-       
+        thier_inventory[0] = instance_first_item       
         return True 
