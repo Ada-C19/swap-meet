@@ -1,11 +1,18 @@
 import uuid
 
 class Item:
-    def __init__(self, id=None, condition=0):
+    def __init__(self, id=None, condition=None, age=None):
+        #if type(id) != int:
+            #raise TypeError("id must be an int")
         if not id:
             id = uuid.uuid4().int
         self.id = id
+        if not condition:
+            condition = 0
         self.condition = condition
+        if not age:
+            age = 0
+        self.age = age
     
     def get_category(self):
         return self.__class__.__name__

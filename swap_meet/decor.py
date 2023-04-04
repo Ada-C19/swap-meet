@@ -2,9 +2,13 @@ from swap_meet.item import Item
 import uuid
 
 class Decor(Item):  
-    def __init__(self, id=uuid.uuid4().int, condition=0, width=0, length=0):
-        super().__init__(id, condition)
+    def __init__(self, id=None, condition=None, age=None, width=None, length=None):
+        super().__init__(id, condition, age)
+        if not width:
+            width = 0
         self.width = width
+        if not length:
+            length = 0
         self.length = length
 
     def __str__(self):
