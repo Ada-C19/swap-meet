@@ -34,7 +34,7 @@ class Item:
         return f"An object of type Item with id {self.id}."
     
     def condition_description(self, condition):
-        int_condition = int(condition)
+        
         condition_dict = {
             0: "Horrible",
             1: "Damaged",
@@ -44,7 +44,7 @@ class Item:
             5: "Mint"
         }
 
-        return condition_dict[int_condition]
+        return condition_dict[int(condition)]
 
     
     

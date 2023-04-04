@@ -14,10 +14,10 @@ from swap_meet.item import Item
 
 class Clothing(Item):
     
-    def __init__(self, id= None, fabric= "Unknown", condition= 0):
-        Item.id = id if id is not None else int(uuid.uuid4())
+    def __init__(self, id= None, fabric= "Unknown", condition= 0.0):
+        self.id = id if id is not None else int(uuid.uuid4())
         self.fabric = fabric
-        Item.condition = condition
+        self.condition = condition
 
     def get_category(self):
         return "Clothing"
@@ -25,3 +25,15 @@ class Clothing(Item):
     def __str__(self):
         return f"An object of type Clothing with id {self.id}. It is made from {self.fabric} fabric."
     
+    def condition_description(self, condition):
+
+        condition_dict = {
+            0: "Horrible",
+            1: "Damaged",
+            2: "Average",
+            3: "Good",
+            4: "Great",
+            5: "Mint"
+        }
+
+        return condition_dict[int(condition)]
