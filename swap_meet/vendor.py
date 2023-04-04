@@ -1,7 +1,7 @@
 """ Initiation of class Vendor """
 
 class Vendor:
-    """ docstring about class vendor """
+    """ Represents a unique entity from which one can trade items. """
     def __init__(self, inventory=None):
         """ Initiate class vendor with empty inventory. """
         self.name = 'Vendor'
