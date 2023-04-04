@@ -25,7 +25,7 @@ vendor = Vendor(["cake", "shirt", "water"])
 other_vendor = Vendor(["hair","cupcakes","spider"])
 # print(vendor.swap_first_item(other_vendor))
 
-clothing = Clothing("Pinstriped")
+clothing = Clothing()
 
 print(clothing.get_category())
 print(clothing)
