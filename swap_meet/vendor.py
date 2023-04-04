@@ -1,5 +1,5 @@
 class Vendor:
-    # Vendor has items. Item - component, vendor - composite?
+
     def __init__(self, inventory=None):
         if inventory is None:
             inventory = []
@@ -24,7 +24,7 @@ class Vendor:
     def swap_items(self, other_vendor, my_item, their_item):
         
         if my_item in self.inventory and their_item in other_vendor.inventory:
-            # Remove my_item form this Vendor's inventor 
+            # Remove my_item from this Vendor's inventory 
             item_to_friend = self.remove(my_item)
             # Add it to the friend's inventory
             other_vendor.add(item_to_friend)
@@ -47,8 +47,9 @@ class Vendor:
         return False
     
     def get_by_category(self, category):
-        # Returns a list of objects in inventory with that category
-        # If no items in inventory match the category, return an empty list
+        """Returns a list of objects in inventory with that category. 
+        If no items in inventory match the category, returns an empty list.
+        """
         category_list = []
         for item in self.inventory:
             if item.category == category:
@@ -58,9 +59,10 @@ class Vendor:
 
         
     def get_best_by_category(self, category):
-        # Look through inventory for item with the highest condition and matching category
-        # If no items match, return None
-        # Return a single item even if there are 2 + items with the same condition
+        """Returns the item with the highest condition and matching category. 
+        Returns None if no items match.
+        """
+
         highest_condition = 0
 
         category_list = self.get_by_category(category)
@@ -71,17 +73,19 @@ class Vendor:
         for item in category_list:
             if item.condition == highest_condition:
                 return item
-        
+
         return None
 
 
     def swap_best_by_category(self, other_vendor, my_priority, their_priority):
-        their_priority = self.get_best_by_category(their_priority)
-        my_priority = other_vendor.get_best_by_category(my_priority)
-        # Swap best item of certain category with another vendor
-        # Return True
-        # If there are no matches, return False
-        return self.swap_items(other_vendor, my_priority, their_priority)
+        """Swaps the best item of certain category with another vendor. 
+        Returns True, False if there are no matches.
+        """
+        
+        their_item = other_vendor.get_best_by_category(my_priority)
+        my_item = self.get_best_by_category(their_priority)
+        
+        return self.swap_items(other_vendor, my_item, their_item)
         
 
 

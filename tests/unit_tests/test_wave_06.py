@@ -155,7 +155,9 @@ def test_swap_best_by_category_reordered():
         my_priority="Clothing",
         their_priority="Decor"
     )
-
+    print("**********")
+    print(result)
+    print("**********")
     assert result
     assert len(tai.inventory) == 3
     assert len(jesse.inventory) == 3
