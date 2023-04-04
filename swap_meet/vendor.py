@@ -3,9 +3,14 @@ from swap_meet.clothing import Clothing
 from swap_meet.decor import Decor
 from swap_meet.electronics import Electronics
 
+
 class Vendor:
-    def __init__(self, inventory=[]):
-        self.inventory = inventory
+
+    def __init__(self, inventory=None):
+        if not inventory:
+            self.inventory = []
+        else:
+            self.inventory = inventory
 
     def add(self, item):
         self.inventory.append(item)
@@ -25,10 +30,12 @@ class Vendor:
         return None
 
     def swap_items(self, other_vendor, my_item, their_item):
-        if my_item not in self.inventory or their_item not in other_vendor.inventory:
+        my_items = self.inventory
+        their_items = other_vendor.inventory
+        if my_item not in my_items or their_item not in their_items:
             return False
-        self.inventory[self.inventory.index(my_item)] = their_item
-        other_vendor.inventory[other_vendor.inventory.index(their_item)] = my_item
+        my_items[my_items.index(my_item)] = their_item
+        their_items[their_items.index(their_item)] = my_item
         return True
     
     def swap_first_item(self, other_vendor):
@@ -50,10 +57,8 @@ class Vendor:
         
         item_best_condition = self.inventory[0]
         CATEGORY = self.get_by_category(category)
-
         if not CATEGORY:
             return None
-        
         for item in CATEGORY:
             if item.condition > item_best_condition.condition:
                 item_best_condition = item
@@ -63,11 +68,8 @@ class Vendor:
     def swap_best_by_category(self, other_vendor, my_priority, their_priority):
         my_best_item = self.get_best_by_category(their_priority)
         their_best_item = other_vendor.get_best_by_category(my_priority)
-
         if not my_best_item or not their_best_item:
             return False
-        
         self.swap_items(other_vendor, my_best_item, their_best_item)
-
         return True
     
