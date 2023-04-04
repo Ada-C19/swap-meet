@@ -40,7 +40,14 @@ class Vendor:
         other_vendor.remove(their_item) #removing their item from their inventory
         return True
 
+    def swap_first_item(self, other_vendor):
+        if len(self.inventory) == 0 or len(other_vendor.inventory) == 0:
+            return False
+        self.add(other_vendor.inventory[0])
+        other_vendor.add(self.inventory[0])
+        self.remove(self.inventory[0])
+        other_vendor.remove(other_vendor.inventory[0])
+        return True
 
-    #removes my_item from Vendor inventory and add it to their friend's inventory Return TRUE
-    #removes thier_item from other vendor's inventory and adds it to the vendor's inventory return TRUE
-    #if vendor inventory doesn't contain my_item or friend's inventory doesn't contain their_item then return False
+
+   
