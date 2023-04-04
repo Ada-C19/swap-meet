@@ -2,7 +2,7 @@ from swap_meet.item import Item
 
 class Clothing(Item):
     def __init__(self, fabric = "Unknown"):
-        super().__init__(id= None)
+        super().__init__()
         self.fabric = fabric
     
     # def get_category(self):
