@@ -1,17 +1,12 @@
 import uuid
+from swap_meet.item import Item
 
-class Clothing:
+class Clothing(Item):
     def __init__(self, id=None, fabric="Unknown", condition=0):
-        if not id:
-            id = uuid.uuid4().int
-        self.id = id
+        super().__init__(id, condition)
         self.fabric = fabric
-        self.condition = condition
-
-    def get_category(self):
-        return self.__class__.__name__
     
     def __str__(self):
-        return (f"An object of type Clothing with id {self.id}. "
+        return (f"{super().__str__()} "
                 f"It is made from {self.fabric} fabric.")
     
