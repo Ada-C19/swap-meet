@@ -1,7 +1,12 @@
 from swap_meet.item import Item
 class Clothing(Item):
-	def __init__(self, id, fabric=“Unknown”):
+	def __init__(self, id, fabric=None):
+		self.fabric = "Unknown" if fabric is None else fabric
 		super().__init__(id)
-        self.fabric = fabric if fabric is fabric else "Unknown"
+        
+	def get_category(self):
+		return self.item.get_category(self)
+        
+	def __str__(self):
+		return f"An object of type Clothing with id {self.id}. It is made from {self.fabric} fabric."
 	
-    def get_category(self):
