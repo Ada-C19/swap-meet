@@ -13,7 +13,9 @@ class Item:
             self.id = random_id
         else:
             self.id = id
-    
+
+        self.category = "Item"
+
     def get_category(self):
         return f"{self.category}"
     
