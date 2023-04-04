@@ -25,4 +25,4 @@ class Item:
         elif round(self.condition) == 5.0:
             return "Mint condition, item is in excellent shape!"
         else:
-            return "Not sure how to grade this item...(º～º)"
+            return "Not sure what this grade condition is...(º～º)"
