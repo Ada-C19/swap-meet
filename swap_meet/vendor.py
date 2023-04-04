@@ -44,3 +44,20 @@ class Vendor:
         other_vendor.inventory.append(my_first_item)
         self.inventory.append(other_vendor_first_item)
         return True
+    
+    def get_by_category(self, category):
+        items_match_category = []
+        for item in self.inventory:
+            if item.get_category() == category:
+                items_match_category.append(item)
+        return items_match_category
+    
+    def get_best_by_category(self, category):
+        items_match_category = self.get_by_category(category)
+        best_condition = 0
+        best_item = None
+        for item in items_match_category:
+            if float(item.condition_description()) > best_condition:
+                best_condition = float(item.condition_description())
+                best_item = item
+        return best_item
