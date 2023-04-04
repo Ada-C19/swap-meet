@@ -9,4 +9,3 @@ class Item:
 
     def get_category(self):
         return "Item"
-    
