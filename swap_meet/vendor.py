@@ -2,11 +2,7 @@ from .item import Item
 
 class Vendor:
     def __init__(self, inventory=None):
-        self.inventory = self.empty_list_creator(inventory)
-
-    def empty_list_creator(self, inventory):
-        self.inventory = [] if inventory is None else inventory
-        return self.inventory
+        self.inventory = inventory if inventory else []
     
     def add(self, item):
         self.inventory.append(item)
@@ -34,3 +30,9 @@ class Vendor:
             other_vendor.add(my_item)
             self.remove(my_item)
             return True
+        
+    def swap_first_item(self, other_vendor):
+        if len(other_vendor.inventory) == 0 or len(self.inventory) == 0:
+            return False
+        else:
+            return self.swap_items(other_vendor, self.inventory[0], other_vendor.inventory[0])
