@@ -17,6 +17,8 @@ class Vendor:
     
     def get_by_id(self, item_id):
         for item in self.inventory:
+            # python doesnt know .id exists but it is still going to try it
+            # we do not need to import bc we're not inheriting anything
             if item.id == item_id:
                 return item
         return None
