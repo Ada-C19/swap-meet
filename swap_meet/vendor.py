@@ -45,7 +45,7 @@ class Vendor:
             # and adds their item to my list
             self.add(their_item)
             return True
-        return False
+        
     
 
     def swap_first_item(self, other_vendor): 
