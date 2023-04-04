@@ -2,14 +2,7 @@ from swap_meet.item import Item
 
 class Clothing(Item):
     def __init__(self, id=None, fabric=None, condition=0.0):
-        super().__init__(condition)
-        #if id is none, check at parent class and create id.
-        if id is None:
-            super().__init__()
-        #otherwise, use given id as id.
-        else:
-            super().__init__(id=id)
-
+        super().__init__(id, condition)
         if fabric is None:
             self.fabric = "Unknown"
         else:
