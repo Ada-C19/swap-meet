@@ -30,7 +30,7 @@ class Vendor:
                 # return item with matching id from inventory
                 return item_instance
             # if no matching item, then return None
-            return None  
+        return None  
         
 
     def swap_items(self, other_vendor, my_item, their_item):
