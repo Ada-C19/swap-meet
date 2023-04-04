@@ -36,4 +36,11 @@ class Vendor:
 
         return True
 
-    
+    def swap_first_item(self, other_vendor):
+        if len(self.inventory) == 0 or len(other_vendor.inventory) == 0:
+        # if len(self.inventory) or len(other_vendor.inventory) == 0:
+            return False 
+        else:
+            self.swap_items(other_vendor, self.inventory[0], other_vendor.inventory[0])
+            return True
+        
