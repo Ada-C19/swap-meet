@@ -1,4 +1,3 @@
-from swap_meet.item import Item
 
 class Vendor:
     
@@ -17,7 +16,9 @@ class Vendor:
             return False
         
     def get_by_id(self, item_id):
-            if item_id == Item(id=item_id):
-                return  
+        for item in self.inventory:
+            if item.id == item_id:
+                return item
+
         else:
             return None
