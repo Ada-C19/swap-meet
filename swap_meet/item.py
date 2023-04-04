@@ -2,11 +2,15 @@ import uuid #import just the uuid4()
 
 
 class Item:
-    def __init__(self, id = None):
+    def __init__(self, id = None, condition = 0):
         if id == None:
             self.id = uuid.uuid4().int
         else:
             self.id = id
+        if condition == 0:
+            self.condition = 0
+        else:
+            self.condition = condition
     
     def __str__(self):
         return f"An object of type {self.get_category()} with id {self.id}."
@@ -19,3 +23,14 @@ class Item:
         # self.item = Item()
         return self.__class__.__name__
 
+    def condition_description(self):
+        if self.condition in range(0,1):
+            return "This is basically trash!"
+        elif self.condition in range(1,3):
+            return "Not the worst"
+        elif self.condition in range(3,6):
+            return "You can work with this"
+        # elif self.condition in range(3,4):
+        #     return "Decent Swap"
+        # elif self.condition in range(4,5):
+        #     return "Decent Swap"
