@@ -27,5 +27,5 @@ other_vendor = Vendor(["hair","cupcakes","spider"])
 
 clothing = Clothing()
 
-print(clothing.get_category())
+# print(clothing.get_category())
 print(clothing)
