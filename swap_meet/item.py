@@ -5,5 +5,6 @@ class Item:
         self.id = uuid4().int if id is None else id
 
     def get_category(self):
-        return self.__class__
+        # check if need to cast into str
+        return "Item"
     
