@@ -12,8 +12,13 @@ class Item:
         if id is None:
             id = uuid.uuid4().int
         self.id = id
-
-    # each Item has a function called get_category: returns string holding name of class.
+        
+    # each Item has a function called get_category: returns string holding name of class.   
     
     def get_category(self):   
         return __class__.__name__
+
+# method returns str representation of instance of Item class. 
+# Returned str includes the type of the obj and its "unique identifier." so we avoid an Assertion error.
+    def __str__(self):
+        return f"An object of type Item with id {self.id}."
