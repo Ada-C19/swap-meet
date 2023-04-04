@@ -5,7 +5,6 @@ class Vendor:
             inventory = []
         self.inventory = inventory
 
-    
     def add(self, item):
         #  adds the item to the inventory
         self.inventory.append(item)
@@ -20,3 +19,10 @@ class Vendor:
             return item 
         #If there is no matching item in the inventory, the method should return False
         return False 
+    
+    def get_by_id(self, id):
+        for item in self.inventory:
+            #return the item with a matching if from the inventory
+            if item.id == id:
+                return item
+        return None
