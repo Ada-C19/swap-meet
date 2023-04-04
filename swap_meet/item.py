@@ -4,6 +4,8 @@ class Item:
     def __init__(self, id=None, condition=0, age=0):
         if id == None:
             id = uuid.uuid4().int
+        elif not isinstance(id, int):
+            raise ValueError("id must be an integer")
         self.id = id
         self.condition = condition
         self.age = age

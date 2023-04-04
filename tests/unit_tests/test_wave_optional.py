@@ -114,3 +114,10 @@ def test_swap_by_newest_no_other_inventory():
     assert len(jesse.inventory) == 0
     assert tai.inventory == [item_a, item_b, item_c]
     assert jesse.inventory == []
+
+#@pytest.mark.skip
+def test_if_instance_is_not_int():
+    # Arrange
+    with pytest.raises(ValueError):
+        item = Item(id="abc")
+    
