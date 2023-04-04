@@ -19,6 +19,9 @@ class Vendor:
         return False
 
 
+# instantiate a list and optionally pass in a list with keyword arg named inventory
+# vendor_example = Vendor(inventory=[])   
+
     def get_by_id(self, item_id):
         # for each item in my inventory
         for item_instance in self.inventory:
@@ -27,7 +30,7 @@ class Vendor:
                 # return item with matching id from inventory
                 return item_instance
             # if no matching item, then return None
-            return None  
+        return None  
         
 
     def swap_items(self, other_vendor, my_item, their_item):
@@ -42,7 +45,7 @@ class Vendor:
             # and adds their item to my list
             self.add(their_item)
             return True
-        return False
+        
     
 
     def swap_first_item(self, other_vendor): 
