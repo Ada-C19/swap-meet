@@ -43,3 +43,4 @@ class Vendor:
         other_vendor.inventory[0] = first_item
     
         return True
+    
