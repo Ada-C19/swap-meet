@@ -1,6 +1,6 @@
 class Vendor:
     def __init__(self, inventory=None):
-        # If inventory is not None, it will be assigned to self.inventory
+        # If inventory is not None, whatever 'inventory' is passed in will be assigned to self.inventory
         # if inv IS None, then [] will be assigned to self.inventory
         self.inventory = inventory or []
     
@@ -13,4 +13,10 @@ class Vendor:
             self.inventory.remove(item)
             return item
         
-        return False 
+        return False
+    
+    def get_by_id(self, item_id):
+        for item in self.inventory:
+            if item.id == item_id:
+                return item
+        return None
