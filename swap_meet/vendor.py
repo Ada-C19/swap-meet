@@ -1,8 +1,10 @@
 class Vendor:
     def __init__(self, inventory = None):
-        if inventory is None:
-            inventory = []
-        self.inventory = inventory
+        if inventory:
+            self.inventory = inventory
+        else:
+            self.inventory = []
+        
 
     def add(self, item):
         self.inventory.append(item)
@@ -24,4 +26,10 @@ class Vendor:
     
     def swap_items(self, other_vendor, my_item, their_item):
         their_inventory = other_vendor.inventory
-        pass 
+        if not (my_item in self.inventory and their_item in their_inventory):
+            return False   
+        their_inventory.append(my_item)
+        self.inventory.remove(my_item)
+        self.inventory.append(their_item)
+        their_inventory.remove(their_item)
+        return True 
