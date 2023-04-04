@@ -8,3 +8,6 @@ class Item:
             id = uuid4()
             id = id.int
             self.id = id
+
+    def get_category(self):
+        return "Item"
