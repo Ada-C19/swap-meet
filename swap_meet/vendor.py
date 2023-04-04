@@ -55,27 +55,30 @@ class Vendor:
     # other_vendor, my_item
     def swap_items(self, other_vendor, my_item, their_item):
         # self.other_vendor = other_vendor
-        self.my_item = my_item
-        self.their_item = their_item
+        # self.my_item = my_item
+        # self.their_item = their_item
 
         if my_item not in self.inventory or their_item not in other_vendor.inventory:
             return False
 
+        # removing  the item i have from my inventory
         self.inventory.remove(my_item)
+        #  adding my item to their inventory 
         other_vendor.inventory.append(my_item)
 
+        # removing the item they have from their inventory
         other_vendor.inventory.remove(their_item)
+        
+        # adding their item to my inventory
         self.inventory.append(their_item)
-            
+    
         return True
         
 
+# wave 4 
     def swap_first_item(self, other_vendor):
         other_vendor.inventory.remove(self.inventory[0])
         self.inventory.append(other_vendor.inventory[0])
-
-        # other_vendor.inventory.remove(self.inventory[0])
-        # self.inventory.append(other_vendor.inventory[0])
 
 
         
