@@ -5,7 +5,6 @@ class Electronics(Item):
     """ Represents electronic items. """
     def __init__(self, type="Unknown", id=None, condition=0.0):
         super().__init__(id, condition)
-        self.name = "Electronics"
         self.type = type
 
     def __str__(self):

@@ -7,7 +7,6 @@ class Decor(Item):
     def __init__ (self, id=None, width=0, length=0, condition=0.0):
         """ Item decor initiated with width and length of zero.  """
         super().__init__(id, condition)
-        self.name = "Decor"
         self.width = width
         self.length = length
 

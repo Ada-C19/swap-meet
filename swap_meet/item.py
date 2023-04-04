@@ -6,7 +6,7 @@ class Item:
 
     def __init__ (self, id=None, condition=0.0):
         """ Assign a unique id to each item. """
-        self.name = "Item"
+        self.name = self.__class__.__name__
         self.id = int(u.uuid4()) if id is None else int(id)
         self.condition = condition
     
