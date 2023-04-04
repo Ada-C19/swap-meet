@@ -49,7 +49,24 @@ class Vendor:
     
 
     def swap_first_item(self, other_vendor): 
-        pass
+        # if the item is not in anyones inventory
+        if not self.inventory or not other_vendor.inventory:
+        # return false
+            return False
+        # get the first item of self.inventory
+        my_first_item = self.inventory[0]
+        # get the first item of other_vendor.inventory
+        other_first_item = other_vendor.inventory[0]
+        # remove first item from self
+        self.remove(my_first_item)
+        # remove first item from other 
+        other_vendor.remove(other_first_item)
+        # add eachother's items
+        self.add(other_first_item)
+        other_vendor.add(my_first_item)
+
+        return True
+
 
 
 
