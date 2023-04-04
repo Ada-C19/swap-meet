@@ -1,7 +1,9 @@
 from .item import Item
 class Vendor:
     
-    def __init__(self, inventory=[]):
+    def __init__(self, inventory=None):
+        if inventory is None:
+            inventory = []
         self.inventory = inventory
 
     def add(self, item):
@@ -12,6 +14,7 @@ class Vendor:
         if item in self.inventory:
             self.inventory.remove(item)
             return item
+        
         return False
     
     def get_by_id(self, id):
