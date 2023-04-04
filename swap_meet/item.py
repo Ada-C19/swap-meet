@@ -1,10 +1,11 @@
 import uuid
 
 class Item:
-    def __init__(self, id=None):
+    def __init__(self, id=None, condition=0.0):
         if not id:
             id = int(uuid.uuid4())
         self.id = id
+        self.condition = condition
 
     def get_category(self):
         return self.__class__.__name__
@@ -12,3 +13,17 @@ class Item:
     def __str__(self):
         return ('An object of type ' + self.__class__.__name__ +
                 ' with id ' + str(self.id) + '.')
+    
+    def condition_description(self):
+        if self.condition == 0:
+            return 'mint new condition'
+        elif self.condition <= 1:
+            return 'excellent used condition'
+        elif self.condition <= 2:
+            return 'good used condition'
+        elif self.condition <= 3:
+            return 'fair'
+        elif self.condition <= 4:
+            return 'ragged but useable'
+        elif self.condition <= 5:
+            return 'almost in tatters'
