@@ -16,11 +16,42 @@ class Vendor:
         return item
 
     def get_by_id(self, id):
-        pass
+        for item in self.inventory:
+            if id == item.id:
+                return item
+        return None
         
+    def swap_items(self, other_vendor, my_item, their_item):
+        if not my_item in self.inventory: 
+            return False
+        if not their_item in other_vendor.inventory:
+            return False
+        # look at me later!
+        self.remove(my_item)
+        other_vendor.add(my_item)
+        other_vendor.remove(their_item)
+        self.add(their_item)
+        return True
 
+    def swap_first_item(self, other_vendor):
+        if not self.inventory:
+            return False
+        if not other_vendor.inventory:
+            return False
+        my_item = self.inventory.pop(0)
+        other_vendor.add(my_item)
+        their_item = other_vendor.inventory.pop(0)
+        self.add(their_item)
+        #look at me too!
+        # other_vendor.swap_items(self, their_item, my_item)
+        # self.swap_items(other_vendor, my_item, their_item)
+        return True
+    
+    def get_by_category(self, category):
+        pass
 
-    """- Instances of `Vendor` have an instance method named `get_by_id`
-  - This method takes one argument: an integer, representing an `Item`'s `id`
-  - This method returns the item with a matching `id` from the inventory
-  - If there is no matching item in the `inventory`, the method should explicitly return `None`"""
+    def get_best_by_category(self, category):
+        pass
+
+    def swap_best_by_category(self, other_vendor, my_priority, their_priority):
+        pass
