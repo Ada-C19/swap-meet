@@ -1,3 +1,5 @@
+from swap_meet.item import Item
+
 class Vendor:
     def __init__(self, inventory=None):
         if inventory is None:
@@ -14,3 +16,8 @@ class Vendor:
             self.inventory.remove(item)
             return item 
         return False 
+    
+    def get_by_id(self, id):
+        if id in self.inventory:
+            return id
+        return None 
