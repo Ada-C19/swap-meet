@@ -32,3 +32,5 @@ class Vendor:
         other_vendor.add(my_item)
         return True
             
+    def swap_first_item(self, other_vendor):
+        pass
