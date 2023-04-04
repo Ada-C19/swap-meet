@@ -42,3 +42,30 @@ class Vendor:
             return True 
         
         return False 
+    
+
+    def get_by_category(self,category):
+        items_in_category=[]
+        for item in self.inventory:
+            if item.get_category() == category:
+                items_in_category.append(item)
+        return items_in_category
+    
+
+    def get_best_by_category(self,category):
+
+        items_in_category = self.get_by_category(category)
+        
+        if len(items_in_category)==0:
+            return None
+        
+        best_item = items_in_category[0]
+        
+        for item in items_in_category:
+            if item.condition > best_item.condition:
+                best_item = item
+        return best_item
+
+
+
+
