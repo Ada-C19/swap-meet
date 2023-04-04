@@ -103,10 +103,10 @@ class Vendor:
 
         return True
         
-    def get_by_category(self, inventory):
-        filtered_categories = []
-        for item in self.inventory:
-            filtered_categories.append()
+    # def get_by_category(self, inventory):
+    #     filtered_categories = []
+    #     for item in self.inventory:
+    #         filtered_categories.append()
              
 
         
