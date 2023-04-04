@@ -18,7 +18,7 @@ class Decor(Item):
     def __str__(self):
         return f"An object of type Decor with id {self.id}. It takes up a {self.width} by {self.length} sized space."
     
-    def condition_description(self, condition):
+    def condition_description(self):
         
         condition_dict = {
             0: "Horrible",
@@ -29,4 +29,4 @@ class Decor(Item):
             5: "Mint"
         }
 
-        return condition_dict[int(condition)]
+        return condition_dict[self.condition]

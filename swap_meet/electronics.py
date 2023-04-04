@@ -16,7 +16,7 @@ class Electronics(Item):
     def __str__(self):
         return f"An object of type Electronics with id {self.id}. This is a {self.type} device."
     
-    def condition_description(self, condition):
+    def condition_description(self):
         
         condition_dict = {
             0: "Horrible",
@@ -27,4 +27,4 @@ class Electronics(Item):
             5: "Mint"
         }
 
-        return condition_dict[int(condition)]
+        return condition_dict[self.condition]

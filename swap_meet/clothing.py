@@ -25,7 +25,7 @@ class Clothing(Item):
     def __str__(self):
         return f"An object of type Clothing with id {self.id}. It is made from {self.fabric} fabric."
     
-    def condition_description(self, condition):
+    def condition_description(self):
 
         condition_dict = {
             0: "Horrible",
@@ -36,4 +36,5 @@ class Clothing(Item):
             5: "Mint"
         }
 
-        return condition_dict[int(condition)]
+        return condition_dict[self.condition]
+    
