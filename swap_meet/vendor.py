@@ -19,3 +19,7 @@ class Vendor:
             if item.id == search_id:
                 return item
         return None   
+    
+    def swap_items(self, other_vendor, my_item, their_item):
+        their_inventory = other_vendor.inventory
+        pass 
