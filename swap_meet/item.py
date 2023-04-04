@@ -9,4 +9,11 @@ class Item:
         self.category = "Item"
 
     def get_category(self):
-        return self.category 
+        return self.category
+    
+    
+
+    def __str__(self):
+        desc_string = f"An object of type {self.get_category()} with id {self.id}."
+        return desc_string
+        
