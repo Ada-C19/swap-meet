@@ -127,4 +127,4 @@ def test_swap_items_from_their_empty_returns_false():
 
     assert len(fatimah.inventory) == 3
     assert len(jolie.inventory) == 0
-    assert result == False
+    assert not result
