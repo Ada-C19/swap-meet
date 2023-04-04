@@ -1,7 +1,10 @@
 from swap_meet.item import Item
 class Vendor:
-    def __init__(self, inventory=[]):
-        self.inventory = inventory
+    def __init__(self, inventory=None):
+        if inventory == None:
+            self.inventory = []
+        else:
+            self.inventory = inventory
 
     def add(self, item):
         self.inventory.append(item)
@@ -40,13 +43,7 @@ class Vendor:
     def swap_first_item(self, other_vendor):
         if not self.inventory or not other_vendor.inventory:
             return False
-        #remove my first and their first
-        my_first = self.inventory.pop(0)
-        their_first = other_vendor.inventory.pop(0)
+        swap_first = self.swap_items(other_vendor, self.inventory[0], other_vendor.inventory[0])
 
-        #add their first to my inventory, and my first to theirs
-        self.add(their_first)
-        other_vendor.add(my_first)
-
-        return True
+        return swap_first
             
