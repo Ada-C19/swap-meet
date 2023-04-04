@@ -103,11 +103,11 @@ class Vendor:
 
         return True
         
-        
-        
-        # other_vendor.inventory.remove(self.inventory[0])
-        # self.inventory.append(other_vendor.inventory[0])
-
+    def get_by_category(self, inventory):
+        filtered_categories = []
+        for item in self.inventory:
+            filtered_categories.append()
+             
 
         
 
