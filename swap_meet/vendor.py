@@ -1,6 +1,9 @@
+
 class Vendor:
-    def __init__(self, inventory =[]):
+    def __init__(self, inventory = []):
         self.inventory = inventory
+        self.name = "Vendor"
+    
     
     def add(self, item):
         self.inventory.append(item)
@@ -12,3 +15,9 @@ class Vendor:
         
         self.inventory.remove(item)
         return item
+
+    def get_by_id(self, item_id):
+        for item in self.inventory:
+            if item == item_id:
+                return item
+        return None
