@@ -52,7 +52,7 @@ class Vendor:
     
     # instance method named swap_items
     # takes 3 arguments
-    # other_vendor, my_item
+    # other_vendor, my_item, their item
     def swap_items(self, other_vendor, my_item, their_item):
         # self.other_vendor = other_vendor
         # self.my_item = my_item
