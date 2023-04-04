@@ -253,3 +253,17 @@ def test_swap_best_by_category_no_other_match_is_false():
     assert len(tai.inventory) and len(jesse.inventory) == 3
     assert item_a and item_b and item_c in tai.inventory
     assert item_d and item_e and item_f in jesse.inventory
+
+# new test
+def test_best_by_category_two_items_with_highest_condition():
+    item_a = Decor(condition=6)
+    item_b = Clothing(condition=1)
+    item_c = Electronics(condition=3)
+    item_d = Decor(condition=6)
+
+    vendor = Vendor(inventory=
+                    [item_a, item_b, item_c, item_d])
+    
+    items = vendor.get_best_by_category("Decor")
+
+    assert items == item_a
