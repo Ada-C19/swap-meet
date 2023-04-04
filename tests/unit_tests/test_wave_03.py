@@ -114,7 +114,7 @@ def test_swap_items_from_my_empty_returns_false():
     assert len(jolie.inventory) == 2
     assert not result
 
-@pytest.mark.skip
+# @pytest.mark.skip
 def test_swap_items_from_their_empty_returns_false():
     item_a = Item()
     item_b = Item()
@@ -132,11 +132,7 @@ def test_swap_items_from_their_empty_returns_false():
     result = fatimah.swap_items(jolie, item_b, nobodys_item)
 
     #my part of the test:
-    # assert len(fatimah.inventory) == 0
-    # assert len(jolie.inventory) == 2
-    # assert not result
+    assert len(fatimah.inventory) == 3
+    assert len(jolie.inventory) == 0
+    assert not result
 
-    # raise Exception("Complete this test according to comments below.")
-    # # *********************************************************************
-    # ****** Complete Assert Portion of this test **********
-    # *********************************************************************

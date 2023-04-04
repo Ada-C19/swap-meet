@@ -54,7 +54,4 @@ def test_removing_not_found_is_false():
     assert item not in vendor.inventory
     assert result is False
 
-    # raise Exception("Complete this test according to comments below.")
-    # *********************************************************************
-    # ****** Complete Assert Portion of this test **********
-    # *********************************************************************
+
