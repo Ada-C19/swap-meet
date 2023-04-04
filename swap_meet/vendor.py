@@ -45,3 +45,16 @@ class Vendor:
         other_vendor.inventory.append(self.inventory.pop(0))
 
         return True
+    
+    def get_by_category(self, category):
+        items = []
+        for item in self.inventory:
+            if item.get_category() == category:
+                items.append(item)
+        return items
+
+    def get_best_by_category(self):
+        pass
+
+    def swap_best_by_category(self):
+        pass
