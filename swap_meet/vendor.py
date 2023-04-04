@@ -12,7 +12,7 @@ class Vendor:
     
     def add(self, item): #this method will add item to the list of self.inventory
         self.inventory.append(item)
-        return  item
+        return item
     
     def remove(self, item): #this method will remove the item is present in self.inventory
         if item in self.inventory:
@@ -50,4 +50,4 @@ class Vendor:
         return True
 
 
-   
+

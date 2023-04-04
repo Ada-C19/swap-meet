@@ -1,5 +1,6 @@
 from swap_meet.vendor import Vendor
 from swap_meet.item import Item
+from swap_meet.clothing import Clothing
 
 import uuid
 
@@ -22,4 +23,9 @@ vendor = Vendor(["cake", "shirt", "water"])
 
 
 other_vendor = Vendor(["hair","cupcakes","spider"])
-print(vendor.swap_first_item(other_vendor))
+# print(vendor.swap_first_item(other_vendor))
+
+clothing = Clothing("Pinstriped")
+
+print(clothing.get_category())
+print(clothing)

@@ -1,4 +1,4 @@
-import uuid
+import uuid #import just the uuid4()
 
 
 class Item:
