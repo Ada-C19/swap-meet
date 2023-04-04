@@ -17,9 +17,11 @@ class Vendor:
         return item
     
     def get_by_id(self, id):
-        if id not in self.inventory:
-            return None
-        self.id = Item(id)
+        for item in self.inventory:
+            if id == item.id:
+                return item
+        return None
+
     
 
 
