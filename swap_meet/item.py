@@ -1,7 +1,7 @@
 import uuid
 class Item:
     
-    def __init__(self, id=None): 
+    def __init__(self,category="", condition=0, id=None): 
         # self.self = self
         
         if id is None:
