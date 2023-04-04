@@ -2,6 +2,7 @@ import pytest
 from swap_meet.vendor import Vendor
 from swap_meet.item import Item
 
+
 def test_item_overrides_to_string():
     test_id = 12345
     item = Item(id=test_id)
@@ -10,6 +11,7 @@ def test_item_overrides_to_string():
 
     expected_result = f"An object of type Item with id {test_id}."
     assert item_as_string == expected_result
+
 
 def test_swap_items_returns_true():
     item_a = Item()
@@ -38,6 +40,7 @@ def test_swap_items_returns_true():
     assert item_b in jolie.inventory
     assert result
 
+
 def test_swap_items_when_my_item_is_missing_returns_false():
     item_a = Item()
     item_b = Item()
@@ -63,6 +66,7 @@ def test_swap_items_when_my_item_is_missing_returns_false():
     assert item_d in jolie.inventory
     assert item_e in jolie.inventory
     assert not result
+
 
 def test_swap_items_when_their_item_is_missing_returns_false():
     item_a = Item()
@@ -90,6 +94,7 @@ def test_swap_items_when_their_item_is_missing_returns_false():
     assert item_e in jolie.inventory
     assert not result
 
+
 def test_swap_items_from_my_empty_returns_false():
     fatimah = Vendor(
         inventory=[]
@@ -108,6 +113,7 @@ def test_swap_items_from_my_empty_returns_false():
     assert len(fatimah.inventory) == 0
     assert len(jolie.inventory) == 2
     assert not result
+
 
 def test_swap_items_from_their_empty_returns_false():
     item_a = Item()
@@ -130,5 +136,5 @@ def test_swap_items_from_their_empty_returns_false():
     assert len(fatimah.inventory) == 3
     assert fatimah.inventory == [item_a, item_b, item_c]
     assert jolie.inventory == []
-    assert not jolie.inventory
-   
+    assert not jolie.inventory 
+  
