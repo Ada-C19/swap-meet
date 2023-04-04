@@ -15,3 +15,9 @@ class Vendor:
             return item 
         except ValueError: 
             return False 
+    
+    def get_by_id(self, integer): 
+        for item in self.inventory: 
+            if integer == item.id: 
+                return item
+        return None
