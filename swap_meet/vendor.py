@@ -21,3 +21,13 @@ class Vendor:
             if item.id == item_id:
                 return item
         return None
+    
+    def swap_items(self, other_vendor, my_item, their_item):
+        if my_item in self.inventory and their_item in other_vendor.inventory:
+            self.inventory.remove(my_item)
+            other_vendor.remove(their_item)
+            self.add(their_item)
+            other_vendor.add(my_item)
+            return True
+        else:
+            return False
