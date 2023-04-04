@@ -9,4 +9,7 @@ class Item:
 
     def get_category(self):
         return self.__class__.__name__ 
+    
+    def item_as_string(self):
+        print(str(self))
         
