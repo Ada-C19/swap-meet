@@ -8,5 +8,5 @@ class Item:
             self.id = id
 
     def get_category(self):
-        return str(Item)
+        return self.__class__.__name__ 
         
