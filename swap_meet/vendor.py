@@ -37,3 +37,12 @@ class Vendor:
             return False
         self.swap_items(other_vendor, self.inventory[0], other_vendor.inventory[0])
         return True
+    
+    def get_by_category(self, category):
+        pass
+
+    def get_best_by_category(self, category):
+        pass
+
+    def swap_best_by_category(self):
+        pass
