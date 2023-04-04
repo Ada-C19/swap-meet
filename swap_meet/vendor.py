@@ -37,3 +37,39 @@ class Vendor:
 
         result = self.swap_items(other_vendor, my_first_item, their_first_item)
         return result
+
+    def get_by_category(self, category):
+        category_items_list = []
+        for item in self.inventory:
+            if item.get_category() == category:
+                category_items_list.append(item)
+        return category_items_list
+
+    def get_best_by_category(self, category):
+        category_items_list = self.get_by_category(category)
+        if category_items_list:
+            best_item = max(category_items_list,
+                            key=lambda item: item.condition)
+            return best_item
+        return None
+
+    def swap_best_by_category(self, other_vendor, my_priority, their_priority):
+        my_best_item = self.get_best_by_category(their_priority)
+        their_best_item = other_vendor.get_best_by_category(my_priority)
+        result = self.swap_items(other_vendor, my_best_item, their_best_item)
+
+        return result
+
+    def get_newest_item(self):
+        if self.inventory:
+            return min(self.inventory, key=lambda item: item.age)
+        return None
+
+    def swap_by_newest(self, other_vendor):
+        my_newest_item = self.get_newest_item()
+        their_newest_item = other_vendor.get_newest_item()
+
+        result = self.swap_items(
+            other_vendor, my_newest_item, their_newest_item)
+
+        return result
