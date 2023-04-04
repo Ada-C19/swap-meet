@@ -1,3 +1,4 @@
+from swap_meet.item import Item
 class Vendor:
     # passing optional argument called inventory 
     def __init__(self, inventory=None):
@@ -33,7 +34,10 @@ class Vendor:
         return True
             
     def swap_first_item(self, other_vendor):
-        pass
+        items_swapped = self.swap_items(other_vendor)
+        if not self.inventory or not other_vendor.inventory:
+            return False
+
     
     # def swap_items(self, other_vendor, my_item, their_item):
     #     #from vendor inventory remove my_item and add to other_vendor inventory
