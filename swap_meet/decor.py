@@ -7,9 +7,6 @@ class Decor(Item):
         super().__init__(id, condition)
         self.width = width
         self.length = length
-
-    def get_category(self):
-        return "Decor"
     
     def __str__(self):
         return (f"{super().__str__()} It takes up a "

@@ -5,13 +5,11 @@ class Item:
         if id is not None and isinstance(id, int):
             self.id = id
         else:
-            id = uuid4()
-            id = id.int
-            self.id = id
+            self.id = uuid4().int
         self.condition = condition
 
     def get_category(self):
-        return "Item"
+        return self.__class__.__name__
     
     def __str__(self):
         return f"An object of type {self.get_category()} with id {self.id}."
