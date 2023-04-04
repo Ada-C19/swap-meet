@@ -102,15 +102,16 @@ class Vendor:
                 
 
         return True
+    
+    
+    # wave 6
+    def get_by_category(self, category):
+        filtered_categories = []
         
-    # def get_by_category(self, inventory):
-    #     filtered_categories = []
-    #     for item in self.inventory:
-    #         filtered_categories.append()
-             
-
-        
-
+        for item in self.inventory:
+            if item.get_category() == item:
+                filtered_categories.append(item)
+        return filtered_categories
 
 
 
