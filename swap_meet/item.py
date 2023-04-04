@@ -1,6 +1,5 @@
 import uuid
 
-
 class Item:
     def __init__(self, id = None):
         if id is None:
