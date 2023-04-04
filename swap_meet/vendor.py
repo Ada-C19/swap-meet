@@ -1,3 +1,8 @@
+from swap_meet.item import Item
+from swap_meet.clothing import Clothing
+from swap_meet.decor import Decor
+from swap_meet.electronics import Electronics
+
 class Vendor:
     def __init__(self, inventory=[]):
         self.inventory = inventory
@@ -31,5 +36,12 @@ class Vendor:
             return False
         self.swap_items(other_vendor, self.inventory[0], other_vendor.inventory[0])
         return True
+    
+    def get_by_category(self, category):
+        items = []
+        for item in self.inventory:
+            if item.get_category() == category:
+                items.append(item)
+        return items
     
     
