@@ -15,3 +15,25 @@ class Vendor:
             return remove_item
         else:
             return False
+        
+    def get_by_id(self, item_id):
+        
+        for item in self.inventory:
+            if item_id == id:
+                return item
+            
+        else:
+            return None
+            
+    
+    
+    
+    
+    
+    
+#     class Vendor:
+# def __init__(self)
+
+# def get_by_id(self, item_id)   #takes one argument: an integer, representing an `Item`'s `id` -> 
+# ween vendor and item for this method?
+# return item_in_inventor_with_item_id or None
