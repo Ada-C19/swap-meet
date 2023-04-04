@@ -1,6 +1,7 @@
 from swap_meet.item import Item
 class Electronics:
     def __init__(self, category="Electronics",condition=0, type="Unknown", id=None):
+        
         super().__init__(category)
         self.type = type
         super().__init__(category, condition, id)

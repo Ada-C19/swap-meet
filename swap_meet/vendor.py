@@ -34,10 +34,12 @@ class Vendor:
     def get_best_by_category(self, category):
         best_item= None
         highest_condition = -1
-        if item.get_category() == category and item.condition>highest_condition:
-            best_item = item
+        for item in self.inventory:
+            if item.category() == category and item.condition>highest_condition:
+                best_item = item
+        return best_item
             
-            if items.condition > highest_condition:
+        if items.condition > highest_condition:
                 highest_condition = items.condition
                 best_item = items
         items=[item for item in self.inventory if item.get_category() == category]
@@ -89,4 +91,4 @@ class Vendor:
         self.add(their_best_item)
         
         return True
-          
+        
