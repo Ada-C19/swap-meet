@@ -10,4 +10,5 @@ class Item:
         return self.__class__.__name__
     
     def __str__(self):
-        return 'An object of type Item with id ' + str(self.id) + '.'
+        return ('An object of type ' + self.__class__.__name__ +
+                ' with id ' + str(self.id) + '.')
