@@ -1,13 +1,14 @@
 import uuid
 
 class Item:
-    def __init__(self, id=None):
+    def __init__(self, id=None, condition=0):
         # If id is passed assign it to id
         # If not create a new id
         if id:
             self.id = id
         else:
             self.id = uuid.uuid4().int
+        self.condition = condition
     
     def get_category(self):
         # Holds the class name and returns it as a str
@@ -16,6 +17,17 @@ class Item:
     # This method will return the type this class as a Str not as an "An object of type Item with id <id value>."
     def __str__(self):
         return f"An object of type {self.get_category()} with id {self.id}."
+    
+    def condition_description(self):
+        if self.condition > 0 and self.condition <= 2:
+            return "Heavily used"
+        elif self.condition >= 3 and self.condition <= 4:
+            return "Used"
+        else:
+            return "Mint condition"
+        
+    
+
     
 
 

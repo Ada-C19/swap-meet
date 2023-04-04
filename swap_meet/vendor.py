@@ -51,6 +51,15 @@ class Vendor:
             return True
         return False
 
+    # Returns a list of objects in Inventory with that category
+    # Return [] if there are no items that matches
+    def get_by_category(self, category):
+
+        item_in_category = []
+        for item in self.inventory:
+            if category == item.get_category():
+                item_in_category.append(item)
+        return item_in_category
 
 
 
