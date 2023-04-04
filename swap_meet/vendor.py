@@ -31,3 +31,13 @@ class Vendor:
             return True
         else:
             return False
+        
+    def swap_first_item(self, other_vendor):    
+        #yaels: if len(self.inventory) == 0 or len(other_vendor.inventory) == 0:
+        #both work!
+        if not self.inventory or not other_vendor.inventory:
+            return False
+        other_vendor.inventory.append(self.inventory.pop(0))
+        self.inventory.append(other_vendor.inventory.pop(0))
+        return True
+    
