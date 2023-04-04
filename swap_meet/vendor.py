@@ -1,3 +1,5 @@
+from swap_meet.item import Item
+
 class Vendor:
 
     def __init__(self, inventory = []):
@@ -14,4 +16,9 @@ class Vendor:
         else:
             return False
         
-
+    def get_by_id(self, id):
+        # if this item in in inventory with matchind ID. return the item
+        for item in self.inventory:
+            if id == item.id:
+                return item
+        return None
