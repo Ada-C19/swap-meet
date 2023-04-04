@@ -16,17 +16,14 @@ class Vendor:
         self.inventory.remove(item)
         return item
     
-    def get_by_id(self, id = None):
-    
-        self.id = Item(id)
+    def get_by_id(self, id):
         for item in self.inventory:
             if id == item.id:
-                return self.id
-            else:
-                return None
-        
+                return item
+        return None
+
     
-  
+
 
 
         
