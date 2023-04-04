@@ -5,14 +5,15 @@ class Item:
         id = uuid.uuid4().int if id is None else id
         self.id = id
 
+    def __repr__(self):
+        return f"An object of type Item with id {self.id}."
+
     def get_category(self):
         return self.__class__.__name__
     
+
+
+    
     
 
 
-prueba = Item()
-prueba2 = Item()
-print(type(prueba.id),prueba.id)
-print(type(prueba2.id),prueba2.id)
-#uuid.uuid4().int
