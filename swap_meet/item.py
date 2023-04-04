@@ -8,7 +8,12 @@ class Item:
         self.id = id
 
     def __str__(self):
-        return f"An object of type Item with id {self.id}."
+        category = self.get_category()
+        starter_statement = f"An object of type {category} with id {self.id}."
+        if category == "Item":
+            return starter_statement
+        if category == "Clothing":
+            return starter_statement + f" It is made from {self.fabric} fabric."
 
     def get_category(self):
         if isinstance(self, Item):
