@@ -47,4 +47,7 @@ class Vendor:
         self.swap_items(other_vendor, my_item, their_item)
 
         return True
+    
+    def get_by_category(self, category):
+        return [item_obj for item_obj in self.inventory if item_obj.get_category() == category]
         
