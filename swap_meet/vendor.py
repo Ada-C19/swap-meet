@@ -55,3 +55,4 @@ class Vendor:
         if items:
             return max(items, key=lambda item: item.condition)
         return None
+
