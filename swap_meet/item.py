@@ -1,10 +1,3 @@
-# Item class
-# Each item will have a atrribute named ID
-# uuid package import? to avoid duplicate #'s
-# keyword arg ID and optional int passed in to manually set ID 
-# def get_category that returns a string holding the name of the class
-# def get_by_id takes in int(item ID) and returns item with matching ID 
-# if none matchiing return None
 import uuid
 class Item:
     # randomized id and set it to an integer
@@ -14,6 +7,6 @@ class Item:
     def get_category(self):
         return self.__class__.__name__
     
-    def __str__(self, item):
-        return(f"An object of type {item.get_category()} with id {item.id} ")
+    def __str__(self):
+        return(f"An object of type Item with id {self.id}.")
     
