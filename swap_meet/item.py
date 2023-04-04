@@ -1,6 +1,6 @@
 import uuid
 class Item:
-    def __init__(self, id, condition = 0):
+    def __init__(self, id = None, condition = 0):
         self.condition = condition
        
         if id is None:
@@ -20,13 +20,13 @@ class Item:
     def condition_description(self):
         if self.condition == 0:
             return "Brand new with tags"
-        elif self.condition == 1 or self.condition < 2 :
+        elif self.condition == 1:
             return "Like new"
-        elif self.condition == 2 or self.condition < 3 :
+        elif self.condition == 2:
             return "Good"
-        elif self.condition == 3 or self.condition < 4:
+        elif self.condition == 3:
             return "Fair"
-        elif self.condition == 4 or self.condition < 5:
+        elif self.condition == 4:
             return "Heavily used"
         else:
             return "Poor"
