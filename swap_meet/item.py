@@ -1,9 +1,13 @@
 import uuid
 
 class Item:
-    def __init__(self, id = None, condition = 0):
+    def __init__(self, id = None, condition = 0, age = None):
+        if type(age) is not int:
+            self.age = 0
         self.id = uuid.uuid4().int if id is None else id
         self.condition = condition
+        self.age = age
+
     
     def __str__(self):
         return f"An object of type Item with id {self.id}."

@@ -64,3 +64,26 @@ class Vendor:
         if my_best_item == None or their_best_item == None:
             return False
         return self.swap_items(other_vendor, my_best_item, their_best_item)
+    
+    def get_newest_item(self):
+        if not self.inventory:
+            return False
+        
+        newest_item_age = self.inventory[0].age
+        newest_item = None
+        
+        for item in self.inventory:
+            if item.age < newest_item_age:
+                newest_item_age = item.age
+                newest_item = item
+        return newest_item
+
+    def swap_by_newest(self, other_vendor):
+        if not (self.inventory and other_vendor.inventory):
+            return False
+        
+        their_newest_item = other_vendor.get_newest_item()
+        my_newest_item = self.get_newest_item()
+
+        return self.swap_items(other_vendor, my_newest_item, their_newest_item)
+
