@@ -18,3 +18,11 @@ class Vendor:
             return item
         
         return False
+    
+    # method that returns the name of the class
+    def get_by_id(self, id): 
+        for item in self.inventory: 
+            if item.id == id: 
+                return item
+        
+        return None
