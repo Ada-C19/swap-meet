@@ -39,3 +39,10 @@ class Vendor:
         self.inventory.append(friends_item)
         other_vendor.inventory.append(instance_item)
         return True
+
+    def get_by_category(self, category):
+        items = []
+        for item in self.inventory:
+            if item.get_category() == category:
+                items.append(item)
+        return items
