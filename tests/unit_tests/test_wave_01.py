@@ -2,7 +2,7 @@
 import pytest
 from swap_meet.vendor import Vendor
 
-@pytest.mark.skip
+# @pytest.mark.skip
 def test_vendor_has_inventory():
     vendor = Vendor()
     assert len(vendor.inventory) == 0
@@ -16,7 +16,7 @@ def test_vendor_takes_optional_inventory():
     assert "b" in vendor.inventory
     assert "c" in vendor.inventory
 
-@pytest.mark.skip
+# @pytest.mark.skip
 def test_adding_to_inventory():
     vendor = Vendor()
     item = "new item"
@@ -49,7 +49,8 @@ def test_removing_not_found_is_false():
 
     result = vendor.remove(item)
 
-    raise Exception("Complete this test according to comments below.")
+    assert result == False
+    # raise Exception("Complete this test according to comments below.")
     # *********************************************************************
     # ****** Complete Assert Portion of this test **********
     # *********************************************************************
