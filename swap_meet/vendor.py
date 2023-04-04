@@ -10,15 +10,9 @@ class Vendor:
         return item
     
     def remove(self, item):
-        # print("ENTERING REMOVE FUNCTION")
         if item in self.inventory:
-            # print()
-            # print(self.inventory)
             self.inventory.remove(item)
-            # print("AFTER REMOVING")
-            # print(self.inventory)
             return item
-        
         return False
 
     def get_by_id(self, id):
@@ -30,22 +24,26 @@ class Vendor:
     def swap_items(self, other_vendor, my_item, their_item):
         
         if my_item in self.inventory and their_item in other_vendor.inventory:
-            print("MY_INVENTORY")
-            print(self.inventory)
-            print("OTHER_VENDORS_INVENTORY")
-            print(other_vendor.inventory)
             # Remove my_item form this Vendor's inventor 
-            item_1_to_swap = self.remove(my_item)
+            item_to_friend = self.remove(my_item)
             # Add it to the friend's inventory
-            other_vendor.add(item_1_to_swap)
+            other_vendor.add(item_to_friend)
             # Remove their_item from other Vendor's inventory
-            item_2_to_swap = other_vendor.remove(their_item)
+            item_to_me = other_vendor.remove(their_item)
             # add it to this Vendor's inventory
-            self.add(item_2_to_swap)
-            print("MY_INVENTORY")
-            print(self.inventory)
-            print("OTHER_VENDORS_INVENTORY")
-            print(other_vendor.inventory)
+            self.add(item_to_me)
             return True
         # If item isn't in the inventory
         return False
+    
+    def swap_first_item(self, other_vendor):
+        
+        if other_vendor.inventory and self.inventory:
+            my_first_item = self.inventory[0]
+            friends_first_item = other_vendor.inventory[0]
+            
+            return self.swap_items(other_vendor, my_first_item, friends_first_item)
+        
+        return False
+
+
