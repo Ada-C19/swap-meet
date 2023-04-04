@@ -20,6 +20,25 @@ class Decor:
         
         # following a similar syntax for condition as id
         self.condition = condition if condition is not 0 else condition
+        
+    # which should describe the condition in words based on the value, 
+    # assuming they all range from 0 to 5.
+    def condition_description(self):
+        condition = self.condition
+        
+        if condition == 0:
+            return "Get the gloves on"
+        elif condition == 1:
+            return "Poor"
+        elif condition == 2:
+            return "Used"
+        elif condition == 3:
+            return "Good condition"
+        elif condition == 4:
+            return "Gently used"
+        else: 
+            return "Just like new!"
+
 
         
     # Has a function get_category that returns "Decor"

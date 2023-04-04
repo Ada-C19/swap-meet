@@ -26,6 +26,25 @@ class Clothing:
     def get_category(self):
         return self.__class__.__name__
     
+        # which should describe the condition in words based on the value, 
+    # assuming they all range from 0 to 5.
+    def condition_description(self):
+        condition = self.condition
+        
+        if condition == 0:
+            return "Get the gloves on"
+        elif condition == 1:
+            return "Poor"
+        elif condition == 2:
+            return "Used"
+        elif condition == 3:
+            return "Good condition"
+        elif condition == 4:
+            return "Gently used"
+        else: 
+            return "Just like new!"
+
+    
     # Has a stringify method that returns 
     def __str__(self):
         return f"An object of type Clothing with id {self.id}. It is made from {self.fabric} fabric."
