@@ -24,13 +24,27 @@ class Item:
     # def add_to_list_ok(word, word_list=None):
     # word_list = word_list if word_list is not None else []
     def __init__(self, id=None, condition= 0.0):
-        # self.item = item
         self.id = id if id is not None else int(uuid.uuid4())
+        self.condition = condition
 
     def get_category(self):
         return "Item"
     
     def __str__(self):
         return f"An object of type Item with id {self.id}."
+    
+    def condition_description(self, condition):
+        int_condition = int(condition)
+        condition_dict = {
+            0: "Horrible",
+            1: "Damaged",
+            2: "Average",
+            3: "Good",
+            4: "Great",
+            5: "Mint"
+        }
+
+        return condition_dict[int_condition]
+
     
     
