@@ -1,5 +1,5 @@
 class Vendor:
-
+    # Vendor has items. Item - component, vendor - composite?
     def __init__(self, inventory=None):
         if inventory is None:
             inventory = []
@@ -45,5 +45,15 @@ class Vendor:
             return self.swap_items(other_vendor, my_first_item, friends_first_item)
         
         return False
+    
+    def get_by_category(self, category):
+        pass
+
+    def get_best_by_category(self):
+        pass
+
+    def swap_best_by_category(self, other_vendor, my_priority, their_priority):
+        pass
+        
 
 
