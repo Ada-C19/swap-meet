@@ -57,8 +57,10 @@ class Vendor:
         # self.other_vendor = other_vendor
         # self.my_item = my_item
         # self.their_item = their_item
-
+        
+        # if my item isn't in my inventory, OR if their item isn't in their inventory: 
         if my_item not in self.inventory or their_item not in other_vendor.inventory:
+            #  then return False
             return False
 
         # removing  the item i have from my inventory
