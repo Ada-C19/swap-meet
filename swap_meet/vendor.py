@@ -1,13 +1,17 @@
 from swap_meet.item import Item
 
 class Vendor:
+<<<<<<< HEAD
 
+=======
+>>>>>>> 47d131eb053d2f1558bdd7fd80b595bff62c7c65
     def __init__(self, inventory = None):
         self.inventory = [] if inventory is None else inventory
 
     def add(self, item): 
         self.inventory.append(item)
         return item
+<<<<<<< HEAD
 
     def remove(self, item):
         if item not in self.inventory:
@@ -27,4 +31,19 @@ class Vendor:
                 return item
         else:
             return None
+=======
+ 
+    def remove(self, item):
+        if item in self.inventory:
+            self.inventory.remove(item)
+            return item
+        return False
+    
+    def get_by_id(self, item_id):
+        for item in self.inventory:
+            if item.id == item_id:
+                return item
+        return None
+
+>>>>>>> 47d131eb053d2f1558bdd7fd80b595bff62c7c65
 
