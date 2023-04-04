@@ -7,10 +7,7 @@ class Item:
         self.id = random_id if id is None else id
 
     def get_category(self):
-        return "Item"
-    
+        return __class__.__name__
 
     def __str__(self):
-        return f"An object of type Item with id {self.id}."
-    
-    
+        return f"An object of type {self.get_category()} with id {self.id}."

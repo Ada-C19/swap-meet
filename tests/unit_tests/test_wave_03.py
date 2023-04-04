@@ -3,6 +3,8 @@ from swap_meet.vendor import Vendor
 from swap_meet.item import Item
 
 # @pytest.mark.skip
+
+
 def test_item_overrides_to_string():
     test_id = 12345
     item = Item(id=test_id)
@@ -13,6 +15,8 @@ def test_item_overrides_to_string():
     assert item_as_string == expected_result
 
 # @pytest.mark.skip
+
+
 def test_swap_items_returns_true():
     item_a = Item()
     item_b = Item()
@@ -41,6 +45,8 @@ def test_swap_items_returns_true():
     assert result
 
 # @pytest.mark.skip
+
+
 def test_swap_items_when_my_item_is_missing_returns_false():
     item_a = Item()
     item_b = Item()
@@ -68,6 +74,8 @@ def test_swap_items_when_my_item_is_missing_returns_false():
     assert not result
 
 # @pytest.mark.skip
+
+
 def test_swap_items_when_their_item_is_missing_returns_false():
     item_a = Item()
     item_b = Item()
@@ -95,6 +103,8 @@ def test_swap_items_when_their_item_is_missing_returns_false():
     assert not result
 
 # @pytest.mark.skip
+
+
 def test_swap_items_from_my_empty_returns_false():
     fatimah = Vendor(
         inventory=[]
@@ -115,6 +125,8 @@ def test_swap_items_from_my_empty_returns_false():
     assert not result
 
 # @pytest.mark.skip
+
+
 def test_swap_items_from_their_empty_returns_false():
     item_a = Item()
     item_b = Item()
@@ -132,7 +144,9 @@ def test_swap_items_from_their_empty_returns_false():
     result = fatimah.swap_items(jolie, item_b, nobodys_item)
 
     # raise Exception("Complete this test according to comments below.")
-    assert not result 
+    assert not result
+    assert len(fatimah.inventory) == 3
+    assert len(jolie.inventory) == 0
     # *********************************************************************
     # ****** Complete Assert Portion of this test **********
     # *********************************************************************
