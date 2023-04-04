@@ -67,3 +67,8 @@ class Vendor:
 #  It returns True
 
 #  If either itself or the friend have an empty inventory, the method returns False
+def swap_first_item(self, other_vendor):
+    if other_vendor.invtentory[0] not in self.inventory:
+        self.remove(other_vendor.inventory[0])
+        self.add(other_vendor.inventory[0])
+        
