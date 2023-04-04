@@ -9,4 +9,5 @@ class Item:
             self.id = uuid.uuid4().int
     
     def get_category(self):
-        #return self.__class__.__name__
+        return self.__class__.__name__
+        
