@@ -1,9 +1,11 @@
 import uuid
 
-
 class Item:
     def __init__(self, id=None):
-        self.id = int(uuid.uuid4())
+        if id:
+            self.id = id
+        else:
+            self.id = int(uuid.uuid4())
         print({self.id})
 
     def get_category(self):

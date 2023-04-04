@@ -1,6 +1,3 @@
-# from item import Item
-
-
 class Vendor:
     def __init__(self, inventory=[]):
         self.inventory = inventory
@@ -18,7 +15,8 @@ class Vendor:
 
     def get_by_id(self, item_id):
         self.item_id = item_id
-        if self.item_id in self.inventory:
-            return item_id
+        for item in self.inventory:
+            if self.item_id == item.id:
+                return item
         else:
             return None
