@@ -252,3 +252,27 @@ def test_swap_best_by_category_no_other_match_is_false():
     assert result == False
     assert len(tai.inventory) == 3 and len(jesse.inventory) == 3
     assert tai.inventory == [item_c, item_b, item_a] and jesse.inventory == [item_f, item_e, item_d]
+
+def test_swap_newest_by_category():
+    # Arrange
+    item_a = Decor(condition=2.0, age=2.0)
+    item_b = Electronics(condition=4.0, age=4.5)
+    item_c = Decor(condition=4.0, age = 0.5)
+    tai = Vendor(
+        inventory=[item_c, item_b, item_a]
+    )
+
+    item_d = Clothing(condition=2.0, age= 5.0)
+    item_e = Decor(condition=4.0, age=10.2)
+    item_f = Clothing(condition=4.0, age=3.0)
+    jesse = Vendor(
+        inventory=[item_f, item_e, item_d]
+    )
+
+    # Act
+    result = tai.swap_newest(
+        other_vendor=jesse)
+
+    assert result == True
+    assert len(tai.inventory) == 3 and len(jesse.inventory) == 3
+    assert tai.inventory == [item_b, item_a, item_f] and jesse.inventory == [item_e, item_d, item_c]

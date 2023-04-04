@@ -3,11 +3,9 @@ class Vendor:
     def __init__(self, inventory = None):
         self.inventory = [] if inventory is None else inventory
 
-
     def add(self, item):
         self.inventory.append(item)
         return item
-
 
     def remove(self, item):
         if item in self.inventory:
@@ -35,7 +33,6 @@ class Vendor:
     def swap_first_item(self, other_vendor):
         if not self.inventory or not other_vendor.inventory:
             return False
-
         my_first_item = self.inventory[0] 
         their_first_item = other_vendor.inventory[0]
         self.add(their_first_item)
@@ -53,7 +50,6 @@ class Vendor:
     
     def get_best_by_category(self, category):
         category_list = self.get_by_category(category)
-
         if not category_list:
             return None
         else:
@@ -72,4 +68,22 @@ class Vendor:
         else:
             return False
 
+    # optional get_newest function from README, one test written in wave 6
 
+    def get_newest(self):
+        if self.inventory:
+            newest_item = self.inventory[0]
+            for item in self.inventory:
+                if item.age < newest_item.age:
+                    newest_item = item
+            return newest_item
+        return False
+    
+    def swap_newest(self, other_vendor):
+        my_newest_item = self.get_newest()
+        their_newest_item = other_vendor.get_newest()
+        if my_newest_item and their_newest_item:
+            self.swap_items(other_vendor, my_newest_item, their_newest_item)
+            return True
+        else:
+            return False
