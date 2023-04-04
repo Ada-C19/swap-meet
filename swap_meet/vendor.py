@@ -44,4 +44,19 @@ class Vendor:
                 items.append(item)
         return items
     
+    def get_best_by_category(self, category):
+        item_best_condition = self.inventory[0]
+        CATEGORY = self.get_by_category(category)
+
+        if not CATEGORY:
+            return None
+        
+        for item in CATEGORY:
+            if item.condition > item_best_condition.condition:
+                item_best_condition = item
+
+        return item_best_condition
+    
+    #def swap_best_by_category(self, other_vendor, my_priority, their_priority):
+
     
