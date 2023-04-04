@@ -12,7 +12,7 @@ def test_item_overrides_to_string():
     expected_result = f"An object of type Item with id {test_id}."
     assert item_as_string == expected_result
 
-@pytest.mark.skip
+#@pytest.mark.skip
 def test_swap_items_returns_true():
     item_a = Item()
     item_b = Item()
