@@ -34,7 +34,7 @@ class Vendor:
     
     def swap_first_item(self, other_vendor):
 
-        if self.inventory is None or other_vendor.inventory is None:
+        if self.inventory == [] or other_vendor.inventory == []:
             return False
         else:
             my_first = self.inventory[0]
