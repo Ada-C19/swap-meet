@@ -8,5 +8,5 @@ class Clothing(Item):
         self.fabric = fabric
 
     def __str__(self):
-        """ Override """
+        """ Extend Item's str method """
         return f"{super().__str__()} It is made from {self.fabric} fabric."

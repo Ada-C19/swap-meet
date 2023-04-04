@@ -8,4 +8,5 @@ class Electronics(Item):
         self.type = type
 
     def __str__(self):
+        """Extend Item's string method"""
         return f"{super().__str__()} This is a {self.type} device."

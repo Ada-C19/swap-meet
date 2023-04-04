@@ -11,5 +11,5 @@ class Decor(Item):
         self.length = length
 
     def __str__(self):
-        """ Stringify an instance of class Decor. """
+        """ Extend Item's string method. """
         return f"{super().__str__()} It takes up a {self.width} by {self.length} sized space."
