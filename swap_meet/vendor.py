@@ -1,3 +1,5 @@
+
+
 class Vendor:
     def __init__(self, inventory = None):
         self.inventory = [] if inventory is None else inventory
@@ -14,5 +16,8 @@ class Vendor:
            return item
         
     def get_by_id(self, id):
-        # if id in self.inventory:
-        #     return
+        for item in self.inventory:
+            if item.id == id:
+                return item
+        
+        
