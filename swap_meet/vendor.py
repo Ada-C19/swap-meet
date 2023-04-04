@@ -1,6 +1,6 @@
 class Vendor:
-    def __init__(self, inventory = []):
-        self.inventory = inventory 
+    def __init__(self, inventory = None):
+        self.inventory = inventory or []
 
     def add(self,item):
         self.inventory.append(item)
@@ -17,5 +17,4 @@ class Vendor:
         for item in self.inventory:
             if item.id == id: 
                 return item
-            else:
-                return None
+        return None
