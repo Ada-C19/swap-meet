@@ -6,4 +6,4 @@ class Item:
         self.id = uuid.uuid4().int if id is None else id
 
     def get_category(self):
-        pass
+        return "Item"

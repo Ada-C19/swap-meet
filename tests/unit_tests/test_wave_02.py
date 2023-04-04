@@ -20,12 +20,12 @@ def test_items_use_custom_id_if_passed():
     assert isinstance(item.id, int)
     assert item.id == 12345
 
-@pytest.mark.skip
+# @pytest.mark.skip
 def test_item_obj_returns_text_item_for_category():
     item = Item()
     assert item.get_category() == "Item"
 
-@pytest.mark.skip
+# @pytest.mark.skip
 def test_get_item_by_id():
     test_id = 12345
     item_custom_id = Item(id=test_id)
@@ -36,7 +36,7 @@ def test_get_item_by_id():
     result_item = vendor.get_by_id(test_id)
     assert result_item is item_custom_id
 
-@pytest.mark.skip
+# @pytest.mark.skip
 def test_get_item_by_id_no_matching():
     test_id = 12345
     item_a = Item()
