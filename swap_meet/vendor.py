@@ -41,15 +41,12 @@ class Vendor:
         return True
 
     def swap_first_item(self, other_vendor):
-        if len(self.inventory) == 0 or len(other_vendor.inventory) == 0:
+        if not (self.inventory and other_vendor.inventory):
             return False
         return self.swap_items(other_vendor, self.inventory[0], other_vendor.inventory[0])
     
     def get_by_category(self, category):
-        items = []
-        for item in self.inventory:
-            if item.get_category() == category:
-                items.append(item)
+        items = [item for item in self.inventory if item.get_category() == category]
         return items
     
     def get_best_by_category(self, category):
