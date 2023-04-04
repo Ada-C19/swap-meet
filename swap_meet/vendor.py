@@ -3,7 +3,7 @@ import uuid
 
 class Vendor:
     def __init__(self, inventory = None):
-        self.inventory = [] if inventory is None else inventory 
+        self.inventory = [] if inventory is None else inventory
         
     def add(self, item):
         self.inventory.append(item)
@@ -16,10 +16,15 @@ class Vendor:
         self.inventory.remove(item)
         return item
     
-    def get_by_id(self, id):
-        if id not in self.inventory:
-            return None
+    def get_by_id(self, id = None):
+    
         self.id = Item(id)
+        for item in self.inventory:
+            if id == item.id:
+                return self.id
+            else:
+                return None
+        
     
   
 
