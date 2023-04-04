@@ -14,15 +14,15 @@ class Item:
         return f"An object of type {self.get_category()} with id {self.id}."
     
     def condition_description(self):
-        if round(self.condition) == 1:
-            return "Are you sure you really want this...?"
-        elif round(self.condition) == 2:
-            return "Fair condition, but will require fixing up."
-        elif round(self.condition) == 3:
-            return "Good condition."
-        elif round(self.condition) == 4:
-            return "Great condition! Gently used for sure."
-        elif round(self.condition) == 5:
-            return "Mint condition, item is in excellent shape!"
-        else:
+        conditions = {
+            1: "Are you sure you really want this...?",
+            2: "Fair condition, but will require fixing up.",
+            3: "Good condition.",
+            4: "Great condition! Gently used for sure.",
+            5: "Mint condition, item is in excellent shape!"
+        }
+
+        try:
+            return conditions.get(round(self.condition))
+        except KeyError:
             return "Not sure what this grade condition is...(º～º)"
