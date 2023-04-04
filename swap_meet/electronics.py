@@ -1,4 +1,4 @@
-ffrom swap_meet.item import Item
+from swap_meet.item import Item
 
 class Electronics(Item):
     category = "Electronics"
@@ -12,6 +12,3 @@ class Electronics(Item):
 
     def __str__(self):
         return f"An object of type Electronics with id {self.id}. This is a {self.type} device."
-
-    def get_category(self):
-        return Electronics.category

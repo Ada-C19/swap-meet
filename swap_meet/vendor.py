@@ -23,13 +23,15 @@ class Vendor:
             return None
         
     def get_by_category(self, category):
-            
-            matching_items = []
-            
-            for item in self.inventory:
-                if item.category == category:
-                    matching_items.append(item)
-            return matching_items
+        matching_items = []
+    
+    if category in self.categories:
+        for item in self.inventory:
+            if item.category == category:
+                matching_items.append(item)
+    
+    return matching_items
+
         
     def get_best_by_category(self, category):
         best_item= None
