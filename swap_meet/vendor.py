@@ -1,7 +1,10 @@
-from item import Item
+from swap_meet.item import Item
 class Vendor:
-    def __init__(self):
-        self.inventory = []
+    def __init__(self, inventory=None): 
+        #Why cannot pass test without inventory?
+        if inventory is None:
+            inventory = []
+        self.inventory = inventory
         
     def add(self, item):
         self.inventory.append(item)
@@ -16,6 +19,7 @@ class Vendor:
     
     def get_by_id(self, id):
         for item in self.inventory:
-            if id == self.id:
+            if id == item.id:           
+            # item.id Is this`item` refers to the string in the inventory?
                 return item
         return None
