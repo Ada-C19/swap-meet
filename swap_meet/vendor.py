@@ -18,3 +18,13 @@ class Vendor:
             print(f"Error message: {err}")
             print(f"Unable to remove '{item}' from inventory.")
             return False
+    
+    def get_by_id(self, id):
+        try:
+            for item in self.inventory:
+                if item.id == id:
+                    return item
+        except ValueError as err:
+            print(f"Error message: {err}")
+            print(f"Could not retrieve item {id} from inventory.")
+            return None
