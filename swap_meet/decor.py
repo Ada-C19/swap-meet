@@ -5,7 +5,7 @@ class Decor:
     # Has an attribute id that is by default a unique integer
     # Holds 2 integer attributes width and length
     #   both ofthese values should be 0 by default
-    def __init__(self, id = None, width = 0, length = 0):
+    def __init__(self, id = None, width = 0, length = 0, condition= 0):
         
         # using UUID4 since UUID1 creates a UUID with the computer's network address 
         # UUID.int- returns the UUID as a 128-bit integer.
@@ -17,6 +17,10 @@ class Decor:
         
         # following a similar syntax for length as id
         self.length = length if length is not 0 else length
+        
+        # following a similar syntax for condition as id
+        self.condition = condition if condition is not 0 else condition
+
         
     # Has a function get_category that returns "Decor"
     def get_category(self):

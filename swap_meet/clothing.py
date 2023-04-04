@@ -6,7 +6,7 @@ class Clothing:
     
     # Has an attribute fabric that is by default the string "Unknown"
     
-    def __init__(self, id=None, fabric = "Unknown"):
+    def __init__(self, id=None, fabric = "Unknown", condition = 0):
         
         # using UUID4 since UUID1 creates a UUID with the computer's network address 
         # UUID.int- returns the UUID as a 128-bit integer.
@@ -17,6 +17,10 @@ class Clothing:
             #  eventually fabric values may be :
             # new_clothing = Clothing(1234, "Striped") ..."Cotton", or "Floral"
         self.fabric = fabric if fabric is not "Unknown" else fabric
+        
+        # following a similar syntax for condition as id
+        self.condition = condition if condition is not 0 else condition
+
         
     # Has a function get_category that returns "Clothing
     def get_category(self):
