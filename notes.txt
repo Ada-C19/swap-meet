@@ -1,4 +1,4 @@
-"""
+
     def add_to_list_ok(word, word_list = None):
         word_list = [] if word_list is None else word_list
         word_list.append(word)
@@ -8,7 +8,7 @@
 class
     def __contains__(self,item):
         return self.lower <= item <= self.upper
-"""
+
 
    
-"""moral: never use mutable values as default, such as lists or dictionaries, always use None"""
+moral: never use mutable values as default, such as lists or dictionaries, always use None"""
