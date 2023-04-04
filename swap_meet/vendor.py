@@ -1,10 +1,3 @@
-# In Wave 1 we will create the Vendor class.
-#     There is a module (file) named vendor.py inside of the swap_meet package (folder)
-#     Inside this module, there is a class named Vendor
-#     When we instantiate an instance of Vendor, we can optionally pass in a list with the keyword argument inventory
-#     Every instance of Vendor has an instance method named add, which takes in one item
-#     Similarly, every instance of Vendor has an instance method named remove, which takes in one item
-
 class Vendor:
 
     # def add_to_list_ok(word, word_list=None):
@@ -49,4 +42,7 @@ class Vendor:
             other_vendor.remove(their_item)
             other_vendor.add(my_item)
             return True
+        
+    def swap_first_item(self):
+        pass
     
