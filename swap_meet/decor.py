@@ -3,8 +3,8 @@ from swap_meet.item import Item
 
 class Decor(Item):
         
-    def __init__(self, id, width=0, length=0):
-        super().__init__(id)
+    def __init__(self, id, width=0, length=0, condition=0):
+        super().__init__(id, condition)
         self.id = id
         self.width = width
         self.length = length
