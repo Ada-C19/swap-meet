@@ -1,4 +1,4 @@
-class Vendor:
+class lVendor:
     
     def __init__(self, inventory=None):
         
