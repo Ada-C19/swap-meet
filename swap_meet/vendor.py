@@ -76,9 +76,35 @@ class Vendor:
         
 
 # wave 4 
+# swap_first_item takes one argument, other_vendor
     def swap_first_item(self, other_vendor):
-        other_vendor.inventory.remove(self.inventory[0])
+        
+        # considers the first item in the instance's inventory: self.inventory[0]
+        # and the first item in the friend's inventory: other_vendor.inventory[0]
+        if len(self.inventory) == 0  or len(other_vendor.inventory)== 0:
+            return False
+
+        
+        # adds first item from friends' inventory
         self.inventory.append(other_vendor.inventory[0])
+        
+        # remove first item from friend inventory
+        other_vendor.inventory.remove(other_vendor.inventory[0])
+
+        # adds the instance's first item
+        other_vendor.inventory.append(self.inventory[0])
+
+
+        # remove first item from your inventory
+        self.inventory.remove(self.inventory[0])
+                
+
+        return True
+        
+        
+        
+        # other_vendor.inventory.remove(self.inventory[0])
+        # self.inventory.append(other_vendor.inventory[0])
 
 
         
