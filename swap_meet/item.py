@@ -11,3 +11,8 @@ class Item:
     def get_category(self):
         """ Return the item's class name as a string. """
         return self.name
+    
+    def __str__(self):
+        return f"An object of type {self.get_category()} with id {self.id}."
+
+
