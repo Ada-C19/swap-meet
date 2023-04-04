@@ -22,6 +22,9 @@ class Vendor:
         return None
     
 
+    def swap_items(self, other_vendor, my_item, their_item):
+        pass
+
     def swap_first_item(self, other_vendor):
         """
         Swap the first items between self's inventory and other_vendor inventory.
