@@ -47,7 +47,13 @@ class Vendor:
             return False
         
         # Swap first item of each vendor's inventory
-        other_vendor.inventory.append(self.inventory.pop(0))
-        self.inventory.append(other_vendor.inventory.pop(0))
+        self.swap_items(other_vendor, 
+                        self.inventory[0], 
+                        other_vendor.inventory[0])
         
         return True
+    
+    def get_by_category(self, category):
+        self.category = category
+        return [item for item in self.inventory if 
+                item.get_category() == category]
