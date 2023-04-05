@@ -1,3 +1,5 @@
+from swap_meet.item import Item
+
 class Vendor:
     def __init__(self, inventory = None):
         self.inventory = [] if inventory is None else inventory
@@ -23,7 +25,27 @@ class Vendor:
 
         return True
     
-    #def swap_first_item():
+    def get_by_id(self,id):
+        for items in self.inventory:
+            if items.id == id:
+                return items
+        return None
+    
+      
+    
+    def swap_first_item(self, other_vendor):
+        if len(self.inventory ) == 0 or len(other_vendor.inventory) == 0:
+            return False 
+
+        my_first_item = self.inventory[0]
+        friends_first_item = other_vendor.inventory[0]
+        self.remove(my_first_item)
+        self.add(friends_first_item)
+        other_vendor.remove(friends_first_item)
+        other_vendor.add(my_first_item)
+        return True
+
+       
 
 
         
