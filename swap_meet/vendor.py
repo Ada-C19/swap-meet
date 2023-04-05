@@ -40,7 +40,11 @@ class Vendor:
         return True
     
     def get_by_category(self, category):
-        pass
+        list_of_category = []
+        for element in self.inventory:
+            if element.get_category() == category:
+                list_of_category.append(element)
+        return list_of_category
 
     def get_best_by_category(self, category):
         pass

@@ -1,13 +1,11 @@
-import uuid
+
 from swap_meet.item import Item
 
 class Clothing(Item):
     
-    def __init__(self, id = None, fabric = "Unknown", condition = 0):
-        id = uuid.uuid4().int if id is None else id
-        self.id = id
+    def __init__(self, id=None, condition=0, fabric="Unknown"):
+        super().__init__(id,condition)
         self.fabric = fabric
-        #how to child just fabric? and inherit the rest???
         
     
     def __repr__(self):
