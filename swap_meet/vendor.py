@@ -29,5 +29,14 @@ class Vendor:
             self.add(their_item)
             return True
         return False
+    
+    def get_by_category(self, category):
+        pass
+
+    def get_best_by_category(self, category):
+        pass
+
+    def swap_best_by_category(self, other_vendor, my_priority, their_priority):
+        pass
 
 
