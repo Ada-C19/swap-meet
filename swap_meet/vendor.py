@@ -36,11 +36,18 @@ class Vendor:
                 return item
         
         return None
+    
 
 
+################### WAVE 3 ########################
 
-        # first attempt
-        # if id in self.inventory:
-        #     return self.id
-        # else:
-        #     return None
+    def swap_items(self, other_vendor, my_item, their_item):
+        super().__init__()
+
+        # if len(inventory) == 0:
+
+
+        if len(self.inventory) == 0:
+            return False
+        
+

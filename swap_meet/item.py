@@ -1,9 +1,6 @@
 # ######################## WAVE 2 #############################
 import uuid
 
-# # uuid4() creates a random UUID
-# test = uuid.uuid4()
-# print(uuid.uuid4, test.int())
 # # do I need this???????
 # # from swap_meet.vendor import Vendor
 
@@ -14,14 +11,6 @@ class Item:
             id = uuid.uuid4().int
         self.id = id
 
-    # def __init__(self, id=uuid.uuid4().int):
-    #     self.id = id
-
-        # if len(id) >= 32:
-            
-
-
-        # self.id.int()
 
 
 # each item has this function
@@ -31,33 +20,6 @@ class Item:
 
         return type(name).__name__
 
-        # return name
 
+################# WAVE 3 ######################
 
-        # if name == Item():
-        #     return None
-        # name = Item()
-        # return name
-
-        # name = Item("")
-
-        # if name == self.item:
-
-        # return name
-        # item = Item.__name__
-
-        # self.name = name
-        # return Item.self.name 
-    
-
-
-        # if len(id) >= 32:
-        #     return 
-
-
-    # this was moved to vendor.py
-    # def get_by_id(self, id):
-    #     if id in self.inventory:
-    #         return self.item
-    #     else:
-    #         return None
