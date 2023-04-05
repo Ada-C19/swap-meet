@@ -5,3 +5,6 @@ class Decor(Item):
         super().__init__(id)
         self.width = width
         self.length = length
+
+    def get_category(self):
+        return "Decor"
