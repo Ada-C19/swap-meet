@@ -39,3 +39,27 @@ class Vendor:
             return False 
         first_item_switch = self.swap_items(other_vendor, my_first_item, their_first_item)
         return first_item_switch 
+    
+    def get_by_category(self, category): 
+        inventory_by_category = []
+
+        if len(self.inventory) == 0: 
+            return inventory_by_category
+        
+        for thing in self.inventory: 
+            if thing.get_category() == category: 
+                inventory_by_category.append(thing)
+        return inventory_by_category
+    
+    def get_best_by_category(self, category): 
+        best_condition = 0 
+        best_item = None 
+        
+        for thing in self.inventory: 
+            if thing.get_category() == category and thing.condition > best_condition:
+                    best_item = thing 
+                    best_condition = thing.condition
+        return best_item
+    
+    
+
