@@ -10,18 +10,9 @@ class Item:
         
     def __str__(self):
         category = self.get_category()
-        starter_statement = f"An object of type {category} with id {self.id}."
-        if category == "Item":
-            return starter_statement
-        if category == "Clothing":
-            return starter_statement + f" It is made from {self.fabric} fabric."
-        if category == "Decor":
-            return starter_statement + f" It takes up a {self.width} by {self.length} sized space."
-        if category == "Electronics":
-            return starter_statement + f" This is a {self.type} device."
+        return f"An object of type {category} with id {self.id}."
 
     def get_category(self):
-        if isinstance(self, Item):
             return "Item"
         
     def condition_description(self):

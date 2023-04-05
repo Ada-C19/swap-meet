@@ -6,6 +6,8 @@ class Electronics(Item):
         super().__init__(id, condition)
         self.type = type
 
+    def __str__(self):
+        return super().__str__() + f" This is a {self.type} device."
+
     def get_category(self):
-        if isinstance(self, Electronics):
-            return "Electronics"
+        return "Electronics"

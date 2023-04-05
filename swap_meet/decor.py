@@ -7,6 +7,8 @@ class Decor(Item):
         self.width = width
         self.length = length
 
+    def __str__(self):
+        return super().__str__() + f" It takes up a {self.width} by {self.length} sized space."
+
     def get_category(self):
-        if isinstance(self, Decor):
-            return "Decor"
+        return "Decor"

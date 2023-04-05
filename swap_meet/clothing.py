@@ -6,6 +6,8 @@ class Clothing(Item):
         super().__init__(id, condition)
         self.fabric = fabric
 
+    def __str__(self):
+        return super().__str__() + f" It is made from {self.fabric} fabric."
+
     def get_category(self):
-        if isinstance(self, Clothing):
-            return "Clothing"
+        return "Clothing"
