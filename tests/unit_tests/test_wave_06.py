@@ -255,3 +255,105 @@ def test_swap_best_by_category_no_other_match_is_false():
     assert len(jesse.inventory) == 3
     assert tai.inventory == [item_c, item_b, item_a]
     assert jesse.inventory == [item_f, item_e, item_d]
+
+# *************************************************************
+# ********************** SWAP BY NEWEST ***********************
+# *************************************************************
+
+# @pytest.mark.skip
+def test_swap_by_newest():
+    # Arrange
+    # me
+    item_a = Decor(age=4)
+    item_b = Electronics()
+    tai = Vendor(
+        inventory=[item_a, item_b]
+    )
+
+    # them
+    item_c = Clothing(age=4)
+    item_d = Decor()
+    jesse = Vendor(
+        inventory=[item_c, item_d]
+    )
+
+    # Act
+    result = tai.swap_by_newest(
+        other_vendor=jesse,
+    )
+
+    assert result
+    assert len(tai.inventory) == 2
+    assert len(jesse.inventory) == 2
+    assert tai.inventory == [item_a, item_d]
+    assert jesse.inventory == [item_c, item_b]
+
+# @pytest.mark.skip
+def test_swap_by_newest_reordered():
+    # Arrange
+    item_a = Decor(age=4)
+    item_b = Electronics()
+    tai = Vendor(
+        inventory=[item_b, item_a]
+    )
+
+    item_c = Clothing(age=4)
+    item_d = Decor()
+    jesse = Vendor(
+        inventory=[item_d, item_c]
+    )
+
+    # Act
+    result = tai.swap_by_newest(
+        other_vendor=jesse,
+    )
+
+    assert result
+    assert len(tai.inventory) == 2
+    assert len(jesse.inventory) == 2
+    assert tai.inventory == [item_a, item_d]
+    assert jesse.inventory == [item_c, item_b]
+
+# @pytest.mark.skip
+def test_swap_newest_no_inventory_is_false():
+    tai = Vendor(
+        inventory=[]
+    )
+
+    item_c = Clothing(age=4)
+    item_d = Decor()
+    jesse = Vendor(
+        inventory=[item_d, item_c]
+    )
+
+    result = tai.swap_by_newest(
+        other_vendor=jesse,
+    )
+
+    assert not result
+    assert len(tai.inventory) == 0
+    assert len(jesse.inventory) == 2
+    assert item_d in jesse.inventory
+    assert item_c in jesse.inventory
+
+# @pytest.mark.skip
+def test_swap_best_by_category_no_other_inventory_is_false():
+    item_a = Decor(age=4)
+    item_b = Electronics()
+    tai = Vendor(
+        inventory=[item_b, item_a]
+    )
+
+    jesse = Vendor(
+        inventory=[]
+    )
+
+    result = tai.swap_by_newest(
+        other_vendor=jesse,
+    )
+
+    assert not result
+    assert len(tai.inventory) == 2
+    assert len(jesse.inventory) == 0
+    assert item_a in tai.inventory
+    assert item_b in tai.inventory
