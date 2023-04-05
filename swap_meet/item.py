@@ -1,4 +1,5 @@
 import uuid
+# from swap_meet import Vendor
 
 
 class Item:
@@ -7,4 +8,7 @@ class Item:
             self.id = id
         else:
             # using uuid to generate random id
-            self.id = str(uuid.uuid4())
+            self.id = int(uuid.uuid4())
+
+    def get_category(self):
+        return "Item"

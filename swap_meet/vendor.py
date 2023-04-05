@@ -23,3 +23,12 @@ class Vendor:
 
         else:
             return False
+
+# chhecking if id matches any in the invetory
+#
+    def get_by_id(self, id):
+        for each_item in self.inventory:
+            if each_item.id == id:
+                return each_item
+
+        return None
