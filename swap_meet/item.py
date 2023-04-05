@@ -8,11 +8,12 @@ class Item:
         '''
         self.age = age
         self.condition = condition
+
         if not id:
             self.id = int(uuid.uuid4())
         else:
             self.id = id
-    
+
     # Function named `get_category` will return a string holding the name of the class
     def get_category(self):
         return self.__class__.__name__
