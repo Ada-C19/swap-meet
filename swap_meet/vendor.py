@@ -32,3 +32,19 @@ class Vendor:
         
         return True
 
+"""
+Understanding
+"swap_first_item" for instances of class named "Vendor". 
+takes one argument which, another instance of Vendor 
+instance = friend who vendor will swap items with.
+
+Application
+swap first item of inventory
+call method with first item of friends inv
+remove first item from inv
+add to friends(vice versa)
+if calling instance or friend instance has empty inv
+return false
+"""
+
+
