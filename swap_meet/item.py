@@ -27,10 +27,27 @@ class Item:
 # each item has this function
     def get_category(self, name=""):
 
-        item = Item.__name__
+        name = Item("name")
 
-        self.name = name
-        return Item.self.name 
+        return type(name).__name__
+
+        # return name
+
+
+        # if name == Item():
+        #     return None
+        # name = Item()
+        # return name
+
+        # name = Item("")
+
+        # if name == self.item:
+
+        # return name
+        # item = Item.__name__
+
+        # self.name = name
+        # return Item.self.name 
     
 
 
