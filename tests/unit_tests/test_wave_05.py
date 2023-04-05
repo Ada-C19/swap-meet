@@ -1,4 +1,5 @@
 import pytest
+from swap_meet.item import Item
 from swap_meet.clothing import Clothing
 from swap_meet.decor import Decor
 from swap_meet.electronics import Electronics
@@ -6,6 +7,25 @@ from swap_meet.electronics import Electronics
 TEST_CUSTOM_ID = 12345
 
 # ~~~~~ Clothing Tests ~~~~~
+
+def test_condition_description_returns_correct_description():
+    #Arrange/Act
+    item1 = Item(id=TEST_CUSTOM_ID)
+    item2 = Clothing(id=TEST_CUSTOM_ID, condition=0.5)
+    item3 = Decor(id=TEST_CUSTOM_ID, condition = 1.734)
+    item4 = Electronics(id=TEST_CUSTOM_ID, condition = 2)
+    item5 = Item(id=TEST_CUSTOM_ID, condition = 3.1)
+    item6 = Item(id=TEST_CUSTOM_ID, condition = 4.99999)
+    item7 = Decor(id=TEST_CUSTOM_ID, condition = 5.0)
+
+    #Assert
+    assert item1.condition_description() == "very bad"
+    assert item2.condition_description() == "very bad"
+    assert item3.condition_description() == "poor"
+    assert item4.condition_description() == "used"
+    assert item5.condition_description() == "gently used"
+    assert item6.condition_description() == "like new"
+    assert item7.condition_description() == "mint"
 
 # @pytest.mark.skip
 def test_clothing_has_default_uuid_length_id():
