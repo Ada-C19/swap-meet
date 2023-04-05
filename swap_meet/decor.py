@@ -10,6 +10,7 @@ class Decor(Item):
         self.width = width
         self.length = length
         self.condition = condition
+        self.category = self.get_category()
 
     def get_category(self):
         return "Decor"

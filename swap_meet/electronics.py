@@ -9,6 +9,7 @@ class Electronics(Item):
         self.id = id
         self.type = type
         self.condition = condition
+        self.category = self.get_category()
 
     def get_category(self):
         return "Electronics"

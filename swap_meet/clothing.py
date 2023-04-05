@@ -9,6 +9,7 @@ class Clothing(Item):
         self.id = id
         self.fabric = fabric
         self.condition = condition
+        self.category = self.get_category()
 
     def get_category(self):
         return "Clothing"

@@ -36,3 +36,13 @@ class Vendor:
         else:
             self.swap_items(other_vendor, self.inventory[0], other_vendor.inventory[0])
             return True
+        
+    def get_by_category(self, category_type):
+        items_in_category = []
+        for item in self.inventory:
+            if item.category == category_type:
+                items_in_category.append(item)
+        if items_in_category == []:
+            return None
+        else:
+            return items_in_category

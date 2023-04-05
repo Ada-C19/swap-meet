@@ -7,6 +7,7 @@ class Item:
             id = uuid.uuid1().int
         self.id = id
         self.condition = condition
+        self.category = self.get_category()
 
     def get_category(class_type):
         return class_type.__class__.__name__
