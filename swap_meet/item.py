@@ -13,17 +13,18 @@ class Item:
     
     def condition_description(self):
         if self.condition > 4:
-            condition_str = "Near mint. That's a good pick!"
+            condition_str = "Near Mint! That's a good pick!"
         elif self.condition > 3:
             condition_str = "Decent pick. Almost near mint."
         elif self.condition > 2:
-            condition_str = "Moderately used. It's aight."
-        elif self.condition > 1:
-             condition_str = "You might want to reconsider."           
+            condition_str =  "Moderately Used. It's aight."
+        elif self. condition > 1:
+            condition_str = "You might want to reconsider."
         else:
             condition_str = "This is TRAASHHHHH!!"
-        
         return condition_str
 
-
+    
+    
+    
 
