@@ -7,7 +7,7 @@ class Item:
         self.condition = condition
 
     def __repr__(self):
-        return f"An object of type Item with id {self.id}."
+        return f"An object of type {self.get_category()} with id {self.id}."
 
     def get_category(self):
         return self.__class__.__name__

@@ -1,4 +1,3 @@
-
 from swap_meet.item import Item
 
 class Clothing(Item):
@@ -9,5 +8,5 @@ class Clothing(Item):
         
     
     def __repr__(self):
-        return f"An object of type Clothing with id {self.id}. It is made from {self.fabric} fabric."
+        return f"{super().__repr__()} It is made from {self.fabric} fabric."
     
