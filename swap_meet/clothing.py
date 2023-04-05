@@ -1,4 +1,4 @@
-from item import Item
+from .item import Item
 
 class Clothing(Item):
     
@@ -10,7 +10,8 @@ class Clothing(Item):
         return "Clothing"
     
     def __str__(self):
-        super().__str__
+        line1 = super().__str__()
+        line2 = f"It is made from {self.fabric} fabric."
+        return " ".join((line1, line2))
+
         
-    # def __str__(self):
-    #     return f"An object of type Clothing with id {self.id}"
