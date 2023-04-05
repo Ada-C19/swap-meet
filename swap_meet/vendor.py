@@ -45,9 +45,12 @@ class Vendor:
         if other_vendor.inventory and self.inventory:
             first_item_from_friend = other_vendor.inventory[0]
             my_first_item = self.inventory[0]
+
+            self.swap_items(other_vendor, my_first_item, first_item_from_friend)
             
-            self.inventory[0] = first_item_from_friend
-            other_vendor.inventory[0] = my_first_item
+            # self.inventory[0] = first_item_from_friend
+            # other_vendor.inventory[0] = my_first_item
+
             return True
         return False
 
@@ -80,25 +83,25 @@ class Vendor:
     # Their_priority = Category friend's wants to receive an item from
     # Return True IF my best item with category matches their best item with its category
     # Return False if there is no item that MATCHES either their priority or my priority
-    # Yo quiero un item de SU categoria con la mejor condicion (estado)
     def swap_best_by_category(self, other_vendor, my_priority, their_priority):
 
         item_I_want = other_vendor.get_best_by_category(my_priority)
         item_other_want = self.get_best_by_category(their_priority)
                                                             
 
-        if item_I_want and item_other_want:
-            # Remove the item_other_want from my inventory
-            item_removed_from_my_inventory = self.remove(item_other_want)
-            # Add item_other_want to their inventory
-            other_vendor.add(item_removed_from_my_inventory)
+        # if item_I_want and item_other_want:
+            # Swap items using swap method
+        return self.swap_items(other_vendor, item_other_want, item_I_want)
 
-            # remove the item_I_want from their inventory
-            item_removed_from_their_inventory = other_vendor.remove(item_I_want)
-            # Add item_I_want to my inventory
-            self.add(item_removed_from_their_inventory)
-        
-            return True
+            # Remove the item_other_want from my inventory
+            # item_removed_from_my_inventory = self.remove(item_other_want)
+            # # Add item_other_want to their inventory
+            # other_vendor.add(item_removed_from_my_inventory)
+
+            # # remove the item_I_want from their inventory
+            # item_removed_from_their_inventory = other_vendor.remove(item_I_want)
+            # # Add item_I_want to my inventory
+            # self.add(item_removed_from_their_inventory)
         
         
 
