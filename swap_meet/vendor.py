@@ -19,10 +19,11 @@ class Vendor:
         for item in self.inventory:
             if item_id == item.id:
                 return item
-        # Returns None if no item with item_id is found    
-        return None
+        else:    
+            return None
     
     def swap_items(self, other_vendor, my_item, their_item):
+        # Does not execute swap if either item doesn't exist
         if (my_item not in self.inventory or 
                 their_item not in other_vendor.inventory):
             return False
@@ -44,15 +45,14 @@ class Vendor:
             return True
         except IndexError:
             return False
-    
+        
     def get_by_category(self, category):
-        # Returns a list of items
+        # Returns a list of items in category
         return [item for item in self.inventory
                 if item.get_category() == category]
 
     def get_best_by_category(self, category):
         category_items = self.get_by_category(category)
-
         try:
             # Returns item with best condition rating
             return max(category_items, key=lambda x: x.condition)
@@ -62,13 +62,8 @@ class Vendor:
     def swap_best_by_category(self, other_vendor, my_priority, their_priority):
         my_best = self.get_best_by_category(their_priority)
         their_best = other_vendor.get_best_by_category(my_priority)
-
-        if not my_best or not their_best:
-            return False
-        
-        # Executes swap only after confirming both items exist
-        self.swap_items(other_vendor, my_best, their_best)
-        return True
+        # Returns True if swap executes, returns False otherwise
+        return self.swap_items(other_vendor, my_best, their_best)
     
     def swap_by_newest(self, other_vendor):
         try:
@@ -76,7 +71,5 @@ class Vendor:
             their_newest = min(other_vendor.inventory, key=lambda x: x.age)
         except ValueError:
             return None
-        
-        # Executes swap only after confirming both items exist
-        self.swap_items(other_vendor, my_newest, their_newest)
-        return True
+        # Returns True if swap executes, returns False otherwise
+        return self.swap_items(other_vendor, my_newest, their_newest)
