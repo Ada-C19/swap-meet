@@ -100,6 +100,7 @@ class Vendor:
                 If other_vendor has no item that matches my_priority category, swapping does not happen, and it returns False
 
     """
+
     
     def get_by_category(self, category):
         items = []
@@ -112,3 +113,19 @@ class Vendor:
                 items.append(item)
         
         return items
+    # Vendors have a method named get_best_by_category, which will get the item with the best condition in a certain category
+    #     It takes one argument: a string that represents a category
+    #     This method looks through the instance's inventory for the item with the highest condition and matching category
+    #         It returns this item
+    #         If there are no items in the inventory that match the category, it returns None
+    #         It returns a single item even if there are duplicates (two or more of the same item with the same condition)
+    
+def get_best_by_category(self, category):
+   #pseudo code 
+
+   # for all the items in self inventory. 
+   # look at the items with matching categories 
+   # so decor item, decor item, electornic item, electornic item, 
+   # out of those matching items, return the item with the highest condition. 
+   # return ONE item, no duplicates. 
+    
