@@ -56,3 +56,17 @@ class Vendor:
     def get_by_category(self, category):
         return [item for item in self.inventory if 
                 item.get_category() == category]
+    
+    def get_best_by_category(self, category):
+        if not self.inventory:
+            return False
+
+        category_dict = {}
+        for item in self.inventory:
+            if item.get_category() == category:
+                category_dict[item] = item.condition
+        
+        if not category_dict:
+            return None
+        
+        return max(category_dict, key=category_dict.get)
