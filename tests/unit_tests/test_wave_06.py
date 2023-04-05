@@ -33,10 +33,8 @@ def test_get_no_matching_items_by_category():
 
     items = vendor.get_by_category("Electronics")
 
-    raise Exception("Complete this test according to comments below.")
-    # *********************************************************************
-    # ****** Complete Assert Portion of this test **********
-    # *********************************************************************
+    # Assert
+    assert len(items) == 0
 
 # @pytest.mark.skip
 def test_best_by_category():
