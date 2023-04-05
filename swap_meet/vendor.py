@@ -81,10 +81,7 @@ class Vendor:
         if not my_item or not their_item:
             return False
         
-        self.remove(my_item)
-        other_vendor.remove(their_item)
-        self.add(their_item)
-        other_vendor.add(my_item)
+        self.swap_items(other_vendor, my_item, their_item)
 
         return True
 
