@@ -2,7 +2,7 @@ import uuid
 
 class Item:
 
-    def __init__(self, id = None, condition=0):
+    def __init__(self, id = None, condition = 0.0):
         if id is not None:
             self.id = id
         else:
@@ -16,17 +16,17 @@ class Item:
         return f"An object of type Item with id {self.id}."
     
     def condition_description(self):
-        if self.condition == 0: 
+        if self.condition == 0.0: 
             return "Scrap"
-        if self.condition == 1: 
+        if self.condition == 1.0: 
             return "Poor" 
-        if self.condition == 2:
+        if self.condition == 2.0:
             return "Well loved!"
-        if self.condition == 3: 
+        if self.condition == 3.0: 
             return "Gently used"
-        if self.condition == 4: 
+        if self.condition == 4.0: 
             return "Like new"
-        if self.condition == 5: 
+        if self.condition == 5.0: 
             return "Mint condition"
 
 

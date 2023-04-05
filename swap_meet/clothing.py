@@ -1,10 +1,11 @@
 from swap_meet.item import Item
+
 class Clothing(Item):
-    def _init_(self, fabric="Unknown"):
+    def __init__(self, fabric="Unknown", id = None, condition = 0.0):
+        super().__init__(id, condition)  
         self.fabric = fabric 
+            
     def __str__(self): 
-        return f"An object of type Clothing with id {self.id}. It is made from {self.fabric} fabric." 
+        return f"An object of type Clothing with id {self.id}. It is made from {self.fabric} fabric."
                 
 
-
-    

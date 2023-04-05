@@ -41,3 +41,9 @@ class Vendor:
         self.inventory.append(other_vendor.inventory.pop(0))
         return True
     
+    def get_by_category(self, category):
+        category_list = []
+        for item in self.inventory:
+            if isinstance(item, category):
+                category_list.append(item)
+        return category_list
