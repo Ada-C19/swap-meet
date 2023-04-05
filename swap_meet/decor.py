@@ -1,5 +1,5 @@
 from swap_meet.item import Item
-import uuid
+
 class Decor(Item):
     def __init__(self, condition=0, width=0, length=0, id=None):
         super().__init__(condition, id)

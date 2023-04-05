@@ -1,5 +1,4 @@
 from swap_meet.item import Item
-import uuid
 
 class Clothing(Item):
     def __init__(self, condition=0, id=None, fabric="Unknown"):
@@ -12,5 +11,3 @@ class Clothing(Item):
     def __str__(self):
         return f"An object of type Clothing with id {self.id}. It is made from {self.fabric} fabric."
     
-    def condition_description(self):
-        pass

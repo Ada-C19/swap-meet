@@ -44,3 +44,8 @@ class Vendor:
     
         return True
     
+    # def get_by_category(self):
+    #     if item.category not in self.inventory:
+    #         return []
+    #     for item.category in self.inventory:
+    #         return self.inventory

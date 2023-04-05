@@ -37,6 +37,7 @@ def test_get_no_matching_items_by_category():
     # *********************************************************************
     # ****** Complete Assert Portion of this test **********
     # *********************************************************************
+    # assert items == []
 
 @pytest.mark.skip
 def test_best_by_category():
