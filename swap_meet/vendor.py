@@ -41,3 +41,6 @@ class Vendor:
         self.inventory.append(their_item)
 
         return True
+    
+
+   
