@@ -1,8 +1,9 @@
 from swap_meet.item import Item
 
 class Electronics(Item):
-    def __init__(self, id=None, type="Unknown"):
+    def __init__(self, id=None, type="Unknown", condition=0):
         self.type = type
+        self.condition = condition
         super().__init__(id)
 
     def get_category(self):
@@ -10,3 +11,6 @@ class Electronics(Item):
     
     def __str__(self):
         return f'An object of type Electronics with id {self.id}. This is a {self.type} device.'
+    
+    def condition_description(self):
+        return super().condition_description(self.condition)
