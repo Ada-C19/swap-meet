@@ -21,16 +21,11 @@ class Vendor:
             if item.id == item_id:
                 return item
         return None
-            
-    
-    
-    
-    
-    
-    
-#     class Vendor:
-# def __init__(self)
-
-# def get_by_id(self, item_id)   #takes one argument: an integer, representing an `Item`'s `id` -> 
-# ween vendor and item for this method?
-# return item_in_inventor_with_item_id or None
+    def swap_items(self, other_vendor, my_item, their_item):
+        if my_item in  self.inventory:
+            self.inventory.remove(my_item)
+            self.inventory.append(my_item)
+            self.inventory.remove(their_item)
+            self.inventory.append(their_item)
+            return True
+        return False
