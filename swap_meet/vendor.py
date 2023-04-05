@@ -44,6 +44,13 @@ class Vendor:
     def get_by_category(self, category):
         category_list = []
         for item in self.inventory:
-            if isinstance(item, category):
+            if item.get_category() == category:
                 category_list.append(item)
         return category_list
+        
+    
+        # category_list = []
+        # for item in self.inventory:
+        #     if isinstance(item, category):
+        #         category_list.append(item)
+        # return category_list
