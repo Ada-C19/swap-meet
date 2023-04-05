@@ -158,7 +158,7 @@ Our new modules should be defined as follows:
     - When we initialize an instance of `Electronics`, we can optionally pass in a string with the keyword argument `type`
   - Has an function `get_category` that returns `"Electronics"`
   - Has a stringify method that returns `"An object of type Electronics with id <id value>. This is a <type value> device."`
-    - For example, if we had an `Electronics` instance with an `id` of `123435` and `type` attribute of `"Mobile Phone"`, its stringify method should return `"An object of type Electronics with id 12345. This is a Mobile Phone device."`
+    - For example, if we had an `Electronics` instance with an `id` of `123435` and `type` attribute of `"Mobile Phone"`, its stringify method should return `"`An object of type Electronics with id 12345. This is a Mobile Phone device."
 
 - All three new classes and the `Item` class have an attribute called `condition`, which can be optionally provided in the initializer. The default value should be `0`
 
