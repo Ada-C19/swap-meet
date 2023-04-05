@@ -1,8 +1,10 @@
 import uuid
 class Item:
     
-    def __init__(self,category="", condition=0, id=None): 
+    def __init__(self, category="", condition=float(0), id=None): 
         # self.self = self
+        self.category = "Item"
+        self.condition = condition
         
         if id is None:
             # Generate a random UUID
@@ -13,8 +15,6 @@ class Item:
             self.id = random_id
         else:
             self.id = id
-
-        self.category = "Item"
 
     def get_category(self):
         return f"{self.category}"
