@@ -54,6 +54,5 @@ class Vendor:
         return True
     
     def get_by_category(self, category):
-        self.category = category
         return [item for item in self.inventory if 
                 item.get_category() == category]
