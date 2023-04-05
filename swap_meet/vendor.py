@@ -53,7 +53,8 @@ class Vendor:
 
     def get_best_by_category(self, category):
         """
-        Return item from inventory with highest condition score that matches given category.
+        Return item from inventory with highest condition score that matches 
+        given category.
         """
         max_condition = 0
         best_item = None
