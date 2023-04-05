@@ -2,6 +2,13 @@ import pytest
 from swap_meet.vendor import Vendor
 from swap_meet.item import Item
 
+def test_reject_non_integer_ids():
+    with pytest.raises(TypeError):
+        item1 = Item(id="cat")
+
+    with pytest.raises(TypeError):
+        item2 = Item(id="12345")
+
 # @pytest.mark.skip
 def test_items_have_default_uuid_length_id():
     item = Item()
