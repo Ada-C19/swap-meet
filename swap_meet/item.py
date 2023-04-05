@@ -28,15 +28,15 @@ class Item:
         condition = self.condition
         
         if condition == 0:
-            return "Get the gloves on"
+            return "Held together by magic and prayer. All swaps final"
         elif condition == 1:
-            return "Poor"
+            return "Needs a fair amount of repair"
         elif condition == 2:
-            return "Used"
+            return "Some wear and tear"
         elif condition == 3:
             return "Good condition"
         elif condition == 4:
-            return "Gently used"
+            return "Very gently loved"
         else: 
             return "Just like new!"
         

@@ -1,23 +1,24 @@
 from swap_meet.item import Item
 import uuid
+from swap_meet.item import Item
+
+# need to change the syntax to allow Electronics class to inherit from Item class
+# class ExampleChildClass(ExampleParentClass):
+# Electronics class shares the same id and condition attributes as Item class
+# Item constructor: def __init__(self, id=None, condition = 0):
+
 
 class Electronics(Item):
     # Has an attribute id that is by default a unique integer
     # Has an attribute type that is by default the string "Unknown"
     # def __init__(self, id= None, type = "Unknown"):
-    def __init__(self, id = None, type="Unknown", condition = 0):
-        super().__init__(id, condition)
-        
-        # using UUID4 since UUID1 creates a UUID with the computer's network address 
-        # UUID.int- returns the UUID as a 128-bit integer.
-        # self.id = uuid.uuid4().int
-        self.id =  id if id is not None else uuid.uuid4().int
-        
+    def __init__(self, id = None, condition = 0, type="Unknown", ):
+        super().__init__(id, condition)  # will get Attribute Error without this
+
+            
         # following a similar syntax for type as id
         self.type = type if type is not "Unknown" else type
         
-        # following a similar syntax for condition as id
-        self.condition = condition if condition is not 0 else condition
 
         
     # Has a function get_category that returns "Electronics"
