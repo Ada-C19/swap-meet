@@ -109,13 +109,13 @@ def test_reject_non_numeric_condition():
 
 def test_condition_description_returns_correct_description():
     #Arrange/Act
-    item1 = Item(id=TEST_CUSTOM_ID)
-    item2 = Clothing(id=TEST_CUSTOM_ID, condition=0.5)
-    item3 = Decor(id=TEST_CUSTOM_ID, condition = 1.734)
-    item4 = Electronics(id=TEST_CUSTOM_ID, condition = 2)
-    item5 = Item(id=TEST_CUSTOM_ID, condition = 3.1)
-    item6 = Item(id=TEST_CUSTOM_ID, condition = 4.99999)
-    item7 = Decor(id=TEST_CUSTOM_ID, condition = 5.0)
+    item1 = Item()
+    item2 = Clothing(condition=0.5)
+    item3 = Decor(condition = 1.734)
+    item4 = Electronics(condition = 2)
+    item5 = Item(condition = 3.1)
+    item6 = Item(condition = 4.99999)
+    item7 = Decor(condition = 5.0)
 
     #Assert
     assert item1.condition_description() == "very bad"
@@ -125,7 +125,7 @@ def test_condition_description_returns_correct_description():
     assert item5.condition_description() == "gently used"
     assert item6.condition_description() == "like new"
     assert item7.condition_description() == "mint"
-    
+
 # @pytest.mark.skip
 def test_items_have_condition_as_float():
     items = [
