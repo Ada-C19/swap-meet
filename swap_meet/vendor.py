@@ -55,7 +55,7 @@ class Vendor:
         Return a list of items in inventory with category attribute that matches 
         the given category.
         """
-        category_items = [item for item in self.inventory if item.category == category]
+        category_items = [item for item in self.inventory if item.get_category() == category]
         return category_items
 
 
@@ -68,14 +68,15 @@ class Vendor:
         best_item = None
         
         for item in self.inventory:
-           if item.category == category and item.condition > max_condition:
+           if item.get_category() == category and item.condition > max_condition:
+               max_condition = item.condition
                best_item = item
 
         return best_item 
 
     def swap_best_by_category(self, other_vendor, my_priority, their_priority):
         my_item = self.get_best_by_category(their_priority)
-        their_item = self.get_best_by_category(my_priority)
+        their_item = other_vendor.get_best_by_category(my_priority)
 
         if not my_item or not their_item:
             return False
@@ -83,7 +84,7 @@ class Vendor:
         self.remove(my_item)
         other_vendor.remove(their_item)
         self.add(their_item)
-        other_vendor.add(their_item)
+        other_vendor.add(my_item)
 
         return True
 
