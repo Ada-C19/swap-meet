@@ -9,8 +9,10 @@ class Clothing(Item):
         # get_category = super().get_category()
         # return get_category
         return __class__.__name__
+
     
     def __str__(self):
         return f"An object of type {self.category} with id {self.id}. It is made from {self.fabric}."
-    
-    
+
+    # def condition_description(self):
+    #     return super().condition_description()

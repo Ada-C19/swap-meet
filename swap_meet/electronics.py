@@ -10,3 +10,6 @@ class Electronics(Item):
 
     def __str__(self):
         return f"An object of type {self.category} with id {self.id}. This is a {self.type} device."
+    
+    def condition_description(self):
+        return super().condition_description()
