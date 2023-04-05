@@ -1,3 +1,4 @@
+import uuid
 ####################### WAVE 1 #############################
 
 # do I need this??????
@@ -22,8 +23,9 @@ class Vendor:
             # return self.inventory
 
 
-    # def get_by_id(self, id):    
-    #     if id in self.inventory:
-    #         return self.item
-    #     else:
-    #         return None
+####################### WAVE 2 #############################
+    def get_by_id(self, id=uuid.uuid4()):    
+        if id in self.inventory:
+            return self.Item
+        else:
+            return None
