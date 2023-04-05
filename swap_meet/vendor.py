@@ -1,4 +1,4 @@
-#from swap_meet.item import Item
+from .item import Item
 
 class Vendor:
     def __init__(self, inventory = None):
@@ -21,3 +21,18 @@ class Vendor:
                 return items
         return None
         
+
+    def swap_items(self, other_vendor, my_item ,their_item):
+        if my_item in self.inventory:
+            if their_item in other_vendor.inventory:
+                other_vendor.inventory.append(my_item)
+                self.inventory.remove(my_item)
+                self.inventory.append(their_item)
+                other_vendor.inventory.remove(their_item)
+            else:
+                return None 
+        
+        
+        return other_vendor.inventory and self.inventory
+        
+        #Conditional checking if their item in other vendor.inventory - add to inventory
