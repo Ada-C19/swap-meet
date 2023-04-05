@@ -130,8 +130,10 @@ def test_swap_items_from_their_empty_returns_false():
     nobodys_item = Item()
 
     result = fatimah.swap_items(jolie, item_b, nobodys_item)
+    # Assert
+    assert result == False
 
-    raise Exception("Complete this test according to comments below.")
+    # raise Exception("Complete this test according to comments below.")
     # *********************************************************************
     # ****** Complete Assert Portion of this test **********
     # *********************************************************************
