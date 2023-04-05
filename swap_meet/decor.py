@@ -10,4 +10,5 @@ class Decor(Item):
         return "Decor"
     
     def __str__(self):
-        return f"An object of type Decor with id {self.id}. It takes up a {self.width} by {self.length} sized space."
+        type = self.get_category()
+        return f"An object of type {type} with id {self.id}. It takes up a {self.width} by {self.length} sized space."

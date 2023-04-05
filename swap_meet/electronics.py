@@ -9,4 +9,5 @@ class Electronics(Item):
         return "Electronics"
     
     def __str__(self):
-        return f"An object of type Electronics with id {self.id}. This is a {self.type} device."
+        type = self.get_category()
+        return f"An object of type {type} with id {self.id}. This is a {self.type} device."
