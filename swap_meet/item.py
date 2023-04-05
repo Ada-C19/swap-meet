@@ -1,5 +1,4 @@
 import uuid
-from swap_meet.vendor import Vendor
 
 class Item:
     
