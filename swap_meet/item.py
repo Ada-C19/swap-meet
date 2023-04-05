@@ -6,6 +6,7 @@ class Item:
             self.id = int(uuid.uuid4())
         else:
             self.id = id
+    
     def get_category(self):
         return str(self.__class__.__name__)
     
