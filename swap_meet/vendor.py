@@ -34,12 +34,7 @@ class Vendor:
         if len(self.inventory) == 0 or len(other_vendor.inventory) == 0:
             return False
         
-        other_vendor.inventory.append(self.inventory[0])
-        self.inventory.remove(self.inventory[0])
-        
-        self.inventory.append(other_vendor.inventory[0])
-        other_vendor.inventory.remove(other_vendor.inventory[0])
-
-        
-        
+        tmp = self.inventory[0]
+        self.inventory[0] = other_vendor.inventory[0]
+        other_vendor.inventory[0] = tmp
         return True
