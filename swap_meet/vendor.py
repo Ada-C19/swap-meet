@@ -1,10 +1,12 @@
 
 
 class Vendor:
-    # here a new instance of Vendor can either have a list or None option as a value for inventory
+    #
     def __init__(self, inventory=None):
+        # if inventory is truthy, values will be assigned to inventory
         if inventory:
             self.inventory = inventory
+            # otherwise, []
         else:
             self.inventory = []
 
