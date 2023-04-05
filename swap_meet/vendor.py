@@ -32,6 +32,19 @@ class Vendor:
         
         return True
 
+
+    def swap_first_item(self, other_vendor):
+            if not self.inventory or not other_vendor.inventory:
+                return False
+            
+            v1_item = self.inventory[0]
+            v2_item = other_vendor.inventory[0]
+            
+            self.inventory[0] = v2_item
+            other_vendor.inventory[0] = v1_item
+            
+            return True
+
 """
 Understanding
 "swap_first_item" for instances of class named "Vendor". 
