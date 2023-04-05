@@ -5,12 +5,14 @@ class Item:
         self.id = uuid4().int if id is None else id
     # use this in wave 5 (probably for all modules)
 
+    def __str__(self):
+        return f"An object of type Item with id {self.id}."
+
     def get_category(self):
         # check if need to cast into str
-        return "Item"
+        pass
     
-    
-    
+
     # def swap_first_item(self, other_vendor):
     #     """
     #     Swap the first items between self's inventory and other_vendor inventory.

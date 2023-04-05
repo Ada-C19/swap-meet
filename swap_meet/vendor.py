@@ -43,7 +43,7 @@ class Vendor:
         other_vendor.add(my_item)
         
         return True
-    
+
 
     def get_by_category(self, category):
         """
