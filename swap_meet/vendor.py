@@ -44,7 +44,7 @@ class Vendor:
             return True    
     
     # ----- Wave 4 -----------------------------
-    def swap_first_item(self, other_vendor):
+    def swap_first_item(self, other_vendor): #usar la función anterior?
         """This method considers the first item in the instance's inventory, 
         and the first item in the friend's inventory
         It removes the first item from its inventory, and adds the friend's first item
@@ -85,15 +85,7 @@ class Vendor:
         if not self.get_by_category(their_priority) or not other_vendor.get_by_category(my_priority):
             return False
         
-        their_best = self.get_best_by_category(their_priority)
-        my_best = other_vendor.get_best_by_category(my_priority)
-        for item in self.inventory:
-            if their_best == item:
-                self.inventory.remove(their_best)
-                other_vendor.inventory.append(their_best)
-        for item in other_vendor.inventory:
-            if my_best == item:
-                other_vendor.inventory.remove(my_best)
-                self.inventory.append(my_best)
+        my_best = self.get_best_by_category(their_priority)
+        their_best = other_vendor.get_best_by_category(my_priority)
+        self.swap_items(other_vendor,my_best,their_best)
         return True
-
