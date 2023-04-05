@@ -34,10 +34,10 @@ class Vendor:
                 their_item not in other_vendor.inventory):
             return False
 
-        self.inventory.remove(my_item)
-        other_vendor.inventory.append(my_item)
-        other_vendor.inventory.remove(their_item)
-        self.inventory.append(their_item)
+        self.remove(my_item)
+        other_vendor.add(my_item)
+        other_vendor.remove(their_item)
+        self.add(their_item)
 
         return True
     
@@ -47,8 +47,8 @@ class Vendor:
             return False
         
         # Swap first item of each vendor's inventory
-        self.swap_items(other_vendor, 
-                        self.inventory[0], 
+        self.swap_items(other_vendor,
+                        self.inventory[0],
                         other_vendor.inventory[0])
         
         return True
@@ -70,4 +70,12 @@ class Vendor:
         
         return best_item
     
-    # def swap_best_by_category(self, other_vendor, ):
+    def swap_best_by_category(self, other_vendor, my_priority, their_priority):
+        my_best = self.get_best_by_category(their_priority)
+        their_best = other_vendor.get_best_by_category(my_priority)
+
+        if not my_best or not their_best:
+            return False
+        
+        self.swap_items(other_vendor, my_best, their_best)
+        return True
