@@ -68,4 +68,4 @@ class Vendor:
         if my_best_item is None or their_best_item is None:
             return False
         return self.swap_items(other_vendor, my_best_item, their_best_item)
-        # return True
+
