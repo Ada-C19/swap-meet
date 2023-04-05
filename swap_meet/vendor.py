@@ -43,13 +43,9 @@ class Vendor:
             return False
         
         my_item = self.inventory[0]
-        other_item = other_vendor.inventory[0]
+        their_item = other_vendor.inventory[0]
 
-        self.remove(my_item)
-        other_vendor.remove(other_item)
-
-        self.add(other_item)
-        other_vendor.add(my_item)
+        self.swap_items(other_vendor, my_item, their_item)
         
         return True
 
