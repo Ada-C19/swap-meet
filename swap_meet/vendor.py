@@ -48,3 +48,6 @@ class Vendor:
         self.swap_items(other_vendor,my_first_item, their_first_item)
 
         return True
+    
+    def get_by_category(self):
+        pass
