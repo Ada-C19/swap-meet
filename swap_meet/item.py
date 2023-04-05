@@ -30,8 +30,6 @@ class Item:
         if self.condition == 5.0: 
             return "Mint condition"
     
-    def age_description(self):
-        pass
 
 
         
