@@ -117,8 +117,13 @@ def test_swap_best_by_category():
     # - That tai and jesse's inventories are the correct length
     assert len(tai.inventory) == 3
     assert len(jesse.inventory) == 3
-    assert result == jesse.inventory[item_d, item_b, item_c]
-    assert result == tai.inventory[item_a, item_e, item_f]
+    assert result == item_d in jesse.inventory
+    assert result == item_b in jesse.inventory
+    assert result == item_c in jesse.inventory
+    assert item_a in tai.inventory
+    assert item_e in tai.inventory
+    assert item_f in tai.inventory
+    [item_a, item_e, item_f]
 
     # - That the results is truthy
     # - That tai and jesse's inventories are the correct length
@@ -246,8 +251,13 @@ def test_swap_best_by_category_no_match_is_false():
     # - That tai and jesse's inventories are the correct length
     assert len(tai.inventory) == 3
     assert len(jesse.inventory) == 3
-    assert result == jesse.inventory[item_d, item_e, item_f]
-    assert result == tai.inventory[item_a, item_b, item_c]
+    assert item_d in jesse.inventory
+    assert item_e in jesse.inventory
+    assert item_f in jesse.inventory
+    assert item_a in tai.inventory
+    assert item_b in tai.inventory
+    assert item_c in tai.inventory
+    # result == tai.inventory[item_a, item_b, item_c]
     # - That result is falsy
     # - That tai and jesse's inventories are the correct length
     # - That all the correct items are in tai and jesse's inventories
