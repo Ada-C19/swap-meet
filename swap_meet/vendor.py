@@ -58,15 +58,16 @@ class Vendor:
                 item.get_category() == category]
     
     def get_best_by_category(self, category):
-        if not self.inventory:
-            return False
+        inventory_of_category = self.get_by_category(category)
 
-        category_dict = {}
-        for item in self.inventory:
-            if item.get_category() == category:
-                category_dict[item] = item.condition
-        
-        if not category_dict:
+        if not inventory_of_category:
             return None
+
+        best_item = None
+        for item in inventory_of_category:
+            if not best_item or item.condition > best_item.condition:
+                best_item = item
         
-        return max(category_dict, key=category_dict.get)
+        return best_item
+    
+    # def swap_best_by_category(self, other_vendor, ):
