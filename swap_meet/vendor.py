@@ -34,3 +34,16 @@ class Vendor:
             return True
         else:
             return False
+
+    def swap_first_item(self, other_vendor):
+        if not self.inventory or not other_vendor.inventory:
+            return False
+        self_item = self.inventory[0]
+        vendor_item = other_vendor.inventory[0]
+
+        self.inventory.remove(self_item)
+        self.inventory.append(vendor_item)
+
+        other_vendor.inventory.remove(vendor_item)
+        other_vendor.inventory.append(self_item)
+        return True
