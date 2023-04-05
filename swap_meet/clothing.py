@@ -1,13 +1,15 @@
+from swap_meet.item import Item
 import uuid
 
-class Clothing:
+
+class Clothing(Item):
     # Has an attribute id that is by default a unique integer
         # will unique integer by separate from uuid from integer?
     
     # Has an attribute fabric that is by default the string "Unknown"
     
     def __init__(self, id=None, fabric = "Unknown", condition = 0):
-        
+        super().__init__(id, condition)
         # using UUID4 since UUID1 creates a UUID with the computer's network address 
         # UUID.int- returns the UUID as a 128-bit integer.
         # self.id = uuid.uuid4().int

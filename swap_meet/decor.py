@@ -1,12 +1,13 @@
+from swap_meet.item import Item
 import uuid
 
-class Decor:
+class Decor(Item):
 
     # Has an attribute id that is by default a unique integer
     # Holds 2 integer attributes width and length
     #   both ofthese values should be 0 by default
     def __init__(self, id = None, width = 0, length = 0, condition= 0):
-        
+        super().__init__(id, condition)
         # using UUID4 since UUID1 creates a UUID with the computer's network address 
         # UUID.int- returns the UUID as a 128-bit integer.
         # self.id = uuid.uuid4().int
