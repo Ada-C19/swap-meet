@@ -1,5 +1,6 @@
 from uuid import uuid4
 
+
 class Item:
     def __init__(self, id=None, condition=0, age=0):
         if id is None or not isinstance(id, int):
