@@ -16,6 +16,7 @@ class Vendor:
 
 # if theres a match, item gets removed
     def remove(self, item):
+
         if item in self.inventory:
             self.inventory.remove(item)
             return item
