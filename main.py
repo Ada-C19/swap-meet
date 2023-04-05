@@ -20,12 +20,15 @@ vendor = Vendor(["cake", "shirt", "water"])
 # print(vendor.get_by_id(id = 123))
 # print(vendor.inventory)
 
+clothing = Clothing()
+item = Item()
 
-
-other_vendor = Vendor(["hair","cupcakes","spider"])
+other_vendor = Vendor([clothing, item])
 # print(vendor.swap_first_item(other_vendor))
 
-clothing = Clothing()
+
 
 # print(clothing.get_category())
-print(clothing)
+# print(clothing)
+# print(other_vendor.inventory)
+print(other_vendor.get_by_category("Clothing"))

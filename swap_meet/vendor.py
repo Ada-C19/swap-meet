@@ -2,10 +2,7 @@ from swap_meet.item import Item
 
 class Vendor:
     def __init__(self, inventory=None):
-        if inventory is None:
-            self.inventory = []
-        else:
-            self.inventory = inventory
+        self.inventory = inventory if inventory else []
     #     self.inventory = inventory
     #     word_list = [] if word_list is None else word_list
     # word_list.append(word)
@@ -48,6 +45,18 @@ class Vendor:
         self.remove(self.inventory[0])
         other_vendor.remove(other_vendor.inventory[0])
         return True
+    
+    def get_by_category(self, category=None):
+        #take in one arguement category: str
+        matched_object = [] 
+    
+        for item in self.inventory:
+            if Item.get_category(item) == category:
+                matched_object.append(item)
+        return matched_object
+
+    def get_best_by_category(self):
+        pass
 
 
 
