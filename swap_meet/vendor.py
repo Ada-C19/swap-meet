@@ -45,18 +45,15 @@ class Vendor:
             return False
     
     def get_by_category(self, category):
-        items = []
-
-        for item in self.inventory:
-            if item.get_category() == category:
-                items.append(item)
-        return items
+        # Returns a list of items
+        return [item for item in self.inventory
+                if item.get_category() == category]
 
     def get_best_by_category(self, category):
         category_items = self.get_by_category(category)
 
         try:
-            # Returns item in list with the best condition attribute
+            # Returns item with best condition rating
             return max(category_items, key=lambda x: x.condition)
         except ValueError:
             return None
