@@ -9,3 +9,5 @@ class Item:
     
     def __str__(self):
         return f"An object of type {self.get_category()} with id {self.id}."
+    
+

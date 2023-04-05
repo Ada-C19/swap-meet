@@ -27,6 +27,11 @@ class Vendor:
         other_vendor.inventory.append(my_item)
         return True
 
+        # self.inventory.append(other_vendor.inventory.pop(other_vendor.inventory.index(their_item)))
+        # other_vendor.inventory.append(self.inventory.pop(self.inventory.index(my_item)))
+        # return True
+        
+
     def swap_first_item(self, other_vendor):
         if not self.inventory or not other_vendor.inventory:
             return False
