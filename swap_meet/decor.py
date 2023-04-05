@@ -4,8 +4,7 @@ class Decor(Item):
     def __init__(self, id=None, width=0, length=0, condition=0):
         self.width = width
         self.length = length
-        self.condition = condition
-        super().__init__(id)
+        super().__init__(id, condition)
 
     def get_category(self):
         return "Decor"
@@ -14,4 +13,5 @@ class Decor(Item):
         return f'An object of type Decor with id {self.id}. It takes up a {self.width} by {self.length} sized space.'
     
     def condition_description(self):
-        return super().condition_description(self.condition)
+        some_condition = super().condition_description()
+        return some_condition
