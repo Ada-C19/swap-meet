@@ -46,3 +46,16 @@ class Vendor:
             return None
         else:
             return items_in_category
+        
+    def get_best_by_category(self,category):
+        if not self.get_by_category(category):
+            return None
+        else:
+            best_condition = None
+            for item in self.get_by_category(category):
+                if not best_condition:
+                    best_condition = item
+                elif item.condition > best_condition.condition:
+                    best_condition = item
+            return best_condition
+        
