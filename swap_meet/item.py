@@ -3,8 +3,10 @@ import uuid
 
 class Item:
     def __init__(self, id=None, condition=0, age=0):
-        random_id = uuid.uuid1().int
-        self.id = random_id if id is None else id
+        if not id:
+            self.id = uuid.uuid1().int
+        else:
+            self.id = id
         self.condition = condition
         self.age = age
 
@@ -16,9 +18,9 @@ class Item:
 
     def condition_description(self):
         condition_dict = {
-            0: "Worn Out",
+            0: "As-is",
             1: "Heavily Used",
-            2: "Normaly Used",
+            2: "Used",
             3: "Lightly Used",
             4: "Like New",
             5: "Brand New"
