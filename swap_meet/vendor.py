@@ -75,11 +75,6 @@ class Vendor:
     """
     In Wave 6 we will write three methods, get_by_category, get_best_by_category, and swap_best_by_category.
 
-        Vendor objects have an instance method named get_by_category
-            This method takes one argument: a string, representing a category
-            This method returns a list of objects in the inventory with that category
-            If there are no items in the inventory that match the category argument, the method returns an empty list
-
         Vendors have a method named get_best_by_category, which will get the item with the best condition in a certain category
             It takes one argument: a string that represents a category
             This method looks through the instance's inventory for the item with the highest condition and matching category
@@ -101,31 +96,40 @@ class Vendor:
 
     """
 
-    
+    """
+    Vendor objects have an instance method named get_by_category
+    This method takes one argument: a string, representing a category
+    This method returns a list of objects in the inventory with that category
+    If there are no items in the inventory that match the category argument, the method returns an empty list
+    """
     def get_by_category(self, category):
         items = []
 
-        if category not in self.inventory:
-            return []
-        
         for item in self.inventory:
-            if isinstance(item, category):
+            if item.__class__.__name__ == category:
                 items.append(item)
         
         return items
-    # Vendors have a method named get_best_by_category, which will get the item with the best condition in a certain category
-    #     It takes one argument: a string that represents a category
-    #     This method looks through the instance's inventory for the item with the highest condition and matching category
-    #         It returns this item
-    #         If there are no items in the inventory that match the category, it returns None
-    #         It returns a single item even if there are duplicates (two or more of the same item with the same condition)
-    
-def get_best_by_category(self, category):
-   #pseudo code 
 
-   # for all the items in self inventory. 
-   # look at the items with matching categories 
-   # so decor item, decor item, electornic item, electornic item, 
-   # out of those matching items, return the item with the highest condition. 
-   # return ONE item, no duplicates. 
+    """
+    Vendors have a method named get_best_by_category, which will get the item with the best condition in a certain category
+        It takes one argument: a string that represents a category
+        This method looks through the instance's inventory for the item with the highest condition and matching category
+            It returns this item
+            If there are no items in the inventory that match the category, it returns None
+            It returns a single item even if there are duplicates (two or more of the same item with the same condition)
+    """
     
+    def get_best_by_category(self, category):
+        pass
+    #pseudo code 
+
+    # for all the items in self inventory. 
+    # look at the items with matching categories 
+    # so decor item, decor item, electornic item, electornic item, 
+    # out of those matching items, return the item with the highest condition. 
+    # return ONE item, no duplicates. 
+    
+
+    def swap_best_by_category(self, other_vendor, my_priority, their_priority):
+        pass
