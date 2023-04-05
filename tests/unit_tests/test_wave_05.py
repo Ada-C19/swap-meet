@@ -72,7 +72,7 @@ def test_electronics_has_default_uuid_length_id():
     electronics = Electronics()
     check_for_default_uuid_length_id(electronics)
 
-@pytest.mark.skip
+# @pytest.mark.skip
 def test_electronics_has_expected_category_and_custom_id():
     electronics = Electronics(id=TEST_CUSTOM_ID)
     check_category_and_custom_id(electronics, TEST_CUSTOM_ID, "Electronics")
