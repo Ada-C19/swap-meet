@@ -40,9 +40,9 @@ class Vendor:
     
     def swap_first_item(self, other_vendor):
         try:
-            self.swap_items(other_vendor, self.inventory[0], 
-                            other_vendor.inventory[0])
-            return True
+            # Returns True if swap executes
+            return self.swap_items(other_vendor, self.inventory[0], 
+                                    other_vendor.inventory[0])
         except IndexError:
             return False
         
