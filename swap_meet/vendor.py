@@ -66,10 +66,11 @@ class Vendor:
                 highest_valued_object = object
         return highest_valued_object
 
-    def swap_best_by_category(self, other_vendor, my_priority):
-        #other_vendor is an instance of Vendor
-        #my_priority is a category: str
-        #their priority is a category: str
-
-
+    # def get_by_category(self, category = None): #this method is going to return the item is the id is present in self.inventory
+    #     category_list = []
+    #     for item in self.inventory:
+    #         if item.get_category() == category:
+    #             category_list.append(item)
+                
+    #     return category_list
 
