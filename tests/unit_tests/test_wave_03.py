@@ -133,5 +133,5 @@ def test_swap_items_from_their_empty_returns_false():
 
     assert result == False
     # *********************************************************************
-    # ****** Complete Assert Portion of this test **********
+    # ****** Completed Assert Portion of this test **********
     # *********************************************************************
