@@ -2,10 +2,9 @@ from uuid import uuid4
 
 class Item:
     def __init__(self, id=None, condition=0, age=0):
-        if id is not None and isinstance(id, int):
-            self.id = id
-        else:
-            self.id = uuid4().int
+        if id is None or not isinstance(id, int):
+            id = uuid4().int
+        self.id = id
         self.condition = condition
         self.age = age
 
