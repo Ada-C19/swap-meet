@@ -26,7 +26,7 @@ class Vendor:
         if (my_item not in self.inventory or 
                 their_item not in other_vendor.inventory):
             return False
-        
+
         # Gives vendor's item to other_vendor
         other_vendor.inventory.append(my_item)
         self.inventory.remove(my_item)
@@ -46,6 +46,7 @@ class Vendor:
     
     def get_by_category(self, category):
         items = []
+
         for item in self.inventory:
             if item.get_category() == category:
                 items.append(item)
@@ -53,6 +54,7 @@ class Vendor:
 
     def get_best_by_category(self, category):
         category_items = self.get_by_category(category)
+
         try:
             # Returns item in list with the best condition attribute
             return max(category_items, key=lambda x: x.condition)
@@ -62,11 +64,11 @@ class Vendor:
     def swap_best_by_category(self, other_vendor, my_priority, their_priority):
         my_best = self.get_best_by_category(their_priority)
         their_best = other_vendor.get_best_by_category(my_priority)
-        
-        # Does not execute swap if one or both items don't exist
+
         if not my_best or not their_best:
             return False
         
+        # Executes swap only after confirming best items in each inventory
         self.swap_items(other_vendor, my_best, their_best)
         return True
     
@@ -76,6 +78,7 @@ class Vendor:
             their_newest = min(other_vendor.inventory, key=lambda x: x.age)
         except ValueError:
             return None
-
+        
+        # Executes swap only after confirming newest items in both inventories
         self.swap_items(other_vendor, my_newest, their_newest)
         return True
