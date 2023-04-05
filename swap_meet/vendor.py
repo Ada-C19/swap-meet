@@ -55,4 +55,3 @@ class Vendor:
 
         return True
         
-
