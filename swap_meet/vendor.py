@@ -34,5 +34,18 @@ class Vendor:
         
         
         return other_vendor.inventory and self.inventory
-        
-        #Conditional checking if their item in other vendor.inventory - add to inventory
+    
+    def swap_first_item(self, other_vendor):
+        if other_vendor.inventory ==[] or self.inventory ==[]:
+            return False
+        else:
+            my_first = self.inventory[0] 
+            other_first = other_vendor.inventory[0]
+
+            other_vendor.inventory.append(my_first)
+            self.inventory.append(other_first)
+            
+            other_vendor.remove(other_first)
+            self.inventory.remove(my_first)
+            
+            return self.inventory and other_vendor.inventory 
