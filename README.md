@@ -345,10 +345,8 @@ get id from Item class
 self.width = 0
 self.lenght = 0
 
-
 def get_category(self, width, length, id)
-returns `"An object of type Decor with id <id value>. It takes up a <width value> by <length value> sized space."`
-
+returns `"An object of type Decor with id <id value>. It takes up a <width value> by <length value> sized space."
 
 
 from swap_meet.item import Item
@@ -361,9 +359,6 @@ def get_category(self, type):
 get id from Item class
 returns `"An object of type Electronics with id <id value>. This is a <type value> device."`
 
-class Item(condition, condition_description): -> inherite the class item to the other classes
-self.condition = 0
-self.condition_description = range(0, 5)
 
 
 
