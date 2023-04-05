@@ -20,7 +20,7 @@ class Vendor:
             if item.id == id:
                 return item
         return None
-         #why dont we import^^^?
+         #why dont we import^^^? is it becuase it's not an instance method...
 
     def swap_items(self, other_vendor, my_item, their_item):
         if my_item not in self.inventory or their_item not in other_vendor.inventory:
@@ -43,3 +43,5 @@ class Vendor:
         self.swap_items(other_vendor, first_item_self, first_item_other)
 
         return True
+    
+    # def get_by_category(self, )
