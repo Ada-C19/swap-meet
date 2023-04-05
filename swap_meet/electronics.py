@@ -1,8 +1,8 @@
 from swap_meet.item import Item
 class Electronics(Item):
     def __init__(self, id=None, type=None, condition=0.0):
-        #self.category = "Electronics"
         super().__init__(id, condition)
+        #set type to unknown or type if given
         if type is None:
             self.type = "Unknown"
         else:

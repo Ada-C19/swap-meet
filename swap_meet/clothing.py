@@ -3,7 +3,7 @@ from swap_meet.item import Item
 class Clothing(Item):
     def __init__(self, id=None, fabric=None, condition=0.0):
         super().__init__(id, condition)
-        # self.category = "Clothing"
+        #set fabric to unknown if nothing given, or to fabric if given.
         if fabric is None:
             self.fabric = "Unknown"
         else:

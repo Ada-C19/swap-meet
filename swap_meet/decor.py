@@ -2,7 +2,6 @@ from swap_meet.item import Item
 class Decor(Item):
     def __init__(self, id=None, width=0, length=0, condition=0.0):
         super().__init__(id, condition)
-        #self.category = "Decor"
         #set width
         if width is None:
             self.width = 0.0

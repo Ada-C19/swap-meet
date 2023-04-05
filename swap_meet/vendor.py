@@ -32,21 +32,19 @@ class Vendor:
         #add their item to self, my item to their inventory.
         self.add(their_item)
         other_vendor.add(my_item)
-
         #remove my item from my inventory, their item from their inventory.
         self.remove(my_item)
         other_vendor.remove(their_item)
-        
-
         return True
-
+    
+    #swap selfs' first item with other vendors first item
     def swap_first_item(self, other_vendor):
         if not self.inventory or not other_vendor.inventory:
             return False
         swap_first = self.swap_items(other_vendor, self.inventory[0], other_vendor.inventory[0])
-
         return swap_first
     
+    #get items from inventory by category.
     def get_by_category(self, category):
         items_from_category = []
 
@@ -55,18 +53,21 @@ class Vendor:
                 items_from_category.append(item)
         return items_from_category
     
+    #get the best rated item from a specific category in inventory
     def get_best_by_category(self, category):
-
+        #if there are no items of a category return none
         items_by_category = self.get_by_category(category)
         if items_by_category == []:
             return None
+        #loop through all items in category and compare condition. 
         best_item = items_by_category[0]
-
         for item in items_by_category:
             if item.condition > best_item.condition:
+                #set best item to the item with higher condition
                 best_item = item 
         return best_item
-            
+
+    #swap their best item from my preferred category with my best item from their preffered category.        
     def swap_best_by_category(self, other_vendor, my_priority, their_priority):
         #get best item in their priority
         my_best = self.get_best_by_category(their_priority)
