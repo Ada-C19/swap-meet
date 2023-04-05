@@ -31,7 +31,7 @@ class Item:
             "More pokey bumps than a pineapple! Good? Bad? You decide!",
             "Perfectly acceptable quality if this is a gift... for your frenemy.",
             "While not perfect, the flaws make it unique and priceless!",
-            "You gasp and clutch your chest as your eyes begin to water. You have never seen something so perfect until now."
+            "You gasp and clutch your chest as your eyes begin to water. Until now, you had never seen something so perfect."
         ]
         
         if self.condition < 1:
