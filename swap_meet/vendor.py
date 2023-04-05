@@ -63,6 +63,17 @@ class Vendor:
 
         return True
 
-
+    def get_by_category(self, category): 
+        # Hold a list of vendor items that matches the category passed in 
+        matching_category = []
+        # Iterates over the list of vendor items from inventory
+        for item_instance in self.inventory: 
+            # If the item's category as a string matches category passed in then append to list
+            if item_instance.get_category() == category: 
+                matching_category.append(item_instance)  
+        return matching_category
+    
+    def get_best_by_category(self):
+        pass
 
 
