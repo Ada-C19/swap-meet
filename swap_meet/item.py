@@ -15,4 +15,15 @@ class Item:
         return f"An object of type {self.__class__.__name__} with id {self.id}."
     
     def condition_description(self):
-        pass
+        if self.condition == 5:
+            return "This item is in tip-top shape!"
+        elif self.condition == 4:
+            return "This item still has plenty of life left and character to spare."
+        elif self.condition == 3:
+            return  "It's not down for the count - it's still got some fight left in it!"
+        elif self.condition == 2:
+            return "Don't judge this item by its appearence. It's still got some tricks up its sleeve and plenty of use left."
+        elif self.condition == 1:
+            return "This item may not have much life left in it, but it's not quite ready to give up the ghost yet."
+        else:
+            return "Oh... :'( This item has seen better days."
