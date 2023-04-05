@@ -2,8 +2,9 @@ import uuid
 class Item:
     def __init__(self, id=None):
         if id is None:
-            id = uuid.uuid4().int
-        self.id = id
+            self.id = uuid.uuid4().int
+        else:
+            self.id = id
 
     def get_category(self):
-        return "Item"
+        return self.__class__.__name__
