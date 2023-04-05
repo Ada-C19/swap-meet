@@ -55,7 +55,7 @@ class Vendor:
         category_items = self.get_by_category(category)
         try:
             # Returns item with best condition rating
-            return max(category_items, key=lambda x: x.condition)
+            return max(category_items, key=lambda item: item.condition)
         except ValueError:
             return None
 
@@ -67,8 +67,8 @@ class Vendor:
     
     def swap_by_newest(self, other_vendor):
         try:
-            my_newest = min(self.inventory, key=lambda x: x.age)
-            their_newest = min(other_vendor.inventory, key=lambda x: x.age)
+            my_newest = min(self.inventory, key=lambda item: item.age)
+            their_newest = min(other_vendor.inventory, key=lambda item: item.age)
         except ValueError:
             return None
         # Returns True if swap executes, returns False otherwise
