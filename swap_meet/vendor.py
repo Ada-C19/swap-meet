@@ -71,31 +71,44 @@ class Vendor:
             #  It returns True
             return True
 
-"""
-In Wave 6 we will write three methods, get_by_category, get_best_by_category, and swap_best_by_category.
 
-    Vendor objects have an instance method named get_by_category
-        This method takes one argument: a string, representing a category
-        This method returns a list of objects in the inventory with that category
-        If there are no items in the inventory that match the category argument, the method returns an empty list
+    """
+    In Wave 6 we will write three methods, get_by_category, get_best_by_category, and swap_best_by_category.
 
-    Vendors have a method named get_best_by_category, which will get the item with the best condition in a certain category
-        It takes one argument: a string that represents a category
-        This method looks through the instance's inventory for the item with the highest condition and matching category
-            It returns this item
-            If there are no items in the inventory that match the category, it returns None
-            It returns a single item even if there are duplicates (two or more of the same item with the same condition)
+        Vendor objects have an instance method named get_by_category
+            This method takes one argument: a string, representing a category
+            This method returns a list of objects in the inventory with that category
+            If there are no items in the inventory that match the category argument, the method returns an empty list
 
-The remaining tests in wave 6 imply:
+        Vendors have a method named get_best_by_category, which will get the item with the best condition in a certain category
+            It takes one argument: a string that represents a category
+            This method looks through the instance's inventory for the item with the highest condition and matching category
+                It returns this item
+                If there are no items in the inventory that match the category, it returns None
+                It returns a single item even if there are duplicates (two or more of the same item with the same condition)
 
-    Vendors have a method named swap_best_by_category, which will swap the best item of certain categories with another Vendor
-        It takes in three arguments
-            other_vendor, which represents another Vendor instance to trade with
-            my_priority, which represents a category that the Vendor wants to receive
-            their_priority, which represents a category that other_vendor wants to receive
-        The best item in my inventory that matches their_priority category is swapped with the best item in other_vendor's inventory that matches my_priority
-            It returns True
-            If the Vendor has no item that matches their_priority category, swapping does not happen, and it returns False
-            If other_vendor has no item that matches my_priority category, swapping does not happen, and it returns False
+    The remaining tests in wave 6 imply:
 
-"""
+        Vendors have a method named swap_best_by_category, which will swap the best item of certain categories with another Vendor
+            It takes in three arguments
+                other_vendor, which represents another Vendor instance to trade with
+                my_priority, which represents a category that the Vendor wants to receive
+                their_priority, which represents a category that other_vendor wants to receive
+            The best item in my inventory that matches their_priority category is swapped with the best item in other_vendor's inventory that matches my_priority
+                It returns True
+                If the Vendor has no item that matches their_priority category, swapping does not happen, and it returns False
+                If other_vendor has no item that matches my_priority category, swapping does not happen, and it returns False
+
+    """
+    
+    def get_by_category(self, category):
+        items = []
+
+        if category not in self.inventory:
+            return []
+        
+        for item in self.inventory:
+            if isinstance(item, category):
+                items.append(item)
+        
+        return items
