@@ -104,7 +104,7 @@ class Vendor:
         return True
     
     
-    # wave 6
+# wave 6- KV
 # This method takes one argument:
 #   a string, representing a category
 # This method returns a list of objects in the inventory
