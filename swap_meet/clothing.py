@@ -6,7 +6,7 @@ class Clothing(Item):
         self.fabric = fabric
     
     # def get_category(self):
-        # super().get_category()
+    #     super().get_category()
     
     def __str__(self):
         return super().__str__() + f" It is made from {self.fabric} fabric."

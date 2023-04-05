@@ -49,5 +49,11 @@ class Vendor:
         other_vendor.remove(other_vendor.inventory[0])
         return True
 
-
+    def get_by_category(self, category = None): #this method is going to return the item is the id is present in self.inventory
+        category_list = []
+        for item in self.inventory:
+            if item.get_category() == category:
+                category_list.append(item)
+                
+        return category_list
 
