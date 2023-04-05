@@ -1,20 +1,23 @@
 
 
-
 class Vendor:
     def __init__(self, inventory = None):
         if inventory is None:
             self.inventory = []
         else:
-            self.invenory = inventory
+            self.inventory = inventory
 
-    # def add(self, item):
-    #     self.inventory.append(item)
-    #     return item
+    def vendor_has_inventory(self):
+        if len(self.inventory) > 0:
+            return self.inventory
+
+    def add(self, item):
+        self.inventory.append(item)
+        return item
     
-    # def remove(self,item):
-    #     if item in self.inventory:
-    #         self.inventory.remove(item)
-    #         return item
-    #     else:
-    #         return False
+    def remove(self, item):
+        if item not in self.inventory:
+            return False
+        else:
+            self.inventory.remove(item)
+            return item
