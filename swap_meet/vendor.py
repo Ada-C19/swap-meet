@@ -148,6 +148,16 @@ class Vendor:
     # out of those matching items, return the item with the highest condition. 
     # return ONE item, no duplicates. 
     
-
+    """
+    Vendors have a method named swap_best_by_category, which will swap the best item of certain categories with another Vendor
+        It takes in three arguments
+            other_vendor, which represents another Vendor instance to trade with
+            my_priority, which represents a category that the Vendor wants to receive
+            their_priority, which represents a category that other_vendor wants to receive
+        The best item in my inventory that matches their_priority category is swapped with the best item in other_vendor's inventory that matches my_priority
+            It returns True
+            If the Vendor has no item that matches their_priority category, swapping does not happen, and it returns False
+            If other_vendor has no item that matches my_priority category, swapping does not happen, and it returns False
+    """
     def swap_best_by_category(self, other_vendor, my_priority, their_priority):
         pass
