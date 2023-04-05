@@ -1,14 +1,16 @@
-# from item import Item
+from item import Item
 
-class Clothing():
-    pass
+class Clothing(Item):
     
-    # def __init__(self, id=None, fabric="Unknown"):
-    #     super().__init__(id)
-    #     self.fabric = fabric
+    def __init__(self, id=None, fabric="Unknown"):
+        super().__init__(id)
+        self.fabric = fabric
     
-    # def get_category(self):
-    #     return "Clothing"
+    def get_category(self):
+        return "Clothing"
     
+    def __str__(self):
+        super().__str__
+        
     # def __str__(self):
     #     return f"An object of type Clothing with id {self.id}"
