@@ -51,7 +51,7 @@ class Vendor:
 
         # if not items:
         #     return None
-        return items if items else None 
+        return items if items else []
     
     def get_best_by_category(self, category):
         items_matching_category = self.get_by_category(category)
