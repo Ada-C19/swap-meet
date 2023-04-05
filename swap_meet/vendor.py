@@ -4,11 +4,11 @@ class Vendor:
             inventory = []
         self.inventory = inventory
     
-    def add_item(self, item):
+    def add(self, item):
         self.inventory.append(item)
         return item
     
-    def remove_item(self, item):
+    def remove(self, item):
         if not item in self.inventory:
             return False
         else:
@@ -23,11 +23,11 @@ class Vendor:
     
     def swap_items(self, other_vendor, my_item, their_item):
         if my_item in self.inventory and their_item in other_vendor.inventory:
-            item_for_friend = self.remove_item(my_item)
-            other_vendor.add_item(item_for_friend)
+            item_for_friend = self.remove(my_item)
+            other_vendor.add(item_for_friend)
             
-            item_for_me = other_vendor.remove_item(their_item)
-            self.add_item(item_for_me)
+            item_for_me = other_vendor.remove(their_item)
+            self.add(item_for_me)
             return True
     
         return False
