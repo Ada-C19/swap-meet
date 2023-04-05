@@ -44,3 +44,13 @@ class Vendor:
             other_vendor.remove(friend_first)
             self.add(friend_first)
             return True
+        
+    def get_by_category(self, category):
+        category_items = []
+        for item in self.inventory:
+            if item.get_category() == category:
+                category_items.append(item)
+        return category_items
+        
+    def get_best_by_category(self, category):
+        pass

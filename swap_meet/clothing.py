@@ -4,9 +4,6 @@ class Clothing(Item):
     def __init__(self, id=uuid.uuid4().int, fabric="Unknown", condition=0):
         super().__init__(id, condition)
         self.fabric = fabric
-                
-    def get_category(self):
-        return "Clothing"
     
     def __str__(self):
         return super().__str__() + f" It is made from {self.fabric} fabric."
