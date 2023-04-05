@@ -18,9 +18,8 @@ class Vendor:
     def get_by_id(self, item_id):
         for item in self.inventory:
             if item_id == item.id:
-                return item
-        else:    
-            return None
+                return item 
+        return None
     
     def swap_items(self, other_vendor, my_item, their_item):
         # Does not execute swap if either item doesn't exist
