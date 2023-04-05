@@ -14,8 +14,7 @@ class Vendor:
         if item in self.inventory:
             self.inventory.remove(item)
             return item
-        else:
-            return False
+        return False
         
     def get_by_id(self, item_id):
         for item in self.inventory:
@@ -30,8 +29,7 @@ class Vendor:
             self.inventory.remove(my_item)
             other_vendor.inventory.append(my_item)
             return True
-        else:
-            return False
+        return False
         
     def swap_first_item(self, other_vendor):
         len_mine = len(self.inventory)
@@ -42,8 +40,7 @@ class Vendor:
             their_first_item = other_vendor.inventory[0]
             self.swap_items(other_vendor, my_first_item, their_first_item)
             return True
-        else:
-            return False
+        return False
         
     def get_by_category(self, category):
         of_category = []
@@ -54,17 +51,10 @@ class Vendor:
     
     def get_best_by_category(self, category):
         of_category = self.get_by_category(category)
-        best_of_category = []
-        best_condition = 0
-        for item in of_category:
-            if item.condition > best_condition:
-                best_condition = item.condition
-        for item in of_category:
-            if item.condition == best_condition:
-                best_of_category.append(item)
-        if len(best_of_category) == 0:
+        if len(of_category) == 0:
             return None
-        return best_of_category[0]
+        sorted_of_category = sorted(of_category, key=lambda item: item.condition, reverse=True)
+        return sorted_of_category[0]
     
     def swap_best_by_category(self, other_vendor, my_priority, their_priority):
         what_vendor_wants = self.get_best_by_category(their_priority)
