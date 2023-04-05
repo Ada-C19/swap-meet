@@ -16,6 +16,7 @@ class Item:
     def __str__(self):
         my_string = f'{self.id}'
         return f"An object of type {self.get_category()} with id {my_string}."
+    
 #--- Wave 5 -----------------------------
     def condition_description(self):
         if self.condition <= 1:

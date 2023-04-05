@@ -60,14 +60,40 @@ class Vendor:
     def get_by_category(self, category):
         """This method takes one argument: a string, representing a category
         and returns a list of objects in the inventory with that category"""
-        # if category in self.inventory:
-        #     return self.inventory
         item_by_category = []
         for item in self.inventory:
-            print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-            print(item)
-            print(category)
             if category == item.get_category():
                 item_by_category.append(item)
         return item_by_category
     
+    def get_best_by_category(self, category):
+        """will get the item with the best condition in a certain category"""
+        item_by_category = self.get_by_category(category)
+        if not item_by_category:
+            return None
+        best_item = item_by_category[0]
+        for item in item_by_category:
+            if item.condition > best_item.condition:
+                best_item = item
+        return best_item
+
+
+    def swap_best_by_category(self, other_vendor, my_priority, their_priority):
+        """ This method swaps the best item of certain categories with another Vendor"""
+        if self.inventory == [] or other_vendor.inventory == []:
+            return False
+        if not self.get_by_category(their_priority) or not other_vendor.get_by_category(my_priority):
+            return False
+        
+        their_best = self.get_best_by_category(their_priority)
+        my_best = other_vendor.get_best_by_category(my_priority)
+        for item in self.inventory:
+            if their_best == item:
+                self.inventory.remove(their_best)
+                other_vendor.inventory.append(their_best)
+        for item in other_vendor.inventory:
+            if my_best == item:
+                other_vendor.inventory.remove(my_best)
+                self.inventory.append(my_best)
+        return True
+
