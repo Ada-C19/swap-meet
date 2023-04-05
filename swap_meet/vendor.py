@@ -46,17 +46,25 @@ class Vendor:
         other_vendor.remove(other_vendor.inventory[0])
         return True
     
-    def get_by_category(self, category=None):
+    def get_by_category(self, category):
         #take in one arguement category: str
-        matched_object = [] 
+        matched_category = []
     
         for item in self.inventory:
             if Item.get_category(item) == category:
-                matched_object.append(item)
-        return matched_object
-
-    def get_best_by_category(self):
-        pass
+                matched_category.append(item)
+        return matched_category 
+    
+    def get_best_by_category(self, category):
+        matched_category = self.get_by_category(category)
+        if len(matched_category) == 0:
+            return None
+        highest_condition = 0 
+        for object in matched_category:
+            if object.condition > highest_condition:
+                highest_condition = object.condition
+                highest_valued_object = object
+        return highest_valued_object
 
 
 
