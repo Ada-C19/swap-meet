@@ -1,5 +1,14 @@
 import uuid
 
+condition_descriptions = {
+    0: "Ewww! Put that down right now and wash your hands!",
+    1: "This item is disintegrating as we speak!",
+    2: "There's nothing to write home about here...",
+    3: "This item is in a pretty good condition.",
+    4: "This item is in a pretty good condition.",
+    5: "This item is like brand new. Amazing!",
+}
+
 
 class Item:
     
@@ -13,7 +22,6 @@ class Item:
         self.condition = condition
         self.category = "Item"
         
-
     def get_category(self):
         """Output: the name of the Class"""
         return self.__class__.__name__
@@ -22,17 +30,7 @@ class Item:
         return f"An object of type {self.get_category()} with id {self.id}."
 
     def condition_description(self):
-        if self.condition == 5:
-            return "This item is like brand new. Amazing!"
-        elif self.condition == 4:
-            return "This item is in a pretty good condition."
-        elif self.condition == 3:
-            return "This item is in a fair condition."
-        elif self.condition == 2:
-            return "There's nothing to write home about here..."
-        elif self.condition == 1:
-            return "This item is disintegrating as we speak!"
-        elif self.condition == 0:
-            return "Ewww! Put that down right now and wash your hands!"
+        return condition_descriptions[self.condition]
+
 
 
