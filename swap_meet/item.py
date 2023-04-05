@@ -15,15 +15,14 @@ class Item:
         return f"An object of type Item with id {self.id}."
     
     def condition_description(self):
-        if self.condition == 0:
-            return "Unusuable"
-        elif self.condition == 1:
-            return "Heavily used, almost unusable"
-        elif self.condition == 2:
-            return "Terrible"
-        elif self.condition == 3:
-            return "Meh"
-        elif self.condition == 4:
-            return "Decent"
-        else:
-            return "Excellent condition"
+        condition_rating = {
+            0: "Unusable",
+            1: "Heavily used",
+            2: "Terrible",
+            3: "Meh",
+            4: "Decent",
+            5: "Mint"
+        }
+
+        return condition_rating[self.condition]
+
