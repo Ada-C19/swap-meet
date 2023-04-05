@@ -9,12 +9,11 @@ class Vendor:
         return item
     
     def remove(self, item):
-        if item not in self.inventory:
+        try:
+            self.inventory.remove(item)
+            return item
+        except ValueError:
             return False
-
-        self.inventory.remove(item)
-
-        return item
     
     def get_by_id(self, item_id):
         for item in self.inventory:
