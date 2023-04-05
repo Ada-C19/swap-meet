@@ -51,7 +51,7 @@ class Vendor:
             return True
         return False
 
-    # Returns a list of objects in Inventory with that category
+    # Returns a list of objects in Inventory within that category
     # Return [] if there are no items that matches
     def get_by_category(self, category):
 
@@ -61,6 +61,7 @@ class Vendor:
                 item_in_category.append(item)
         return item_in_category
     
+    # Will get the item with BEST condition in its category
     def get_best_by_category(self, category):
         
         items_from_category = self.get_by_category(category)
@@ -73,6 +74,35 @@ class Vendor:
             if item.condition > best_item.condition:
                 best_item = item
         return best_item
+    
+    # Other_vendor = Another vendor instance "friend"
+    # My_priority = Category that I want (item from that category)
+    # Their_priority = Category friend's wants to receive an item from
+    # Return True IF my best item with category matches their best item with its category
+    # Return False if there is no item that MATCHES either their priority or my priority
+    # Yo quiero un item de SU categoria con la mejor condicion (estado)
+    def swap_best_by_category(self, other_vendor, my_priority, their_priority):
+
+        item_I_want = other_vendor.get_best_by_category(my_priority)
+        item_other_want = self.get_best_by_category(their_priority)
+                                                            
+
+        if item_I_want and item_other_want:
+            # Remove the item_other_want from my inventory
+            item_removed_from_my_inventory = self.remove(item_other_want)
+            # Add item_other_want to their inventory
+            other_vendor.add(item_removed_from_my_inventory)
+
+            # remove the item_I_want from their inventory
+            item_removed_from_their_inventory = other_vendor.remove(item_I_want)
+            # Add item_I_want to my inventory
+            self.add(item_removed_from_their_inventory)
+        
+            return True
+        
+        
+
+
 
 
 
