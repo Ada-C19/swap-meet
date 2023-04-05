@@ -13,17 +13,12 @@ def test_get_newest_age_returns_item():
 
     assert newest_item == item_b
 
-def test_swap_by_newest_no_newest_returns_False():
-    item_a = Item(age=10)
-    item_b = Item(age=5)
+def test_get_newest_item_no_newest_in_our_inventory_returns_False():
     vendor = Vendor(
-        inventory=[item_a, item_b]
-    )
-    other_vendor = Vendor(
         inventory=[]
     )
 
-    result = vendor.swap_by_newest(other_vendor)
+    result = vendor.get_newest_item()
     
     assert result is False
 
@@ -46,3 +41,31 @@ def test_swap_by_newest_reordered():
     assert item_d in vendor.inventory
     assert len(vendor.inventory) == 2
     assert len(other_vendor.inventory) == 2
+
+def test_swap_by_newest_no_newest_in_their_inventory_returns_False():
+    item_a = Item(age=10)
+    item_b = Item(age=5)
+    vendor = Vendor(
+        inventory=[item_a, item_b]
+    )
+    other_vendor = Vendor(
+        inventory=[]
+    )
+
+    result = vendor.swap_by_newest(other_vendor)
+    
+    assert result is False
+
+def test_swap_by_newest_no_newest_in_our_inventory_returns_False():
+    item_a = Item(age=10)
+    item_b = Item(age=5)
+    vendor = Vendor(
+        inventory=[]
+    )
+    other_vendor = Vendor(
+        inventory=[item_a, item_b]
+    )
+
+    result = vendor.swap_by_newest(other_vendor)
+    
+    assert result is False
