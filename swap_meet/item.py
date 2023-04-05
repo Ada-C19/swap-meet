@@ -2,7 +2,6 @@ import uuid
 
 class Item:
     def __init__(self, id = None):
-        
         if not id:
             self.id = uuid.uuid1().int
         else:
