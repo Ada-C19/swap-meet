@@ -71,6 +71,9 @@ class Vendor:
             if item.category == category:
                 matching_items.append(item)
         
+        if len(matching_items) == 0:
+            return None
+        
         for item in matching_items:
             if item.condition > highest_condition:
                 highest_condition = item.condition
