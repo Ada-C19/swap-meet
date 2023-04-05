@@ -9,17 +9,33 @@ import uuid
 
 class Item:
     
-    def __init__(self, id=uuid.uuid4()):
+    def __init__(self, id=None):
+        if not id:
+            id = uuid.uuid4().int
         self.id = id
+
+    # def __init__(self, id=uuid.uuid4().int):
+    #     self.id = id
+
+        # if len(id) >= 32:
+            
+
 
         # self.id.int()
 
 
-    # each item has this function
+# each item has this function
     def get_category(self, name=""):
+
+        item = Item.__name__
+
         self.name = name
         return Item.self.name 
-        # return Item.name
+    
+
+
+        # if len(id) >= 32:
+        #     return 
 
 
     # this was moved to vendor.py
