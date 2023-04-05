@@ -1,20 +1,14 @@
 import pytest
 from swap_meet.vendor import Vendor
 
-<<<<<<< HEAD
 #pytest.mark.skip
-=======
 # @pytest.mark.skip
->>>>>>> 6eac37371ae335ff50137f9339fa8413fd529fb8
 def test_vendor_has_inventory():
     vendor = Vendor()
     assert len(vendor.inventory) == 0
 
-<<<<<<< HEAD
 #pytest.mark.skip
-=======
 # @pytest.mark.skip
->>>>>>> 6eac37371ae335ff50137f9339fa8413fd529fb8
 def test_vendor_takes_optional_inventory():
     inventory = ["a", "b", "c"]
     vendor = Vendor(inventory=inventory)
