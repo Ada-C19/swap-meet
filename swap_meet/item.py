@@ -1,14 +1,13 @@
 import uuid
 
 class Item:
-    def __init__(self, id = None):
-        if not id:
-            random_id = uuid.uuid4() # Since id does not need date/time or netword card MAC address in which it was created (such as UUID1), 
+
+    def __init__(self, id= None, condition=None):
+        random_id = uuid.uuid4() # Since id does not need date/time or netword card MAC address in which it was created (such as UUID1), 
             # decided to go with UUID4 which gives a unique id that is generated randomly 
-            self.id = random_id.int
-        else:
-            self.id = id
-    
+        self.id = int(random_id) if id is None else id
+        self.condition = 0 if condition is None else condition
+
     def get_category(self):
         ''' Returns the category of self, which represents the instance of the class
     as a string'''
@@ -25,3 +24,18 @@ class Item:
     def __str__(item):
         ''' Returns a string that provides details of the object and ID'''
         return f"An object of type Item with id {item.id}."
+
+
+    def condition_description(self):
+        if self.condition == 0:
+            return f"You probably want a glove for this one..."
+        elif self.condition == 1:
+            return f"Poor"
+        elif self.condition == 2:
+            return f"Fair"
+        elif self.condition == 3:
+            return f"Good"
+        elif self.condition == 4:
+            return f"Like New"
+        elif self.condition == 5:
+            return f"New"
