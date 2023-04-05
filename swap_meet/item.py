@@ -15,11 +15,12 @@ class Item:
     
     def condition_description(self):
         condition_dict = {
-            1: "Bad",
-            2: "Not good",
+            0: "Trash",
+            1: "Yikes",
+            2: "Meh",
             3: "Okay",
-            4: "Good",
-            5: "Great"
+            4: "Pretty good",
+            5: "Brilliant, incredible, amazing, show stopping, spectacular, never the same, totally unique, completely not ever been done before"
         }
 
         if self.condition in condition_dict:
