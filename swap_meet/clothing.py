@@ -1,10 +1,12 @@
 import uuid
 from .item import Item
 class Clothing(Item):
-    def __init__(self, id=uuid.uuid1().int, fabric="Unknown", condition=0):
+    def __init__(self, id=uuid.uuid1().int, fabric="Unknown", condition=0, age=0):
+        super().__init__(condition=0, age=0)
         self.id = id
         self.fabric = fabric
         self.condition = condition
+        self.age = age
 
     def get_category(self):
         return "Clothing"
