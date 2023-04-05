@@ -11,5 +11,5 @@ class Clothing(Item):
     def __str__(self):
         return super().__str__() + f" It is made from {self.fabric} fabric."
 
-    def condition_description(self):
-        return super().condition_description()
+    # def condition_description(self):
+        # return super().condition_description()
