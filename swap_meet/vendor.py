@@ -65,5 +65,5 @@ class Vendor:
         other_vendor_gives = other_vendor.get_best_by_category(my_priority)
         if not vendor_will_give or not other_vendor_gives:
             return False
-        swap_items_found = self.swap_items(other_vendor, vendor_will_give, other_vendor_gives)
+        self.swap_items(other_vendor, vendor_will_give, other_vendor_gives)
         return True
