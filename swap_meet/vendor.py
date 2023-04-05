@@ -38,6 +38,12 @@ class Vendor:
         self.inventory.pop(0)
         other_vendor.inventory.pop(0)
         return True
+        # swap_item() can be used here if we pass self.inventory[0] and other_vendor.inventor[0]
+        # however this has more time complexity because of remove() vs pop()
+        # the overall time complexity would probably be O(n) anyway because of "in" 
+        # so maybe it is worth it to use swap_item() 
+        # could also refactor swap_items using range(len()) to iterate indexes so that
+        # pop could be used in both scenarios. is this over optimization lol 
     
     def get_by_category(self, category):
         list_of_category = []
