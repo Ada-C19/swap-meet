@@ -1,8 +1,8 @@
 class Vendor:
     def __init__(self, inventory = None):
-        if inventory is None:
-            inventory = []
-        self.inventory = inventory 
+        # if inventory is None:
+        #     inventory = []
+        self.inventory = inventory or []
         #add takes in one item and adds it to inventory
     def add(self, item):
         self.item = item
@@ -22,6 +22,3 @@ class Vendor:
             if item.id == id:
                 return item
             
-    #take arugment int, repressenting item
-    #return the item with matching id
-    #if not matching return none(doesn't work if else None is added...)       
