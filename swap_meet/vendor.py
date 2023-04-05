@@ -3,7 +3,8 @@ from swap_meet.item import Item
 class Vendor:
     
     def __init__(self, inventory=None):
-        
+        # self.category = ""
+
         if inventory is None:
             self.inventory = []
         else:
@@ -25,10 +26,14 @@ class Vendor:
     def get_by_category(self, category):
         matching_items = []
     
-        if category in self.categories:
-            for item in self.inventory:
-                if item.category == category:
-                    matching_items.append(item)
+        # if category in self.categories:
+        #     for item in self.inventory:
+        #         if item.category == category:
+        #             matching_items.append(item)
+        
+        for item in self.inventory:
+            if item.category == category:
+                matching_items.append(item)
         
         return matching_items
 
