@@ -2,6 +2,8 @@ from uuid import uuid1
 
 class Item:
     def __init__(self, id=None, condition=0, age=0):
+        if (id is not None) and (not isinstance(id, int)):
+            raise TypeError("id must be an int")
         self.id = uuid1().int if id is None else id
         self.condition = condition
         self.age = age
