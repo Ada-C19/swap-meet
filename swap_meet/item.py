@@ -1,9 +1,9 @@
 from uuid import uuid4
 
 class Item:
-    def __init__(self, id=None):
+    def __init__(self, id=None, condition=0):
         self.id = uuid4().int if id is None else id
-    # use this in wave 5 (probably for all modules)
+        self.condition = condition
 
     def get_category(self):
         # check if need to cast into str

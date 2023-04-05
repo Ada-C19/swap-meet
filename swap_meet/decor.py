@@ -2,8 +2,8 @@ from .item import Item
 
 class Decor(Item):
     
-    def __init__(self, id=None, width=0, length=0):
-        super().__init__(id)
+    def __init__(self, id=None, condition=0, width=0, length=0):
+        super().__init__(id, condition)
         self.width = width
         self.length = length
     
