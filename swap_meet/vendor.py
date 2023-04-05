@@ -39,7 +39,8 @@ class Vendor:
     
     def swap_first_item(self, other_vendor):
         try:
-            self.swap_items(other_vendor, self.inventory[0], other_vendor.inventory[0])
+            self.swap_items(other_vendor, self.inventory[0], 
+                            other_vendor.inventory[0])
             return True
         except IndexError:
             return False
@@ -65,7 +66,7 @@ class Vendor:
         if not my_best or not their_best:
             return False
         
-        # Executes swap only after confirming best items in each inventory
+        # Executes swap only after confirming both items exist
         self.swap_items(other_vendor, my_best, their_best)
         return True
     
@@ -76,6 +77,6 @@ class Vendor:
         except ValueError:
             return None
         
-        # Executes swap only after confirming newest items in both inventories
+        # Executes swap only after confirming both items exist
         self.swap_items(other_vendor, my_newest, their_newest)
         return True
