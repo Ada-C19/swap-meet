@@ -17,3 +17,20 @@ class Item:
     
     def __str__(self):
         return f"An object of type Item with id {self.id}."
+    
+    def condition_description(self, condition=0):
+            if condition == 0:
+                return 'Trendy'
+            if condition == 1:
+                return 'heavily used'
+            if condition == 2:
+                return'incredible'
+            if condition == 3:
+                return'outrageous'
+            if condition == 4:
+                return'cute'
+            if condition == 5:
+                return'ugly'
+        
+
+    
