@@ -74,12 +74,11 @@ class Vendor:
         return True
     
     def swap_by_newest(self, other_vendor):
-        if not self.inventory or not other_vendor.inventory:
-            return False
-        
-        my_newest = min(self.inventory, key=lambda x: x.age)
-        their_newest = min(other_vendor.inventory, key=lambda x: x.age)
+        try:
+            my_newest = min(self.inventory, key=lambda x: x.age)
+            their_newest = min(other_vendor.inventory, key=lambda x: x.age)
+        except ValueError:
+            return None
 
         self.swap_items(other_vendor, my_newest, their_newest)
-
         return True
