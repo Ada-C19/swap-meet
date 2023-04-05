@@ -1,9 +1,10 @@
 import uuid
 class Item:
     # randomized id and set it to an integer
-    def __init__(self, id=None, condition=0):
+    def __init__(self, age=0, id=None, condition=0):
         self.id = uuid.uuid4().int if id is None else id
         self.condition = condition
+        self.age = age
     # accessing the class name of self (item)
     def get_category(self):
         return self.__class__.__name__
