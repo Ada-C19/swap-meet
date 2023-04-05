@@ -111,8 +111,6 @@ def test_swap_best_by_category():
         their_priority="Decor"
     )
 
-   
-
     assert result == True
     # - That tai and jesse's inventories are the correct length
     assert len(tai.inventory) == 3
@@ -149,6 +147,7 @@ def test_swap_best_by_category_reordered():
     )
 
     # Assert
+    assert result == True
     assert item_a in tai.inventory
     assert item_b in tai.inventory
     assert item_e in tai.inventory
@@ -275,6 +274,9 @@ def test_swap_best_by_category_no_other_match_is_false():
         my_priority="Electronics",
         their_priority="Decor"
     )
+
+    # Arrange
+    assert not result
 
     raise Exception("Complete this test according to comments below.")
     # *********************************************************************
