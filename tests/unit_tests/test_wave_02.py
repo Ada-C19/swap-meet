@@ -55,3 +55,14 @@ def test_get_item_by_id_no_matching():
     assert item_a in items
     assert item_b in items
     assert item_c in items
+
+def test_overrides_not_int_id():
+    test_id = "ABCD"
+    item_custom_id = Item(id=test_id)
+    vendor = Vendor(
+        inventory=[Item(), Item(), item_custom_id]
+    )
+
+    result_item = vendor.get_by_id(test_id)
+    
+    assert not result_item
