@@ -11,7 +11,7 @@ class Vendor:
     def remove(self, item):
         if item not in self.inventory:
             return False
-        
+
         self.inventory.remove(item)
 
         return item
@@ -57,11 +57,10 @@ class Vendor:
 
     def get_best_by_category(self, category):
         category_items = self.get_by_category(category)
-
-        if not category_items:
+        try:
+            return max(category_items, key=lambda x: x.condition)
+        except ValueError:
             return None
-
-        return max(category_items, key=lambda x: x.condition)
 
     def swap_best_by_category(self, other_vendor, my_priority, their_priority):
         my_best = self.get_best_by_category(their_priority)
@@ -80,7 +79,7 @@ class Vendor:
         
         my_newest = min(self.inventory, key=lambda x: x.age)
         their_newest = min(other_vendor.inventory, key=lambda x: x.age)
-        
+
         self.swap_items(other_vendor, my_newest, their_newest)
 
         return True
