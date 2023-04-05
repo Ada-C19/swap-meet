@@ -16,7 +16,6 @@ class Item:
         return f"An object of type {self.get_category()} with id {self.id}."
     
     def condition_description(self):
-        condition_guide = {5: "Brand New", 4: "Like New", 3: "Very Good", 2: "Good",
-                         1: "Good", 0: "As Is"}
-        
+        condition_guide = {5: "Brand New", 4: "Like New", 3: "Very Good", 
+                           2: "Good", 1: "Good", 0: "As Is"}
         return condition_guide[round(self.condition)]
