@@ -74,3 +74,14 @@ class Vendor:
                 
     #     return category_list
 
+    def swap_best_by_category(self, other_vendor, my_priority, their_priority):
+        if len(other_vendor.get_by_category(my_priority)) == 0 or len((self.get_by_category(their_priority))) == 0 :
+            return False
+        else:
+            self.add(other_vendor.get_best_by_category(my_priority))
+            other_vendor.remove(other_vendor.get_best_by_category(my_priority))
+            other_vendor.add(self.get_best_by_category(their_priority))
+            self.remove(self.get_best_by_category(their_priority))
+            return True
+        
+
