@@ -8,5 +8,5 @@ class Decor(Item):
     def __str__(self):
         return super().__str__() + f" It takes up a {self.width} by {self.length} sized space."
 
-    def condition_description(self):
-        return super().condition_description()
+    # def condition_description(self):
+        # return super().condition_description()

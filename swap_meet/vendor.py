@@ -2,10 +2,7 @@ from swap_meet.item import Item
 
 class Vendor:
     def __init__(self, inventory=None):
-        if inventory is None:
-            self.inventory = []
-        else:
-            self.inventory = inventory
+        self.inventory = inventory if inventory else []
     #     self.inventory = inventory
     #     word_list = [] if word_list is None else word_list
     # word_list.append(word)
@@ -48,12 +45,32 @@ class Vendor:
         self.remove(self.inventory[0])
         other_vendor.remove(other_vendor.inventory[0])
         return True
-
-    def get_by_category(self, category = None): #this method is going to return the item is the id is present in self.inventory
-        category_list = []
+    
+    def get_by_category(self, category):
+        #take in one arguement category: str
+        matched_category = []
+    
         for item in self.inventory:
-            if item.get_category() == category:
-                category_list.append(item)
+            if Item.get_category(item) == category:
+                matched_category.append(item)
+        return matched_category 
+    
+    def get_best_by_category(self, category):
+        matched_category = self.get_by_category(category)
+        if len(matched_category) == 0:
+            return None
+        highest_condition = 0 
+        for object in matched_category:
+            if object.condition > highest_condition:
+                highest_condition = object.condition
+                highest_valued_object = object
+        return highest_valued_object
+
+    # def get_by_category(self, category = None): #this method is going to return the item is the id is present in self.inventory
+    #     category_list = []
+    #     for item in self.inventory:
+    #         if item.get_category() == category:
+    #             category_list.append(item)
                 
-        return category_list
+    #     return category_list
 

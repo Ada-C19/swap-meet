@@ -11,5 +11,5 @@ class Electronics(Item):
         return super().__str__() + f" This is a {self.type} device."
 
     
-    def condition_description(self):
-        return super().condition_description()
+    # def condition_description(self):
+        # return super().condition_description()
