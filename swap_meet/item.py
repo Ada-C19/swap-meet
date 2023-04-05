@@ -1,6 +1,5 @@
 import uuid
-
-import uuid
+from swap_meet.vendor import Vendor
 
 class Item:
     
@@ -12,5 +11,8 @@ class Item:
     
     def __str__(self):
         return f"An object of type Item with id {self.id}."
+    
+        
+
     
     
