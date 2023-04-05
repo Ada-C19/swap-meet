@@ -66,5 +66,10 @@ class Vendor:
                 highest_valued_object = object
         return highest_valued_object
 
+    def swap_best_by_category(self, other_vendor, my_priority):
+        #other_vendor is an instance of Vendor
+        #my_priority is a category: str
+        #their priority is a category: str
+
 
 
