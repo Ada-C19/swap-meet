@@ -1,25 +1,29 @@
 import uuid
+from swap_meet.item import Item
 
-class Decor:
+# need to change the syntax to allow Decor class to inherit from Item class
+# class ExampleChildClass(ExampleParentClass):
+# Decor shares the same id and condition attributes as Item class
+# Item constructor: def __init__(self, id=None, condition = 0):
+
+
+
+
+class Decor(Item):
 
     # Has an attribute id that is by default a unique integer
     # Holds 2 integer attributes width and length
-    #   both ofthese values should be 0 by default
-    def __init__(self, id = None, width = 0, length = 0, condition= 0):
-        
-        # using UUID4 since UUID1 creates a UUID with the computer's network address 
-        # UUID.int- returns the UUID as a 128-bit integer.
-        # self.id = uuid.uuid4().int
-        self.id =  id if id is not None else uuid.uuid4().int
-        
+    # both of these values should be 0 by default
+    def __init__(self, id = None, condition= 0, width = 0, length = 0):
+        super().__init__(id, condition)  # will get Attribute Error without this
+
+                
         # following a similar syntax for width as id
         self.width = width if width is not 0 else width
         
         # following a similar syntax for length as id
         self.length = length if length is not 0 else length
         
-        # following a similar syntax for condition as id
-        self.condition = condition if condition is not 0 else condition
         
     # which should describe the condition in words based on the value, 
     # assuming they all range from 0 to 5.

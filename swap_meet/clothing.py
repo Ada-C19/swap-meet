@@ -1,25 +1,26 @@
 import uuid
+from swap_meet.item import Item
 
-class Clothing:
+# need to change the syntax to allow Clothing class to inherit from Item class
+# class ExampleChildClass(ExampleParentClass):
+# Clothing class shares the same id and condition attributes as Item class
+# Item constructor: def __init__(self, id=None, condition = 0):
+
+
+
+
+class Clothing(Item):
     # Has an attribute id that is by default a unique integer
-        # will unique integer by separate from uuid from integer?
     
     # Has an attribute fabric that is by default the string "Unknown"
     
-    def __init__(self, id=None, fabric = "Unknown", condition = 0):
-        
-        # using UUID4 since UUID1 creates a UUID with the computer's network address 
-        # UUID.int- returns the UUID as a 128-bit integer.
-        # self.id = uuid.uuid4().int
-        self.id =  id if id is not None else uuid.uuid4().int
+    def __init__(self, id=None, condition = 0, fabric = "Unknown"):
+        super().__init__(id, condition)  # will get Attribute Error without this
         
         # following a similar syntax for fabric as id
-            #  eventually fabric values may be :
-            # new_clothing = Clothing(1234, "Striped") ..."Cotton", or "Floral"
+        #  eventually fabric values may be :
+        # new_clothing = Clothing(1234, "Striped") ..."Cotton", or "Floral"
         self.fabric = fabric if fabric is not "Unknown" else fabric
-        
-        # following a similar syntax for condition as id
-        self.condition = condition if condition is not 0 else condition
 
         
     # Has a function get_category that returns "Clothing
