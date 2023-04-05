@@ -6,7 +6,5 @@ class Item:
         if id:
             self.id = id
         else:
+            # using uuid to generate random id
             self.id = str(uuid.uuid4())
-
-    def get_category(self, item):
-        return item
