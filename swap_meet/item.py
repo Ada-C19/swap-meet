@@ -6,6 +6,7 @@ class Item:
         if not id:
             id = uuid.uuid1().int
         self.id = id
+        self.condition = condition
 
     def get_category(class_type):
         return class_type.__class__.__name__
@@ -13,19 +14,19 @@ class Item:
     def __str__(self):
         return f"An object of type Item with id {self.id}."
     
-    def condition_description(self, condition):
-        condition_description = None
-        if condition == 0:
+    def condition_description(self):
+        # condition_description = None
+        if self.condition == 0:
             condition_description = "junky"
-        elif condition == 1:
+        elif self.condition == 1:
             condition_description = "worn"
-        elif condition == 2:
+        elif self.condition == 2:
             condition_description = "average wear"
-        elif condition == 3:
+        elif self.condition == 3:
             condition_description = "lightly used"
-        elif condition == 4:
+        elif self.condition == 4:
             condition_description = "opened"
-        elif condition == 5:
+        elif self.condition == 5:
             condition_description = "new"
         return condition_description
 # when calling a function from a class use ClassName.FunctionName() 
