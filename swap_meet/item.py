@@ -9,8 +9,14 @@ class Item:
         if not (isinstance(id, int) or id is None):
             raise TypeError("IDs must be integers!")
         self.id = int(u.uuid4()) if id is None else int(id)
+
+        if not (isinstance(condition, (int, float))):
+            raise TypeError("Condition must be numeric!")
         self.condition = condition
-        self.age = age
+
+        if not (isinstance(age, (int, float))):
+            raise TypeError("Age (in years) must be numeric!")
+        self.age = int(age)
     
     def get_category(self):
         """ Return the item's class name as a string. """

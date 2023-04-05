@@ -16,6 +16,12 @@ def test_default_item_age():
     assert decor.age == 0
     assert electronic.age == 0
 
+def test_age_is_numeric():
+    with pytest.raises(TypeError):
+        Item(age="dog")
+    with pytest.raises(TypeError):
+        Item(age={})
+
 def test_swap_by_newest():
     item_a = Clothing(age=5)
     item_b = Electronics(age=6)
