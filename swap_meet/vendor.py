@@ -47,7 +47,14 @@ class Vendor:
         return list_of_category
 
     def get_best_by_category(self, category):
-        pass
+        best_condition = 0
+        best_item = None
+        items_to_search = self.get_by_category(category)
+        for element in items_to_search:
+            if element.condition > best_condition:
+                best_item = element
+                best_condition = element.condition
+        return best_item
 
     def swap_best_by_category(self, other_vendor, my_priority, their_priority):
         pass
