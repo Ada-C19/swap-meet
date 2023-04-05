@@ -86,3 +86,16 @@ class Vendor:
                 best_condition = item.condition
         
         return best_item
+    
+    def swap_best_by_category(self, other_vendor, my_priority, their_priority): 
+        for self_item in self.inventory: 
+            for other_item in other_vendor.inventory: 
+                # if their_priority matches a self_item.get_category() and my_priority matches a other_item.get_category
+                if their_priority == self_item.get_category() and my_priority == other_item.get_category(): 
+                    # remove their seeking priorities and append to other vendor
+                    self.inventory.remove(self_item)
+                    other_vendor.inventory.append(self_item)
+                    other_vendor.inventory.remove(other_item)
+                    self.inventory.append(other_item)
+                    return True
+                return False

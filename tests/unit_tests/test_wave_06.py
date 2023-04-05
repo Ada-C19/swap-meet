@@ -108,7 +108,6 @@ def test_swap_best_by_category():
         their_priority="Decor"
     )
 
-    raise Exception("Complete this test according to comments below.")
     # *********************************************************************
     # ****** Complete Assert Portion of this test **********
     # *********************************************************************
@@ -116,6 +115,12 @@ def test_swap_best_by_category():
     # - That the results is truthy
     # - That tai and jesse's inventories are the correct length
     # - That all the correct items are in tai and jesse's inventories, including the items which were swapped from one vendor to the other
+    
+    assert result
+    assert len(tai.inventory) == len(jesse.inventory)
+    assert item_d in tai.inventory and item_d not in jesse.inventory
+    assert item_a in jesse.inventory and item_a not in tai.inventory
+
 
 # @pytest.mark.skip
 def test_swap_best_by_category_reordered():
@@ -149,6 +154,7 @@ def test_swap_best_by_category_reordered():
     # - That result is truthy
     # - That tai and jesse's inventories are the correct length
     # - That all the correct items are in tai and jesse's inventories, and that the items that were swapped are not there
+
 
 # @pytest.mark.skip
 def test_swap_best_by_category_no_inventory_is_false():
@@ -235,6 +241,7 @@ def test_swap_best_by_category_no_match_is_false():
     # - That tai and jesse's inventories are the correct length
     # - That all the correct items are in tai and jesse's inventories
 
+
 # @pytest.mark.skip
 def test_swap_best_by_category_no_other_match_is_false():
     # Arrange
@@ -267,3 +274,7 @@ def test_swap_best_by_category_no_other_match_is_false():
     # - That result is falsy
     # - That tai and jesse's inventories are the correct length
     # - That all the correct items are in tai and jesse's inventories
+
+    # Assert 
+
+
