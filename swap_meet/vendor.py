@@ -25,7 +25,6 @@ class Vendor():
         if my_item not in self.inventory or their_item not in other_vendor.inventory:
             return False
         
-
         self.inventory.remove(my_item)
         other_vendor.inventory.append(my_item)
 
@@ -33,12 +32,16 @@ class Vendor():
         self.inventory.append(their_item)
 
         return True
+    
+    def swap_first_item(self, other_vendor):
+        my_first = ""
+        their_first = "" 
+        if self.inventory == [] or other_vendor.inventory == []:
+            return False
+        else:
+            my_first = self.inventory.pop(0)
+            other_vendor.inventory.append(my_first)
 
-
-
-
-# remove my_item from vendor inventory and
-# add item to other_vendor inventory
-
-# remove their_item from the other_vendor inventory
-# add their_item to to (our) vendor_inventory
+            their_first = other_vendor.inventory.pop(0)
+            self.inventory.append(their_first)                   
+        return True
