@@ -121,7 +121,25 @@ class Vendor:
     """
     
     def get_best_by_category(self, category):
-        pass
+
+        
+        # find items with matching category
+        items = self.get_by_category(category)
+        
+        if not items:
+            return None
+        
+        highest_condition_item = items[0]
+        
+        # determine which one has the highest condition
+        for item in items:
+            if item.condition > highest_condition_item.condition:
+                highest_condition_item = item
+        
+        # return that item
+        return highest_condition_item
+
+
     #pseudo code 
 
     # for all the items in self inventory. 

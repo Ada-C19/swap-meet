@@ -285,7 +285,7 @@ def test_swap_best_by_category_no_other_match_is_false():
         their_priority="Decor"
     )
 
-    # Arrange
+    # Assert
     assert not result
 
     raise Exception("Complete this test according to comments below.")
