@@ -13,5 +13,3 @@ class Clothing(Item):
         line1 = super().__str__()
         line2 = f"It is made from {self.fabric} fabric."
         return " ".join((line1, line2))
-
-        
