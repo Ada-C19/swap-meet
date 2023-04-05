@@ -16,4 +16,4 @@ class Clothing(Item):
         return f"An object of type Clothing with id {self.id}. It is made from {self.fabric} fabric."
     
 
-     # not passing the first test case for Clothing
+     

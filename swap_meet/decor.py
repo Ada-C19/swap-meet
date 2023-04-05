@@ -15,4 +15,4 @@ class Decor(Item):
         return f"An object of type Decor with id {self.id}. It takes up a {self.width} by {self.length} sized space."
     
 
-    # not passing the first test case for Decor
+    
