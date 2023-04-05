@@ -6,7 +6,7 @@ class Decor(Item):
         self.length = length
         self.condition = condition
         super().__init__(id)
-        super().condition_description(condition)
+
     
     def get_category(self):
         return "Decor"

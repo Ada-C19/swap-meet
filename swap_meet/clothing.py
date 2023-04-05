@@ -5,7 +5,6 @@ class Clothing(Item):
         self.fabric = fabric
         self.condition = condition
         super().__init__(id)
-        super().condition_description(condition)
 
 
     def get_category(self):
