@@ -14,7 +14,7 @@ class Vendor:
             self.inventory.remove(item)
             return item
         else:
-            return False
+            return False        # IF raise exception it will stop the whole program, for example it will not be necessery to have line 26-28 to return F
     
     def get_by_id(self, id):
         for item in self.inventory:
@@ -34,7 +34,8 @@ class Vendor:
     
     def swap_first_item(self, other_vendor):
 
-        if self.inventory == [] or other_vendor.inventory == []:
+        if self.inventory == [] or other_vendor.inventory == []: 
+            # Empty list is not equal to default None. Because line 5 `[]` is passed to inventory.
             return False
         else:
             my_first = self.inventory[0]
