@@ -22,7 +22,6 @@ class Vendor:
         return None
     
     def swap_items(self, other_vendor, my_item, their_item):
-        # Does not execute swap if either item doesn't exist
         if (my_item not in self.inventory or 
                 their_item not in other_vendor.inventory):
             return False
@@ -53,7 +52,6 @@ class Vendor:
     def get_best_by_category(self, category):
         category_items = self.get_by_category(category)
         try:
-            # Returns item with best condition rating
             return max(category_items, key=lambda item: item.condition)
         except ValueError:
             return None
