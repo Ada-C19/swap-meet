@@ -30,6 +30,9 @@ class Vendor:
             return True
         return False
     
+    def swap_first_item(self, other_vendor):
+        pass
+    
     def get_by_category(self, category):
         pass
 
