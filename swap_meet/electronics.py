@@ -3,8 +3,8 @@ from .item import Item
 
 class Electronics(Item):
     """ Represents electronic items. """
-    def __init__(self, type="Unknown", id=None, condition=0.0):
-        super().__init__(id, condition)
+    def __init__(self, type="Unknown", id=None, condition=0.0, age=0):
+        super().__init__(id, condition, age)
         self.type = type
 
     def __str__(self):

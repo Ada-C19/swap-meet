@@ -5,6 +5,104 @@ from swap_meet.clothing import Clothing
 from swap_meet.decor import Decor
 from swap_meet.electronics import Electronics
 
+def test_default_item_age():
+    item = Item()
+    clothing = Clothing()
+    decor = Decor()
+    electronic = Electronics()
+
+    assert item.age == 0
+    assert clothing.age == 0
+    assert decor.age == 0
+    assert electronic.age == 0
+
+def test_swap_by_newest():
+    item_a = Clothing(age=5)
+    item_b = Electronics(age=6)
+    item_c = Decor(age=3)
+    item_d = Decor(age=1)
+    item_e = Electronics(age=10)
+    item_f = Clothing()
+
+    john = Vendor(inventory=[item_a, item_b, item_c])
+    mary = Vendor(inventory=[item_d, item_e, item_f])
+
+    result = john.swap_by_newest(mary)
+
+    assert len(john.inventory) == 3
+    assert len(mary.inventory) == 3
+    assert result
+    assert item_a in john.inventory
+    assert item_b in john.inventory
+    assert item_c not in john.inventory
+    assert item_f in john.inventory
+    assert item_d in mary.inventory
+    assert item_e in mary.inventory
+    assert item_f not in mary.inventory
+    assert item_c in mary.inventory
+
+def test_swap_by_newest_different_order():
+    item_a = Clothing(age=5)
+    item_b = Electronics(age=6)
+    item_c = Decor(age=3)
+    item_d = Decor(age=1)
+    item_e = Electronics(age=10)
+    item_f = Clothing()
+
+    john = Vendor(inventory=[item_b, item_c, item_a])
+    mary = Vendor(inventory=[item_e, item_f, item_d])
+
+    result = john.swap_by_newest(mary)
+
+    assert len(john.inventory) == 3
+    assert len(mary.inventory) == 3
+    assert result
+    assert item_a in john.inventory
+    assert item_b in john.inventory
+    assert item_c not in john.inventory
+    assert item_f in john.inventory
+    assert item_d in mary.inventory
+    assert item_e in mary.inventory
+    assert item_f not in mary.inventory
+    assert item_c in mary.inventory   
+
+def test_swap_by_newest_no_inventory_is_false():
+    item_a = Clothing(age=5)
+    item_b = Electronics(age=6)
+    item_c = Decor(age=3)
+    item_d = Decor(age=1)
+    item_e = Electronics(age=10)
+    item_f = Clothing()
+
+    john = Vendor(inventory=[item_a, item_b, item_c])
+    mary = Vendor(inventory=[item_d, item_e, item_f])
+    yuri = Vendor()
+    georg = Vendor()
+
+    result_both_empty = yuri.swap_by_newest(georg)
+    result_first_empty = georg.swap_by_newest(john)
+    result_second_empty = mary.swap_by_newest(yuri)
+
+    assert result_both_empty == False
+    assert result_first_empty == False
+    assert result_second_empty == False
+
+def test_swap_by_newest_with_tie():
+    item_a = Clothing(age=10)
+    item_b = Decor(age=5)
+    item_c = Clothing(age=5)
+    item_d = Electronics(age=7)
+    item_e = Decor(age=8)
+    item_f = Decor(age=10)
+
+    john = Vendor(inventory=[item_a, item_b, item_c])
+    mary = Vendor(inventory=[item_d, item_e, item_f])
+
+    result = john.swap_by_newest(mary)
+
+    assert result
+    assert min(mary.inventory, key=lambda item: item.age).age == 5
+
 #@pytest.mark.skip
 def test_get_items_by_category():
     item_a = Clothing()

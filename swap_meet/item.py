@@ -4,12 +4,13 @@ import uuid as u
 class Item:
     """ Initiate Item class for a specific object in inventory. """
 
-    def __init__ (self, id=None, condition=0.0):
+    def __init__ (self, id=None, condition=0.0, age=0):
         """ Assign a unique id to each item. """
         if not (isinstance(id, int) or id is None):
             raise TypeError("IDs must be integers!")
         self.id = int(u.uuid4()) if id is None else int(id)
         self.condition = condition
+        self.age = age
     
     def get_category(self):
         """ Return the item's class name as a string. """
