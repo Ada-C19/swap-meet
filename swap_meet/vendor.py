@@ -3,12 +3,12 @@ class Vendor:
     # passing optional argument called inventory 
     def __init__(self, inventory=None):
         self.inventory = [] if inventory is None else inventory
-        # self.item = Item(self.id, self.condition)
-    # method that adds item to inventory 
+    
     def add(self, item):
         if item:
             self.inventory.append(item)
         return item 
+    
     # method that removes item from inventory if in inventory
     def remove(self, item):
         if item not in self.inventory:

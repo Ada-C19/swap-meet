@@ -96,7 +96,6 @@ def test_electronics_has_expected_to_str_with_custom_type():
     )
     assert str(electronics) == expected_str
 
-
 # ~~~~~ Item Tests ~~~~~
 
 # @pytest.mark.skip
