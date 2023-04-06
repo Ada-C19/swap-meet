@@ -26,16 +26,14 @@ class Vendor:
                 return item
         return None
             
-    def swap_items(self, my_item, other_vendor, their_item):
-        if my_item not in self.inventory:
+    def swap_items(self, other_vendor, my_item, their_item):
+        if my_item not in self.inventory or their_item not in other_vendor.inventory:
             return False
-        if their_item not in other_vendor.inventory:
-            return False 
         
-        self.inventory.append(their_item)
-        other_vendor.inventory.append(my_item)
         self.inventory.remove(my_item)
+        other_vendor.inventory.append(my_item)
         other_vendor.inventory.remove(their_item)
+        self.inventory.append(their_item)
         
         return True
 
@@ -43,9 +41,7 @@ class Vendor:
         if len(self.inventory) == 0 or len(other_vendor.inventory) == 0:
             return False
         else: 
-            self.inventory[0] = other_vendor.inventory[0]
-            other_vendor.inventory[0] = self.inventory[0]
+            my_item = self.inventory[0]
+            their_item = other_vendor.inventory[0]
+            self.swap_items(other_vendor, my_item, their_item)
             return True
-
-
-        
