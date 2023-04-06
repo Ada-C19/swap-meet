@@ -36,14 +36,17 @@ class Vendor:
             return False
         return True
 
-    def swap_first_item(self, other_vendor):
-        if not self.inventory or not other_vendor.inventory:
+    def get_first_item(self):
+        if not self.inventory:
             return False
-        other_vendor_first_item = other_vendor.inventory.pop(0)
-        my_first_item = self.inventory.pop(0)
-        other_vendor.inventory.append(my_first_item)
-        self.inventory.append(other_vendor_first_item)
-        return True
+        return self.inventory[0]
+        
+    def swap_first_item(self, other_vendor):
+        my_first_item = self.get_first_item()
+        other_first_item = other_vendor.get_first_item()
+        if my_first_item and other_first_item and self.swap_items(other_vendor, my_first_item, other_first_item):
+            return True 
+        return False
     
     def get_by_category(self, category):
         items_match_category = []
@@ -67,4 +70,24 @@ class Vendor:
         their_best_item_category = other_vendor.get_best_by_category(my_priority)
         if not my_best_item_category or not their_best_item_category:
             return False
-        return self.swap_items(other_vendor, my_best_item_category, their_best_item_category)
+        if self.swap_items(other_vendor, my_best_item_category, their_best_item_category):
+            return True
+        return False
+    
+    def get_newest_item(self):
+        if not self.inventory:
+            return False
+        newest_item_age = self.inventory[0].age
+        newest_item = self.inventory[0]
+        for item in self.inventory:
+            if item.age < newest_item_age:
+                newest_item_age = item.age
+                newest_item = item
+        return newest_item
+
+    def swap_by_newest(self, other_vendor):
+        my_newest_item = self.get_newest_item()
+        other_newest_item = other_vendor.get_newest_item()
+        if my_newest_item and other_newest_item and self.swap_items(other_vendor, my_newest_item, other_newest_item):
+            return True
+        return False
