@@ -18,12 +18,14 @@ class Item:
     
     def condition_description(self):
         #convert to a dict later?
+        condition_dict = {}
+
         if self.condition == 0:
             return "Questionable matter...maybe buy it new..."
         elif self.condition == 1:
             return "Decent..."
         elif self.condition == 2:
-            return "Trendy"
+            return "It's alright...."
         elif self.condition == 3:
             return "Great"
         elif self.condition == 4:

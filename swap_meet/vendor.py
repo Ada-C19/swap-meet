@@ -42,25 +42,25 @@ class Vendor:
 
         return True
     
-    def get_by_category(self, string_category):
+    def get_by_category(self, category):
         category_list = []
 
         for item in self.inventory:
-            if item.get_category() == string_category:
+            if item.get_category() == category:
                 category_list.append(item)
         return category_list
     
-    def get_best_by_category(self, string_category):
-        list_of_same_categories = self.get_by_category(string_category)
+    def get_best_by_category(self, category):
+        list_of_same_categories = self.get_by_category(category)
         #cant be after highest_condition becuase list_of_same_categories could be empty:
         if not list_of_same_categories or len(list_of_same_categories) == 0:
             return None
 
         highest_condition = list_of_same_categories[0]
 
-        for category in list_of_same_categories:
-            if category.condition > highest_condition.condition:
-                highest_condition = category
+        for item in list_of_same_categories:
+            if item.condition > highest_condition.condition:
+                highest_condition = item
         return highest_condition
     
     def swap_best_by_category(self, other_vendor, my_priority, their_priority):
