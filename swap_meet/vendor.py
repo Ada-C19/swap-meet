@@ -27,12 +27,12 @@ class Vendor:
             return False
 
         # Gives vendor's item to other_vendor
-        other_vendor.inventory.append(my_item)
-        self.inventory.remove(my_item)
+        other_vendor.add(my_item)
+        self.remove(my_item)
 
         # Receives other_vendor's item
-        self.inventory.append(their_item)
-        other_vendor.inventory.remove(their_item)
+        self.add(their_item)
+        other_vendor.remove(their_item)
 
         return True
     
