@@ -13,3 +13,4 @@ class Electronics(Item):
     
     def condition_description(self):
         return super().condition_description()
+    
