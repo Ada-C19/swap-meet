@@ -63,7 +63,7 @@ class Vendor:
         Swap the first item in this Vendor with the first irem in the other Vendor, return True.
         If either Vendor does not have a matching item, return False.
         """
-        if self.inventory == [] or other_vendor.inventory == []: 
+        if not self.inventory or not other_vendor.inventory: 
             return False
         else:
             my_first = self.inventory[0]
