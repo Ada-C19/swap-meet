@@ -14,7 +14,7 @@ class Item:
         return self.__class__.__name__
     
     def get_age(self):
-        return self.__class__.__name__
+        return self.age
     
     def __str__(self):
         return f"An object of type Item with id {self.id}."

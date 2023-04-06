@@ -73,7 +73,7 @@ class Vendor:
     def get_by_age(self,age):
         age_list = []
         for item in self.inventory:
-            if item.get_category() == age:
+            if item.get_age() == age:
                 age_list.append(item)
         return age_list 
         
