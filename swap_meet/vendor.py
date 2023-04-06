@@ -26,31 +26,29 @@ class Vendor:
         return None
 
     def swap_items(self, other_vendor, my_item, their_item):
-        other_vendor_inventory = other_vendor.inventory
-        current_vendor_inventory = self.inventory
 
-        if not current_vendor_inventory or not other_vendor_inventory:
+        if not self.inventory or not other_vendor.inventory:
             return False
 
-        if my_item not in current_vendor_inventory or their_item not in other_vendor_inventory:
+        if my_item not in self.inventory or their_item not in other_vendor.inventory:
             return False
         
-        my_index = current_vendor_inventory.index(my_item)
-        their_index = other_vendor_inventory.index(their_item)
+        # assigning specific item index to variable
+        my_item_index = self.inventory.index(my_item)
+        their_item_index = other_vendor.inventory.index(their_item)
 
-        other_vendor_inventory.append(current_vendor_inventory.pop(my_index))
-        current_vendor_inventory.append(other_vendor_inventory.pop(their_index))
+        # simultaneously pops specific item off list and appends it to another
+        other_vendor.inventory.append(self.inventory.pop(my_item_index))
+        self.inventory.append(other_vendor.inventory.pop(their_item_index))
         
         return True
 
     def swap_first_item(self, other_vendor):
-        current_vendor_inventory = self.inventory
-        other_vendor_inventory = other_vendor.inventory
 
-        if len(current_vendor_inventory) ==0  or len(other_vendor_inventory) ==0:
+        if not self.inventory or not other_vendor.inventory:
             return False
 
-        return self.swap_items(other_vendor, current_vendor_inventory[0], other_vendor_inventory[0])
+        return self.swap_items(other_vendor, self.inventory[0], other_vendor.inventory[0])
 
 
     def get_by_category(self, category):
@@ -73,8 +71,6 @@ class Vendor:
         return highest_item   
     
     def swap_best_by_category(self, other_vendor, my_priority, their_priority):
-        current_vendor_inventory = self.inventory
-        other_vendor_inventory = other_vendor.inventory
 
         if not self.get_by_category(their_priority) or not other_vendor.get_by_category(my_priority):
             return False
