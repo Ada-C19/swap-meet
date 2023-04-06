@@ -32,7 +32,7 @@ class Vendor:
         other_vendor.inventory.append(my_item)
         other_vendor.inventory.remove(their_item)
         self.inventory.append(their_item)
-        
+
         return True
     
     def swap_first_item(self, other_vendor):
@@ -54,14 +54,8 @@ class Vendor:
         if len(category_list) == 0:
             return None
 
-        best_condition = category_list[0].condition
-        best_item = category_list[0]
-
-        for item in category_list:
-            if item.condition > best_condition:
-                best_condition = item.condition
-                best_item = item
-
+        best_item = max(category_list, key=lambda item: item.condition)
+        
         return best_item
     
     def swap_best_by_category(self, other_vendor, my_priority, their_priority):
