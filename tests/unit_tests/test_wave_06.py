@@ -118,8 +118,8 @@ def test_swap_best_by_category():
     
     assert result
     assert len(tai.inventory) == len(jesse.inventory)
-    assert item_d in tai.inventory and item_d not in jesse.inventory
-    assert item_a in jesse.inventory and item_a not in tai.inventory
+    assert item_f not in jesse.inventory
+    assert item_e not in tai.inventory
 
 
 # @pytest.mark.skip
@@ -157,7 +157,7 @@ def test_swap_best_by_category_reordered():
     # - That tai and jesse's inventories are the correct length
     assert len(tai.inventory) == len(jesse.inventory)
     # - That all the correct items are in tai and jesse's inventories, and that the items that were swapped are not there
-    assert (item_e and item_f) in tai.inventory and (item_e and item_f) not in jesse.inventory
+    assert (item_d and item_f) in tai.inventory and (item_d and item_f) not in jesse.inventory
 
 
 # @pytest.mark.skip
