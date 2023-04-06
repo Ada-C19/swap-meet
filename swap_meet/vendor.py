@@ -160,4 +160,16 @@ class Vendor:
             If other_vendor has no item that matches my_priority category, swapping does not happen, and it returns False
     """
     def swap_best_by_category(self, other_vendor, my_priority, their_priority):
-        pass
+        
+        my_best_item = self.get_best_by_category(their_priority)
+        their_best_item = other_vendor.get_best_by_category(my_priority)
+        
+
+        if my_best_item is None or their_best_item is None:
+            return False
+        else:
+            self.swap_items(other_vendor, my_best_item, their_best_item)
+            return True
+
+        # else:
+        #     return False
