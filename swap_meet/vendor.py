@@ -66,29 +66,8 @@ class Vendor:
         return highest_item
 
     def swap_best_by_category(self, other_vendor, my_priority, their_priority):
-     
-
-        # my_best = self.get_best_by_category(their_priority)
-        # their_best = other_vendor.get_best_by_category(my_priority)
-
-        # if not my_best or not their_best:
-        #     return False
-        
-        # self.swap_items(other_vendor, my_best, their_best)
-        # return True
-    
-        # # def swap_best_by_category(self, other_vendor, my_priority, their_priority):
-        # best_in_my = other_vendor.get_best_by_category(my_priority)
-        # best_in_theirs  = self.get_best_by_category(their_priority)
-
-        # if not best_in_theirs or not best_in_my or best_in_my != best_in_theirs:
-        #     return False
-        # self.swap_items(other_vendor, best_in_my, best_in_theirs)
-        # return True 
-        
         v_wants = other_vendor.get_best_by_category(my_priority)
         ov_wants  = self.get_best_by_category(their_priority)
-        # if not ov_wants or not v_wants or v_wants != ov_wants:
     
         if not ov_wants or not v_wants:
             return False
