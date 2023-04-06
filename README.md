@@ -2,6 +2,8 @@
 
 ## Skills Assessed
 
+Add name: Divya Naidoo
+
 - Understanding and following code specifications
 - Reading tests
 - Creating classes with attributes and instance methods
