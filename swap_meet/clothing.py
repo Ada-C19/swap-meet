@@ -17,8 +17,6 @@ class Clothing(Item):
         super().__init__(id, condition, age)
         self.fabric = fabric
         
-        
-
     def get_category(self):
         return super().get_category()
 
@@ -27,7 +25,3 @@ class Clothing(Item):
 
     def condition_description(self):
         return super().condition_description()
-    
-shirt = Clothing()
-
-print(shirt)
