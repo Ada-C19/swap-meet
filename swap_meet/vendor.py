@@ -91,15 +91,17 @@ class Vendor():
 
         my_item = self.get_best_by_category(their_priority)
         their_item = other_vendor.get_best_by_category(my_priority)
-        print(my_item)
-        print(their_item)
-        if my_item ==  None:
-            return False
-        elif their_item ==  None:
-            return False
-        else:
-            self.inventory.remove(my_item)
-            other_vendor.inventory.append(my_item)
-            other_vendor.inventory.remove(their_item)
-            self.inventory.append(their_item)
-            return True
+ 
+        return self.swap_items(other_vendor, my_item, their_item)
+    
+                # if my_item ==  None:
+        #     return False
+        # elif their_item ==  None:
+        #     return False
+        # else:
+        #     self.inventory.remove(my_item)
+        #     other_vendor.inventory.append(my_item)
+        #     other_vendor.inventory.remove(their_item)
+        #     self.inventory.append(their_item)
+        #     return True
+  
