@@ -40,3 +40,10 @@ class Vendor:
         
         self.swap_items(other_vendor, self.inventory[0], other_vendor.inventory[0])
         return True
+    
+    def get_by_category(self, category):
+        category_items = []
+        for item in self.inventory:
+            if item.get_category() == category:
+                category_items.append(item)
+        return category_items
