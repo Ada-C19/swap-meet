@@ -59,3 +59,12 @@ class Vendor:
         self.inventory[0] = other_vendor.inventory[0]
         other_vendor.inventory[0] = tmp
         return True
+    
+    def swap_best_by_category(self, other_vendor, my_priority, their_priority):
+        my_item = self.get_best_by_category(their_priority)
+        their_item = other_vendor.get_best_by_category(my_priority)
+        
+        return self.swap_items(other_vendor, my_item, their_item)
+        
+
+
