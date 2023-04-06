@@ -1,6 +1,8 @@
+from swap_meet.item import Item
+
 class Vendor:
-    def __init__(self, inventory = []):
-        self.inventory = inventory
+    def __init__(self, inventory = None):
+        self.inventory = inventory or []
 
     def add(self, added_item):
         (self.inventory).append(added_item)
@@ -40,12 +42,11 @@ class Vendor:
     def get_by_category(self, category_type):
         items_in_category = []
         for item in self.inventory:
-            if item.category == category_type:
+            if category_type == item.get_category():
                 items_in_category.append(item)
-        if items_in_category == []:
-            return None
-        else:
-            return items_in_category
+        # if not items_in_category:
+            # return None
+        return items_in_category
         
     def get_best_by_category(self,category):
         if not self.get_by_category(category):
