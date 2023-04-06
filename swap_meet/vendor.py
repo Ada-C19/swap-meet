@@ -77,6 +77,9 @@ class Vendor:
         #theirpriorty is item they want from me
         #return True if best item in my inventory matches theirpriorty and myoriorty matches their beist item
 
+        if not self.inventory or not other_vendor.inventory:
+            return False
+
         item_self_want = self.get_best_by_category(their_priority)
         # print(item_self_want)
         item_they_want = other_vendor.get_best_by_category(my_priority)
@@ -86,4 +89,4 @@ class Vendor:
         self.swap_items(other_vendor, item_self_want, item_they_want)
         
         return True
-
+    
