@@ -36,18 +36,9 @@ class Vendor:
     def swap_first_item(self, other_vendor):
         if not self.inventory or not other_vendor.inventory:
             return False
-        self.inventory.append(other_vendor.inventory[0])
-        other_vendor.inventory.append(self.inventory[0])
-        self.inventory.pop(0)
-        other_vendor.inventory.pop(0)
-        return True
-        # swap_item() can be used here if we pass self.inventory[0] and other_vendor.inventory[0]
-        # however this has more time complexity because of remove() vs pop()
-        # the overall time complexity would probably be O(n) anyway because of "in" 
-        # so maybe it is worth it to use swap_item() 
-        # could also refactor swap_items using range(len()) to iterate indexes so that
-        # pop could be used in both scenarios. is this over optimization lol 
-    
+        return self.swap_items(other_vendor, self.inventory[0], other_vendor.inventory[0])
+
+
     def get_by_category(self, category):
         list_of_category = []
         for element in self.inventory:
@@ -56,16 +47,11 @@ class Vendor:
         return list_of_category
 
     def get_best_by_category(self, category):
-        best_condition = 0
-        best_item = None
         items_to_search = self.get_by_category(category)
-        for element in items_to_search:
-            if element.condition > best_condition:
-                best_item = element
-                best_condition = element.condition
-        return best_item
-        #dry-er, lambdas replacing the for loop and remove initial variables?
-        #return max(items_to_search, key=lambda element: element.condition)
+        if not items_to_search:
+            return None
+        return max(items_to_search, key=lambda element: element.condition)
+    
 
     def swap_best_by_category(self, other_vendor, my_priority, their_priority):
         my_best_item_in_the_category_they_want  = self.get_best_by_category(their_priority)
