@@ -7,20 +7,20 @@ class Clothing(Item):
     #         id = uuid.uuid4().int
     #     self.id = id
 
-    def __init__(self, id=None, fabric="Unknown"):
-        super().__init__(id)
+    def __init__(self, id=None, fabric="Unknown", condition=0):
+        super().__init__(id, condition)
         self.fabric = fabric
 
 
-    # check item file!!!!!!!!
+
     def __str__(self):
         first_sentence = super().__str__()
         # first_sentence = super().__str__(Item)
         # return f"{first_sentence} It is made from {self.fabric} fabric."
 
-        print("*****************")
-        print(f"{first_sentence} It is made from {self.fabric} fabric.")
-
+        # added return and was able to pass two more tests
+        #  print(f"{first_sentence} It is made from {self.fabric} fabric.")
+        return f"{first_sentence} It is made from {self.fabric} fabric."
 
 
         
