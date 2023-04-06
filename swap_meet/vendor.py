@@ -14,9 +14,8 @@ class Vendor:
     def remove(self, item):
         if item not in self.inventory:
             return False
-        else:
-            self.inventory.remove(item)
-            return item
+        self.inventory.remove(item)
+        return item
         
     def get_by_id(self, int):
         for item in self.inventory:
