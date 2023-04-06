@@ -25,4 +25,3 @@ class Item:
         }
 
         return condition_rating[self.condition]
-
