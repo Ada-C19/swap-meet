@@ -16,7 +16,7 @@ class Vendor:
 
         return item 
     
-    #WaveZ
+    #Wave 2
     def get_by_id(self, id):
         for item in self.inventory:
             if item.id == id:
@@ -54,9 +54,68 @@ class Vendor:
     
     #Wave 6
 
-    def get_best_by_category(self, category):
-        items_with_category = self.get_by_category(category)
-        if len(items_with_category) == 0:
-            return None
-        best_item = max(items_with_category, key=lambda x: x.condition)
-        return best_item
+#  - `Vendor` objects have an instance method named `get_by_category`
+        #(done)
+#    - This method takes one argument: a string, representing a category
+#    - This method returns a list of objects in the inventory with that category
+#    - If there are no items in the `inventory` that match the category argument, the method returns an empty list
+    
+    def get_by_category(self, category):
+        inventory_category_items = []
+
+        for item in self.inventory:
+            if item.category == category:
+                inventory_category_items.append(item)
+
+        return inventory_category_items
+    
+
+
+# - `Vendor`s have a method named `get_best_by_category`, which will get the item with the best condition in a certain category
+#   - It takes one argument: a string that represents a category
+#   - This method looks through the instance's `inventory` for the item with the highest `condition` and matching `category`
+#     - It returns this item
+#     - If there are no items in the `inventory` that match the category, it returns `None`
+#     - It returns a single item even if there are duplicates (two or more of the same item with the same condition)
+
+ 
+    def get_best_by_category(self, category= None):
+        category_list = self.get_by_category(category)
+
+        value = [] 
+
+        for item in category_list:
+            value.append(item.condition)
+
+            max_value = max(value)
+
+        for item in category_list:
+            if item.condition == max_value: 
+                return item 
+
+
+
+# - `Vendor`s have a method named `swap_best_by_category`, which will swap the best item of certain categories with another `Vendor`
+#   - It takes in three arguments
+#     - `other_vendor`, which represents another `Vendor` instance to trade with
+#     - `my_priority`, which represents a category that the `Vendor` wants to receive
+#     - `their_priority`, which represents a category that `other_vendor` wants to receive
+#   - The best item in my inventory that matches `their_priority` category is swapped with the best item in `other_vendor`'s inventory that matches `my_priority`
+#     - It returns `True`
+#     - If the `Vendor` has no item that matches `their_priority` category, swapping does not happen, and it returns `False`
+#     - If `other_vendor` has no item that matches `my_priority` category, swapping does not happen, and it returns `False`
+
+    def swap_best_by_category(self, other_vendor, my_priority, their_priority):
+        my_best_item = self.get_best_by_category(their_priority)
+        their_best_item = other_vendor.get_best_by_category(my_priority)
+
+        if not my_best_item or not their_best_item:
+            return False
+
+        self.inventory.remove(my_best_item)
+        other_vendor.inventory.remove(their_best_item)
+
+        self.inventory.append(their_best_item)
+        other_vendor.inventory.append(my_best_item)
+
+        return True
