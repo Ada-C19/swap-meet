@@ -6,8 +6,10 @@ class Electronics(Item):
         super().__init__(age, id, condition)
         self.type = type
     
+
     def get_category(self):
         return "Electronics"
+
 
     def __str__(self):
         line1 = super().__str__()
