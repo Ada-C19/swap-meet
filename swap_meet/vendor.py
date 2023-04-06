@@ -5,6 +5,7 @@ class Vendor:
     
     def add(self, item):
         self.inventory.append(item)
+        
         return item
     
 
@@ -12,6 +13,7 @@ class Vendor:
         if item not in self.inventory:
             return False
         self.inventory.remove(item)
+        
         return item
     
 
@@ -19,6 +21,7 @@ class Vendor:
         for item in self.inventory:
             if item.id == id:
                 return item
+            
         return None
     
 
@@ -56,6 +59,7 @@ class Vendor:
         the given category.
         """
         category_items = [item for item in self.inventory if item.get_category() == category]
+        
         return category_items
 
 
@@ -64,13 +68,10 @@ class Vendor:
         Return item from inventory with highest condition score that matches 
         given category.
         """
-        max_condition = 0
-        best_item = None
-        
-        for item in self.inventory:
-           if item.get_category() == category and item.condition > max_condition:
-               max_condition = item.condition
-               best_item = item
+        category_items = self.get_by_category(category)
+        if not category_items:
+            return None
+        best_item = max(category_items, key=lambda item: item.condition)
 
         return best_item 
 
