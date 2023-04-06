@@ -1,10 +1,13 @@
 from uuid import uuid4
-from uuid import getnode
 
 class Item:
     def __init__(self, id = None, condition = 0, age = 0):
+<<<<<<< HEAD
         self.id = id if id else uuid4().int
         # self.id = int(uuid4())
+=======
+        self.id = id if id is not None else uuid4().int
+>>>>>>> e04273feb55835be85d445d1c5178d2e45017b3f
         self.condition = condition
         self.conditions_dict = {
             0: "There is a very evil, ancient spirit attached to this item",
@@ -22,5 +25,9 @@ class Item:
         return f"An object of type Item with id {self.id}."
 
     def condition_description(self):
+<<<<<<< HEAD
         return self.conditions_dict[self.condition]
         
+=======
+        return self.conditions_dict[self.condition]
+>>>>>>> e04273feb55835be85d445d1c5178d2e45017b3f
