@@ -3,9 +3,9 @@ class Vendor:
     def __init__(self, inventory=None):
         self.inventory = [] if inventory is None else inventory
     
+
     def add(self, item):
         self.inventory.append(item)
-        
         return item
     
 
@@ -13,7 +13,6 @@ class Vendor:
         if item not in self.inventory:
             return False
         self.inventory.remove(item)
-        
         return item
     
 
@@ -21,7 +20,6 @@ class Vendor:
         for item in self.inventory:
             if item.id == id:
                 return item
-            
         return None
     
 
@@ -59,7 +57,6 @@ class Vendor:
         the given category.
         """
         category_items = [item for item in self.inventory if item.get_category() == category]
-        
         return category_items
 
 
@@ -68,12 +65,16 @@ class Vendor:
         Return item from inventory with highest condition score that matches 
         given category.
         """
-        category_items = self.get_by_category(category)
-        if not category_items:
-            return None
-        best_item = max(category_items, key=lambda item: item.condition)
+        max_condition = 0
+        best_item = None
+        
+        for item in self.inventory:
+           if item.get_category() == category and item.condition > max_condition:
+               max_condition = item.condition
+               best_item = item
 
         return best_item 
+
 
     def swap_best_by_category(self, other_vendor, my_priority, their_priority):
         # Find item in self's inventory that matches other_vendor's priority
@@ -89,17 +90,20 @@ class Vendor:
 
         return True
     
+
     def get_newest(self):
         """
         Finds the first instance of newest item in an inventory.
         Returns False if inventory is empty, otherwise returns the newest item.
         """
-        if not self.inventory: return False
+        if not self.inventory: 
+            return False
 
-        newest_item = min(self.inventory, key=lambda x:x.age)
+        newest_item = min(self.inventory, key=lambda item:item.age)
         
         return newest_item
     
+
     def swap_by_newest(self, other_vendor):
         """
         Swaps the newest item from self and another vendor.
