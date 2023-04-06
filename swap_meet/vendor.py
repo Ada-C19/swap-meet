@@ -40,6 +40,7 @@ class Vendor:
         first_item_switch = self.swap_items(other_vendor, my_first_item, their_first_item)
         return first_item_switch 
     
+    #returns list of items that are specific category 
     def get_by_category(self, category): 
         inventory_by_category = []
 
@@ -51,6 +52,7 @@ class Vendor:
                 inventory_by_category.append(thing)
         return inventory_by_category
     
+    #return item object that is in best condition within the inventory 
     def get_best_by_category(self, category): 
         best_condition = 0 
         best_item = None 
@@ -61,5 +63,10 @@ class Vendor:
                     best_condition = thing.condition
         return best_item
     
+    def swap_best_by_category(self, other_vendor, my_priority, their_priority): 
+        my_best_item= self.get_best_by_category(their_priority)
+        their_best_item=other_vendor.get_best_by_category(my_priority)
     
+        return  self.swap_items (other_vendor,my_best_item, their_best_item)
+
 
