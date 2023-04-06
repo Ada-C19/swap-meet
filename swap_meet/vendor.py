@@ -5,7 +5,7 @@ class Vendor:
         '''
         Constructor of Vendor class:
         Parameters:
-            inventory - starts being an empty list if no argument is pased, represents all of the objects of the classs Item
+            inventory - represents all of the objects of the classs Item
               that self has and is willing to swap with other vendors
         '''
 
@@ -41,12 +41,7 @@ class Vendor:
     
     def get_by_id(self, items_id):
         '''
-        input:
-            self-
-            items_id - int unique identifier for an object of the class Item 
-        output:
-            item - the object of the class Item that contains the id (items_id)
-            None - if no item was found with the id (items_id)
+        Finds the item in self.inventory with the id = items_id
         '''
 
         for item in self.inventory:
@@ -97,8 +92,6 @@ class Vendor:
                 and a swap is done 
         '''
 
-        #Validate if both of the vendors have items in their inventory parameters
-
         if len(self.inventory) and len(other_vendor.inventory):
 
             my_item = self.inventory[0]
@@ -106,8 +99,6 @@ class Vendor:
             self.swap_items(other_vendor,my_item,their_item)
 
             return True 
-        
-        #Return False if either of the vendors inventory has no items in the list 
 
         return False 
     
