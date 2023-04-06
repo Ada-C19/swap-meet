@@ -33,10 +33,12 @@ def test_get_no_matching_items_by_category():
 
     items = vendor.get_by_category("Electronics")
 
-    raise Exception("Complete this test according to comments below.")
-    # *********************************************************************
-    # ****** Complete Assert Portion of this test **********
-    # *********************************************************************
+    assert items == []
+
+    # raise Exception("Complete this test according to comments below.")
+    # # *********************************************************************
+    # # ****** Complete Assert Portion of this test **********
+    # # *********************************************************************
 
 # @pytest.mark.skip
 def test_best_by_category():
@@ -109,8 +111,18 @@ def test_swap_best_by_category():
         my_priority="Clothing",
         their_priority="Decor"
     )
+    #Assert
+    assert result == True
+    assert len(tai.inventory) == 3
+    assert len(jesse.inventory) == 3
+    assert item_f in tai.inventory
+    assert item_a in tai.inventory
+    assert item_b in tai.inventory
+    assert item_c in jesse.inventory
+    assert item_d in jesse.inventory
+    assert item_e in jesse.inventory
 
-    raise Exception("Complete this test according to comments below.")
+    #raise Exception("Complete this test according to comments below.")
     # *********************************************************************
     # ****** Complete Assert Portion of this test **********
     # *********************************************************************
@@ -143,7 +155,7 @@ def test_swap_best_by_category_reordered():
         their_priority="Decor"
     )
 
-    raise Exception("Complete this test according to comments below.")
+    #raise Exception("Complete this test according to comments below.")
     # *********************************************************************
     # ****** Complete Assert Portion of this test **********
     # *********************************************************************
@@ -227,8 +239,9 @@ def test_swap_best_by_category_no_match_is_false():
         my_priority="Clothing",
         their_priority="Clothing"
     )
-
-    raise Exception("Complete this test according to comments below.")
+    # Assert
+    assert result == False
+    #raise Exception("Complete this test according to comments below.")
     # *********************************************************************
     # ****** Complete Assert Portion of this test **********
     # *********************************************************************
@@ -260,8 +273,9 @@ def test_swap_best_by_category_no_other_match_is_false():
         my_priority="Electronics",
         their_priority="Decor"
     )
-
-    raise Exception("Complete this test according to comments below.")
+    #Assert
+    assert result == False
+    #raise Exception("Complete this test according to comments below.")
     # *********************************************************************
     # ****** Complete Assert Portion of this test **********
     # *********************************************************************
