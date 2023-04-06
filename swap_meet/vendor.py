@@ -1,7 +1,7 @@
 class Vendor:
 
     def __init__(self, inventory = None):
-        self.inventory = inventory if inventory is not None else []
+        self.inventory = inventory if inventory else []
 
     def add(self, item = 'new item'):
         self.inventory.append(item)
@@ -39,14 +39,12 @@ class Vendor:
         return True
     
     def get_by_category(self, category = None):
-        category_list = []
         if category == None:
-            return category_list 
-        else:
-            for item in self.inventory:
-                if item.get_category() == category:
-                    category_list.append(item)
-            return category_list
+            return []
+        
+        category_list = [item for item in self.inventory if item.get_category() == category]
+        
+        return category_list
 
     def get_best_by_category(self, category):
         condition_value_dict = {}
@@ -59,13 +57,10 @@ class Vendor:
             return None
     
     def swap_best_by_category(self, other_vendor, my_priority, their_priority):
-        if self.inventory == [] or other_vendor.inventory == []:
-            return False
-        elif self.get_best_by_category(their_priority) and other_vendor.get_best_by_category(my_priority):
+        if self.get_best_by_category(their_priority) and other_vendor.get_best_by_category(my_priority):
             self.swap_items(other_vendor, self.get_best_by_category(their_priority), other_vendor.get_best_by_category(my_priority))
             return True
-        else:
-            return False
+        return False
 
     def get_newest_item(self):
         age_dict = {}
