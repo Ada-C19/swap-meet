@@ -20,7 +20,6 @@ class Item:
 #create function named get_category which will return a string holding the name of the class
 
     def get_category(self):
-        # self.item = Item()
         return self.__class__.__name__
 
     def condition_description(self):
@@ -30,7 +29,3 @@ class Item:
             return "Not the worst"
         elif self.condition in range(3,6):
             return "You can work with this"
-        # elif self.condition in range(3,4):
-        #     return "Decent Swap"
-        # elif self.condition in range(4,5):
-        #     return "Decent Swap"

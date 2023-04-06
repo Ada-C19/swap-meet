@@ -3,9 +3,6 @@ from swap_meet.item import Item
 class Vendor:
     def __init__(self, inventory=None):
         self.inventory = inventory if inventory else []
-    #     self.inventory = inventory
-    #     word_list = [] if word_list is None else word_list
-    # word_list.append(word)
     
     def add(self, item): #this method will add item to the list of self.inventory
         self.inventory.append(item)
@@ -26,9 +23,6 @@ class Vendor:
         return None
         
     def swap_items(self, other_vendor,my_item, their_item):
-    #other_vender = instance of Vendor() 
-    #my_item = instance of Item()
-    #their_item = instance of Item() that Vendor() plans to give them
         if self.get_by_id(my_item.id) == None or other_vendor.get_by_id(their_item.id) == None:
             return False #get_by_id is None if the item is not in the inventory
         self.add(their_item) #adding their item to my inventory
@@ -47,32 +41,28 @@ class Vendor:
         return True
     
     def get_by_category(self, category):
-        #take in one arguement category: str
-        matched_category = []
-    
-        for item in self.inventory:
-            if Item.get_category(item) == category:
-                matched_category.append(item)
+        matched_category = [item for item in self.inventory if Item.get_category(item) == category]
         return matched_category 
+        #refactored into list comprehension    
+        # for item in self.inventory:
+        #     if Item.get_category(item) == category:
+        #         matched_category.append(item)
+        
     
     def get_best_by_category(self, category):
-        matched_category = self.get_by_category(category)
-        if len(matched_category) == 0:
+        #refactored into max()
+        # matched_category = self.get_by_category(category)
+        # if len(matched_category) == 0:
+        #     return None
+        # highest_condition = 0 
+        # for object in matched_category:
+        #     if object.condition > highest_condition:
+        #         highest_condition = object.condition
+        #         highest_valued_object = object
+        # return highest_valued_object
+        if len(self.get_by_category(category)) == 0:
             return None
-        highest_condition = 0 
-        for object in matched_category:
-            if object.condition > highest_condition:
-                highest_condition = object.condition
-                highest_valued_object = object
-        return highest_valued_object
-
-    # def get_by_category(self, category = None): #this method is going to return the item is the id is present in self.inventory
-    #     category_list = []
-    #     for item in self.inventory:
-    #         if item.get_category() == category:
-    #             category_list.append(item)
-                
-    #     return category_list
+        return max(self.get_by_category(category), key = lambda object: object.condition)
 
     def swap_best_by_category(self, other_vendor, my_priority, their_priority):
         if len(other_vendor.get_by_category(my_priority)) == 0 or len((self.get_by_category(their_priority))) == 0 :
