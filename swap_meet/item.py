@@ -9,12 +9,13 @@ class Item:
 
     def get_category(self):
         return self.__class__.__name__
-    
+
     def __str__(self):
         return f"An object of type {self.get_category()} with id {self.id}."
-    
+
     def condition_description(self):
         conditions = {
+            0: "This should not even be sold. Don't buy it.",
             1: "Are you sure you really want this...?",
             2: "Fair condition, but will require fixing up.",
             3: "Good condition.",
