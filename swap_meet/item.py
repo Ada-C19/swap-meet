@@ -1,13 +1,13 @@
 import uuid
 
 class Item:
-    def __init__(self, id=None):
+    def __init__(self, id=None,condition=0):
         if id is None:
 
             self.id = uuid.uuid4().int
         else:
             self.id = id
-    
+        self.condition = condition
     def get_category(self):
         return self.__class__.__name__
     # For call to str(). Prints readable form
@@ -19,6 +19,27 @@ class Item:
     
     def swap_items(self, other_item):
         self.id, other_item.id = other_item.id, self.id
+
+    def __init__(self, condition):
+        self.condition = condition
+        self.condition_description = lambda: {
+            0: "overused eww",
+            1: "on the edge",
+            2: "ehhh but doable",
+            3: "not bad",
+            4: "oooh nice",
+            5: "so shiney aaah"
+        }.get(self.condition, "invalid condition value")()
+
+
+        #conditions 0-5
+        # 0 being worst 5 best 
+    #condition=0
+    #condition_description
+    #range 0-5
+
+
+
 
 
 #item has attribute named id
