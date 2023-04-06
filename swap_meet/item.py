@@ -21,3 +21,4 @@ class Item:
 
     def condition_description(self):
         return self.conditions_dict[self.condition]
+        
