@@ -30,6 +30,4 @@ class Item:
         elif self.condition >= 4.0 and self.condition < 5.0:
             return "if we can't get it out of our mind...we will buy it"
         elif self.condition >= 5:
-            return "TAKE MY MONEY"
-        
-        
+            return "TAKE MY MONEY... as long as it's not full price"
