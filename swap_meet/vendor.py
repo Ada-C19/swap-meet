@@ -42,16 +42,15 @@ class Vendor:
         return True
 
     def swap_first_item(self, other_vendor):
-        # Check if either inventory is empty
-        if not self.inventory or not other_vendor.inventory:
-            return False
-
         # Swap first item of each vendor's inventory
-        self.swap_items(other_vendor,
-                        self.inventory[0],
-                        other_vendor.inventory[0])
-
-        return True
+        try:
+            return self.swap_items(other_vendor,
+                                    self.inventory[0],
+                                    other_vendor.inventory[0])
+        except IndexError as err:
+            print(err)
+            print("Item does not exist.")
+            return False
 
     def get_by_category(self, category):
         return [item for item in self.inventory if
@@ -74,8 +73,4 @@ class Vendor:
         my_best = self.get_best_by_category(their_priority)
         their_best = other_vendor.get_best_by_category(my_priority)
 
-        if not my_best or not their_best:
-            return False
-
-        self.swap_items(other_vendor, my_best, their_best)
-        return True
+        return self.swap_items(other_vendor, my_best, their_best)
