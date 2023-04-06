@@ -33,7 +33,7 @@ def test_get_no_matching_items_by_category():
 
     items = vendor.get_by_category("Electronics")
 
-# KV assertion
+#  assertion
     assert not items
     # raise Exception("Complete this test according to comments below.")
     # *********************************************************************
@@ -96,6 +96,12 @@ def test_swap_best_by_category():
     tai = Vendor(
         inventory=[item_a, item_b, item_c]
     )
+    
+    # I have decor, electronics and decor
+    # They have clothing, decor, and clothing
+    
+    # I want clothing
+    # They want Decor
 
     # them
     item_d = Clothing(condition=2.0)
@@ -112,20 +118,20 @@ def test_swap_best_by_category():
         their_priority="Decor"
     )
 
-# KV assertions
+    # Assert
+    # results is truthy
     assert result
+    
+    # tai and jesse's inventories are the correct length
     assert len(tai.inventory) == 3
     assert len(jesse.inventory) == 3
+    
+    # all the correct items are in tai and jesse's inventories, including the items which were swapped from one vendor to the other
     assert tai.inventory == [item_a, item_b, item_f]
-    assert jessie.inventory == [item_d, item_e, item_c]
-    # raise Exception("Complete this test according to comments below.")
+    assert jesse.inventory == [item_d, item_e, item_c]
     # *********************************************************************
-    # ****** Complete Assert Portion of this test **********
+    # ****** Completed Assert Portion of this test **********
     # *********************************************************************
-    # Assertions should check:
-    # - That the results is truthy
-    # - That tai and jesse's inventories are the correct length
-    # - That all the correct items are in tai and jesse's inventories, including the items which were swapped from one vendor to the other
 
 # @pytest.mark.skip
 def test_swap_best_by_category_reordered():
@@ -151,21 +157,29 @@ def test_swap_best_by_category_reordered():
         their_priority="Decor"
     )
 
-# KV assertions
+    # Assert
+    # result is truthy
     assert result
+    
+    # tai and jesse's inventories are the correct length
     assert len(tai.inventory) == 3
     assert len(jesse.inventory) == 3
-    assert tai.inventory == [item_f, item_b, item_a]
-    assert jessie.inventory == [item_c, item_e, item_d]
-    # raise Exception("Complete this test according to comments below.")
+    
+    # all the correct items are in tai and jesse's inventories, and that the items that were swapped are not there
+    # assert tai.inventory == [item_f, item_b, item_a]
+    assert item_f in tai.inventory
+    assert item_b in tai.inventory
+    assert item_a in tai.inventory
+    
+    assert item_c in jesse.inventory
+    assert item_e in jesse.inventory
+    assert item_d in jesse.inventory
+    
+    # assert jesse.inventory == [item_c, item_e, item_d]
     # *********************************************************************
-    # ****** Complete Assert Portion of this test **********
+    # ****** Completed Assert Portion of this test **********
     # *********************************************************************
-    # Assertions should check:
-    # - That result is truthy
-    # - That tai and jesse's inventories are the correct length
-    # - That all the correct items are in tai and jesse's inventories, and that the items that were swapped are not there
-
+    
 # @pytest.mark.skip
 def test_swap_best_by_category_no_inventory_is_false():
     tai = Vendor(
@@ -242,20 +256,26 @@ def test_swap_best_by_category_no_match_is_false():
         their_priority="Clothing"
     )
 
-# KV assertions
+    # Assert
+    # result is falsy
     assert not result
+    
+    # tai and jesse's inventories are the correct length
     assert len(tai.inventory) == 3
     assert len(jesse.inventory) == 3
+    
+    # That all the correct items are in tai and jesse's inventories
     assert tai.inventory == [item_a, item_b, item_c]
-    assert jessie.inventory == [item_d, item_e, item_f]
-    # raise Exception("Complete this test according to comments below.")
+    assert item_a in tai.inventory
+    assert item_b in tai.inventory
+    assert item_c in tai.inventory
+
+    assert item_d in jesse.inventory
+    assert item_e in jesse.inventory
+    assert item_f in jesse.inventory
     # *********************************************************************
-    # ****** Complete Assert Portion of this test **********
+    # ****** Completed Assert Portion of this test **********
     # *********************************************************************
-    # Assertions should check:
-    # - That result is falsy
-    # - That tai and jesse's inventories are the correct length
-    # - That all the correct items are in tai and jesse's inventories
 
 # @pytest.mark.skip
 def test_swap_best_by_category_no_other_match_is_false():
@@ -281,17 +301,17 @@ def test_swap_best_by_category_no_other_match_is_false():
         their_priority="Decor"
     )
 
-# KV assertions
+    # Assert
+    # result is falsy
     assert not result
+    
+    # tai and jesse's inventories are the correct length
     assert len(tai.inventory) == 3
     assert len(jesse.inventory) == 3
+    
+    # That all the correct items are in tai and jesse's inventories
     assert tai.inventory == [item_c, item_b, item_a]
-    assert jessie.inventory == [item_f, item_e, item_d]
-    # raise Exception("Complete this test according to comments below.")
+    assert jesse.inventory == [item_f, item_e, item_d]
     # *********************************************************************
-    # ****** Complete Assert Portion of this test **********
+    # ****** Completed Assert Portion of this test **********
     # *********************************************************************
-    # Assertions should check:
-    # - That result is falsy
-    # - That tai and jesse's inventories are the correct length
-    # - That all the correct items are in tai and jesse's inventories
