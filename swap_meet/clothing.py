@@ -9,4 +9,3 @@ class Clothing(Item):
     
     def __repr__(self):
         return f"{super().__repr__()} It is made from {self.fabric} fabric."
-    

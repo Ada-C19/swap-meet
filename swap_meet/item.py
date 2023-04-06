@@ -6,19 +6,15 @@ class Item:
         self.id = id
         self.condition = condition
 
+
     def __repr__(self):
         return f"An object of type {self.get_category()} with id {self.id}."
 
+
     def get_category(self):
         return self.__class__.__name__
-    
+
+
     def condition_description(self):
         descriptions = ["heavily used", "fair","good","like new","never worn","new with tag"]
         return descriptions[self.condition]
-    
-
-
-    
-    
-
-
