@@ -44,8 +44,15 @@ class Vendor:
     
         return True
     
-    # def get_by_category(self):
-    #     if item.category not in self.inventory:
-    #         return []
-    #     for item.category in self.inventory:
-    #         return self.inventory
+    def get_by_category(self, category):
+        items_in_category = []
+        for item in self.inventory:
+            if item.get_category() == category:
+                items_in_category.append(item)
+        return items_in_category
+        
+        
+    
+
+    # def get_best_by_category(self):
+        
