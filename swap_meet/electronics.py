@@ -1,6 +1,7 @@
 import uuid
+from swap_meet.item import Item
 
-class Electronics:
+class Electronics(Item):
 
     def __init__(self,condition=0,id=None, type="Unknown"):
         if id is None:
@@ -8,15 +9,7 @@ class Electronics:
         else:
             self.id = id
         self.type = type
-        self.condition = condition
-        self.condition_description = lambda: {
-            0: "overused eww",
-            1: "on the edge",
-            2: "ehhh but doable",
-            3: "not bad",
-            4: "oooh nice",
-            5: "so shiney aaah"
-        }.get(self.condition, "invalid condition value")
+        super().__init__(id, condition) 
 
     def get_category(self):
         return "Electronics"
