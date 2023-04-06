@@ -70,17 +70,6 @@ class Vendor:
 
         return best_item
 
-
-# - `Vendor`s have a method named `swap_best_by_category`, which will swap the best item of certain categories with another `Vendor`
-#   - It takes in three arguments
-#     - `other_vendor`, which represents another `Vendor` instance to trade with
-#     - `my_priority`, which represents a category that the `Vendor` wants to receive
-#     - `their_priority`, which represents a category that `other_vendor` wants to receive
-#   - The best item in my inventory that matches `their_priority` category is swapped with the best item in `other_vendor`'s inventory that matches `my_priority`
-#     - It returns `True`
-#     - If the `Vendor` has no item that matches `their_priority` category, swapping does not happen, and it returns `False`
-#     - If `other_vendor` has no item that matches `my_priority` category, swapping does not happen, and it returns `False`
-
     def swap_best_by_category(self, other_vendor, my_priority, their_priority):
         my_best_item = self.get_best_by_category(their_priority)
         their_best_item = other_vendor.get_best_by_category(my_priority)
@@ -93,6 +82,5 @@ class Vendor:
 
         self.inventory.append(their_best_item)
         other_vendor.inventory.append(my_best_item)
-
 
         return True
