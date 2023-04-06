@@ -40,7 +40,7 @@ def test_get_no_matching_items_by_category():
     # ****** Complete Assert Portion of this test **********
     # *********************************************************************
 
-@pytest.mark.skip
+# @pytest.mark.skip
 def test_best_by_category():
     item_a = Clothing(condition=2.0)
     item_b = Decor(condition=2.0)
@@ -56,7 +56,7 @@ def test_best_by_category():
     assert best_item.get_category() == "Clothing"
     assert best_item.condition == pytest.approx(4.0)
 
-@pytest.mark.skip
+# @pytest.mark.skip
 def test_best_by_category_no_matches_is_none():
     item_a = Decor(condition=2.0)
     item_b = Decor(condition=2.0)
@@ -69,7 +69,7 @@ def test_best_by_category_no_matches_is_none():
 
     assert best_item is None
 
-@pytest.mark.skip
+# @pytest.mark.skip
 def test_best_by_category_with_duplicates():
     # Arrange
     item_a = Clothing(condition=2.0)
@@ -92,7 +92,7 @@ def test_swap_best_by_category():
     # me
     item_a = Decor(condition=2.0)
     item_b = Electronics(condition=4.0)
-    item_c = Decor(condition=4.0)
+    item_c = Decor(condition=4.0) 
     tai = Vendor(
         inventory=[item_a, item_b, item_c]
     )
@@ -100,7 +100,7 @@ def test_swap_best_by_category():
     # them
     item_d = Clothing(condition=2.0)
     item_e = Decor(condition=4.0)
-    item_f = Clothing(condition=4.0)
+    item_f = Clothing(condition=4.0) 
     jesse = Vendor(
         inventory=[item_d, item_e, item_f]
     )
@@ -112,7 +112,12 @@ def test_swap_best_by_category():
         their_priority="Decor"
     )
 
-    raise Exception("Complete this test according to comments below.")
+    assert result
+    assert len(tai.inventory) == 3
+    assert len(jesse.inventory) == 3
+    assert tai.inventory == [item_a, item_b, item_f]
+    assert jesse.inventory == [item_d, item_e, item_c]
+    # raise Exception("Complete this test according to comments below.")
     # *********************************************************************
     # ****** Complete Assert Portion of this test **********
     # *********************************************************************
