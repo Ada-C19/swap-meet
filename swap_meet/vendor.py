@@ -9,17 +9,14 @@ class Vendor:
     
     def add(self, item):
         self.inventory.append(item)
-        # This method returns the item that was added
         return item
 
     def remove(self, item):
         if item in self.inventory:
             self.inventory.remove(item)
-            # This method returns the item that was removed
             return item
-        else:
 
-            return False
+        return False
 
 
 # Wave 02
@@ -67,9 +64,6 @@ class Vendor:
     # Wave 05
 
     # clothing.py
-    # def get_category(self):
-    #     return "Clothing"
-    
 
     def condition_description(self):
         if self.condition == 5:
@@ -87,9 +81,6 @@ class Vendor:
 
 
     # decor.py
-    # def get_category(self):
-    #     return "Decor"
-    
 
     def condition_description(self):
         if self.condition == 5:
@@ -107,10 +98,7 @@ class Vendor:
 
 
     # electronics.py
-    # def get_category(self):
-    #     return "Electronics"
     
-
     def condition_description(self):
         if self.condition == 5:
             return "Great find!"
@@ -126,5 +114,38 @@ class Vendor:
             return "I mean it's free"
 
 
+    # Wave 06
+
+    def get_by_category(self, category=""):
+        #list of obj in the inventory with that category
+        # no items in the inventory that match the category
+        # argument the method returns an empty list
+        item_in_category = []
+        # check vendor inventory by item
+        for item in self.inventory:
+            #if item in inventory 
+            if item.category == category:
+                # return item in in a list
+                item_in_category.append(item)
+        return item_in_category
 
 
+    # method takes argument category str
+    def get_best_by_category(self, category=""):
+            
+            # if there is no items in inventory return None
+            best_item = None
+            # look thru inventory for item 
+            for item in self.inventory:
+                # matching category
+                if item.category == category:
+                    # if there is no items in inventory return None
+                    #it returns a single item even if there are dupes
+                    if best_item is None or item.condition > best_item.condition:
+                        best_item = item
+            # returns this item with highest conditin and matching category
+            return best_item
+            
+
+    def swap_best_by_category(self,  other_vendor,my_priority,their_priority):
+            pass

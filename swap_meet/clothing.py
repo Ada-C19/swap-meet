@@ -4,8 +4,7 @@ from swap_meet.item import Item
 
     # Wave 05
 class Clothing(Item):
-    # Has an attribute id that is by default a unique integer
-    # Has an attribute fabric that is by default the string "Unknown"
+
     def __init__(self, condition=0, id=0, fabric="Unknown"):
 
         super().__init__(category="Clothing", condition=condition, id=id)

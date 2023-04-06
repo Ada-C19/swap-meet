@@ -7,7 +7,6 @@ class Item:
 
 # Wave 02
     def __init__(self, category="", condition=0, id=0):
-        # self.id = id  -- wave 03 ?? -- no
         if id is 0:
             self.id = uuid.uuid4().int
         else:
