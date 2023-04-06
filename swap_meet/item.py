@@ -5,15 +5,12 @@ class Item:
     def __init__(self,id = None, condition = 0):
         self.id = id if id is not None else uuid.uuid4().int
         self.condition = condition
+
     def get_category(self):
-        return f"{self.__class__.__name__}"
+        return f"Item"
     
     def __str__(self):
         return f"An object of type Item with id {self.id}."
-    
-        
-    def get_category(self):
-        return "Item"
     
     def condition_description(self):
         if self.condition == 0:

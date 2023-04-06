@@ -1,8 +1,3 @@
-from swap_meet.item import Item
-from swap_meet.clothing import Clothing
-from swap_meet.decor import Decor
-from swap_meet.electronics import Electronics
-
 class Vendor:
     def __init__(self, inventory = None):
         self.inventory = [] if inventory is None else inventory
@@ -79,33 +74,3 @@ class Vendor:
         if their_best_item == None:
             return False
         return self.swap_items(other_vendor, my_best_item, their_best_item)
-        
-
-
-        
-        
-        
-        
-        
-        
-        
-        # category_list = self.get_by_category(category)
-        # value = []
-
-        # for item in category_list:
-        #     value.append(item.condition)
-        
-        # max_value = max(value)
-
-        # for item in category_list:
-        #     if item.condition == max_value:
-        #         return item
-
-
-
-
-            # if item not in self.inventory:
-            #     return None
-            # else:
-            #     if item.condition_description() == max_value and item.get_category() == self.category:
-            #   return item
