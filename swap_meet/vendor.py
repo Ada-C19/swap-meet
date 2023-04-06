@@ -70,33 +70,40 @@ class Vendor:
             self.swap_items(other_vendor, my_best_item, their_best_item)
             return True
 
-    def get_by_age(self,age):
-        age_list = []
-        for item in self.inventory:
-            if item.get_age() == age:
-                age_list.append(item)
-        return age_list 
+    # def get_by_age(self,age):
+    #     age_list = []
+    #     for item in self.inventory:
+    #         if item.get_age() == age:
+    #             age_list.append(item)
+    #     return age_list 
         
     
-    def get_newest_item(self,age):
-        items = self.get_by_age(age)
-        newest_item = 0
-        for item in items:
-            if item.age < newest_item:
-                newest_item = item 
-        return newest_item
+    # def get_newest_item(self,age):
+    #     items = self.get_by_age(age)
+    #     newest_item = 0
+    #     for item in items:
+    #         if item.age < newest_item:
+    #             newest_item = item 
+    #     return newest_item
         
     
-    def swap_by_newest(self, other_vendor, my_item, their_item):
-        my_newest_item = self.get_newest_item(their_item)
-        their_newest_item = other_vendor.get_newest_item(my_item)
+    # def swap_by_newest(self, other_vendor, my_item, their_item):
+    #     my_newest_item = self.get_newest_item(their_item)
+    #     their_newest_item = other_vendor.get_newest_item(my_item)
 
-        if not my_newest_item or not their_newest_item:
+    #     if not my_newest_item or not their_newest_item:
+    #         return False
+    #     else: 
+    #         self.swap_items(other_vendor, my_newest_item, their_newest_item)
+    #         return True
+    #     pass
+
+    def swap_by_newest(self,other_vendor):
+        my_newest_item = min(self.inventory, key= lambda item: item.age, default=None)
+        their_newest_item = min(other_vendor.inventory, key=lambda item: item.age, default=None)
+
+        if my_newest_item and their_newest_item:
+            return self.swap_items(other_vendor, my_newest_item, their_newest_item)
+        
+        else:
             return False
-        else: 
-            self.swap_items(other_vendor, my_newest_item, their_newest_item)
-            return True
-        pass
-    #to check in both inventories for "modern" items, swap first instance of modern item)
-    #if age of both items is < 10: use swap items method!
-    #OR if items == "modern", use swap items method
