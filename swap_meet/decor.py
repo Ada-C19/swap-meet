@@ -13,5 +13,4 @@ class Decor(Item):
     def __str__(self):
         decor_string = f"An object of type Decor with id {self.id}. It takes up a {self.width} by {self.length} sized space."
         return decor_string
-    
 

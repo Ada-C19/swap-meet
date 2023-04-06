@@ -12,4 +12,3 @@ class Electronics(Item):
     def __str__(self):
         electronics_string = f"An object of type Electronics with id {self.id}. This is a {self.type} device."
         return electronics_string
-    

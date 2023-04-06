@@ -11,4 +11,3 @@ class Clothing(Item):
     def __str__(self):
         clothing_string = f"An object of type Clothing with id {self.id}. It is made from {self.fabric} fabric."
         return clothing_string
-    

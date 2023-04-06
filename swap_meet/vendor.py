@@ -9,7 +9,6 @@ class Vendor():
     def remove(self, item):
         if item not in self.inventory:
             return False
-        
         inventory = self.inventory.remove(item)
         return item
 
