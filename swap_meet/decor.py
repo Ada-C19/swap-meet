@@ -14,16 +14,4 @@ class Decor(Item):
         decor_string = f"An object of type Decor with id {self.id}. It takes up a {self.width} by {self.length} sized space."
         return decor_string
     
-    def condition_description(self):
-        if self.condition == 0:
-            return "Garbage"
-        elif self.condition == 1:
-            return "Could be worse"
-        elif self.condition == 2:
-            return "Meh"
-        elif self.condition == 3:
-            return "It's fine"
-        elif self.condition == 4:
-            return "My grandma would love this"
-        elif self.condition == 5:
-            return "Perfection on earth"
+

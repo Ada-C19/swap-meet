@@ -53,6 +53,3 @@ def test_removing_not_found_is_false():
     # Assert
     assert item not in vendor.inventory
     assert result == False
-
-
-
