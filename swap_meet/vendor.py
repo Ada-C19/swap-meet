@@ -38,7 +38,7 @@ class Vendor:
         self.inventory.pop(0)
         other_vendor.inventory.pop(0)
         return True
-        # swap_item() can be used here if we pass self.inventory[0] and other_vendor.inventor[0]
+        # swap_item() can be used here if we pass self.inventory[0] and other_vendor.inventory[0]
         # however this has more time complexity because of remove() vs pop()
         # the overall time complexity would probably be O(n) anyway because of "in" 
         # so maybe it is worth it to use swap_item() 
