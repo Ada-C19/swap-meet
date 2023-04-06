@@ -57,13 +57,9 @@ class Vendor:
         if not self.inventory:
             return None
         
-        matches = []
+        matches = filter(lambda item: item.get_category() == category, self.inventory)
 
-        for item in self.inventory:
-            if item.get_category() == category:
-                matches.append(item)
-        
-        return matches
+        return list(matches)
     
     def get_best_by_category(self, category):
         """
