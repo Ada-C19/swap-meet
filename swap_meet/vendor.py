@@ -1,3 +1,5 @@
+from swap_meet.item import Item
+
 class Vendor:
     
     # constructor for the vendor class
@@ -19,7 +21,7 @@ class Vendor:
         
         return False
     
-    # method that returns the name of the class
+    # method that returns the item based on id
     def get_by_id(self, id): 
         for item in self.inventory: 
             if item.id == id: 
@@ -56,4 +58,48 @@ class Vendor:
 
         return True
     
-    # 
+    
+    def get_by_category(self, category):
+        item_list = []
+        
+        for item in self.inventory: 
+            if category == item.get_category(): 
+                item_list.append(item)
+        
+        return item_list
+    
+    def get_best_by_category(self, category): 
+        best_condition = 0
+        best_item = None
+        category_list = self.get_by_category(category)
+
+        if not category_list: 
+            return best_item
+    
+        for item in category_list:
+            if item.condition > best_condition:
+                best_condition = item.condition
+                best_item = item
+
+        return best_item
+        
+
+    def swap_best_by_category(self, other_vendor, my_priority, their_priority): 
+        # check to see if any of the inventories are empty. If one of them is, return False
+        # (no swapping occurs)
+        # obtain a list of items from each vendor based on the other vendors' priority (category)
+            # if either list is empty, swapping cannot occur (return False)
+            # else
+                # obtain the best item from each list 
+                # swap the items 
+                # return true 
+        
+        my_best_item = self.get_best_by_category(their_priority)
+        their_best_item = other_vendor.get_best_by_category(my_priority)
+
+        if my_best_item is None or their_best_item is None: 
+            return False
+        
+        self.swap_items(other_vendor, my_best_item, their_best_item)
+
+        return True
