@@ -102,6 +102,87 @@ class Vendor:
                 
 
         return True
+
+    # wave 6 - SJ
+    #  three instance methods: get_by_category, get_best_by_category, swap_best_by_category
+    
+    
+    # one argument: a string, representing a category
+    # list of objects in the inventory - self.inventory
+    def  get_by_category(self, category):
+        # self.inventory is a list
+        new_list = []
+        
+        # if items in self.inventory match the category,
+        # return the list
+        for item in self.inventory:
+            if category == item.get_category():
+                new_list.append(item)
+                
+            # If there are no items in the inventory 
+            # that match the category argument, 
+            # the method returns an empty list
+        return new_list
+            
+
+        
+
+        
+        
+        # returns a list of objects in the inventory with that category
+        return []    
+    
+    
+    # get the item with the best condition in a certain category
+    # one argument: a string that represents a category
+    
+    def  get_best_by_category(self, category):
+        # loops through the inventory, for items w/ highest condition (5)
+        #  AND the matching category
+        
+        # list of items that match the given category
+        items_of_category = self.get_by_category(category)
+        
+        item_with_best_condition = None
+        
+        for item in items_of_category:
+            
+            # finding the highest, we can keep track 
+            if item_with_best_condition == None:
+                item_with_best_condition = item
+            
+            elif item.condition > item_with_best_condition.condition:
+                item_with_best_condition = item
+        return item_with_best_condition                
+    
+    
+    
+    # swap the best item of certain categories with another Vendor
+    # three arguments: other_vendor, my_priority, their_priority
+    
+    # other_vendor, which represents another Vendor instance to trade with
+    
+    # my_priority, which represents a category that the Vendor wants to receive
+    
+    # their_priority, which represents a category that other_vendor wants to receive
+    
+    
+    def  swap_best_by_category(self):
+        
+        # the best item in my_inventory that MATCHES their_priority category
+        # is swapped with 
+        # the best item in other_vendor's inventory that matches my_priority
+        # then returns True 
+        
+        # else if the vendor has no item that matches their_priority category, 
+        #  no swap happens, 
+        #  return False
+        
+        # else if the other_vendor has no item that matches my priority category,
+        #  no swap happens
+        # return False
+        
+        pass
     
     
 # wave 6- KV
@@ -112,13 +193,13 @@ class Vendor:
 # If there are no items in the `inventory` 
 #   that match the category argument, 
 # #   the method returns an empty list    
-    def get_by_category(self, category):
-        filtered_categories = []
+    # def get_by_category(self, category):
+    #     filtered_categories = []
         
-        for item in self.inventory:
-            if item.get_category() == item:
-                filtered_categories.append(item)
-        return filtered_categories
+    #     for item in self.inventory:
+    #         if item.get_category() == item:
+    #             filtered_categories.append(item)
+    #     return filtered_categories
 
 # takes one argument:
 #   a string that represents a category
@@ -130,10 +211,10 @@ class Vendor:
 # It returns a single item even
 #   if there are duplicates 
 #   (two or more of the same item with the same condition)        
-    def get_by_best_category(self, category):
-        for item in self.category and condition:
-            return item
-        else:
-            return None
-            if item == 2:
-                return inventory[0]
+    # def get_by_best_category(self, category):
+    #     for item in self.category and condition:
+    #         return item
+    #     else:
+    #         return None
+    #         if item == 2:
+    #             return inventory[0]
