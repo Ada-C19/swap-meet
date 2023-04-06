@@ -13,6 +13,36 @@ class Item:
         return f"An object of type {self.get_category()} with id {self.id}."
 
     def condition_description(self):
+        condition = {
+            0 : "Heavily used",
+            1 : "Used",
+            2 : "Average",
+            3 : "Good",
+            4 : "Great",
+            5 : "Perfect"
+        }
+        return condition[self.condition]
+
+
+        # if self.condition == 0:
+        #     return "Heavily used"
+        # elif self.condition == 1:
+        #     return "Used"
+        # elif self.condition == 2:
+        #     return "Average"
+        # elif self.condition == 3:
+        #     return "Good"
+        # elif self.condition == 4:
+        #     return "Great"
+        # elif self.condition == 5:
+        #     return "Perfect"
+
+
+        # condition = [ "Heavily used", "Used", "Average", "Good", "Great", "Perfect"]
+        # retun f"condition[self.condition]"
+
+
+    def condition_description(self):
         conditions = {
             0 : "Heavily_Used",
             1 : "Used",
