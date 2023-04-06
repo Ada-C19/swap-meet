@@ -2,7 +2,7 @@ from uuid import uuid4
 import math
 
 class Item:
-    def __init__(self, age, id=None, condition=0):
+    def __init__(self, age=0, id=None, condition=0):
         self.age = age
         self.id = uuid4().int if id is None else id
         self.condition = condition

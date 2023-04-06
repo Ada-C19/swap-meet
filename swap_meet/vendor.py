@@ -120,6 +120,9 @@ class Vendor:
             return False
         
         self.swap_items(other_vendor, my_item, their_item)
+
+        for item in self.inventory:
+            print(item)
         
         return True
         
