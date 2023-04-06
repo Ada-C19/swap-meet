@@ -59,14 +59,16 @@ class Vendor:
     
     def get_best_by_category(self, string_category):
         
-
         list_of_same_categories = self.get_by_category(string_category)
-        highest_condition = list_of_same_categories[0]
 
+        #cant be after highest_condition
+        if not list_of_same_categories or len(list_of_same_categories) == 0:
+            return None
+
+        highest_condition = list_of_same_categories[0]
 
         for category in list_of_same_categories:
             if category.condition > highest_condition.condition:
                 highest_condition = category
         return highest_condition
     
-
