@@ -12,13 +12,12 @@ class Item:
     def condition_description(self):
         if self.condition == 0:
             return 'this is Garbage!'
-        elif self.condition == 1 or self.condition == 2:
+        elif 1 <= self.condition < 2:
             return 'ITS A SCAM'
-        elif self.condition == 3:
+        elif 2 <= self.condition < 3:
             return "not bad! It's your money though"
-        elif self.condition == 4 or self.condition == 5:
+        elif 3 <= self.condition <= 5:
             return "OMG GET IT!"
-
         
 
 
