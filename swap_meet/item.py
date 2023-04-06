@@ -13,17 +13,9 @@ class Item:
         self.condition = condition
 
 
-
-# each item has this function
-    # def get_category(self, name=""):
     def get_category(self):
 
         return self.__class__.__name__
-
-        #Item is hard coded needs to be dynamic
-        # NEED TO USE THE FOLLOWING:
-        # return self.__class__.__name__
-        # name = Item("name") 
 
 
 ################# WAVE 3 ######################
