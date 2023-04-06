@@ -25,7 +25,7 @@ class Vendor:
     def swap_items(self, other_vendor, my_item, their_item):
         ''' Swap items between two vendors and their inventories'''
 
-        # check items exist in own vendor and other vendor
+        # check items do not exist in own vendor and other vendor
         if my_item not in self.inventory or their_item not in other_vendor.inventory:
             return False
 

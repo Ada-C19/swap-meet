@@ -3,7 +3,7 @@ import uuid
 class Item:
 
     def __init__(self, id= None, condition=None):
-        random_id = uuid.uuid4() # Since id does not need date/time or netword card MAC address in which it was created (such as UUID1), 
+        random_id = uuid.uuid4() # Since id does not need date/time or network card MAC address in which it was created (such as UUID1), 
             # decided to go with UUID4 which gives a unique id that is generated randomly 
         self.id = int(random_id) if id is None else id
         self.condition = 0 if condition is None else condition
