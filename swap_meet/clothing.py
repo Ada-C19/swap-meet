@@ -1,8 +1,8 @@
 from swap_meet.item import Item
 
 class Clothing(Item):
-    def __init__(self, id=None, fabric=None, condition=0.0):
-        super().__init__(id, condition)
+    def __init__(self, id=None, fabric=None, condition=0.0, age=0.0):
+        super().__init__(id, condition, age)
 
         if not fabric:
                 fabric = "Unknown"
