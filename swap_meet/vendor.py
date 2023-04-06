@@ -53,3 +53,55 @@ class Vendor:
 
         return True 
         
+    def get_by_category(self, category):
+        # input : sting rep a category
+        # output: list of objects in the inv with that catergory
+        
+        # create empty list to hold results 
+        result = []
+        # iterate over the inv to find the item that has category clothing 
+        for item in self.inventory:
+        # get first item and use items get_category method to get the cagtegory string
+            if item.get_category() == category:
+        # compare
+                result.append(item)
+                # print(result)
+        # if the category matches then add it to list for the category 
+        return result 
+
+    def get_best_by_category(self, category):
+    # input: a string representing a category
+    # output: the item with the best condition in the category, or None if no such item exists
+    
+    # get a list of items in the category
+        items_in_category = self.get_by_category(category)
+    
+    # if there are no items in the category, return None
+        if not items_in_category:
+            return None
+    
+    # find the item with the highest condition in the category
+        best_item = items_in_category[0]
+        for item in items_in_category:
+            if item.condition > best_item.condition:
+                best_item = item
+        
+        return best_item
+
+
+    # def get_best_by_category(self, category):
+    #     #input: a string rep a category
+    #     #output: a single item(no duplicates)
+    #     item_category = self.get_by_category(category) 
+    #                     # [item_a, item_c, item_e]
+    #     #iterate over list to find highest condition
+    #     # return the item 
+    #     # get the items condition and determine the highest
+    #     best_category = ''
+    #     best_condition = 0
+    #     for item in item_category:
+    #         if item.condition > best_condition:
+    #             item = best_category 
+
+    #     if object.get_category == condition.type:  
+
