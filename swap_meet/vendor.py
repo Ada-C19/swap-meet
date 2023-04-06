@@ -32,10 +32,17 @@ class Vendor:
         if my_item not in current_vendor_inventory or their_item not in other_vendor_inventory:
             return False
         
-        current_vendor_inventory.remove(my_item)
-        other_vendor_inventory.append(my_item)
-        other_vendor_inventory.remove(their_item)
-        current_vendor_inventory.append(their_item)
+        
+        my_index = current_vendor_inventory.index(my_item)
+        their_index = other_vendor_inventory.index(their_item)
+
+        other_vendor_inventory.append(current_vendor_inventory.pop(my_index))
+        current_vendor_inventory.append(other_vendor_inventory.pop(their_index))
+        
+        # current_vendor_inventory.remove(my_item)
+        # other_vendor_inventory.append(my_item)
+        # other_vendor_inventory.remove(their_item)
+        # current_vendor_inventory.append(their_item)
         return True
 
     def swap_first_item(self, other_vendor):
