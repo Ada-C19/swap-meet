@@ -44,11 +44,19 @@ class Vendor:
         # other_vendor.inventory.remove(self.item)
         
 
-        self.inventory.remove(other_vendor.item)
-        other_vendor.remove(self.item)
+        self.inventory.remove(self.inventory[0])
+        other_vendor.add(self.inventory[1])
 
-        self.inventory.add(other_vendor.item)
-        other_vendor.add(self.item)
+        other_vendor.inventory.remove(other_vendor.inventory[1])
+        self.add(other_vendor.inventory[0])
+        
+        # other_vendor.remove(other_vendor.inventory[0])
+
+        # other_vendor.add(self.inventory[0])
+        # self.add(other_vendor.inventory[0])
+
+        # self.inventory.add(other_vendor.item)
+        # other_vendor.add(self.item)
 
 
 
