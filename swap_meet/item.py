@@ -8,14 +8,17 @@ class Item:
         else:
             self.id = id
         self.condition = condition
-        self.condition_description = lambda: {
+
+    def condition_description(self):
+        descriptions = {
             0: (0.0, "overused eww"),
             1: (1.0, "not great"),
             2: (2.0, "okay"),
             3: (3.0, "not bad"),
             4: (4.0, "great"),
             5: (5.0, "mint")
-        }.get(self.condition, "invalid condition value")
+        }
+        return descriptions.get(self.condition, "invalid condition value")[1]
 
 
     def get_category(self):
