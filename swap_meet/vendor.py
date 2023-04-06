@@ -2,10 +2,7 @@
 class Vendor:
     
     def __init__(self, inventory=None):
-        if not inventory:
-            self.inventory = []
-        else:
-            self.inventory = inventory
+        self.inventory = [] if inventory is None else inventory
 
 
     def remove(self, item):
@@ -61,4 +58,5 @@ class Vendor:
         return self.swap_items(other_vendor, 
                                 my_best_item_in_the_category_they_want, 
                                 their_best_item_in_the_category_I_want)
+
 
