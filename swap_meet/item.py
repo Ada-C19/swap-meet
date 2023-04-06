@@ -1,5 +1,15 @@
 import uuid
 
+#Dictionary stores the value and it's respective description. Used in condition_description method 
+CONDITION_VALUE__DESCRIPTION_DICT = {
+            0 : "Questionable matter...maybe buy it new...",
+            1 : "It's alright....",
+            2 : "Decent...",
+            3 : "Great",
+            4 : "This is beautiful :,)",
+            5 : "Wow!!! Buy it NOW!!!"
+        }
+
 class Item:
     def __init__(self, id = None, condition = 0):
         if id is None:
@@ -17,18 +27,4 @@ class Item:
         return f"An object of type Item with id {self.id}."
     
     def condition_description(self):
-        #convert to a dict later?
-        condition_dict = {}
-
-        if self.condition == 0:
-            return "Questionable matter...maybe buy it new..."
-        elif self.condition == 1:
-            return "Decent..."
-        elif self.condition == 2:
-            return "It's alright...."
-        elif self.condition == 3:
-            return "Great"
-        elif self.condition == 4:
-            return "This is beautiful :,)"
-        else:
-            return "Wow!!! Buy it NOW!!!"
+        return CONDITION_VALUE__DESCRIPTION_DICT[self.condition]
