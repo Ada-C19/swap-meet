@@ -2,38 +2,38 @@ import uuid
 import random
 
 class Item:
-
+    
     # create attribute called 'id': unique integer by default
     # generate numbers with a package called uuid
-    # use one of their functions to create large unique numbers meant to be used as identifiers
-    # package returns uuid objects not integers but they do have an attribute int that we can assess the value as an integer
-    # when initializing an instance of Item, pass in an integer with the keyword argument id to mannually set the items id.
+    # assign keyword arguments to None so they can be modified for each instance seperately
 
     def __init__(self, id = None, condition = None):
+
+        # create our random id number
+
         if id == None:
             id = uuid.uuid4().int
         self.id = id
         self.condition = condition if condition else 0
 
+    # create instance method called get_category: return string that is name of class
 
-    # each Item has a function called get_category: returns string holding name of class.
-
-        
-    # each Item has a function called get_category: returns string holding name of class.   
-    
     def get_category(self):   
         return __class__.__name__
     
-    # write method to stringify (convert to string) an Item using str() 
-    # write method called swap items
+    # create instance method to stringify (convert to string) an Item
 
     def __str__(self):
         return f'An object of type {self.get_category()} with id {self.id}.'
     
+    # create method called condition_description to describe items condition value
+    # condition value ranges from 0 to 5
+    # accounted for any float values
+
     def condition_description(self):
 
         if 0 <= self.condition < 1:
-            return 'Can\'t say I recommend.'
+            return 'Can\'t say I recommend that choice.'
         elif 1 <= self.condition < 2:
             return 'Well, I guess this is somewhat better.'
         elif 2 <= self.condition < 3:

@@ -156,8 +156,8 @@ def test_swap_best_by_category_reordered():
     assert result == True
     assert len(tai.inventory) == 3
     assert len(jesse.inventory) == 3
-    assert not item_f in jesse.inventory
     assert not item_c in tai.inventory
+    assert not item_f in jesse.inventory
 
 
     # raise Exception("Complete this test according to comments below.")
