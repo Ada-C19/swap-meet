@@ -10,6 +10,11 @@ class Vendor:
         return item
     
     def remove(self, item):
+        '''
+        Removes the matching item from the `inventory`
+        Returns the item that was removed
+        If there is no matching item in the `inventory`, return `False`
+        '''
         if item in self.inventory:
             self.inventory.remove(item)
             return item
@@ -17,6 +22,11 @@ class Vendor:
             return False
         
     def get_by_id(self, id):
+        '''
+        This method takes one argument: an integer, representing an `Item`'s `id`
+        Returns the item with a matching `id` from the inventory
+        If there is no matching item in the `inventory`, return`None`
+        '''
         for item in self.inventory:
             if item.id == id:
                 return item
@@ -34,6 +44,13 @@ class Vendor:
         return True
     
     def swap_first_item(self, other_vendor):
+        '''
+        Removes the first item from instance's `inventory`, and adds the friend's first item
+        Removes the first item from the friend's `inventory`, and adds the instances first item
+        It returns `True`
+        If either itself or the friend have an empty `inventory`, return `False`
+
+        '''
         if not self.inventory or not other_vendor.inventory:
             return False
         else:
@@ -44,6 +61,11 @@ class Vendor:
         return True
     
     def get_by_category(self, category):
+        '''
+        Returns a list of objects in the inventory with a category
+        If there are no items in the `inventory` that match the category argument, 
+        Return an empty list
+        '''
         items = []
         for item in self.inventory:
             if item.get_category() == category:
@@ -51,15 +73,16 @@ class Vendor:
         return items
     
     def get_best_by_category(self, category):
+        '''
+        Get the item with the best condition in a certain category
+        Look through the instance's `inventory` for the item with 
+        the highest `condition` and matching `category`
+        Return this item
+        If there are no items in the `inventory` that match the category, return `None`
+        '''
         items = self.get_by_category(category)
         if items:
             return max(items, key=lambda item: item.condition)
-        return None
-
-    def get_newest_by_category(self, category):
-        items = self.get_by_category(category)
-        if items:
-            return min(items, key=lambda item: item.age)
         return None
     
     def swap_best_by_category(self, other_vendor, my_priority, their_priority):
