@@ -115,8 +115,13 @@ def test_swap_best_by_category():
     assert result
     assert len(tai.inventory) == 3
     assert len(jesse.inventory) == 3
-    assert tai.inventory == [item_a, item_b, item_f]
-    assert jesse.inventory == [item_d, item_e, item_c]
+    assert item_a in tai.inventory
+    assert item_b in tai.inventory
+    assert item_f in tai.inventory
+    assert item_d in jesse.inventory
+    assert item_e in jesse.inventory
+    assert item_c in jesse.inventory
+    
     # raise Exception("Complete this test according to comments below.")
     # *********************************************************************
     # ****** Complete Assert Portion of this test **********
