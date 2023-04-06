@@ -31,7 +31,8 @@ class Vendor:
                 other_vendor.inventory.remove(their_item)
             else:
                 return None 
-        
+        else: 
+            return None
         
         return other_vendor.inventory and self.inventory
     
