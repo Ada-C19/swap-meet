@@ -1,3 +1,4 @@
+from swap_meet.item import Item
 import uuid
 from swap_meet.item import Item
 
