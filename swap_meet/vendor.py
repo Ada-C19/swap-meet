@@ -1,4 +1,3 @@
-# from swap_meet.item import Item 
 
 ####################### WAVE 1 #############################
 
@@ -21,7 +20,6 @@ class Vendor:
         else:
             self.inventory.remove(item)
             return item
-            # return self.inventory
 
 
 ####################### WAVE 2 #############################
@@ -75,26 +73,6 @@ class Vendor:
         return list_of_inventory_with_that_category
 
 
-
-        # if category not in self.inventory:
-        #     return list_of_inventory_with_that_category
-        
-        # if category in self.inventory:
-        #     list_of_inventory_with_that_category.append(category)
-        #     return list_of_inventory_with_that_category
-
-
-        # list_of_inventory_with_that_category = []
-
-        # if self.inventory not in category:
-        #     return []
-
-        # return list_of_inventory_with_that_category.append(category)
-        # return [self.inventory[category]]
-
-
-
-
     def get_best_by_category(self, category):
         
         list_of_items_with_matching_category = self.get_by_category(category)
@@ -113,7 +91,6 @@ class Vendor:
         return best_item 
         
 
-
     def swap_best_by_category(self, other_vendor, my_priority, their_priority):
         
     
@@ -125,9 +102,3 @@ class Vendor:
             return False
         
         return self.swap_items(other_vendor, my_best_item, their_best_item)
-
-
-        
-
-        
-

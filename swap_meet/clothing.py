@@ -7,7 +7,6 @@ class Clothing(Item):
         self.fabric = fabric
 
 
-
     def __str__(self):
         first_sentence = super().__str__()
 

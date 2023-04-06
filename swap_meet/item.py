@@ -1,9 +1,6 @@
 # ######################## WAVE 2 #############################
 import uuid
 
-# # do I need this???????
-# # from swap_meet.vendor import Vendor
-
 class Item:
     
     def __init__(self, id=None, condition=0):
@@ -20,8 +17,6 @@ class Item:
 
 ################# WAVE 3 ######################
 
-    # make item dynamic with {} 
-    # can I set variables for each unique f string (one for clothing, decor, elec)
     
     def __str__(self):
 
@@ -30,9 +25,7 @@ class Item:
 
 ################# WAVE 5 #####################
 
-    # need to account for rounding floats
     def condition_description(self):
-
 
         condition_of_items_dict = {
             0: "You don't want to buy this!",
@@ -42,6 +35,5 @@ class Item:
             4: "Excellent, used condition",
             5: "NWT"
         }
-
 
         return condition_of_items_dict[round(self.condition)]
