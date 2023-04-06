@@ -16,7 +16,7 @@ class Electronics:
             3: "not bad",
             4: "oooh nice",
             5: "so shiney aaah"
-        }.get(self.condition, "invalid condition value")()
+        }.get(self.condition, "invalid condition value")
 
     def get_category(self):
         return "Electronics"
