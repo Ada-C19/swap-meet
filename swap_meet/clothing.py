@@ -23,4 +23,3 @@ class Clothing(Item):
         return f"{first_sentence} It is made from {self.fabric} fabric."
 
 
-        

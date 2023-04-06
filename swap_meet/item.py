@@ -53,15 +53,3 @@ class Item:
 
 
         return condition_of_items_dict[round(self.condition)]
-        #     if self.condition
-
-
-
-        # if Item["condition"]:
-
-
-        # for type of types:
-        #     if self.condition
-
-
-        # return "You don't want to buy this!"

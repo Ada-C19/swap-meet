@@ -1,10 +1,5 @@
-# import uuid
+
 ####################### WAVE 1 #############################
-
-# do I need this??????
-# from swap_meet.item import Item
-
-# import swap_meet/item.py
 
 class Vendor:
     # inventory is an empty list
@@ -66,7 +61,35 @@ class Vendor:
         return self.swap_items(other_vendor, self.inventory[0], other_vendor.inventory[0])
 
         
-###################### 
+################ WAVE 6 #################
+
+    def get_by_category(self, category=""):
+        self.category = category
+
+        list_of_inventory_with_that_category = []
+
+        if self.inventory not in category:
+            return []
+
+        return list_of_inventory_with_that_category.append(category)
+        # return [self.inventory[category]]
+
+
+
+
+    def get_best_by_category(self, category=""):
+        self.category = category
+
+        # use a helper function??
+
+
+
+
+
+
+
+    def swap_best_by_category(self, category=""):
+        self.category = category 
 
 
 
