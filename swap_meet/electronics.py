@@ -5,8 +5,6 @@ class Electronics(Item):
         super().__init__(id, condition)
         self.type = type
 
-        #why didnt it work if i named it electronic_type
-
     def get_category(self):
         return "Electronics"
     
@@ -14,6 +12,4 @@ class Electronics(Item):
         return f"An object of type Electronics with id {self.id}. This is a {self.type} device."
     
     def condition_description(self):
-        # type_condition = super().condition_description()
-        # return type_condition
         return super().condition_description()
