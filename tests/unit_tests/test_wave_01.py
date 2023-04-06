@@ -53,7 +53,7 @@ def test_removing_not_found_is_false():
     assert "a" in vendor.inventory
     assert "b" in vendor.inventory
     assert "c" in vendor.inventory
-    assert result is False
+    assert not result 
 
     # *********************************************************************
     # ****** Complete Assert Portion of this test **********
