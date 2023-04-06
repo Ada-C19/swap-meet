@@ -1,6 +1,5 @@
 from swap_meet.item import Item
 
-
 """
 Clothing
 
@@ -14,12 +13,21 @@ For example, if we had a Clothing instance with an id of 123435 and a fabric att
 its stringify method should return "An object of type Clothing with id 12345. It is made from Wool fabric."
 """
 class Clothing(Item):
-    def __init__(self, fabric = 'Unknown'):
-        super().__init__(id = None)
+    def __init__(self, id = None, fabric = "Unknown", condition = 0, age = 0):
+        super().__init__(id, condition, age)
         self.fabric = fabric
+        
+        
 
     def get_category(self):
-        return "Clothing"
+        return super().get_category()
 
     def __str__(self):
-        return f"An object of type Clothing with id {self.id}. It is made from {self.fabric}."
+        return f"An object of type Clothing with id {self.id}. It is made from {self.fabric} fabric."
+
+    def condition_description(self):
+        return super().condition_description()
+    
+shirt = Clothing()
+
+print(shirt)
