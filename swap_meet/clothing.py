@@ -1,4 +1,3 @@
-from swap_meet.item import Item
 import uuid 
 
 class Clothing:
