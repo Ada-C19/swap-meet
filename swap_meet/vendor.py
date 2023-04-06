@@ -89,13 +89,14 @@ class Vendor:
 
 
     def swap_best_by_category(self, other_vendor, my_priority, their_priority): 
-        # if their_priority matches a self_item.get_category() and my_priority matches a other_item.get_category
+        #use get_best_by_category to get my best item and other best item
         self_best_item = self.get_best_by_category(their_priority)
         other_best_item = other_vendor.get_best_by_category(my_priority)
 
-        # remove their seeking priorities and append to other vendor
+        # if one of us does not have a best item, return false
         if not self_best_item or not other_best_item:
             return False
+        # otherwise, swap eachother's best items and put them in our item lists respectively
         self.swap_items(other_vendor, self_best_item, other_best_item)
         return True
     
