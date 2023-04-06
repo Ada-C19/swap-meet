@@ -1,2 +1,15 @@
-class Electronics:
-    pass
+from swap_meet.item import Item
+
+
+class Electronics(Item):
+    """In addition to Item attributes, includes type.
+
+    __str__ overrides Item's
+    """
+
+    def __init__(self, id=None, type="Unknown", condition=0):
+        super().__init__(id=id, condition=condition)
+        self.type = type
+
+    def __str__(self):
+        return f"An object of type {self.__class__.__name__} with id {self.id}. This is a {self.type} device."
