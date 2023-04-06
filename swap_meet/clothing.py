@@ -1,9 +1,15 @@
 import uuid
 from swap_meet.item import Item
 
+# class Clothing(Item):
+#     def __init__(self, id, condition, fabric = "Unknown"):
+#         super().__init__(id, condition)
+#         self.fabric = fabric
+#         self.category = self.get_category()
+
 class Clothing(Item):
     def __init__(self, id = None, fabric = "Unknown", condition = 0):
-        super().__init__(condition)
+        # super().__init__(condition)
         if not id:
             id = uuid.uuid1().int
         self.id = id
