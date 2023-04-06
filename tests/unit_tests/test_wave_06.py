@@ -251,7 +251,7 @@ def test_swap_best_by_category_no_match_is_false():
 
     #Assert 
 
-    assert result == False
+    assert not result 
     assert len(tai.inventory) == 3
     assert len(jesse.inventory) == 3
     assert jesse.inventory == [item_d, item_e, item_f] 
@@ -292,7 +292,7 @@ def test_swap_best_by_category_no_other_match_is_false():
     )
 
     #Assert
-    assert result == False
+    assert not result 
     assert len(tai.inventory) == 3
     assert len(jesse.inventory) == 3
     assert jesse.inventory == [item_f, item_e, item_d] 
