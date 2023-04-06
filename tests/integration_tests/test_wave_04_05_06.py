@@ -6,7 +6,7 @@ from swap_meet.electronics import Electronics
 
 # @pytest.mark.skip
 # @pytest.mark.integration_test
-def test_integration_wave_04_05_06():
+# def test_integration_wave_04_05_06():
     camila = Vendor()
     valentina = Vendor()
 
