@@ -85,6 +85,9 @@ class Vendor:
         item_they_want = other_vendor.get_best_by_category(my_priority)
         # print(item_they_want)
 
+        if not item_self_want or not item_they_want:
+            return False
+
         ###had to put in the actual irem from getbestbycategory
         self.swap_items(other_vendor, item_self_want, item_they_want)
         
