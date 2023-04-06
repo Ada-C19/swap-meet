@@ -54,10 +54,11 @@ class Vendor:
     def get_best_by_category(self, category):
         """Return the best quality item in inventory in a specific category."""
         options = self.get_by_category(category)
-        if options:
-            best_condition_avail = max(option.condition for option in options)
-        else:
+        if not options:
             return None
+
+        best_condition_avail = max(option.condition for option in options)
+
         for option in options:
             if option.condition == best_condition_avail:
                 return option

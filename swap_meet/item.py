@@ -23,15 +23,15 @@ class Item:
         """Return the quality."""
         if self.condition == 0:
             return "Quality Unknown"
-        elif self.condition == 1.0:
+        elif round(self.condition) == 1:
             return "Very Bad Quality"
-        elif self.condition == 2.0:
+        elif round(self.condition) == 2:
             return "Bad Quality"
-        elif self.condition == 3.0:
+        elif round(self.condition) == 3:
             return "Okay Quality"
-        elif self.condition == 4.0:
+        elif round(self.condition) == 4:
             return "Good Quality"
-        elif self.condition == 5.0:
+        elif round(self.condition) == 5:
             return "Great Quality"
         else:
             raise ValueError("Invalid Condition")
