@@ -3,7 +3,7 @@ from uuid import uuid4
 class Item:
     def __init__(self, id=None):
         self.id = id
-        if self.id is None:
+        if not self.id:
             self.id = uuid4().int
 
     def __str__(self) -> str:
