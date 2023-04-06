@@ -23,17 +23,12 @@ class Vendor:
         return None
     
     def swap_items(self, other_vendor, my_item, their_item):
-        try:
-            self.inventory.remove(my_item)
-        except ValueError:
+        if my_item not in self.inventory or their_item not in other_vendor.inventory:
             return False
-        try:
-            other_vendor.inventory.remove(their_item)
-            self.inventory.append(their_item)
-            other_vendor.inventory.append(my_item)
-        except ValueError:
-            self.inventory.append(my_item)
-            return False
+        other_vendor.inventory.remove(their_item)
+        self.inventory.remove(my_item)
+        self.inventory.append(their_item)
+        other_vendor.inventory.append(my_item)
         return True
 
     def get_first_item(self):
@@ -44,9 +39,7 @@ class Vendor:
     def swap_first_item(self, other_vendor):
         my_first_item = self.get_first_item()
         other_first_item = other_vendor.get_first_item()
-        if my_first_item and other_first_item and self.swap_items(other_vendor, my_first_item, other_first_item):
-            return True 
-        return False
+        return  my_first_item and other_first_item and self.swap_items(other_vendor, my_first_item, other_first_item)
     
     def get_by_category(self, category):
         items_match_category = []
@@ -70,9 +63,7 @@ class Vendor:
         their_best_item_category = other_vendor.get_best_by_category(my_priority)
         if not my_best_item_category or not their_best_item_category:
             return False
-        if self.swap_items(other_vendor, my_best_item_category, their_best_item_category):
-            return True
-        return False
+        return self.swap_items(other_vendor, my_best_item_category, their_best_item_category)
     
     def get_newest_item(self):
         if not self.inventory:
@@ -88,6 +79,4 @@ class Vendor:
     def swap_by_newest(self, other_vendor):
         my_newest_item = self.get_newest_item()
         other_newest_item = other_vendor.get_newest_item()
-        if my_newest_item and other_newest_item and self.swap_items(other_vendor, my_newest_item, other_newest_item):
-            return True
-        return False
+        return my_newest_item and other_newest_item and self.swap_items(other_vendor, my_newest_item, other_newest_item)
