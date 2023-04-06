@@ -10,7 +10,7 @@ class Electronics(Item):
         return super().get_category()
     
     def __str__(self):
-        return f"An object of type {self.get_category()} with id {self.id}. This is a {self.type} device."
+        return f"{super().__str__()} This is a {self.type} device."
     
     def condition_description(self):
         return super().condition_description()
