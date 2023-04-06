@@ -20,6 +20,17 @@ def test_items_use_custom_id_if_passed():
     assert isinstance(item.id, int)
     assert item.id == 12345
 
+#my tests:
+def test_items_if_non_integer_id_raises_an_error():
+    test_id = "y"
+    with pytest.raises(TypeError):
+        Item(test_id) 
+
+def test_items_if_non_integer_condition_raises_an_error():
+    test_id = "y"
+    with pytest.raises(TypeError):
+        Item(test_id) 
+
 # @pytest.mark.skip
 def test_item_obj_returns_text_item_for_category():
     item = Item()

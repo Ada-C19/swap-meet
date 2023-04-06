@@ -7,12 +7,12 @@ class Vendor:
 
     
     def add(self, item):
-        """adds item to the inventory"""
+        """Adds item to the inventory"""
         self.inventory.append(item)
         return item
     
     def remove(self, item):
-        """removes the matching item from the inventory"""
+        """Removes the matching item from the inventory"""
         if item in self.inventory:
             self.inventory.remove(item)
             return item
@@ -21,7 +21,7 @@ class Vendor:
     # ----- Wave 2 -----------------------------
 
     def get_by_id(self, id):
-        """returns the item with matching id from inventory"""
+        """Returns the item with matching id from inventory"""
         for item in self.inventory:
             if item.id == id:
                 return item
@@ -30,10 +30,10 @@ class Vendor:
     # ----- Wave 3 -----------------------------
 
     def swap_items(self, other_vendor, my_item, their_item):
-        """The method removes my_item from this Vendor's inventory, 
-        and adds it to the friend's inventory
-        Removes their_item from the other Vendor's inventory, 
-        and adds it to this Vendor's inventory"""
+        """Removes my_item from self.inventory, 
+        and adds it to the other_vendor's inventory
+        Removes their_item from the other_vendor's inventory, 
+        and adds it to self.inventory"""
         if my_item not in self.inventory or their_item not in other_vendor.inventory:
             return False
         else:
@@ -44,11 +44,9 @@ class Vendor:
             return True    
     
     # ----- Wave 4 -----------------------------
-    def swap_first_item(self, other_vendor): #usar la función anterior?
-        """This method considers the first item in the instance's inventory, 
-        and the first item in the friend's inventory
-        It removes the first item from its inventory, and adds the friend's first item
-        It removes the first item from the friend's inventory, and adds the instances first item"""
+    def swap_first_item(self, other_vendor): 
+        """removes the first item from its inventory, and adds the other_vendor's first item
+        Removes the first item from the other_vendor's inventory, and adds the instances first item"""
         if len(self.inventory) == 0 or len(other_vendor.inventory) == 0:
             return False
         self_first_element = self.inventory.pop(0)
@@ -58,8 +56,8 @@ class Vendor:
         return True
     # --- Wave 6 -------------------------------
     def get_by_category(self, category):
-        """This method takes one argument: a string, representing a category
-        and returns a list of objects in the inventory with that category"""
+        """Argument: a string. 
+        Returns a list of objects (in that category) from the inventory"""
         item_by_category = []
         for item in self.inventory:
             if category == item.get_category():
@@ -67,7 +65,7 @@ class Vendor:
         return item_by_category
     
     def get_best_by_category(self, category):
-        """will get the item with the best condition in a certain category"""
+        """Return the item with the best condition in a certain category"""
         item_by_category = self.get_by_category(category)
         if not item_by_category:
             return None
