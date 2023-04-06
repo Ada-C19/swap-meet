@@ -61,3 +61,19 @@ class Vendor:
         else:
             self.swap_items(other_vendor, their_requested_category, my_requested_category)
             return True
+
+    def get_newest_item(self):
+        if len(self.inventory) == 0:
+            return None
+        else:
+            return min(self.inventory, key = lambda x: x.age)
+            
+    def swap_newest_item(self, other_vendor):
+        their_newest_item = other_vendor.get_newest_item()
+        my_newest_item = self.get_newest_item()
+
+        if not their_newest_item or not my_newest_item:
+            return False
+        else:
+            self.swap_items(other_vendor, my_newest_item, their_newest_item)
+            return True

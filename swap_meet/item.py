@@ -1,10 +1,11 @@
 import uuid
 
 class Item:
-    def __init__(self, id=None, condition=None, name=None):
+    def __init__(self, id=None, condition=None, age=None, name=None, ):
         self.id = id if id else uuid.uuid4().int
         self.name = name if name else "Item"
         self.condition = condition if condition else 0
+        self.age = age if age else 12
 
     def get_category(self):
         return self.name
