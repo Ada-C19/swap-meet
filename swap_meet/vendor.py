@@ -55,34 +55,20 @@ class Vendor:
         return True
   
     def get_by_category(self, category):
-        category_items = [item for item in self.inventory 
+        category_items = [item for item in self.inventory
                           if item.get_category() == category]
   
-        return category_items 
+        return category_items
 
+    def get_best_by_category(self, category):
+        category_items = self.get_by_category(category)
 
-# - `Vendor`s have a method named `get_best_by_category`, which will get the item with the best condition in a certain category
-#   - It takes one argument: a string that represents a category
-#   - This method looks through the instance's `inventory` for the item with the highest `condition` and matching `category`
-#     - It returns this item
-#     - If there are no items in the `inventory` that match the category, it returns `None`
-#     - It returns a single item even if there are duplicates (two or more of the same item with the same condition)
+        if not category_items:
+            return None
 
- 
-    def get_best_by_category(self, category= None):
-        category_list = self.get_by_category(category)
+        best_item = max(category_items, key=lambda item: item.condition)
 
-        value = [] 
-
-        for item in category_list:
-            value.append(item.condition)
-
-            max_value = max(value)
-
-        for item in category_list:
-            if item.condition == max_value: 
-                return item 
-
+        return best_item
 
 
 # - `Vendor`s have a method named `swap_best_by_category`, which will swap the best item of certain categories with another `Vendor`
@@ -108,5 +94,5 @@ class Vendor:
         self.inventory.append(their_best_item)
         other_vendor.inventory.append(my_best_item)
 
-      
+
         return True

@@ -1,6 +1,6 @@
 import uuid
 
-#Wave 2
+
 class Item:
    
     def __init__(self, id=None, condition=0):
