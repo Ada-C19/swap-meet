@@ -1,8 +1,8 @@
-import uuid
-from swap_meet.item import Item
+
+from .item import Item
 
 class Clothing(Item):
-    def __init__(self, id= None, condition = 0, fabric = "Unknown"):
+    def __init__(self, id = None, fabric = "Unknown", condition = 0):
         super().__init__(id, condition)
         self.fabric = fabric
 
@@ -10,9 +10,8 @@ class Clothing(Item):
         return "Clothing"
     
     def __str__(self):
-        return f"An object of type Clothing with id {self.id}. It is made from {self.fabric} fabric."
+        first_line = super().__str__()
+        return f"{first_line} It is made from {self.fabric} fabric."
     
-    def condition_description(self):
-        return super().condition_description()
-
+    
 
