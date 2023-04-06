@@ -5,7 +5,6 @@ from swap_meet.clothing import Clothing
 from swap_meet.decor import Decor
 from swap_meet.electronics import Electronics
 
-# @pytest.mark.skip
 def test_get_items_by_category():
     item_a = Clothing()
     item_b = Electronics()
@@ -33,13 +32,12 @@ def test_get_no_matching_items_by_category():
 
     items = vendor.get_by_category("Electronics")
 
-    # raise Exception("Complete this test according to comments below.")
     # *********************************************************************
     # ****** Complete Assert Portion of this test **********
     # *********************************************************************
     assert items == []
 
-# @pytest.mark.skip
+
 def test_best_by_category():
     item_a = Clothing(condition=2.0)
     item_b = Decor(condition=2.0)
@@ -111,7 +109,6 @@ def test_swap_best_by_category():
         their_priority="Decor"
     )
 
-    # raise Exception("Complete this test according to comments below.")
     # *********************************************************************
     # ****** Complete Assert Portion of this test **********
     # *********************************************************************
@@ -126,7 +123,6 @@ def test_swap_best_by_category():
     assert jesse.inventory == [item_d, item_e, item_c]
 
 
-# @pytest.mark.skip
 def test_swap_best_by_category_reordered():
     # Arrange
     item_a = Decor(condition=2.0)
@@ -150,7 +146,7 @@ def test_swap_best_by_category_reordered():
         their_priority="Decor"
     )
 
-    # raise Exception("Complete this test according to comments below.")
+
     # *********************************************************************
     # ****** Complete Assert Portion of this test **********
     # *********************************************************************
@@ -165,7 +161,6 @@ def test_swap_best_by_category_reordered():
     assert jesse.inventory == [item_e, item_d, item_c]
 
 
-# @pytest.mark.skip
 def test_swap_best_by_category_no_inventory_is_false():
     tai = Vendor(
         inventory=[]
