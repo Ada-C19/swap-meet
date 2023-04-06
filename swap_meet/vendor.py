@@ -53,30 +53,40 @@ class Vendor:
 
         return True
         
-# from item import Item
+    def get_by_category(self, category):
+        if not self.inventory:
+            return None
+        
+        matches = []
 
-# item_a = Item()
-# item_b = Item()
-# item_c = Item()
-# fatimah = Vendor(
-#     inventory=[item_a, item_b, item_c]
-# )
+        for item in self.inventory:
+            if item.get_category() == category:
+                matches.append(item)
+        
+        return matches
+    
+    def get_best_by_category(self, category):
+        """
+        If there are no matches, matches will either be
+        None or [], both can be used in the conditional
+        to return None - otherwise we can continue with
+        matches.
+        """
+        matches = self.get_by_category(category)
+        
+        if not matches:
+            return None
+        
+        return max(matches, key=lambda item: item.condition)
+    
+    def swap_best_by_category(self, other_vendor, my_priority, their_priority):
+        my_best = self.get_best_by_category(their_priority)
+        their_best = other_vendor.get_best_by_category(my_priority)
 
-# item_d = Item()
-# item_e = Item()
-# jolie = Vendor(
-#     inventory=[item_d, item_e]
-# )
+        if not my_best or not their_best:
+            return False
+        
+        self.swap_items(other_vendor, my_best, their_best)
 
-# result = fatimah.swap_first_item(jolie)
-
-# assert len(fatimah.inventory) == 3
-# assert item_a not in fatimah.inventory
-# assert item_b in fatimah.inventory
-# assert item_c in fatimah.inventory
-# assert item_d in fatimah.inventory
-# assert len(jolie.inventory) == 2
-# assert item_d not in jolie.inventory
-# assert item_e in jolie.inventory
-# assert item_a in jolie.inventory
-# assert result
+        return True
+        

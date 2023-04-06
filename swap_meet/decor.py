@@ -8,4 +8,6 @@ class Decor(Item):
         self.length = length
         
     def __str__(self):
-        return f"An object of type {self.get_category()} with id {str(self.id)}. It takes up a {self.width} by {self.length} sized space."
+        base_str = super().__str__()
+        new_str = f"It takes up a {self.width} by {self.length} sized space."
+        return " ".join([base_str, new_str])

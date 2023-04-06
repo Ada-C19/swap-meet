@@ -7,4 +7,6 @@ class Electronics(Item):
         self.type = type if type else "Unknown"
         
     def __str__(self):
-        return f"An object of type {self.get_category()} with id {str(self.id)}. This is a {self.type} device."
+        base_str = super().__str__()
+        new_str = f"This is a {self.type} device."
+        return " ".join([base_str, new_str])

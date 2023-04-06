@@ -12,6 +12,8 @@ class Clothing(Item):
         return self.__class__.__name__   
     
     def __str__(self):
-        return f"An object of type {self.get_category()} with id {str(self.id)}. It is made from {self.fabric} fabric."
+        base_str = super().__str__()
+        new_str = f"It is made from {self.fabric} fabric."
+        return " ".join([base_str, new_str])
     
 
