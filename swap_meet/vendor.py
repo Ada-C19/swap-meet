@@ -60,14 +60,11 @@ class Vendor:
         if items_by_category == []:
             return None
         #loop through all items in category and compare condition. 
-        best_item = items_by_category[0]
-        for item in items_by_category:
-            if item.condition > best_item.condition:
-                #set best item to the item with higher condition
-                best_item = item 
+        best_item = max(items_by_category, key=lambda item: item.condition)
+    
         return best_item
 
-    #swap their best item from my preferred category with my best item from their preffered category.        
+    #swap their best item from my preferred category with my best item from their preffered category      
     def swap_best_by_category(self, other_vendor, my_priority, their_priority):
         #get best item in their priority
         my_best = self.get_best_by_category(their_priority)
