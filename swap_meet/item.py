@@ -4,18 +4,24 @@ class Item:
     def __init__(self, id = None, condition = 0, age = 0):
         '''
         If id does not exist, assign unique id with uuid
-        Otherwise, self.id = id
+        If an invalid type is passed in as the id parameter, 
+        a TypeError will be raised.
         '''
         self.age = age
         self.condition = condition
 
         if not id:
             self.id = int(uuid.uuid4())
-        else:
+        elif isinstance(id, int):
             self.id = id
+        else:
+            raise TypeError("ID must be an integer")
 
-    # Function named `get_category` will return a string holding the name of the class
+
     def get_category(self):
+        '''
+        Function named `get_category` will return a string holding the name of the class
+        '''
         return self.__class__.__name__
     
     def __str__(self):
