@@ -41,23 +41,13 @@ class Vendor:
 
         if not self.inventory or not other_vendor.inventory:
             return False
-        # other_vendor.inventory.remove(self.item)
         
+        other_vendor.add(self.inventory[0])
 
-        self.inventory.remove(self.inventory[0])
-        other_vendor.add(self.inventory[1])
-
-        other_vendor.inventory.remove(other_vendor.inventory[1])
         self.add(other_vendor.inventory[0])
-        
-        # other_vendor.remove(other_vendor.inventory[0])
 
-        # other_vendor.add(self.inventory[0])
-        # self.add(other_vendor.inventory[0])
+        self.remove(self.inventory[0])
 
-        # self.inventory.add(other_vendor.item)
-        # other_vendor.add(self.item)
-
-
+        other_vendor.remove(other_vendor.inventory[0])
 
         return True
