@@ -16,6 +16,7 @@ class Item:
     
     def condition_description(self):
         self.condition = float(self.condition)
+        
         if self.condition <=1.0:
             return "This item isn't in great condition, but may be a great DIY project."
         if self.condition <=2.0:

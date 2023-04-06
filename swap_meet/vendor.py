@@ -45,6 +45,7 @@ class Vendor:
     
     def get_by_category(self, category):
         items_in_category = []
+        
         for item in self.inventory:
             if item.get_category() == category:
                 items_in_category.append(item)
@@ -53,6 +54,7 @@ class Vendor:
 
     def get_best_by_category(self, category):
         items_in_category = self.get_by_category(category)
+        
         if not items_in_category:
             return None
         best_item = max(items_in_category, key=lambda item: item.condition)
