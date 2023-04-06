@@ -1,14 +1,19 @@
 import uuid
 
 class Item:
-    def __init__(self, id=None, condition=0):
-        # If id is passed assign it to id
-        # If not create a new id
-        if id:
+    def __init__(self, age=0, id=None, condition=0):
+        
+        if id: 
             self.id = id
         else:
             self.id = uuid.uuid4().int
         self.condition = condition
+        #Added AGE
+        if isinstance(age, int):
+            self.age = age
+        else:
+            self.age = None
+
     
     def get_category(self):
         # Holds the class name and returns it as a str
