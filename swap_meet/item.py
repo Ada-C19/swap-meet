@@ -40,7 +40,7 @@ class Item:
             return "Just like new!"
         
 
-    # Wave 3- KC
+    # Wave 3- KV
     # calling a string on a class instance
     def __str__(self):
         return f"An object of type Item with id {self.id}."

@@ -34,7 +34,7 @@ def test_get_no_matching_items_by_category():
     items = vendor.get_by_category("Electronics")
 
 # KV assertion
-    # assert not items
+    assert not items
     # raise Exception("Complete this test according to comments below.")
     # *********************************************************************
     # ****** Complete Assert Portion of this test **********
@@ -113,11 +113,11 @@ def test_swap_best_by_category():
     )
 
 # KV assertions
-    # assert result
-    # assert len(tai.inventory) == 3
-    # assert len(jesse.inventory) == 3
-    # assert tai.inventory == [item_a, item_b, item_f]
-    # assert jessie.inventory == [item_d, item_e, item_c]
+    assert result
+    assert len(tai.inventory) == 3
+    assert len(jesse.inventory) == 3
+    assert tai.inventory == [item_a, item_b, item_f]
+    assert jessie.inventory == [item_d, item_e, item_c]
     # raise Exception("Complete this test according to comments below.")
     # *********************************************************************
     # ****** Complete Assert Portion of this test **********
@@ -152,12 +152,11 @@ def test_swap_best_by_category_reordered():
     )
 
 # KV assertions
-    # Update assertions with correct inventory len and items
-    # assert result
-    # assert len(tai.inventory) == x
-    # assert len(jesse.inventory) == x
-    # # assert tai.inventory == [item_x, item_x, item_x]
-    # # assert jessie.inventory == [item_x, item_x, item_x]
+    assert result
+    assert len(tai.inventory) == 3
+    assert len(jesse.inventory) == 3
+    assert tai.inventory == [item_f, item_b, item_a]
+    assert jessie.inventory == [item_c, item_e, item_d]
     # raise Exception("Complete this test according to comments below.")
     # *********************************************************************
     # ****** Complete Assert Portion of this test **********
@@ -244,12 +243,11 @@ def test_swap_best_by_category_no_match_is_false():
     )
 
 # KV assertions
-    # Update assertions with correct inventory len and items
-    # assert not result
-    # assert len(tai.inventory) == x
-    # assert len(jesse.inventory) == x
-    # assert tai.inventory == [item_x, item_x, item_x]
-    # assert jessie.inventory == [item_x, item_x, item_x]
+    assert not result
+    assert len(tai.inventory) == 3
+    assert len(jesse.inventory) == 3
+    assert tai.inventory == [item_a, item_b, item_c]
+    assert jessie.inventory == [item_d, item_e, item_f]
     # raise Exception("Complete this test according to comments below.")
     # *********************************************************************
     # ****** Complete Assert Portion of this test **********
@@ -284,12 +282,11 @@ def test_swap_best_by_category_no_other_match_is_false():
     )
 
 # KV assertions
-    # Update assertions with correct inventory len and items
-    # assert not result
-    # assert len(tai.inventory) == x
-    # assert len(jesse.inventory) == x
-    # # assert tai.inventory == [item_x, item_x, item_x]
-    # # assert jessie.inventory == [item_x, item_x, item_x]
+    assert not result
+    assert len(tai.inventory) == 3
+    assert len(jesse.inventory) == 3
+    assert tai.inventory == [item_c, item_b, item_a]
+    assert jessie.inventory == [item_f, item_e, item_d]
     # raise Exception("Complete this test according to comments below.")
     # *********************************************************************
     # ****** Complete Assert Portion of this test **********
