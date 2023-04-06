@@ -37,4 +37,42 @@ class Vendor:
             self.swap_items(other_vendor, self.inventory[0], other_vendor.inventory[0])
         
         return True
+    
+    def get_by_category(self, category = None):
+        category_list = []
+        if category == None:
+            return category_list 
+        else:
+            for item in self.inventory:
+                if item.get_category() == category:
+                    category_list.append(item)
+            return category_list
 
+    def get_best_by_category(self, category):
+        condition_value_dict = {}
+        if self.get_by_category(category):
+            for item in self.get_by_category(category):
+                condition_value_dict[item] = item.condition
+            best_item = max(condition_value_dict, key = condition_value_dict.get)
+            return best_item
+        else:
+            return None
+    
+    def swap_best_by_category(self, other_vendor, my_priority, their_priority):
+        if self.inventory == [] or other_vendor.inventory == []:
+            return False
+        elif self.get_best_by_category(their_priority) and other_vendor.get_best_by_category(my_priority):
+            self.swap_items(other_vendor, self.get_best_by_category(their_priority), other_vendor.get_best_by_category(my_priority))
+            return True
+        else:
+            return False
+
+    def get_newest_item(self):
+        age_dict = {}
+        for item in self.inventory:
+            age_dict[item] = item.age
+        newest_item = min(age_dict, key = age_dict.get)
+        return newest_item
+        
+    def swap_by_newest(self, other_vendor):
+        return self.swap_items(other_vendor, self.get_newest_item(), other_vendor.get_newest_item())
