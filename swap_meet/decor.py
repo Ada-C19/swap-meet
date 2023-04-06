@@ -7,7 +7,6 @@ class Decor(Item):
         super().__init__(id, condition)
         self.width = width
         self.length = length
-        self.category = "Decor"
 
     def __str__(self):
         category_id_description = super().__str__()

@@ -20,7 +20,7 @@ class Item:
             self.id = uuid.uuid4().int
         
         self.condition = condition
-        self.category = "Item"
+        self.category = self.get_category()
         
     def get_category(self):
         """Output: the name of the Class"""
