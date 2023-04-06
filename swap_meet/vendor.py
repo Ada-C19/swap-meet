@@ -72,3 +72,18 @@ class Vendor:
                 highest_condition = category
         return highest_condition
     
+    def swap_best_by_category(self, other_vendor, my_priority, their_priority):
+        #mypriority is item I want
+        #theirpriorty is item they want from me
+        #return True if best item in my inventory matches theirpriorty and myoriorty matches their beist item
+
+        item_self_want = self.get_best_by_category(their_priority)
+        # print(item_self_want)
+        item_they_want = other_vendor.get_best_by_category(my_priority)
+        # print(item_they_want)
+
+        ###had to put in the actual irem from getbestbycategory
+        self.swap_items(other_vendor, item_self_want, item_they_want)
+        
+        return True
+
