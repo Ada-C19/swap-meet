@@ -54,11 +54,16 @@ class Vendor:
     def swap_first_item(self, other_vendor):
         if len(self.inventory) == 0 or len(other_vendor.inventory) == 0:
             return False
+
+        return self.swap_items(other_vendor, self.inventory[0], other_vendor.inventory[0])
+
+
+        # 
         
-        tmp = self.inventory[0]
-        self.inventory[0] = other_vendor.inventory[0]
-        other_vendor.inventory[0] = tmp
-        return True
+        # tmp = self.inventory[0]
+        # self.inventory[0] = other_vendor.inventory[0]
+        # other_vendor.inventory[0] = tmp
+        # return True
     
     def swap_best_by_category(self, other_vendor, my_priority, their_priority):
         my_item = self.get_best_by_category(their_priority)
