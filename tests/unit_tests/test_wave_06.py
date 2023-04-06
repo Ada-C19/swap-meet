@@ -265,3 +265,24 @@ def test_swap_by_newest():
     assert item_f in tai.inventory
     assert item_a not in tai.inventory
     assert item_f not in jesse.inventory
+
+def test_swap_by_newest_empty_inventory_is_false():
+    item_a = Decor(age=2.4)
+    item_b = Electronics(age=4.4)
+    item_c = Decor(age=4.0)
+    tai = Vendor(
+        inventory=[item_c, item_b, item_a]
+    )
+
+    jesse = Vendor(
+        inventory=[]
+    )
+
+    result = tai.swap_by_newest(other_vendor=jesse)
+
+    assert not result
+    assert len(tai.inventory) == 3
+    assert len(jesse.inventory) == 0
+    assert item_a in tai.inventory
+    assert item_b in tai.inventory
+    assert item_c in tai.inventory
