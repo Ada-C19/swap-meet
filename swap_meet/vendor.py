@@ -32,12 +32,9 @@ class Vendor:
     def swap_first_item(self, other_vendor):
         if self.inventory == [] or other_vendor.inventory == []:
             return False
-        their_item = other_vendor.inventory[0]
-        my_item = self.inventory[0]
-        self.add(their_item)
-        self.remove(my_item)
-        other_vendor.add(my_item)
-        other_vendor.remove(their_item)
+        their_first_item = other_vendor.inventory[0]
+        my_first_item = self.inventory[0]
+        self.swap_items(other_vendor, my_first_item, their_first_item)
         return True
 
     def get_by_category(self, category):
