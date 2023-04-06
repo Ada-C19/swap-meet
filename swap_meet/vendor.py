@@ -44,4 +44,34 @@ class Vendor:
 
         return True
     
-    # def get_by_category(self, )
+    def get_by_category(self, string_category):
+        category_list = []
+        # print(self.inventory)
+        # for thing in self.inventory:
+
+            # print("self.inventory", thing.self.inventory.get_category)
+        for thing in self.inventory:
+            # print(thing)
+            if thing.get_category() == string_category:
+                category_list.append(thing)
+        # print("categorlist", category_list)
+        return category_list
+    
+    def get_best_by_category(self, string_category):
+        highest_condition = 0
+        highest_condition_category = ''
+        index = 0
+
+        list_of_category = self.get_by_category(string_category)
+
+        while index < len(list_of_category):
+            
+
+        # for category in list_of_category:
+        #     highest_condition = category[0] 
+        #     if highest_condition < category.condition:
+        #         highest_condition = category.condition
+        #         highest_condition_category = category
+        # # print(highest_condition)
+    
+
