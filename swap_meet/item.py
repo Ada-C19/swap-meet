@@ -9,14 +9,15 @@ class Item:
         
 
     def get_category(self):
-        # check if need to cast into str
         return "Item"
+    
     
     def __str__(self):
         return f"An object of type {self.get_category()} with id {self.id}."
     
+    
     def condition_description(self):
-        CONDITION_DESCRIPTIONS = { 0: "awful. the worst item you can possibly imagine",
+        CONDITION_DESCRIPTIONS = {0: "awful. the worst item you can possibly imagine",
                                   1: "could be worse",
                                   2: "could be better",
                                   3: "fine. do u really want this tho",
