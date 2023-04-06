@@ -1,4 +1,3 @@
-from swap_meet.item import Item
 import uuid
 from swap_meet.item import Item
 
@@ -10,8 +9,7 @@ from swap_meet.item import Item
 
 
 
-
-class Clothing(Item)(Item):
+class Clothing(Item):
     # Has an attribute id that is by default a unique integer
     
     # Has an attribute fabric that is by default the string "Unknown"

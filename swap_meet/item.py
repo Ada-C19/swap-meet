@@ -1,5 +1,4 @@
 # from swap_meet.vendor import Vendor
-from swap_meet.item import Item
 import uuid
 
 class Item:
@@ -8,7 +7,7 @@ class Item:
     # alse has an attribute called condition, 
     # which can be optionally provided in the initializer. 
     def __init__(self, id=None, condition = 0):
-        super().__init__(id, condition)
+
         # using UUID4 since UUID1 creates a UUID with the computer's network address 
         # UUID.int- returns the UUID as a 128-bit integer.
         # self.id = uuid.uuid4().int

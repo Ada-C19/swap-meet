@@ -1,4 +1,3 @@
-from swap_meet.item import Item
 import uuid
 from swap_meet.item import Item
 
@@ -53,5 +52,4 @@ class Decor(Item):
     # Has a stringify method that returns 
     def __str__(self):
         return f"An object of type Decor with id {self.id}. It takes up a {self.width} by {self.length} sized space."
-
 
