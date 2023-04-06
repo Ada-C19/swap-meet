@@ -94,16 +94,8 @@ class Vendor:
         Returns False if inventory is empty, otherwise returns the newest item.
         """
         if not self.inventory: return False
-        
-        # Arbitrarily set min_age as the age of the first item in inventory
-        min_age = self.inventory[0].age
-        newest_item = self.inventory[0]
 
-        # Loop through rest of the inventory to find item with smaller age
-        for item in self.inventory[1:]:
-            if item.age < min_age:
-                min_age = item.age
-                newest_item = item
+        newest_item = min(self.inventory, key=lambda x:x.age)
         
         return newest_item
     
