@@ -32,7 +32,6 @@ class Vendor:
         
         return True
 
-
     def swap_first_item(self, other_vendor):
             if not self.inventory or not other_vendor.inventory:
                 return False
