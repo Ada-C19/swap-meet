@@ -1,20 +1,31 @@
 import uuid
 class Item:
-    
+    """
+    A class that represents item.
+    Each Item have an attribute named id, which is a quique integer as default; an attribute named condition, which is an integer represent the item's condition, default value is 0 (the poorest).
+    """
     def __init__(self, id=None, condition=0):
+        # when manually set id.
         if id:
             self.id = id
+        # when id is not provided, generate an id with integer.
         else:
             self.id = uuid.uuid4().int
         self.condition = condition
-            
-    def get_category(self):    
+    
+    def get_category(self):  
+        """
+        Return the class name as a string.
+        """  
         return self.__class__.__name__
     
     def __str__(self):
         return f"An object of type {self.get_category()} with id {self.id}."
     
     def condition_description(self):
+        """
+        Return funny description based on the item's condition.
+        """
         if self.condition == 5:
             return "This item is in tip-top shape!"
         elif self.condition == 4:
