@@ -6,7 +6,8 @@ class Clothing(Item):
         super().__init__(id, condition)
 
     def get_category(self):
-        return "Clothing"
+        # return "Clothing"
+        return type(self).__name__
 
     def __str__(self):
         return f"An object of type Clothing with id {self.id}. It is made from {self.fabric} fabric."

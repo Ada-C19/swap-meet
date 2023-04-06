@@ -5,7 +5,7 @@ class Item:
         self.id = id or uuid.uuid4().int 
         # int(uuid.uuid4()) we call the int() to make it into an int
         self.condition = condition
-        
+
     # Each Item will have a get_category() which will return a str holding the name of the class
     def get_category(self):
         return type(self).__name__
@@ -27,12 +27,3 @@ class Item:
             return "Heavily used"
         if self.condition == 5:
             return "Comfortable"
-        
-        # descriptions = {
-        #     0: "Trendy",
-        #     1: "In good condition",
-        #     2: "Cute",
-        #     3: "Chic",
-        #     4: "Heavily used",
-        #     5: "Comfortable"
-        # }
