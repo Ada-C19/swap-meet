@@ -58,20 +58,15 @@ class Vendor:
         return category_list
     
     def get_best_by_category(self, string_category):
-        highest_condition = 0
-        highest_condition_category = ''
-        index = 0
+        
 
-        list_of_category = self.get_by_category(string_category)
+        list_of_same_categories = self.get_by_category(string_category)
+        highest_condition = list_of_same_categories[0]
 
-        while index < len(list_of_category):
-            
 
-        # for category in list_of_category:
-        #     highest_condition = category[0] 
-        #     if highest_condition < category.condition:
-        #         highest_condition = category.condition
-        #         highest_condition_category = category
-        # # print(highest_condition)
+        for category in list_of_same_categories:
+            if category.condition > highest_condition.condition:
+                highest_condition = category
+        return highest_condition
     
 
