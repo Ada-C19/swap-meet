@@ -36,3 +36,8 @@ class Vendor:
         #if vendor inventory doesnt contain my item return false
         # if vendor doesnt contain their_item return false
         return True
+    
+    def swap_first_item(self,other_vendor):
+
+        other_vendor.remove(self.inventory[0])
+        self.remove(my_item)
