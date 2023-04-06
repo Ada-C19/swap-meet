@@ -1,10 +1,7 @@
 from swap_meet.item import Item
 class Vendor:
     def __init__(self, inventory = None):
-        if inventory is None:
-            self.inventory = []
-        else: 
-            self.inventory = inventory
+        self.inventory = inventory if inventory else []
 
     def add(self, item):
         self.inventory.append(item)
@@ -69,34 +66,6 @@ class Vendor:
         else: 
             self.swap_items(other_vendor, my_best_item, their_best_item)
             return True
-
-    # def get_by_age(self,age):
-    #     age_list = []
-    #     for item in self.inventory:
-    #         if item.get_age() == age:
-    #             age_list.append(item)
-    #     return age_list 
-        
-    
-    # def get_newest_item(self,age):
-    #     items = self.get_by_age(age)
-    #     newest_item = 0
-    #     for item in items:
-    #         if item.age < newest_item:
-    #             newest_item = item 
-    #     return newest_item
-        
-    
-    # def swap_by_newest(self, other_vendor, my_item, their_item):
-    #     my_newest_item = self.get_newest_item(their_item)
-    #     their_newest_item = other_vendor.get_newest_item(my_item)
-
-    #     if not my_newest_item or not their_newest_item:
-    #         return False
-    #     else: 
-    #         self.swap_items(other_vendor, my_newest_item, their_newest_item)
-    #         return True
-    #     pass
 
     def swap_by_newest(self,other_vendor):
         my_newest_item = min(self.inventory, key= lambda item: item.age, default=None)
