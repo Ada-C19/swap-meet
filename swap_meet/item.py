@@ -3,10 +3,23 @@ import uuid
 
 class Item:
 
-    def __init__(self, id = None):
+    def __init__(self, id = None, condition = 0):
         if not id:
             id = int(uuid.uuid4())
         self.id = id
+        self.condition = condition
+
+    def condition_description(self):
+        if self.condition == 0:
+            return 'this is Garbage!'
+        elif self.condition == 1 or self.condition == 2:
+            return 'ITS A SCAM'
+        elif self.condition == 3:
+            return "not bad! It's your money though"
+        elif self.condition == 4 or self.condition == 5:
+            return "OMG GET IT!"
+
+        
 
 
     def get_category(self):
