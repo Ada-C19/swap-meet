@@ -16,15 +16,15 @@ class Item:
     def condition_description(self):
         if self.condition == 0:
             return "Quality Unknown"
-        elif self.condition == 1:
+        elif self.condition == 1.0:
             return "Very Bad Quality"
-        elif self.condition == 2:
+        elif self.condition == 2.0:
             return "Bad Quality"
-        elif self.condition == 3:
+        elif self.condition == 3.0:
             return "Okay Quality"
-        elif self.condition == 4:
+        elif self.condition == 4.0:
             return "Good Quality"
-        elif self.condition == 5:
+        elif self.condition == 5.0:
             return "Great Quality"
         else:
             raise ValueError("Invalid Condition")

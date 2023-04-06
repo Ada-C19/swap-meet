@@ -40,7 +40,26 @@ class Vendor:
 
         self.swap_items(other_vendor, my_first_item, other_vendor_first_item)
         return True
-        # self.inventory.append(other_vendor_first_item)
-        # other_vendor.inventory.remove(other_vendor_first_item)
-        # other_vendor.inventory.append(my_first_item)
-        # self.inventory.remove(my_first_item)
+
+    def get_by_category(self, category):
+        return [item for item in self.inventory if item.get_category() == category]
+    
+    def get_best_by_category(self, category):
+        options = self.get_by_category(category)
+        if options:
+            best_condition_avail = max(option.condition for option in options)
+        else:
+            return None
+        for option in options:
+            if option.condition == best_condition_avail:
+                return option
+            
+    def swap_best_by_category(self, other_vendor, my_priority, their_priority):
+        item_other_vendor_wants = self.get_best_by_category(their_priority)
+        item_self_wants = other_vendor.get_best_by_category(my_priority)
+        if item_other_vendor_wants and item_self_wants:
+            self.swap_items(other_vendor, item_other_vendor_wants, item_self_wants)
+            return True
+        else:
+            return False
+            
