@@ -32,3 +32,21 @@ class Vendor:
                 return each_item
 
         return None
+
+    def swap_items(self, other_vendor, my_item, their_item):
+        # if either of these are not found, returns False
+        if my_item not in self.inventory:
+            return False
+
+        if their_item not in other_vendor.inventory:
+            return False
+# if found
+# performs the swap
+        self_item_idx = self.inventory.index(my_item)
+        their_item_idx = other_vendor.inventory.index(their_item)
+# using a temp variable to hold the value then swap values
+        temp = self.inventory[self_item_idx]
+        self.inventory[self_item_idx] = their_item
+        other_vendor.inventory[their_item_idx] = temp
+
+        return True
