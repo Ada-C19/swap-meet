@@ -1,3 +1,6 @@
+from .item import Item
+
+
 class Vendor:
  
     def __init__(self, inventory=None):
@@ -14,14 +17,8 @@ class Vendor:
 
         self.inventory.remove(item)
 
-<<<<<<< HEAD
-        return item 
-    
-    #Wave 2
-=======
         return item
-
->>>>>>> 187f736359161ff0038d80385f607d01b6f13859
+ 
     def get_by_id(self, id):
         for item in self.inventory:
             if item.id == id:
@@ -41,49 +38,27 @@ class Vendor:
         self.add(their_item)
 
         return True
-<<<<<<< HEAD
-    
-    #Wave 4
-=======
 
->>>>>>> 187f736359161ff0038d80385f607d01b6f13859
     def swap_first_item(self, other_vendor):
         if not self.inventory or not other_vendor.inventory:
             return False
      
         my_first_item = self.inventory[0]
         their_first_item = other_vendor.inventory[0]
-<<<<<<< HEAD
-
-=======
-      
->>>>>>> 187f736359161ff0038d80385f607d01b6f13859
+ 
         self.remove(my_first_item)
         other_vendor.add(my_first_item)
       
         other_vendor.remove(their_first_item)
         self.add(their_first_item)
-<<<<<<< HEAD
-        
+      
         return True
-    
-    #Wave 6
-
-#  - `Vendor` objects have an instance method named `get_by_category`
-        #(done)
-#    - This method takes one argument: a string, representing a category
-#    - This method returns a list of objects in the inventory with that category
-#    - If there are no items in the `inventory` that match the category argument, the method returns an empty list
-    
+  
     def get_by_category(self, category):
-        inventory_category_items = []
-
-        for item in self.inventory:
-            if item.category == category:
-                inventory_category_items.append(item)
-
-        return inventory_category_items
-    
+        category_items = [item for item in self.inventory 
+                          if item.get_category() == category]
+  
+        return category_items 
 
 
 # - `Vendor`s have a method named `get_best_by_category`, which will get the item with the best condition in a certain category
@@ -133,7 +108,5 @@ class Vendor:
         self.inventory.append(their_best_item)
         other_vendor.inventory.append(my_best_item)
 
-=======
       
->>>>>>> 187f736359161ff0038d80385f607d01b6f13859
         return True
