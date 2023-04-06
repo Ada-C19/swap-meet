@@ -27,9 +27,9 @@ def test_items_if_non_integer_id_raises_an_error():
         Item(test_id) 
 
 def test_items_if_non_integer_condition_raises_an_error():
-    test_id = "y"
+    test_condition = "y"
     with pytest.raises(TypeError):
-        Item(test_id) 
+        Item(test_condition) 
 
 # @pytest.mark.skip
 def test_item_obj_returns_text_item_for_category():

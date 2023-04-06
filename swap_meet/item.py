@@ -9,7 +9,7 @@ class Item:
         else:
             self.id = id
         if not isinstance(condition, int) and not isinstance(condition, float):
-            raise TypeError("id needs to be integer")
+            raise TypeError("condition needs to be integer")
         else:
             self.condition = condition
         
