@@ -10,7 +10,8 @@ class Item:
             self.id = id
         self.category = category
     def get_category(self):
-        
+        #item = Item(id)
+        #return item.__class__.__name__
         return self.category
     
     def __str__(self):
