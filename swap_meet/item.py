@@ -2,7 +2,7 @@ from uuid import uuid4
 
 class Item:
     def __init__(self, id = None, condition = 0, age = 0):
-        self.id = id if id is not None else uuid4().int
+        self.id = id if id else uuid4().int
         self.condition = condition
         self.conditions_dict = {
             0: "There is a very evil, ancient spirit attached to this item",
