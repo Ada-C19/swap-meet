@@ -6,7 +6,7 @@ class Vendor:
     # return word_list
 
 #     Each Vendor will have an attribute named inventory, which is an empty list by default
-    def __init__(self,inventory=None):
+    def __init__(self, inventory=None):
         self.inventory = inventory if inventory is not None else []
 
     def add(self, item):
@@ -62,13 +62,7 @@ class Vendor:
         their_first_item = other_vendor.inventory[0]
         
         if their_first_item not in self.inventory:
-            #  It removes the first item from its inventory, and adds the friend's first item
-            self.add(their_first_item)
-            other_vendor.add(my_first_item)
-            # It removes the first item from the friend's inventory, and adds the instances first item
-            other_vendor.remove(their_first_item)
-            self.remove(my_first_item)
-            #  It returns True
+            self.swap_items(other_vendor, my_first_item, their_first_item)
             return True
 
 
@@ -103,12 +97,9 @@ class Vendor:
     If there are no items in the inventory that match the category argument, the method returns an empty list
     """
     def get_by_category(self, category):
-        items = []
-
-        for item in self.inventory:
-            if item.__class__.__name__ == category:
-                items.append(item)
         
+        items = [item for item in self.inventory if item.__class__.__name__ == category]
+
         return items
 
     """
@@ -122,22 +113,12 @@ class Vendor:
     
     def get_best_by_category(self, category):
 
-        
-        # find items with matching category
         items = self.get_by_category(category)
         
         if not items:
             return None
         
-        highest_condition_item = items[0]
-        
-        # determine which one has the highest condition
-        for item in items:
-            if item.condition > highest_condition_item.condition:
-                highest_condition_item = item
-        
-        # return that item
-        return highest_condition_item
+        return max(items, key= lambda item: item.condition)
 
 
     #pseudo code 
@@ -164,12 +145,8 @@ class Vendor:
         my_best_item = self.get_best_by_category(their_priority)
         their_best_item = other_vendor.get_best_by_category(my_priority)
         
-
         if my_best_item is None or their_best_item is None:
             return False
-        else:
-            self.swap_items(other_vendor, my_best_item, their_best_item)
-            return True
-
-        # else:
-        #     return False
+        
+        self.swap_items(other_vendor, my_best_item, their_best_item)
+        return True
