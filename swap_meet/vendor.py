@@ -1,3 +1,8 @@
+from swap_meet.item import Item
+from swap_meet.decor import Decor
+from swap_meet.electronics import Electronics
+from swap_meet.clothing import Clothing
+
 class Vendor:
     def __init__(self, inventory=None):
         self.inventory = [] if inventory is None else inventory
@@ -27,16 +32,48 @@ class Vendor:
         other_vendor.inventory.append(my_item)
         return True
 
-        # self.inventory.append(other_vendor.inventory.pop(other_vendor.inventory.index(their_item)))
-        # other_vendor.inventory.append(self.inventory.pop(self.inventory.index(my_item)))
-        # return True
-        
 
     def swap_first_item(self, other_vendor):
         if not self.inventory or not other_vendor.inventory:
             return False
-        
-        other_vendor.inventory.append(self.inventory.pop(0))
-        self.inventory.append(other_vendor.inventory.pop(0))
+
+        my_first_item = self.inventory[0]
+        their_first_item = other_vendor.inventory[0]
+
+        self.swap_items(other_vendor, my_first_item, their_first_item)
+
         return True
         
+    def get_by_category(self, category):
+        items_in_category = []
+        for item in self.inventory:
+            if item.get_category() == category:
+                items_in_category.append(item)
+        return items_in_category
+
+
+    def get_best_by_category(self, category):
+        if not self.get_by_category(category):
+            return None
+        
+        item_list = self.get_by_category(category)
+        best_condition = 0
+        best_item = item_list[0]
+
+        for item in item_list:
+            if item.condition > best_condition:
+                best_condition = item.condition
+                best_item = item
+        
+        return best_item
+
+    def swap_best_by_category(self, other_vendor, my_priority, their_priority):
+        if not self.get_best_by_category(their_priority) or not other_vendor.get_best_by_category(my_priority):
+            return False
+        
+        my_item_to_swap = self.get_best_by_category(their_priority)
+        their_item_to_swap = other_vendor.get_best_by_category(my_priority)
+
+        self.swap_items(other_vendor, my_item_to_swap, their_item_to_swap)
+
+        return True
