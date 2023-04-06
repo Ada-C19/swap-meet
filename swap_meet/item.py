@@ -2,7 +2,7 @@ import uuid
 
 class Item:
     def __init__(self, id=None, condition = None):
-        self.id = int(uuid.uuid4()) if id is None else id
+        self.id = uuid.uuid4().int if id is None else id
         self.condition = 0 if condition == None else condition
 
     def __str__(self):
