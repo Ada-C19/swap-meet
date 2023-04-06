@@ -9,12 +9,12 @@ class Vendor:
         return item
     
     def remove(self, item):
-        if item in self.inventory:
+        if not item in self.inventory:
+            return False
+        else: 
             removed_item = item
             self.inventory.remove(item)
             return removed_item
-        else:
-            return False
 
     def get_by_id(self, item_id):
         for item in self.inventory:
@@ -25,19 +25,20 @@ class Vendor:
         if (not my_item in self.inventory 
             or not their_item in other_vendor.inventory):
             return False
-        self.inventory.remove(my_item)
-        other_vendor.inventory.remove(their_item)
-        other_vendor.inventory.append(my_item)
-        self.inventory.append(their_item)
-        return True
+        my_removed = self.remove(my_item)
+        other_removed = other_vendor.remove(their_item)
+        if my_removed and other_removed:
+            other_vendor.add(my_removed)
+            self.add(other_removed)
+            return True
     
     def swap_first_item(self, other_vendor):
         if not self.inventory or not other_vendor.inventory:
             return False
         instance_item = self.inventory.pop(0)
         friends_item = other_vendor.inventory.pop(0)
-        self.inventory.append(friends_item)
-        other_vendor.inventory.append(instance_item)
+        self.add(friends_item)
+        other_vendor.add(instance_item)
         return True
 
     def get_by_category(self, category):
