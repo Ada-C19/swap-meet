@@ -1,3 +1,4 @@
+
 class Vendor:
 
     def __init__(self, inventory=None):
@@ -51,3 +52,19 @@ class Vendor:
         other_vendor.remove(other_vendor.inventory[0])
 
         return True
+    
+    def get_by_category(self,category):
+
+        self.category = category
+        
+        objects = []
+
+        for stuff in self.inventory:
+            if stuff.get_category() == category:
+                objects.append(stuff)
+
+        return objects
+
+
+
+
