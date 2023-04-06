@@ -32,7 +32,7 @@ class Item:
                 return'outrageous'
             if self.condition == 4:
                 return'cute'
-            if self.condition == 5:
+            if self.condition  == 5:
                 return'ugly'
-    
-    
+            
+            

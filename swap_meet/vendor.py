@@ -49,7 +49,7 @@ class Vendor:
         my_item = self.inventory[0] 
         their_item = other_vendor.inventory[0]
 
-        self.swap_items(other_vendor, my_item, their_item,)
+        self.swap_items(other_vendor, my_item, their_item)
 
         return True 
         
@@ -104,4 +104,22 @@ class Vendor:
     #             item = best_category 
 
     #     if object.get_category == condition.type:  
+
+    def swap_best_by_category(self, other_vendor, my_priority, their_priority):
+    # input: another Vendor instance to trade with, a category that this Vendor wants to receive,
+    #        a category that the other Vendor wants to receive
+    # output: True if the swap was successful, False otherwise
+    
+        # get the best item from each vendor in the specific categories
+        my_best_item = self.get_best_by_category(their_priority)
+        their_best_item = other_vendor.get_best_by_category(my_priority)
+        
+        # if either vendor has no item in the specified category, return False
+        if not my_best_item or not their_best_item:
+            return False
+        
+        self.swap_items(other_vendor, my_best_item, their_best_item)
+
+        return True
+
 
