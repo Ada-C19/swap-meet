@@ -106,8 +106,6 @@ def test_swap_best_by_category():
         my_priority="Clothing",
         their_priority="Decor"
     )
-
-    
     assert result
     assert len(jesse.inventory) == 3
     assert len(tai.inventory) == 3
