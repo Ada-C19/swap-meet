@@ -1,7 +1,7 @@
 from swap_meet.item import Item
 
 class Vendor:
-    def __init__(self,inventory=None):
+    def __init__(self, inventory=None):
         '''
         Constructor of Vendor class:
         Parameters:
@@ -11,20 +11,10 @@ class Vendor:
 
         #If no argument is passed for inventory it will initialize as an empty list
         if not inventory:
-            inventory=[]
-        self.inventory=inventory
+            inventory = []
+        self.inventory = inventory
 
-    def add(self,new_item):
-        '''
-        input:
-            self -
-            new_item - object of the class item 
-        output: 
-            new_item - object of the class item 
-            side effect: inventory will be updated with new_item added to the end of the list
-        '''
-
-        #Append new_item to the inventory parameter, return new_item
+    def add(self, new_item):
 
         self.inventory.append(new_item)
         return new_item
@@ -39,20 +29,17 @@ class Vendor:
                 side effect- inventory will have the old_item removed 
             False - if old_item is not found inventory will not change
         '''
-        #Validate if old_item is in inventory, remove the item if it is 
 
         if old_item in self.inventory:
 
             self.inventory.remove(old_item)
             return old_item
-        
-        #return False if old_item is not found in inventory 
 
         else:
             return False
         
     
-    def get_by_id(self,items_id):
+    def get_by_id(self, items_id):
         '''
         input:
             self-
@@ -62,16 +49,13 @@ class Vendor:
             None - if no item was found with the id (items_id)
         '''
 
-        #Iterate over each item in inventory to check if it has the id (items_id)
-
         for item in self.inventory:
             if items_id == item.id: 
                 return item
-        return  
     
 
     
-    def swap_items(self,other_vendor,my_item,others_item):
+    def swap_items(self, other_vendor, my_item, others_item):
         '''
     input: 
         self -
@@ -89,16 +73,12 @@ class Vendor:
 
         if my_item in self.inventory and others_item in other_vendor.inventory:
             
-            # remove the swap items from the inventory parameter for both vendors 
             self.inventory.remove(my_item)
             other_vendor.inventory.remove(others_item)
             
-            #Append the swaped items to the inventory parameter for both vendors 
             self.inventory.append(others_item)
             other_vendor.inventory.append(my_item)
             
-            #Return True confirming that the transaction has happened
-
             return True 
         
         # Return False if one of the vendors does not have the item
@@ -106,7 +86,7 @@ class Vendor:
 
 
     
-    def swap_first_item(self,other_vendor):
+    def swap_first_item(self, other_vendor):
         '''
         input:
             self
@@ -119,15 +99,11 @@ class Vendor:
 
         #Validate if both of the vendors have items in their inventory parameters
 
-        if len(self.inventory) and len (other_vendor.inventory):
+        if len(self.inventory) and len(other_vendor.inventory):
 
-            # assign a variable for the first item in the inventory list for self and other_vendor 
-            # call the swap_items() method too swap items
-            my_item=self.inventory[0]
+            my_item = self.inventory[0]
             their_item = other_vendor.inventory[0]
             self.swap_items(other_vendor,my_item,their_item)
-
-            #Return True if the swap has ocurred
 
             return True 
         
@@ -137,7 +113,7 @@ class Vendor:
     
     
 
-    def get_by_category(self,category):
+    def get_by_category(self, category):
         '''
         input:
             self -
@@ -147,11 +123,7 @@ class Vendor:
                 specified as an argument
         '''
 
-        # Create empty list to add the items from the specified category
-        items_in_category=[]
-
-        #Iterate over each Item in the inventory of self, if the item has the specified category
-        #   its appended to the new list 
+        items_in_category = []
 
         for item in self.inventory:
 
@@ -163,7 +135,7 @@ class Vendor:
 
     
 
-    def get_best_by_category(self,category):
+    def get_best_by_category(self, category):
 
         '''
         input:
@@ -177,19 +149,11 @@ class Vendor:
         # List of items in selfs inventory that have the specified category
 
         items_in_category = self.get_by_category(category)
-        
-        # If the len on the list with the specified item is empty return None
 
-        if len(items_in_category)==0:
+        if len(items_in_category) == 0:
             return None
         
-        #Get the first item on the list with self items filterd by category
-        
         best_item = items_in_category[0]
-        
-        # Iterate over the filtered list of items 
-        # If the conditon is better, save in the temporary variable
-        # return the item with the best rating
 
         for item in items_in_category:
             if item.condition > best_item.condition:
@@ -198,7 +162,7 @@ class Vendor:
     
 
 
-    def swap_best_by_category(self,other_vendor,my_priority, their_priority):
+    def swap_best_by_category(self, other_vendor, my_priority, their_priority):
         '''
         input:
             self-
@@ -214,15 +178,38 @@ class Vendor:
 
         #Get the highest rated item from the inventory from the category desired by self and vendor
         
-        my_swap= self.get_best_by_category(their_priority)
+        my_swap = self.get_best_by_category(their_priority)
         their_swap = other_vendor.get_best_by_category(my_priority)
 
         #call method swap_items if my_swap and their_swap have an item these will be swaped
         # and True will be returned else False will be returned 
         
         return self.swap_items(other_vendor,my_swap,their_swap)
-
     
+
+    def find_newest_item(self):
+
+        newest_item = self.inventory[0]
+        for item in self.inventory:
+            if newest_item.age > item.age:
+                newest_item = item
+        return newest_item  
+
+
+
+
+    def swap_by_newest(self, other_vendor):
+
+        if len(self.inventory) == 0 or len(other_vendor.inventory) == 0:
+
+            return False
+        
+        else:
+        
+            my_newest_item = self.find_newest_item()
+            their_newest_item = other_vendor.find_newest_item()
+
+        return self.swap_items(other_vendor,my_newest_item,their_newest_item)
 
 
 

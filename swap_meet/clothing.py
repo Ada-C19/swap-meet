@@ -4,7 +4,7 @@ from swap_meet.item import Item
 class Clothing(Item):
 
 
-    def __init__(self, id=None,condition=0,fabric='Unknown'):
+    def __init__(self, id=None, age=10, condition=0, fabric='Unknown'):
         '''
         Constructor of the class Clothing child class of Item
         Represents a type of Item that can be worn by vendors 
@@ -15,7 +15,7 @@ class Clothing(Item):
         New parameters: 
             fabric - str saves the type of fabric with which the clothing is made. If no argument is given it will default to 'Unknown' 
         '''
-        super().__init__(id,condition)
+        super().__init__(id,condition,age)
         self.fabric = fabric
 
 

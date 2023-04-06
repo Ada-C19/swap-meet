@@ -294,3 +294,43 @@ def test_swap_best_by_category_no_other_match_is_false():
     # - That result is falsy
     # - That tai and jesse's inventories are the correct length
     # - That all the correct items are in tai and jesse's inventories
+
+def test_swap_newest_item_returns_True():
+
+    #Arrange 
+    item_a = Decor(condition=2.0, age= 1)
+    item_b = Electronics(condition=4.0, age= 2)
+    item_c = Decor(condition=4.0, age= 3)
+    tai = Vendor(
+        inventory=[item_c, item_b, item_a]
+    )
+
+    item_d = Clothing(condition=2.0, age= 0)
+    item_e = Decor(condition=4.0, age=3)
+    item_f = Clothing(condition=4.0, age=4)
+    jesse = Vendor(
+        inventory=[item_f, item_e, item_d]
+    )    
+
+    #Act 
+    result = tai.swap_by_newest(jesse)
+
+    #Assert
+    assert result 
+    assert len(tai.inventory) == 3
+    assert len(jesse.inventory) == 3
+    assert item_d and item_b and item_c in  tai.inventory 
+    assert item_a and item_e and item_f in jesse.inventory
+
+def test_swap_newest_item_empty_list():
+
+    #Arrange
+    lou = Vendor()
+    adie = Vendor()
+
+    #Act
+    result = lou.swap_by_newest(adie)
+
+    #Assert
+    assert not result
+

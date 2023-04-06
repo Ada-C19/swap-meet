@@ -2,7 +2,7 @@ from swap_meet.item import Item
 
 class Electronics(Item):
 
-    def __init__(self, id=None,condition=0,type="Unknown"):
+    def __init__(self, id=None, condition=0, age= 10, type="Unknown"):
 
         '''
         Constructor of the class Electronics child class of Item
@@ -16,18 +16,11 @@ class Electronics(Item):
                 it will default to "Unknown" 
         '''
 
-        super().__init__(id,condition)
+        super().__init__(id,condition,age)
         self.type=type
 
 
     
     def __str__(self):
-
-        '''
-        input: 
-            self -
-        output: 
-            str - " This is a {self.type} device."
-        '''
 
         return super().__str__() + f" This is a {self.type} device."

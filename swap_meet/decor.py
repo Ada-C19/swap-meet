@@ -2,7 +2,7 @@ from swap_meet.item import Item
 
 class Decor(Item):
 
-    def __init__(self, id= None, condition=0, width=0, length=0):
+    def __init__(self, id= None, condition=0, age =10, width=0, length=0):
         '''
         Constructor of the class Decor child class of Item
         Represents an Item that is used to decorate a space 
@@ -15,16 +15,11 @@ class Decor(Item):
 
         '''
 
-        super().__init__(id,condition)
+        super().__init__(id,condition,age)
 
-        self.width=width
-        self.length=length
+        self.width = width
+        self.length = length
     
     def __str__(self):
-        '''
-        input:
-            self - 
-        output: 
-            str "It takes up a {self.width} by {self.length} sized space."
-        '''
+
         return super().__str__() + f" It takes up a {self.width} by {self.length} sized space."

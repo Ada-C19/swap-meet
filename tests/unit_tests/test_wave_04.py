@@ -8,13 +8,13 @@ def test_swap_first_item_returns_true():
     item_b = Item()
     item_c = Item()
     fatimah = Vendor(
-        inventory=[item_a, item_b, item_c]
+        inventory = [item_a, item_b, item_c]
     )
 
     item_d = Item()
     item_e = Item()
     jolie = Vendor(
-        inventory=[item_d, item_e]
+        inventory = [item_d, item_e]
     )
 
     result = fatimah.swap_first_item(jolie)
