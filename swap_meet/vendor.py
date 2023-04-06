@@ -19,7 +19,7 @@ class Vendor:
             if item.id == item_id:
                 return item
         return None
-      
+        
     def swap_items(self, other_vendor, my_item, their_item):
 
         # verify each item is in their corresponding inventory
@@ -65,7 +65,7 @@ class Vendor:
     def get_newest_item(self):
         if not self.inventory:
             return False
-        
+                
         newest_item_age = self.inventory[0].age
         newest_item = None
         
@@ -83,4 +83,3 @@ class Vendor:
         my_newest_item = self.get_newest_item()
 
         return self.swap_items(other_vendor, my_newest_item, their_newest_item)
-
