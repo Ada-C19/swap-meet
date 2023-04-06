@@ -13,7 +13,7 @@ class Clothing(Item):
         self.condition = condition if condition else 0
 
     def __str__(self):
-        return f'An object of type Clothing with id {self.id}. It is made from {self.fabric} fabric.'
+        return f'An object of type {self.get_category()} with id {self.id}. It is made from {self.fabric} fabric.'
     
     def get_category(self):
         return __class__.__name__
