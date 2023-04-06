@@ -64,6 +64,18 @@ class Vendor:
                 objects.append(stuff)
 
         return objects
+    
+    def get_best_by_category(self, category_condition):
+
+        self.category_condition = category_condition
+
+        best_condition = 0
+
+        for stuff in self.inventory(category_condition):
+            if stuff.condition_description() < best_condition:
+                best_condition = 
+
+            return 
 
 
 
