@@ -45,7 +45,7 @@ def test_swap_by_newest_returns_True():
     assert item_a in jolie.inventory
     assert result
 
-def test_swap_by_newest_different_categories():
+def test_swap_by_newest_with_different_categories():
     camila = Vendor()
     valentina = Vendor()
 
@@ -75,3 +75,49 @@ def test_swap_by_newest_different_categories():
     assert item_clothing2 in valentina.inventory
     assert item_decor1 in valentina.inventory
     assert result
+
+def test_swap_by_newest_takes_first_instance_of_newest():
+    camila = Vendor()
+    valentina = Vendor()
+
+    item_clothing1 = Clothing(age=0, condition=1.0, id=123, fabric="Geometric Pattern")
+    item_clothing2 = Clothing(age=0, condition=2.0, id=321)
+    item_electronics1 = Electronics(age=0, condition=1.0, id=456)
+    item_decor1 = Decor(age=0, condition=1.0, id=789)
+
+    camila = Vendor(
+        inventory=[item_clothing1, item_electronics1]
+    )
+    valentina = Vendor(
+        inventory=[item_clothing2, item_decor1]
+    )
+    result = camila.swap_by_newest(valentina)
+
+    assert len(camila.inventory) == 2
+    assert item_clothing1 not in camila.inventory
+    assert item_electronics1 in camila.inventory
+    assert item_clothing2 in camila.inventory
+    assert len(valentina.inventory) == 2
+    assert item_clothing2 not in valentina.inventory 
+    assert item_clothing1 in valentina.inventory
+    assert item_decor1 in valentina.inventory
+    assert result
+
+def test_swap_by_newest_empty_list_returns_False():
+    camila = Vendor()
+    valentina = Vendor()
+
+    item_clothing1 = Clothing(age=0, condition=1.0, id=123, fabric="Geometric Pattern")
+    item_clothing2 = Clothing(age=0, condition=2.0, id=321)
+    item_electronics1 = Electronics(age=0, condition=1.0, id=456)
+    item_decor1 = Decor(age=0, condition=1.0, id=789)
+
+    camila = Vendor(
+        inventory=[]
+    )
+    valentina = Vendor(
+        inventory=[item_clothing2, item_decor1]
+    )
+    result = camila.swap_by_newest(valentina)
+
+    assert result == False
