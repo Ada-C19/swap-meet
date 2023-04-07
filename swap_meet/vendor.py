@@ -22,6 +22,8 @@ class Vendor:
         for item in self.inventory:
             if item.id == id:
                 return item
+            if isinstance(id, Item):
+                raise ValueError("id should be an int")
 
 
     def swap_items(self, other_vendor, my_item, their_item):
@@ -62,15 +64,19 @@ class Vendor:
                 return True
         return False
 
-    def get_by_newest(self, age):
-        items = self.get_by_category(category)
+    def get_best_by_newest(self, age):
+        items = self.get_by_category(age)
         if not items:
             return None
-        return min(items, key=lambda item: item.condition)
+        return min(items, key=lambda item: item.age)
 
-    def swap_by_newest(self, other_vendor, my_item, their_item):
-        my_best_item = self.get_best_by_category(their_priority)
-        their_best_item = other_vendor.get_best_by_category(my_priority)
+    def swap_best_by_newest(self, other_vendor, my_item, their_item):
+        my_best_item = self.get_best_by_newest(their_item)
+        their_best_item = other_vendor.get_best_by_newest(my_item)
+        if my_best_item and their_best_item:
+            if self.swap_items(other_vendor, my_best_item, their_best_item):
+                return True
+        return False
         
 
         

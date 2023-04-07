@@ -2,8 +2,8 @@ from .item import Item
 
 class Electronics(Item):
 
-    def __init__(self, id = None, condition = 0.0, type = "Unknown"):
-        super().__init__(id = id, condition = condition)
+    def __init__(self, id = None, condition = 0.0, type = "Unknown", age = 0):
+        super().__init__(id = id, condition = condition, age = age)
         self.type = type
 
     def __str__(self):

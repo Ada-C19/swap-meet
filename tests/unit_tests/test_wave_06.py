@@ -143,7 +143,7 @@ def test_swap_best_by_category_reordered():
         their_priority="Decor"
     )
 
-    # raise Exception("Complete this test according to comments below.")
+   
     # *********************************************************************
     # ****** Complete Assert Portion of this test **********
     # *********************************************************************
@@ -292,3 +292,36 @@ def test_swap_best_by_category_no_other_match_is_false():
     assert item_a in tai.inventory
     assert item_b in tai.inventory
     assert item_c in tai.inventory
+
+
+
+# @pytest.mark.skip
+def test_swap_best_by_newest():
+    # Arrange
+    # me
+    item_a = Decor(age=2)
+    item_b = Electronics(age=4)
+    item_c = Decor(age=0)
+    tai = Vendor(
+        inventory=[item_a, item_b, item_c]
+    )
+
+    # them
+    item_d = Clothing(age=2)
+    item_e = Decor(age=0)
+    item_f = Clothing(age=0)
+    jesse = Vendor(
+        inventory=[item_d, item_e, item_f]
+    )
+
+    # Act
+    result = tai.swap_best_by_newest(
+        other_vendor=jesse,
+        my_item="Clothing",
+        their_item="Decor"
+    )
+
+    
+    assert result
+    assert len(tai.inventory) == 3
+    assert len(jesse.inventory) == 3
