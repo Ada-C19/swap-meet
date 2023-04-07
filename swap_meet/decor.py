@@ -1,7 +1,7 @@
 from .item import Item
 
 class Decor(Item):
-    def __init__(self, condition, id=0, width = None, length = None, category="Decor"):
+    def __init__(self, id=0, width = None, length = None, category="Decor", condition=0):
        super().__init__(id, category, condition)
        self.width = 0 if width is None else width
        self.length = 0 if width is None else length
