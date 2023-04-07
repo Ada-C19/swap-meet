@@ -7,7 +7,7 @@ class Item:
         self.year = year if year is None else int(year)
         self.id = uuid.uuid4().int if id is None else int(id)
         self.condition = condition if condition==0 else float(condition)
-        if condition < 0 or condition > 5:
+        if float(condition) < 0 or float(condition) > 5:
             raise ValueError
 
     def get_category(self):

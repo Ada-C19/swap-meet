@@ -5,7 +5,7 @@ class Decor(Item):
         super().__init__(year=year, id=id, condition=condition)
         self.width = width if width==0 else int(width)
         self.length = length if length==0 else int(length)
-        if width < 0 or length < 0:
+        if int(width) < 0 or int(length) < 0:
             raise ValueError
         
     def __str__(self):
