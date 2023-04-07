@@ -2,7 +2,9 @@ from swap_meet.item import Item
 
 class Vendor:
 
-    def __init__(self, inventory = []):
+    def __init__(self, inventory = None):
+        if inventory is None:
+            inventory = []
         self.inventory = inventory
 
     def add(self, item):
@@ -44,3 +46,35 @@ class Vendor:
             self.swap_items(other_vendor, self.inventory[0], other_vendor.inventory[0])
             return True
         
+
+    def get_by_category(self, category):
+        category_list = []
+        for item in self.inventory:
+            if item.get_category() == category:
+                category_list.append(item)
+                
+        return category_list
+
+    def get_best_by_category(self, category):
+        of_category = self.get_by_category(category)
+        counter = 0
+        if len(of_category) == 0:
+            return None
+        for item in of_category:
+            if item.condition > counter:
+                counter = item.condition
+        for item in of_category:
+            if item.condition == counter:
+                return item
+            
+
+
+    def swap_best_by_category(self, other_vendor, my_priority, their_priority):
+        my_best = self.get_best_by_category(their_priority)
+        their_best = other_vendor.get_best_by_category(my_priority)
+
+        swapski = self.swap_items(other_vendor, my_best, their_best)
+        if swapski == True:
+            return True
+        else:
+            return False
