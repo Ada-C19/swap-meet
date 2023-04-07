@@ -31,7 +31,6 @@ class Vendor:
     
     # method to swap items between two vendors
     def swap_items(self, other_vendor, my_item, their_item): 
-        # both vendors need to have their respective items in order to swap
         if my_item in self.inventory and their_item in other_vendor.inventory: 
             self.remove(my_item)
             self.add(their_item)
@@ -44,30 +43,26 @@ class Vendor:
     
     # method to swap first items between two vendors
     def swap_first_item(self, other_vendor): 
-        if not self.inventory or not other_vendor.inventory: 
-            return False    
+        try:
+            my_first_item = self.inventory[0]
+            their_first_item = other_vendor.inventory[0]
         
-        my_first_item = self.inventory[0]
-        their_first_item = other_vendor.inventory[0]
-        
-        self.remove(my_first_item)
-        self.add(their_first_item)
+        except IndexError:
+            return False
 
-        other_vendor.remove(their_first_item)
-        other_vendor.add(my_first_item)
-
-        return True
+        return self.swap_items(other_vendor, my_first_item, their_first_item)
     
-    
+    # method to retrieve all items in a particular category
     def get_by_category(self, category):
         item_list = []
         
         for item in self.inventory: 
-            if category == item.get_category(): 
+            if item.get_category() == category: 
                 item_list.append(item)
         
         return item_list
     
+    # method to retrieve best condition item in a particular category
     def get_best_by_category(self, category): 
         best_condition = 0
         best_item = None
@@ -83,16 +78,9 @@ class Vendor:
 
         return best_item
         
-
+    # method to swap the best item (best condition) with another vendor so long
+    # as both vendors have the type of items the other is looking for
     def swap_best_by_category(self, other_vendor, my_priority, their_priority): 
-        # check to see if any of the inventories are empty. If one of them is, return False
-        # (no swapping occurs)
-        # obtain a list of items from each vendor based on the other vendors' priority (category)
-            # if either list is empty, swapping cannot occur (return False)
-            # else
-                # obtain the best item from each list 
-                # swap the items 
-                # return true 
         
         my_best_item = self.get_best_by_category(their_priority)
         their_best_item = other_vendor.get_best_by_category(my_priority)
