@@ -1,145 +1,148 @@
 from swap_meet.item import Item
 
-# 1. create the Vendor class
+# Wave 1- SJ
+# 1. created the Vendor class
+# 2. one attribute named inventory, empty list by default
+
 class Vendor: 
     
-    # 2. Vendor will have an attribute named inventory, 
-    # which is an empty list by default
     def __init__(self, inventory=None):
-
         self.inventory =  inventory if inventory is not None else []
-        
-    # 3. Every instance of Vendor has an instance method named add, 
-    # which takes in one item
+    
+    
+    # Wave 1- SJ
+    # 3. Created instance method named add, which takes in one item
+    # 3a. This method adds an item to the inventory
+    # 3b. This method returns the item that was added
+
     def add(self, added_item):
         self.added_item = added_item
             
-        # 3a. This method adds the item to the inventory
         self.inventory.append(added_item)
-        # 3b. This method returns the item that was added
         return added_item
         
-    # 4. every instance of Vendor has an instance method named remove, 
-    # which takes in one item
+        
+    # Wave 1- SJ
+    # 4. Created instance method named remove, which takes in one item
+    # 4a. If a matching item is found, removes the item from the inventory
+    # 4b. If no matching item is found, returns False
+
     def remove(self, removed_item):
         self.removed_item = removed_item
             
-        # 4a. This method removes the matching item from the inventory
         if removed_item in self.inventory: 
             self.inventory.remove(removed_item)
-            # 4b. This method returns the item that was removed
             return removed_item
         else:
             return False
         
-    # instance method get_by_id 
-        # This method takes one argument: an integer, 
-        # representing an Item's id
+        
+    # Wave 2- SJ
+    # 5. Created an instance method that takes one argument, id an integer, 
+    #    id represents an Item's id number in the inventory
+    # 5a. This method returns the item from the inventory with the matching id 
+    # 5b. If no match is found, the method returns None 
+    
     def get_by_id(self, id):
         
         for item in self.inventory:
-            # This method returns the item 
-            # with a matching id from the inventory
             if item.id == id:
                 return item
             
-            # If there is no matching item in the inventory, 
-            # the method should explicitly return None
         return None
     
-    # instance method named swap_items
-    # takes 3 arguments
+    
+    # Wave 3- KV
+    # 6. Created instance method named swap_items, takes 3 arguments
     # other_vendor, my_item, their item
+    # 6a. if my item isn't in my inventory, OR if their item isn't in their inventory,
+    # 6b. the return False
+    # 6c. Otherwise, remove the item from my inventory
+    # 6d. Add that item to their inventory 
+    # 6e. Likewise, if the other vendors item is in their inventory, remove that item
+    # 6f. Add that item to my inventory and retrun True
+
     def swap_items(self, other_vendor, my_item, their_item):
-        # self.other_vendor = other_vendor
-        # self.my_item = my_item
-        # self.their_item = their_item
         
-        # if my item isn't in my inventory, OR if their item isn't in their inventory: 
         if my_item not in self.inventory or their_item not in other_vendor.inventory:
-            #  then return False
             return False
 
-        # removing  the item i have from my inventory
         self.inventory.remove(my_item)
-        #  adding my item to their inventory 
+
         other_vendor.inventory.append(my_item)
 
-        # removing the item they have from their inventory
         other_vendor.inventory.remove(their_item)
         
-        # adding their item to my inventory
         self.inventory.append(their_item)
     
         return True
         
 
-# wave 4 
-# swap_first_item takes one argument, other_vendor
+# Wave 4 - SJ
+# 7. Created an instance method swap_first_item takes one argument, other_vendor
+#    considers the first item in the instance's / self.inventory, 
+#    and the first item in the friend's/ other_vendor.inventory
+# 7a. if the inventory for either are 0, return False
+# 7b. otherwise add that first item from their inventory to mine
+# 7c. then remove that first item from their inventory 
+# 7d. likewise, add the first item from my inventory to their inventory
+# 7e. then remove my first item from my inventory
+# 7f. return True
+
     def swap_first_item(self, other_vendor):
         
-        # considers the first item in the instance's inventory: self.inventory[0]
-        # and the first item in the friend's inventory: other_vendor.inventory[0]
         if len(self.inventory) == 0  or len(other_vendor.inventory)== 0:
             return False
 
-        
-        # adds first item from friends' inventory
         self.inventory.append(other_vendor.inventory[0])
         
-        # remove first item from friend inventory
         other_vendor.inventory.remove(other_vendor.inventory[0])
 
-        # adds the instance's first item
         other_vendor.inventory.append(self.inventory[0])
 
-
-        # remove first item from your inventory
         self.inventory.remove(self.inventory[0])
                 
-
         return True
 
-    # wave 6 - SJ
-    #  three instance methods: get_by_category, get_best_by_category, swap_best_by_category
-    
-    
-    # one argument: a string, representing a category
-    # list of objects in the inventory - self.inventory
+
+    # Wave 6 - SJ
+    # Created instance methods: get_by_category
+    # get_by_category takes in one argument: a string, representing a category
+    # setting a new_list variable to contain the items we are searching for
+    # using a for loop to search through the inventory,
+    # if items in self.inventory match the category,
+    # return the list
+    # If there are no items in the inventory that match the category argument, 
+    # the method returns an empty list
+
+
     def  get_by_category(self, category):
-        # self.inventory is a list
         new_list = []
         
-        # if items in self.inventory match the category,
-        # return the list
         for item in self.inventory:
             if category == item.get_category():
                 new_list.append(item)
                 
-            # If there are no items in the inventory 
-            # that match the category argument, 
-            # the method returns an empty list
         return new_list
-            
-        # returns a list of objects in the inventory with that category
-        # @@ line below not needed - new_list already returns [] if item not appended
-        # return []    
-        
-        # get the item with the best condition in a certain category
-    # one argument: a string that represents a category
+    
+    
+    # Wave 6- SJ
+    # Created instance method: get_best_by_category  
+    # takes in one argument: a string that represents a category
+    # items_of_category is a list of items that match the given category
+    # loops through the inventory, for items w/ highest condition (5)
+    # AND the matches the category
+    # if there's only one item, return that item
+    # else, returns the item with the best condition in a certain category
+
     
     def  get_best_by_category(self, category):
-        # loops through the inventory, for items w/ highest condition (5)
-        #  AND the matching category
         
-        # list of items that match the given category
         items_of_category = self.get_by_category(category)
         
         item_with_best_condition = None
         
         for item in items_of_category:
-            
-            # finding the highest, we can keep track 
             if item_with_best_condition == None:
                 item_with_best_condition = item
             
@@ -147,35 +150,6 @@ class Vendor:
                 item_with_best_condition = item
         return item_with_best_condition                  
 
-        # swap the best item of certain categories with another Vendor
-    # three arguments: other_vendor, my_priority, their_priority
-    
-    # other_vendor, which represents another Vendor instance to trade with
-    
-    # my_priority, which represents a category that the Vendor wants to receive
-    
-    # their_priority, which represents a category that other_vendor wants to receive
-    
-    
-    def  swap_best_by_category(self):
-        
-        # the best item in my_inventory that MATCHES their_priority category
-        # is swapped with 
-        # the best item in other_vendor's inventory that matches my_priority
-        # then returns True 
-        
-        # else if the vendor has no item that matches their_priority category, 
-        #  no swap happens, 
-        #  return False
-        
-        # else if the other_vendor has no item that matches my priority category,
-        #  no swap happens
-        # return False
-        
-        pass
-    
-    
-    
     
     # @@ KV implimentation
     # def get_best_by_category(self, category):
@@ -216,3 +190,30 @@ class Vendor:
         # swapped result will only take item_they_want and item_i_want as a single item
         # because swap_items uses the max () which by default returns a single item as the item with the max value
         return swapped_result
+
+
+
+
+    # W6- SJ - Pseudo
+    # swap the best item of certain categories with another Vendor
+    # three arguments: other_vendor, my_priority, their_priority
+    # other_vendor, which represents another Vendor instance to trade with
+    # my_priority, which represents a category that the Vendor wants to receive
+    # their_priority, which represents a category that other_vendor wants to receive
+    
+    def  swap_best_by_category(self):
+        
+        # the best item in my_inventory that MATCHES their_priority category
+        # is swapped with 
+        # the best item in other_vendor's inventory that matches my_priority
+        # then returns True 
+        
+        # else if the vendor has no item that matches their_priority category, 
+        #  no swap happens, 
+        #  return False
+        
+        # else if the other_vendor has no item that matches my priority category,
+        #  no swap happens
+        # return False
+        
+        pass

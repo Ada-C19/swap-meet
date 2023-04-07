@@ -1,32 +1,28 @@
 import uuid
 from swap_meet.item import Item
 
-# need to change the syntax to allow Decor class to inherit from Item class
-# class ExampleChildClass(ExampleParentClass):
-# Decor shares the same id and condition attributes as Item class
-# Item constructor: def __init__(self, id=None, condition = 0):
-
-
-
+# Wave 5- SJ
+# 1. Decor class has 4 attributes, id, condition and width and length
+# 1a. id attribute is by default a unique integer
+# 1b. condition attribute by default, set to 0
+# 1c. width and length attributes by default are set to 0
+# 1d. Decor class can inherit id and condition from Item class
 
 class Decor(Item):
 
-    # Has an attribute id that is by default a unique integer
-    # Holds 2 integer attributes width and length
-    # both of these values should be 0 by default
     def __init__(self, id = None, condition= 0, width = 0, length = 0):
-        super().__init__(id, condition)  # will get Attribute Error without this
+        super().__init__(id, condition)  
 
-                
-        # following a similar syntax for width as id
         self.width = width if width is not 0 else width
         
-        # following a similar syntax for length as id
         self.length = length if length is not 0 else length
         
         
-    # which should describe the condition in words based on the value, 
-    # assuming they all range from 0 to 5.
+    # W5- SJ
+    # 2. Created instance method condition_description 
+    #    which should describe the condition in words based on the value, 
+    #    assuming the condition ranges from 0 to 5, 
+    #    returns a string to describe the condition
     def condition_description(self):
         condition = self.condition
         
@@ -45,11 +41,14 @@ class Decor(Item):
 
 
         
-    # Has a function get_category that returns "Decor"
+    # W5 - SJ
+    # 3. Created an instance method that returns a string of the class name
     def get_category(self):
         return self.__class__.__name__
     
-    # Has a stringify method that returns 
+    # W5 - SJ
+    # 5. Created an instance method that returns a string 
+    # describing the dimenstions
     def __str__(self):
         return f"An object of type Decor with id {self.id}. It takes up a {self.width} by {self.length} sized space."
 

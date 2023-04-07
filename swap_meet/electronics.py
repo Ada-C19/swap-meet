@@ -1,31 +1,31 @@
 import uuid
 from swap_meet.item import Item
 
-# need to change the syntax to allow Electronics class to inherit from Item class
-# class ExampleChildClass(ExampleParentClass):
-# Electronics class shares the same id and condition attributes as Item class
-# Item constructor: def __init__(self, id=None, condition = 0):
-
+# Wave 5- SJ
+# 1. Created an electronics class, takes in 3 attributes
+# id, condition and type
+# id  attribute is by default a unique integer
+# type attribute is by default the string "Unknown"
 
 class Electronics(Item):
-    # Has an attribute id that is by default a unique integer
-    # Has an attribute type that is by default the string "Unknown"
-    # def __init__(self, id= None, type = "Unknown"):
     def __init__(self, id = None, condition = 0, type="Unknown", ):
-        super().__init__(id, condition)  # will get Attribute Error without this
-
+        super().__init__(id, condition)
             
-        # following a similar syntax for type as id
         self.type = type if type is not "Unknown" else type
         
 
-        
-    # Has a function get_category that returns "Electronics"
+    # W5 - SJ
+    # 2. Created an instance method that returns a string of the class name
+    
     def get_category(self):
         return self.__class__.__name__
     
-    # which should describe the condition in words based on the value, 
-    # assuming they all range from 0 to 5.
+    # W5- SJ
+    # 3. Created instance method condition_description 
+    #    which should describe the condition in words based on the value, 
+    #    assuming the condition ranges from 0 to 5, 
+    #    returns a string to describe the condition
+    
     def condition_description(self):
         condition = self.condition
         
@@ -43,7 +43,10 @@ class Electronics(Item):
             return "Just like new!"
 
     
-    # Has a stringify method that returns 
+    # W5 - SJ
+    # 4. Created an instance method that returns a string 
+    # describing the device's type
+    
     def __str__(self):
         return f"An object of type Electronics with id {self.id}. This is a {self.type} device."
 
