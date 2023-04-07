@@ -16,7 +16,6 @@ class Vendor:
         return False
     
     # Returns the item with a matching id
-    # from inventory
     def get_by_id(self, item_id):
         for item in self.inventory:
             if item.id == item_id:
@@ -25,8 +24,6 @@ class Vendor:
     
     # This methods removes my_item from my inventory and adds it to my friend's inventory.
     # Returns True when removes and adds and False when my item is not in my inventory
-    # And my friend's item is not in their inventory
-    # Have to check if item is in INVENTORY first
     def swap_items(self, other_vendor, my_item, their_item):
         if my_item in self.inventory and their_item in other_vendor.inventory:
             item_to_other_vendor = self.remove(my_item)
@@ -39,8 +36,7 @@ class Vendor:
             return False
         
     # If 1st item in friends's inventory and itself. Adds them to each inventory
-    # Return True
-    # If EITHER itself or friend = [] inventory Return False
+    # Return True. If either itself or friend = [] inventory Return False.
     def swap_first_item(self, other_vendor):
         if other_vendor.inventory and self.inventory:
             first_item_from_friend = other_vendor.inventory[0]
@@ -61,7 +57,7 @@ class Vendor:
                 item_in_category.append(item)
         return item_in_category
     
-    # Will get the item with BEST condition in its category
+    # Will get the item with best condition in its category
     def get_best_by_category(self, category):
         
         items_from_category = self.get_by_category(category)
@@ -69,15 +65,8 @@ class Vendor:
         if not items_from_category:
             return None
         
-        best_item = items_from_category[0]
-        for item in items_from_category:
-            if item.condition > best_item.condition:
-                best_item = item
-        return best_item
-    
-    # Other_vendor = Another vendor instance "friend"
-    # My_priority = Category that I want (item from that category)
-    # Their_priority = Category friend's wants to receive an item from
+        return max(items_from_category, key=lambda item: item.condition)
+
     # Return True IF my best item with category matches their best item with its category
     # Return False if there is no item that MATCHES either their priority or my priority
     def swap_best_by_category(self, other_vendor, my_priority, their_priority):
@@ -101,9 +90,6 @@ class Vendor:
 
         item_I_want = other_vendor.get_newest_item_in_category(my_category)
         item_they_want = self.get_newest_item_in_category(their_category)
-
-        print(item_I_want)
-        print(item_they_want)
 
         return self.swap_items(other_vendor, item_they_want, item_I_want)
 

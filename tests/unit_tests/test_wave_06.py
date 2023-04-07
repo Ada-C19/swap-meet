@@ -345,3 +345,64 @@ def test_swap_newest_item_by_category():
     assert item_c in jesse.inventory 
     assert item_d in jesse.inventory
     assert item_e in jesse.inventory
+
+
+def test_swap_newest_item_no_match_is_false():
+    # Arrange
+    item_a = Decor(age=10)
+    item_b = Electronics(age=5)
+    item_c = Decor(age=3)
+    tai = Vendor(
+        inventory=[item_a, item_b, item_c]
+    )
+
+    item_d = Clothing(age=2)
+    item_e = Decor(age=5)
+    item_f = Clothing(age=1)
+    jesse = Vendor(
+        inventory=[item_d, item_e, item_f]
+    )
+
+    # Act
+    result = tai.swap_by_newest(
+        other_vendor=jesse,
+        my_category="Clothing",
+        their_category="Clothing"
+    )
+    
+    # Assert
+    assert not result
+    assert len(tai.inventory) == 3
+    assert len(jesse.inventory) == 3
+    assert item_a in tai.inventory
+    assert item_b in tai.inventory
+    assert item_c in tai.inventory
+    assert item_d in jesse.inventory 
+    assert item_e in jesse.inventory
+    assert item_f in jesse.inventory
+
+
+def test_swap_by_newest_item_no_inventory_is_false():
+    tai = Vendor(
+        inventory=[]
+    )
+
+    item_a = Clothing(age=2)
+    item_b = Decor(age=5)
+    item_c = Clothing(age=1)
+    jesse = Vendor(
+        inventory=[item_a, item_b, item_c]
+    )
+
+    result = tai.swap_by_newest(
+        other_vendor=jesse,
+        my_category="Clothing",
+        their_category="Decor"
+    )
+
+    assert not result
+    assert len(tai.inventory) == 0
+    assert len(jesse.inventory) == 3
+    assert item_a in jesse.inventory
+    assert item_b in jesse.inventory
+    assert item_c in jesse.inventory
