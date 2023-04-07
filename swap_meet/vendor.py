@@ -37,12 +37,14 @@ class Vendor:
         Removes their_item from the other_vendor's inventory, 
         and adds it to self.inventory"""
         if my_item not in self.inventory or their_item not in other_vendor.inventory:
+            
             return False
 
         self.inventory.remove(my_item)
         other_vendor.inventory.append(my_item)
         other_vendor.inventory.remove(their_item)
         self.inventory.append(their_item)
+        
         return True
     
     # ----- Wave 4 -----------------------------
@@ -50,6 +52,7 @@ class Vendor:
         """removes the first item from its inventory, and adds the other_vendor's first item
         Removes the first item from the other_vendor's inventory, and adds the instances first item"""
         if len(self.inventory) == 0 or len(other_vendor.inventory) == 0:
+            
             return False
         
         self.swap_items(other_vendor, self.inventory[0], other_vendor.inventory[0])
@@ -91,3 +94,20 @@ class Vendor:
         self.swap_items(other_vendor,my_best,their_best)
         return True
 
+
+    def get_the_newest(self):
+        """Return the newest item in the inventory"""
+        newest_item = self.inventory[0]
+        for item in self.inventory:
+            if item.age < newest_item.age:
+                newest_item = item
+        return newest_item
+
+    def swap_by_newest(self, other_vendor):
+        """Swap the newest item in the inventory with another vendor's newest item"""
+        if self.inventory == [] or other_vendor.inventory == []:
+            return False
+        my_newest = self.get_the_newest()
+        other_vendor_newest = other_vendor.get_the_newest()
+        self.swap_items(other_vendor, my_newest, other_vendor_newest)
+        return True
