@@ -2,7 +2,7 @@ import uuid
 
 
 class Electronics:
-    def __init__(self, condition, type="Unknown", id=None):
+    def __init__(self, type="Unknown", id=None):
         if id:
             self.id = id
         else:
@@ -10,7 +10,6 @@ class Electronics:
             self.id = int(uuid.uuid4())
 
         self.type = type
-        self.condition = condition
 
     def get_category(self):
         return "Electronics"

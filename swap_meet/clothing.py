@@ -3,7 +3,7 @@ import uuid
 
 
 class Clothing:
-    def __init__(self, condition, fabric="Unknown", id=None):
+    def __init__(self, fabric="Unknown", id=None):
         if id:
             self.id = id
         else:
@@ -11,7 +11,6 @@ class Clothing:
             self.id = int(uuid.uuid4())
 
         self.fabric = fabric
-        self.condition = condition
 
     def get_category(self):
         return "Clothing"
