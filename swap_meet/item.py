@@ -1,11 +1,15 @@
 import uuid
 import n2w
+from datetime import date
 
 class Item:
-    def __init__(self, id=None, condition=0):
-        self.id = uuid.uuid4().int if id is None else id
-        self.condition = condition
-    
+    def __init__(self, year=None, id=None, condition=0):
+        self.year = year if year is None else int(year)
+        self.id = uuid.uuid4().int if id is None else int(id)
+        self.condition = condition if condition==0 else float(condition)
+        if condition < 0 or condition > 5:
+            raise ValueError
+
     def get_category(self):
         return type(self).__name__
     
@@ -40,3 +44,10 @@ class Item:
                     )
             
         return description
+    
+    def calculate_age(self):
+        '''Function returns how many years ago the item had been created.'''
+        
+        if not self.year:
+            return False
+        return date.today().year - self.year
