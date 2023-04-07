@@ -21,9 +21,8 @@ class Vendor:
 
     def get_by_id(self, id):
         for item in self.inventory:
-            if id == item.id:
-                return item
-        return None
+            item = item if item.id == id else None
+        return item
 
     def swap_items(self, other_vendor, my_item, their_item):
         my_items = self.inventory
