@@ -12,7 +12,7 @@ class Item:
         return f"An object of type Item with id {self.id}."
 
     def get_category(self):
-        return "Item"
+        return self.__class__.__name__
     
     def condition_description(self):
         if self.condition == 0:
@@ -27,6 +27,8 @@ class Item:
             return f"good"
         elif self.condition == 5:
             return f"Greeeeaaat"
+        else:
+            return f"False"
     
 
     
