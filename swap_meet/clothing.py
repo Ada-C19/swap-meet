@@ -14,3 +14,9 @@ class Clothing:
 
     def get_category(self):
         return "Clothing"
+
+    def stringify(self):
+        return f"An object of type Clothing with id {self.id}. It is made from {self.fabric} fabric."
+
+    def __str__(self):
+        return self.stringify()
