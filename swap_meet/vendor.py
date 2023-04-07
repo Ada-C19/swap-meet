@@ -1,4 +1,5 @@
 
+
 class Vendor:
 
     def __init__(self, inventory=None):
@@ -41,13 +42,8 @@ class Vendor:
     
     def get_by_category(self, category):
         if not self.inventory:
-            return None
-        
-        items = []
-        for item in self.inventory:
-            if item.get_category() == category:
-                items.append(item)
-        return items
+            return None     
+        return [item for item in self.inventory if item.get_category() == category]
     
     def get_best_by_category(self, category):
         items = self.get_by_category(category)
