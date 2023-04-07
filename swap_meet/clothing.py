@@ -8,6 +8,7 @@ class Clothing(Item):
         else:
             self.id = id
         self.fabric = fabric
+        self.category = "Clothing"
         super().__init__(id, condition) 
 
 

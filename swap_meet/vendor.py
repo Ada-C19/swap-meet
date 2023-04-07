@@ -45,15 +45,27 @@ class Vendor:
             return True
 
     def get_by_category(self, category):
-        # if inventory = None:
-        #     return []
-        #     returns list of objects in inventory with corrilating category
-        pass
+        
+        matching_items = []
+  
+        for item in self.inventory:
+            if item.get_category() == category:
+                matching_items.append(item)
+            if not matching_items:
+                return None
+        return matching_items
+
+        
     def get_best_by_category(self, category):
         # if no item return none
         # looks for inventory with highest rated item and its matching category
         # returns corisponing item
         # returns single item even if duplicate
+
+        matching_items = [item for item in self.inventory if item.category == category]
+        if not matching_items:
+            return None
+        return max(matching_items, key=lambda item: item.condition)
         pass
     def swap_best_by_category(self, other_vendor, my_priority, their_priority):
         # best item in inv that matches their_priority is swapped with best item in other other_vendor that matches  my_priority

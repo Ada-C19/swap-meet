@@ -9,6 +9,7 @@ class Decor(Item):
             self.id = id
         self.width = width
         self.length = length
+        self.category = "Decor"
         super().__init__(id, condition) 
 
     def get_category(self):
