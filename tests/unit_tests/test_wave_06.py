@@ -298,3 +298,53 @@ def test_swap_best_by_category_no_other_match_is_false():
     # - That result is falsy
     # - That tai and jesse's inventories are the correct length
     # - That all the correct items are in tai and jesse's inventories
+
+
+def test_swap_by_newest_swaps_newest_items():
+    # Arrange
+    shirt = Clothing(age=0)
+    cape = Clothing(age=5)
+    tv = Electronics(age=2)
+    painting = Decor(age=102)
+
+    auberon = Vendor(
+        inventory=[shirt, cape]
+    )
+
+    simon = Vendor(
+        inventory=[tv, painting]
+    )
+
+    # Act
+    result = auberon.swap_by_newest(simon)
+
+    # Assert
+    assert result
+    assert len(auberon.inventory) == 2
+    assert len(simon.inventory) == 2
+    assert shirt in simon.inventory
+    assert painting in simon.inventory
+    assert tv in auberon.inventory
+    assert cape in auberon.inventory
+
+
+def test_swap_newest_other_vendor_empty_inventory_returns_false():
+    # Arrange
+    bird_painting = Decor(age=20.0)
+    bmo = Electronics(age=4.0)
+    orange_cat_statue = Decor(age=1.4)
+    goen = Vendor(
+        inventory=[bird_painting, bmo, orange_cat_statue]
+    )
+
+    kendall = Vendor()
+
+    # Act
+    result = goen.swap_by_newest(kendall)
+
+    assert not result
+    assert len(goen.inventory) == 3
+    assert len(kendall.inventory) == 0
+    assert bird_painting in goen.inventory
+    assert bmo in goen.inventory
+    assert orange_cat_statue in goen.inventory

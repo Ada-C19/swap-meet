@@ -128,6 +128,26 @@ def test_items_have_condition_descriptions_that_are_the_same_regardless_of_type(
 
     assert one_condition_description != five_condition_description
 
+
+def test_items_have_age_as_float():
+    items = [
+        Clothing(age=3.5),
+        Decor(age=3.5),
+        Electronics(age=3.5)
+    ]
+
+    for item in items:
+        assert item.age == pytest.approx(3.5)
+
+
+def test_items_have_age_if_no_variable_passed_in():
+    # Arrange/Act
+    shirt = Clothing()
+
+    # Assert
+    assert shirt.age == 0
+
+
 # ~~~~~ Helper Functions ~~~~~
 
 def check_for_default_uuid_length_id(to_check):
