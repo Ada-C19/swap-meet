@@ -9,10 +9,10 @@ class Vendor:
     def __init__(self, inventory=None):
         if inventory is None:
             inventory = []
-        # else:
-        #     for item in inventory:
-        #         if not isinstance(item, Item):
-        #             raise TypeError
+        else:
+            for item in inventory:
+                if not isinstance(item, Item):
+                    raise TypeError
         self.inventory = inventory
 
     def add(self, item):
