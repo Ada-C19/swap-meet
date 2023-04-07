@@ -27,17 +27,15 @@ class Item:
     
     def condition_description(self):
         """Return description of item based on condition value."""
-        if 0 <= self.condition < 1:
-            return "very bad"
-        if 1 <= self.condition < 2:
-            return "poor"
-        if 2 <= self.condition < 3:
-            return "used"
-        if 3 <= self.condition < 4:
-            return "gently used"
-        if 4 <= self.condition < 5:
-            return "like new"
-        if self.condition == 5:
-            return "mint"
+        conditions = {
+            0: "very bad",
+            1: "poor",
+            2: "used",
+            3: "gently used",
+            4: "like new",
+            5: "mint"
+        }
+
+        return conditions[int(self.condition)]
 
 
