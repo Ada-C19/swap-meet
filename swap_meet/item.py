@@ -12,19 +12,17 @@ class Item:
         return f"An object of type {self.get_category()} with id {self.id}."
     
     def condition_description(self):
-        if self.condition > 4:
+        if self.condition >= 4:
             condition_str = "Near Mint! That's a good pick!"
-        elif self.condition > 3:
+        elif self.condition >= 3:
             condition_str = "Decent pick. Almost near mint."
-        elif self.condition > 2:
+        elif self.condition >= 2:
             condition_str =  "Moderately Used. It's aight."
-        elif self. condition > 1:
+        elif self.condition >= 1:
             condition_str = "You might want to reconsider."
         else:
             condition_str = "This is TRAASHHHHH!!"
         return condition_str
 
-    
-    
     
 
