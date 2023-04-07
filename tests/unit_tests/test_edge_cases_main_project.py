@@ -57,3 +57,28 @@ def test_decor_length_incorrect_parameter_passed_raises_ValueError():
 def test_decor_length_raises_ValueError_if_condition_below_0():
     with pytest.raises(ValueError):
         item = Decor(length=-10000)
+        
+#@pytest.mark.skip       
+def test_int_valued_optional_parameters_accept_string_convertable_to_int():
+    item_a = Item(id='5289045', condition='3.2')
+    item_b = Decor(width='9', length='0')
+    
+    assert item_a.id == 5289045
+    assert item_a.condition == 3.2
+    assert item_b.width == 9
+    assert item_b.length == 0
+
+#@pytest.mark.skip
+def test_contition_description_functions_if_condition_is_passed():
+    item = Item(condition=3.5)
+    expected_description_for_float = print('3.5 green bottles\n' 
+                    'Hanging on the wall\n'
+                    '3.5 green bottles\n'
+                    'Hanging on the wall\n'
+                    'And if one green bottle\n'
+                    'Should accidentally fall\n'
+                    'There will be 2.5 green bottles\n'
+                    'Hanging on the wall.')
+
+    assert isinstance(item.condition, float)
+    assert print(item.condition_description()) == expected_description_for_float
