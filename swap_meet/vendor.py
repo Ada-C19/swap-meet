@@ -31,7 +31,7 @@ class Vendor:
         return True
     
     def swap_first_item(self,other_vendor):
-        if len(self.inventory) == 0 or len(other_vendor.inventory) == 0:
+        if not self.inventory or not other_vendor.inventory:
             return False
         our_first_item = self.inventory[0]
         friend_first_item = other_vendor.inventory[0]
@@ -46,8 +46,9 @@ class Vendor:
                 item_by_category.append(item)
         return item_by_category
     
+    
     def get_best_by_category(self, given_category):
-        max_vale = -1
+        """max_vale = -1
         for item in self.inventory:
             if item.category == given_category and item.condition > max_vale:
                 best_item = item
@@ -55,24 +56,38 @@ class Vendor:
         if max_vale == -1:
             return None 
         
-        return best_item
+        return best_item"""
+        items_in_category_list = self.get_by_category(given_category)
+        if not items_in_category_list:
+            return None
+        
+        return max(items_in_category_list, key = lambda item: item.condition)
+
+        """ max = items_in_category_list[0]
+        for item in items_in_category_list:
+            if item.condition > max.condition:
+                max = item
+        return max"""
+        
 
     def swap_best_by_category(self, other_vendor, my_priority, their_priority):
         my_best_item_thier_priority = self.get_best_by_category(their_priority)
         their_best_item_my_priority = other_vendor.get_best_by_category(my_priority)
-
-        if my_best_item_thier_priority is None or their_best_item_my_priority is None:
+        
+        if not my_best_item_thier_priority or not their_best_item_my_priority:
             return False
         self.swap_items(other_vendor, my_best_item_thier_priority, their_best_item_my_priority)
         return True
 
     def get_newest_item(self):
-        newest = 100
+        return min(self.inventory, key = lambda item: item.age)
+        """"
+        newest = self.inventory[0]
         for item in self.inventory:
-            if item.age < newest:
-                newest_item = item
-        
-        return item
+            if item.age < newest.age:
+                newest = item
+        return newest
+        """
 
     def swap_by_newest(self, other_vendor):
         # return false if one inventory is empty 
