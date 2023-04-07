@@ -7,17 +7,21 @@ TEST_CUSTOM_ID = 12345
 
 # ~~~~~ Clothing Tests ~~~~~
 
-@pytest.mark.skip
+# @pytest.mark.skip
+
+
 def test_clothing_has_default_uuid_length_id():
     clothing = Clothing()
     check_for_default_uuid_length_id(clothing)
 
-@pytest.mark.skip
+
+# @pytest.mark.skip
 def test_clothing_has_expected_category_and_custom_id():
     clothing = Clothing(id=TEST_CUSTOM_ID)
     check_category_and_custom_id(clothing, TEST_CUSTOM_ID, "Clothing")
 
-@pytest.mark.skip
+
+# @pytest.mark.skip
 def test_clothing_has_expected_default_to_str():
     clothing = Clothing(id=TEST_CUSTOM_ID)
     expected_str = (
@@ -26,7 +30,8 @@ def test_clothing_has_expected_default_to_str():
     )
     assert str(clothing) == expected_str
 
-@pytest.mark.skip
+
+# @pytest.mark.skip
 def test_clothing_has_expected_to_str_with_custom_fabric():
     clothing = Clothing(id=TEST_CUSTOM_ID, fabric="Pinstriped")
     expected_str = (
@@ -37,15 +42,18 @@ def test_clothing_has_expected_to_str_with_custom_fabric():
 
 # ~~~~~ Decor Tests ~~~~~
 
+
 @pytest.mark.skip
 def test_decor_has_default_uuid_length_id():
     decor = Decor()
     check_for_default_uuid_length_id(decor)
 
+
 @pytest.mark.skip
 def test_decor_has_expected_category_and_custom_id():
     decor = Decor(id=TEST_CUSTOM_ID)
     check_category_and_custom_id(decor, TEST_CUSTOM_ID, "Decor")
+
 
 @pytest.mark.skip
 def test_decor_has_expected_default_to_str():
@@ -55,6 +63,7 @@ def test_decor_has_expected_default_to_str():
         "It takes up a 0 by 0 sized space."
     )
     assert str(decor) == expected_str
+
 
 @pytest.mark.skip
 def test_decor_has_expected_to_str_with_custom_size():
@@ -67,15 +76,18 @@ def test_decor_has_expected_to_str_with_custom_size():
 
 # ~~~~~ Electronics Tests ~~~~~
 
+
 @pytest.mark.skip
 def test_electronics_has_default_uuid_length_id():
     electronics = Electronics()
     check_for_default_uuid_length_id(electronics)
 
+
 @pytest.mark.skip
 def test_electronics_has_expected_category_and_custom_id():
     electronics = Electronics(id=TEST_CUSTOM_ID)
     check_category_and_custom_id(electronics, TEST_CUSTOM_ID, "Electronics")
+
 
 @pytest.mark.skip
 def test_electronics_has_expected_default_to_str():
@@ -85,6 +97,7 @@ def test_electronics_has_expected_default_to_str():
         "This is a Unknown device."
     )
     assert str(electronics) == expected_str
+
 
 @pytest.mark.skip
 def test_electronics_has_expected_to_str_with_custom_type():
@@ -108,6 +121,7 @@ def test_items_have_condition_as_float():
     for item in items:
         assert item.condition == pytest.approx(3.5)
 
+
 @pytest.mark.skip
 def test_items_have_condition_descriptions_that_are_the_same_regardless_of_type():
     items = [
@@ -130,9 +144,11 @@ def test_items_have_condition_descriptions_that_are_the_same_regardless_of_type(
 
 # ~~~~~ Helper Functions ~~~~~
 
+
 def check_for_default_uuid_length_id(to_check):
     assert isinstance(to_check.id, int)
     assert len(str(to_check.id)) >= 32
+
 
 def check_category_and_custom_id(to_check, id, category):
     assert to_check.get_category() == category
