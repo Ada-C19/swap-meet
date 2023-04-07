@@ -59,7 +59,8 @@ class Vendor:
         return self.swap_items(other_vendor, best_item_for_them, best_item_for_me)
     
     def swap_by_newest(self, other_vendor):
-        my_newest_item = min(self.inventory, key=lambda item: item.age)
-        other_vendor_newest_item = min(self.invotry, key=lambda item: item.age)
+        if self.inventory and other_vendor.inventory:
+            my_newest_item = min(self.inventory, key=lambda item: item.age)
+            other_vendor_newest_item = min(other_vendor.inventory, key=lambda item: item.age)
 
-        return self.swap_items(other_vendor, my_newest_item, other_vendor_newest_item)
+            return self.swap_items(other_vendor, my_newest_item, other_vendor_newest_item)
