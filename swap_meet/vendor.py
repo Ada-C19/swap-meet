@@ -64,6 +64,7 @@ class Vendor:
 
         return True
 
+# loops through the inventory to sotre items in the list
     def get_by_category(self, category):
 
         category_list = []
@@ -71,3 +72,13 @@ class Vendor:
             if each_item.get_category() == category:
                 category_list.append(each_item)
         return category_list
+
+    def get_best_by_category(self, category):
+
+        items = self.get_by_category(category)
+
+        best_item = items[0]
+        for item in items:
+            if item.condition > best_item.condition:
+                best_item = item
+        return best_item
