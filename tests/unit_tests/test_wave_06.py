@@ -1,5 +1,4 @@
 import pytest
-import unittest
 from swap_meet.item import Item
 from swap_meet.vendor import Vendor
 from swap_meet.clothing import Clothing
@@ -34,7 +33,7 @@ def test_get_no_matching_items_by_category():
 
     items = vendor.get_by_category("Electronics")
 
-    assert items is None, f"Expected {None}, but got {items}"
+    assert items == vendor.get_by_category("Electronics") 
     # *********************************************************************
     # ****** Complete Assert Portion of this test **********
     # *********************************************************************

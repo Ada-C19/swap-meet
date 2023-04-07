@@ -10,9 +10,9 @@ class Electronics(Item):
             self.id = id
         self.type = type
         self.category = "Electronics"
+        super().__init__(id, condition) 
 
     def __str__(self):
-        
         return f"An object of type Electronics with id {self.id}. This is a {self.type} device."
     
         

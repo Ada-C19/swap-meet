@@ -9,6 +9,7 @@ class Item:
             self.id = id
         self.condition = condition
 
+
     def condition_description(self):
         descriptions = {
             0: (0.0, "overused eww"),
@@ -24,8 +25,10 @@ class Item:
     def get_category(self):
         return self.__class__.__name__
 
+
     def __str__(self):
         return f"An object of type {self.get_category()} with id {self.id}."
+    
     
     def swap_items(self, other_item):
         self.id, other_item.id = other_item.id, self.id
