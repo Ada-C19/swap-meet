@@ -69,13 +69,12 @@ class Vendor:
             If year hasnt been given through argument, or inventory is empty - returns False.'''
             
         if not self.inventory:
-            return False
+            return None
         
         latest = None
         for item in self.inventory:
             if not item.year:
-                return False
-            
+                continue
             if latest is None:
                 latest = item
             elif item.calculate_age() < latest.calculate_age():

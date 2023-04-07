@@ -102,19 +102,21 @@ def test_get_by_newest_returns_false_if_empty_inventory():
     
     actual = vendor.get_by_newest()
     
-    assert actual is False
+    assert actual is None
     
 #@pytest.mark.skip     
-def test_get_by_newest_returns_false_if_year_has_default_value():
+def test_get_by_newest_returns_newest_if_some_items_has_year_with_default_value():
     item_a = Item(year=2018)
     item_b = Item()
     item_c = Item(year=1978)
     inventory = [item_a, item_b, item_c]
     vendor = Vendor(inventory)
     
+    expected = item_a
+    
     actual = vendor.get_by_newest()
     
-    assert actual is False
+    assert actual == expected
     assert len(inventory) == len(vendor.inventory)
 
 #@pytest.mark.skip    
@@ -163,7 +165,7 @@ def test_swap_by_newest_returns_false_if_ones_inventory_is_empty():
     assert not result
 
 #@pytest.mark.skip    
-def test_swap_by_newest_returns_false_if_year_attribute_has_default_value():
+def test_swap_by_newest_returns_newest_if_some_year_attribute_has_default_value():
     item_a = Item(year=2018)
     item_b = Item(year=2006)
     item_c = Item(year=1978)
@@ -176,10 +178,14 @@ def test_swap_by_newest_returns_false_if_year_attribute_has_default_value():
     other_inventory = [item_x, item_y, item_z]
     other_vendor = Vendor(other_inventory)
     
-    result = us.swap_by_newest(other_vendor)
+    us.swap_by_newest(other_vendor) 
     
+    our_expected_inventory = [item_b, item_c, item_x]
+    their_expected_inventory = [item_y, item_z, item_a]
+
     assert len(us.inventory) == 3
     assert len(other_vendor.inventory) == 3
-    assert us.inventory == inventory
-    assert other_vendor.inventory == other_inventory
-    assert not result
+    assert item_a not in us.inventory
+    assert item_x not in other_vendor.inventory
+    assert us.inventory == our_expected_inventory
+    assert other_vendor.inventory == their_expected_inventory
