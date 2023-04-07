@@ -55,7 +55,7 @@ def test_decor_has_expected_category_and_custom_id():
     check_category_and_custom_id(decor, TEST_CUSTOM_ID, "Decor")
 
 
-@pytest.mark.skip
+# @pytest.mark.skip
 def test_decor_has_expected_default_to_str():
     decor = Decor(id=TEST_CUSTOM_ID)
     expected_str = (
@@ -65,7 +65,7 @@ def test_decor_has_expected_default_to_str():
     assert str(decor) == expected_str
 
 
-@pytest.mark.skip
+# @pytest.mark.skip
 def test_decor_has_expected_to_str_with_custom_size():
     decor = Decor(id=TEST_CUSTOM_ID, width=3, length=12)
     expected_str = (

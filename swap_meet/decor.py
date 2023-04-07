@@ -14,3 +14,9 @@ class Decor:
 
     def get_category(self):
         return "Decor"
+
+    def stringify(self):
+        return f"An object of type Decor with id {self.id}. It takes up a {self.width} by {self.length} sized space."
+
+    def __str__(self):
+        return self.stringify()
