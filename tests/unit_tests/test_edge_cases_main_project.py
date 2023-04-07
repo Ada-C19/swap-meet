@@ -62,7 +62,10 @@ def test_decor_length_raises_ValueError_if_condition_below_0():
 def test_int_valued_optional_parameters_accept_string_convertable_to_int():
     item_a = Item(id='5289045', condition='3.2')
     item_b = Decor(width='9', length='0')
-    
+    assert isinstance(item_a.id, int)
+    assert isinstance(item_a.condition, float)
+    assert isinstance(item_b.width, int)
+    assert isinstance(item_b.length, int)
     assert item_a.id == 5289045
     assert item_a.condition == 3.2
     assert item_b.width == 9
