@@ -5,9 +5,12 @@ class Item:
     Each Item have an attribute named id, which is a quique integer as default; an attribute named condition, which is an integer represent the item's condition, default value is 0 (the poorest).
     """
     def __init__(self, id=None, condition=0):
-        # when manually set id.
+        # when manually set id, check if it's an integer, if not: raise TypeError.
         if id:
-            self.id = id
+            if isinstance(id, int):
+                self.id = id
+            else:
+                raise TypeError("Id must be an integer.")
         # when id is not provided, generate an id with integer.
         else:
             self.id = uuid.uuid4().int
@@ -31,7 +34,7 @@ class Item:
         elif self.condition == 4:
             return "This item still has plenty of life left and character to spare."
         elif self.condition == 3:
-            return  "It's not down for the count - it's still got some fight left in it!"
+            return "It's not down for the count - it's still got some fight left in it!"
         elif self.condition == 2:
             return "Don't judge this item by its appearence. It's still got some tricks up its sleeve and plenty of use left."
         elif self.condition == 1:
