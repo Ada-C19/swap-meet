@@ -93,17 +93,11 @@ class Vendor:
         Args:
             category (string): representing a category.
         """
-        if self.get_by_category(category) == []:
+        if not self.get_by_category(category):
             return None
         else:
-            return max(filter(lambda item: item.get_category() == category, self.inventory), key=lambda item: item.condition)
-            # highest_con = 0
-            # for item in self.inventory:
-            #     if item.condition >= highest_con and item.get_category() == category:
-            #         highest_con = item.condition
-            #         best_item = item
-            # return best_item
-        
+            return max(self.get_by_category(category), key=lambda item: item.condition)
+
     def swap_best_by_category(self, other_vendor, my_priority, their_priority):
         """
         Swap the best item in this Vendor that matches their_priority category with the best item in the other Vendor that matches my_priority, return True.
