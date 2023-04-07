@@ -65,7 +65,7 @@ class Vendor:
 
         return objects
     
-    def get_best_by_category(self, category_condition):
+    # def get_best_by_category(self, category_condition):
 
         self.category_condition = category_condition
 
