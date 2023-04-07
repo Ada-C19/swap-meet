@@ -26,10 +26,6 @@ class Vendor:
     def get_by_category(self, category):
         matching_items = []
     
-        # if category in self.categories:
-        #     for item in self.inventory:
-        #         if item.category == category:
-        #             matching_items.append(item)
         
         for item in self.inventory:
             if item.category == category:
@@ -39,30 +35,7 @@ class Vendor:
 
         
     def get_best_by_category(self, category):
-        # best_item= None
-        # highest_condition = -1
-        # for item in self.inventory:
-        #     if item.category() == category and item.condition>highest_condition:
-        #         best_item = item
-        #     return best_item
-            
-        # if items.condition > highest_condition:
-        #         highest_condition = items.condition
-        #         best_item = items
-        # items=[item for item in self.inventory if item.get_category() == category]
-        # if len(items)>0:
-        #     best_item = max(items, key)
-
-        # best_item = None
-        # highest_condition = 0
-        # # is saying "get_by_category(category)" is not defined *eyeroll*
-        # category_items = get_by_category(category)
-        # for item in category_items:
-        #     if item.condition > highest_condition:
-        #         highest_condition = item.condition
-        #         best_item = item
-        # return best_item
-    
+        
         best_item = None
         highest_condition = 0
         matching_items = []
