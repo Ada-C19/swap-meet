@@ -286,7 +286,12 @@ def test_swap_best_by_category_no_other_match_is_false():
         their_priority="Decor"
     )
 
-    raise Exception("Complete this test according to comments below.")
+    result == False
+    len(tai.inventory) == 3
+    len(jesse.inventory) == 3
+    tai.inventory == []
+    jesse.inventory == []
+    # raise Exception("Complete this test according to comments below.")
     # *********************************************************************
     # ****** Complete Assert Portion of this test **********
     # *********************************************************************
