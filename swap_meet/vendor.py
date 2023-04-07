@@ -201,19 +201,19 @@ class Vendor:
     # my_priority, which represents a category that the Vendor wants to receive
     # their_priority, which represents a category that other_vendor wants to receive
     
-    def  swap_best_by_category(self):
+    # def  swap_best_by_category(self):
         
-        # the best item in my_inventory that MATCHES their_priority category
-        # is swapped with 
-        # the best item in other_vendor's inventory that matches my_priority
-        # then returns True 
+    #     # the best item in my_inventory that MATCHES their_priority category
+    #     # is swapped with 
+    #     # the best item in other_vendor's inventory that matches my_priority
+    #     # then returns True 
         
-        # else if the vendor has no item that matches their_priority category, 
-        #  no swap happens, 
-        #  return False
+    #     # else if the vendor has no item that matches their_priority category, 
+    #     #  no swap happens, 
+    #     #  return False
         
-        # else if the other_vendor has no item that matches my priority category,
-        #  no swap happens
-        # return False
+    #     # else if the other_vendor has no item that matches my priority category,
+    #     #  no swap happens
+    #     # return False
         
-        pass
+    #     pass
