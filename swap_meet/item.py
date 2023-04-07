@@ -32,17 +32,17 @@ class Item:
         elif self.condition >= 5.0:
             return "This item is immaculate. If you don't buy it, I will!"
         
-    # def age_description(self):
-    #     if self.age >= 0.0 and self.age < 1.0:
-    #         return "I've had this for less than a year!"
-    #     elif self.age >= 1.0 and self.age < 2.0:
-    #         return "I've had this for a little over a year!"
-    #     elif self.age >= 2.0 and self.age < 3.0:
-    #         return "I've had this for over two years but not more than three!" 
-    #     elif self.age >= 3.0 and self.age < 4.0:
-    #         return "I've had this for over three years but not more than four!" 
-    #     elif self.age >= 4.0 and self.age < 5.0:
-    #         return "I've had this for over four years but not more than five!" 
-    #     elif self.age >= 5.0:
-    #         return "I've had this for over five years!"
+    def age_description(self):
+        if self.age >= 0.0 and self.age < 1.0:
+            return "I've had this for less than a year!"
+        elif self.age >= 1.0 and self.age < 2.0:
+            return "I've had this for a little over a year!"
+        elif self.age >= 2.0 and self.age < 3.0:
+            return "I've had this for over two years but not more than three!" 
+        elif self.age >= 3.0 and self.age < 4.0:
+            return "I've had this for over three years but not more than four!" 
+        elif self.age >= 4.0 and self.age < 5.0:
+            return "I've had this for over four years but not more than five!" 
+        elif self.age >= 5.0:
+            return "I've had this for over five years!"
     

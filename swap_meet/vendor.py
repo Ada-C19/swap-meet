@@ -48,7 +48,7 @@ class Vendor:
         if matching_items:
             return matching_items
         else:
-            return None
+            return []
     
     def get_best_by_category(self, category):
         items = self.get_by_category(category)
