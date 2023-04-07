@@ -3,12 +3,13 @@ from swap_meet.item import Item
 import uuid
 
 class Electronics:
-    def __init__(self, id=None, type="Unknown"):
+    def __init__(self, id=None, type="Unknown", condition=0):
         if id:
             self.id = id
         else:
             self.id = uuid.uuid4().int
         self.type = type
+        self.condition = condition
 
     def get_category(self):
         return "Electronics"
