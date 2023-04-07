@@ -39,8 +39,8 @@ class Vendor:
         if not self.inventory or not other_vendor.inventory:
             return False
 
-        self.swap_items(other_vendor, self.inventory[0], other_vendor.inventory[0])
-        return True
+        return self.swap_items(other_vendor, self.inventory[0], other_vendor.inventory[0])
+
 
     def get_by_category(self, category):
         """This function returns a list of items in the inventory of a specific category"""
@@ -69,8 +69,8 @@ class Vendor:
         my_swap_item = self.get_best_by_category(their_priority)
         other_swap_item = other_vendor.get_best_by_category(my_priority)
 
-        self.swap_items(other_vendor, my_swap_item, other_swap_item)
-        return True
+        return self.swap_items(other_vendor, my_swap_item, other_swap_item)
+
 
     def swap_by_newest(self, other_vendor):
         """This function swaps the newest item with another vendor's newest item"""
@@ -80,5 +80,5 @@ class Vendor:
         my_newest = min(self.inventory, key=lambda item: item.age)
         their_newest = min(other_vendor.inventory, key=lambda item: item.age)
 
-        self.swap_items(other_vendor, my_newest, their_newest)
-        return True
+        return self.swap_items(other_vendor, my_newest, their_newest)
+
