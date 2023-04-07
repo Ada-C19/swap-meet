@@ -61,7 +61,7 @@ class Vendor:
         return True
 
 
-    # Wave 05
+    # Wave 05 -- not passing 1 assert
 
     # clothing.py
 
@@ -114,7 +114,7 @@ class Vendor:
             return "I mean it's free"
 
 
-    # Wave 06
+    # Wave 06 -- not passing 4 asserts
 
     def get_by_category(self, category=""):
         #list of obj in the inventory with that category
@@ -148,4 +148,27 @@ class Vendor:
             
 
     def swap_best_by_category(self,  other_vendor,my_priority,their_priority):
-            pass
+            my_best_item = None
+            their_best_item = None
+            # check best item in my inventory that matches their_priority category
+            for item in self.inventory:
+                if item.category == their_priority:
+                # If the Vendor has no item that matches their_priority category, it returns False
+                    if my_best_item is None or item.condition > my_best_item.condition:
+                        my_best_item = item
+                #  check best item in other_vendor's inventory that matches my_priority
+                for item in other_vendor.inventory:
+                    if item.category == my_priority:
+                    # If other_vendor has no item that matches my_priority category, it returns False
+                        if their_best_item is None or item.condition > their_best_item.condition:
+                            their_best_item = item
+
+                    # if it is in inventory swap items
+                    if my_best_item is not None and their_best_item is not None:
+                        self.inventory.remove(my_best_item)
+                        other_vendor.inventory.append(my_best_item)
+                        other_vendor.inventory.remove(their_best_item)
+                        self.inventory.append(their_best_item)
+                        return True
+
+                return False
