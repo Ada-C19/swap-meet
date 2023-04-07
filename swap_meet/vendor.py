@@ -38,11 +38,13 @@ class Vendor:
         if len(self.inventory) > 0 and len(other_vendor.inventory) > 0:
             my_item = self.inventory[0]
             their_item = other_vendor.inventory[0]
-            self.remove(my_item)
-            other_vendor.remove(their_item)
-            self.add(their_item)
-            other_vendor.add(my_item)
-            return True
+    
+            first_item_swap = self.swap_items(other_vendor, my_item, their_item)
+            # self.remove(my_item)
+            # other_vendor.remove(their_item)
+            # self.add(their_item)
+            # other_vendor.add(my_item)
+            return first_item_swap
         return False
 
 
@@ -53,8 +55,9 @@ class Vendor:
                 item_list.append(item)
         return item_list
         
+        # use list comprehension
+        # return [item for item in self.inventory if category == item.get_category()]
         
-
     
     def get_best_by_category(self, category):
         category_item = self.get_by_category(category)
