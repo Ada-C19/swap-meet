@@ -14,7 +14,11 @@ class Item:
         # when id is not provided, generate an id with integer.
         else:
             self.id = uuid.uuid4().int
-        self.condition = condition
+            
+        if condition > 5:
+            raise ValueError("Condition value range from 0 to 5.")
+        else:
+            self.condition = condition
     
     def get_category(self):  
         """
