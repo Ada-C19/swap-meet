@@ -1,12 +1,13 @@
 import uuid
 from swap_meet.item import Item
 
+
 class Decor(Item):
     def __init__(self, id=uuid.uuid4().int, width=0, length=0, condition=0, age=0):
         Item.__init__(self, id, condition, age)
         self.width = width
         self.length = length
-    
+
     def get_category(self):
         return "Decor"
 
