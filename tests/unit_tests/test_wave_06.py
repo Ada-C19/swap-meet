@@ -25,7 +25,7 @@ def test_get_items_by_category():
     assert item_c in items
 
 
-@pytest.mark.skip
+# @pytest.mark.skip
 def test_get_no_matching_items_by_category():
     item_a = Clothing()
     item_b = Item()
@@ -36,10 +36,7 @@ def test_get_no_matching_items_by_category():
 
     items = vendor.get_by_category("Electronics")
 
-    raise Exception("Complete this test according to comments below.")
-    # *********************************************************************
-    # ****** Complete Assert Portion of this test **********
-    # *********************************************************************
+    assert len(items) == 0
 
 
 @pytest.mark.skip

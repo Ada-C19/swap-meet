@@ -2,7 +2,7 @@ import uuid
 
 
 class Decor:
-    def __init__(self, width=0, length=0, id=None):
+    def __init__(self, width=0, length=0, condition=0, id=None):
         if id:
             self.id = id
         else:
@@ -11,12 +11,29 @@ class Decor:
 
         self.width = width
         self.length = length
+        self.condition = condition
 
     def get_category(self):
         return "Decor"
 
     def stringify(self):
-        return f"An object of type Decor with id {self.id}. It takes up a {self.width} by {self.length} sized space."
+        return f"An object of type {self.get_category()} with id {self.id}. It takes up a {self.width} by {self.length} sized space."
 
     def __str__(self):
         return self.stringify()
+
+    def condition_description(self):
+        if self.condition == 0:
+            return "very bad"
+        elif self.condition == 1:
+            return "bad"
+        elif self.condition == 2:
+            return "fair"
+        elif self.condition == 3:
+            return "good"
+        elif self.condition == 4:
+            return "very good"
+        elif self.condition == 5:
+            return "great"
+
+        return "not acceptable"
