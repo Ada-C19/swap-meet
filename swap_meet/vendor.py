@@ -42,10 +42,11 @@ class Vendor:
         else:
             user_first_item = self.inventory[0]
             friend_first_item = other_vendor.inventory[0]
-            self.inventory.remove(user_first_item)
-            other_vendor.inventory.remove(friend_first_item)
-            other_vendor.inventory.append(user_first_item)
-            self.inventory.append(friend_first_item)
+            self.swap_items(other_vendor, user_first_item, friend_first_item)
+            # self.inventory.remove(user_first_item)
+            # other_vendor.inventory.remove(friend_first_item)
+            # other_vendor.inventory.append(user_first_item)
+            # self.inventory.append(friend_first_item)
             return True
         
     def get_by_category(self, category):
