@@ -153,7 +153,12 @@ def test_swap_best_by_category_reordered():
         their_priority="Decor"
     )
 
-    raise Exception("Complete this test according to comments below.")
+    result == True
+    len(tai.inventory) == 3
+    len(jesse.inventory) == 3
+    tai.inventory == [item_a, item_b, item_f]
+    jesse.inventory == [item_d, item_e, item_c]
+    # raise Exception("Complete this test according to comments below.")
     # *********************************************************************
     # ****** Complete Assert Portion of this test **********
     # *********************************************************************
