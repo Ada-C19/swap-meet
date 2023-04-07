@@ -12,7 +12,7 @@ condition_descriptions = {
 
 class Item:
     
-    def __init__(self, id=None, condition=0):
+    def __init__(self, id=None, condition=0, age=0):
         # If user passes in custom id, set id to that number, otherwise generate one
         if id:
             self.id = id
@@ -21,6 +21,7 @@ class Item:
         
         self.condition = condition
         self.category = self.get_category()
+        self.age = age
         
     def get_category(self):
         """Output: the name of the Class"""

@@ -315,3 +315,112 @@ def test_swap_best_by_category_no_other_match_is_false():
     # - That result is falsy
     # - That tai and jesse's inventories are the correct length
     # - That all the correct items are in tai and jesse's inventories
+
+# My optional tests:
+
+def test_swap_by_newest():
+    # Arrange
+    item_a = Decor(age=1.0)
+    item_b = Electronics(age=4)
+    item_c = Decor(age=2.0)
+    tai = Vendor(
+        inventory=[item_a, item_b, item_c]
+    )
+
+    item_d = Clothing(age=0.5)
+    item_e = Decor(age=7)
+    item_f = Clothing(age=3)
+    jesse = Vendor(
+        inventory=[item_d, item_e, item_f]
+    )
+
+    # Act
+    result = tai.swap_by_newest(
+        other_vendor=jesse,
+        my_priority="Clothing",
+        their_priority="Decor"
+    )
+
+    assert result
+    assert len(tai.inventory) == 3
+    assert len(jesse.inventory) == 3
+
+    assert item_b in tai.inventory
+    assert item_c in tai.inventory
+    assert item_d in tai.inventory
+
+    assert item_a in jesse.inventory
+    assert item_e in jesse.inventory
+    assert item_f in jesse.inventory
+
+
+def test_swap_by_newest_returns_first_item_when_all_items_have_same_age():
+    # Arrange
+    item_a = Decor(age=1.0)
+    item_b = Electronics(age=1.0)
+    item_c = Decor(age=1.0)
+    tai = Vendor(
+        inventory=[item_a, item_b, item_c]
+    )
+
+    item_d = Clothing(age=0.5)
+    item_e = Decor(age=0.5)
+    item_f = Clothing(age=0.5)
+    jesse = Vendor(
+        inventory=[item_d, item_e, item_f]
+    )
+
+    # Act
+    result = tai.swap_by_newest(
+        other_vendor=jesse,
+        my_priority="Clothing",
+        their_priority="Decor"
+    )
+
+    assert result
+    assert len(tai.inventory) == 3
+    assert len(jesse.inventory) == 3
+
+    assert item_b in tai.inventory
+    assert item_c in tai.inventory
+    assert item_d in tai.inventory
+
+    assert item_a in jesse.inventory
+    assert item_e in jesse.inventory
+    assert item_f in jesse.inventory
+
+
+def test_swap_by_newest_returns_false_when_no_matches():
+    # Arrange
+    item_a = Decor(age=1.0)
+    item_b = Electronics(age=4)
+    item_c = Decor(age=2.0)
+    tai = Vendor(
+        inventory=[item_a, item_b, item_c]
+    )
+
+    item_d = Clothing(age=0.5)
+    item_e = Decor(age=7)
+    item_f = Clothing(age=3)
+    jesse = Vendor(
+        inventory=[item_d, item_e, item_f]
+    )
+
+    # Act
+    result = tai.swap_by_newest(
+        other_vendor=jesse,
+        my_priority="Electronics",
+        their_priority="Clothing"
+    )
+
+    assert not result
+    assert len(tai.inventory) == 3
+    assert len(jesse.inventory) == 3
+
+    assert item_a in tai.inventory
+    assert item_b in tai.inventory
+    assert item_c in tai.inventory
+
+    assert item_d in jesse.inventory
+    assert item_e in jesse.inventory
+    assert item_f in jesse.inventory
