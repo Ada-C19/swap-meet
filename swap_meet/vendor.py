@@ -10,14 +10,14 @@ class Vendor:
         # Add the item to the inventory and return the item that was added
         self.inventory.append(item)
         return item
+    
     def remove(self, item):
-        # If the item exists in the inventory, remove it and return the removed item
-        if item in self.inventory:
+        # try the item exists in the inventory, remove it and return the removed item, else raise error
+        try:
             self.inventory.remove(item)
             return item
-        # Otherwise, return False
-        return False
-    
+        except ValueError:
+            return False
 
     def get_by_id(self, id):
         if not isinstance(id, int):
@@ -44,13 +44,21 @@ class Vendor:
         # If successful, return True
         return True
     
+    # def swap_first_item(self, other_vendor):
+    #     # Check if either the vendor or the friend have empty inventory, and return False if so
+    #     if not self.inventory or not other_vendor.inventory:
+    #         return False
+    #     # Swap the first item from the friend's inventory with the first item from the vendor's inventory
+    #     return self.swap_items(other_vendor, self.inventory[0], other_vendor.inventory[0])
     def swap_first_item(self, other_vendor):
-        # Check if either the vendor or the friend have empty inventory, and return False if so
-        if not self.inventory or not other_vendor.inventory:
+        try:
+            # Check if either the vendor or the friend have empty inventory, and return False if so
+            if not self.inventory or not other_vendor.inventory:
+                return False
+            # Swap the first item from the friend's inventory with the first item from the vendor's inventory
+            return self.swap_items(other_vendor, self.inventory[0], other_vendor.inventory[0])
+        except IndexError:
             return False
-        # Swap the first item from the friend's inventory with the first item from the vendor's inventory
-        return self.swap_items(other_vendor, self.inventory[0], other_vendor.inventory[0])
-
 
     def get_by_category(self, category):
         # Create an empty list to store the matching items

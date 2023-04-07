@@ -47,4 +47,7 @@ class Item:
             4: "Excellent condition. Like new, but not quite.",
             5: "Mint condition. You won't find one better."
         }
-        return descriptions.get(self.condition, "")
+        try:
+            return descriptions.get(round(self.condition))
+        except KeyError:
+            return "Seriously?!!! is this a condition oo--oo???!!!"
