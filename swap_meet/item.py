@@ -1,7 +1,7 @@
 import uuid
 
 class Item:
-    def __init__(self, id = None, condition = 0.0, age = 0):
+    def __init__(self, age = 0.0 , id = None, condition = 0.0):
         if id is None:
             self.id = uuid.uuid4().int
         else:
@@ -14,6 +14,9 @@ class Item:
 
     def get_category(self):
         return self.__class__.__name__
+    
+    def get_age(self):
+        return self.age
     
     def condition_description(self):
         if self.condition >= 0.0 and self.condition < 1.0:
@@ -30,16 +33,16 @@ class Item:
             return "This item is immaculate. If you don't buy it, I will!"
         
     def age_description(self):
-        if self.age >= 0 and self.age < 1:
+        if self.age >= 0.0 and self.age < 1.0:
             return "I've had this for less than a year!"
-        elif self.age >= 1 and self.age < 2:
+        elif self.age >= 1.0 and self.age < 2.0:
             return "I've had this for a little over a year!"
-        elif self.age >= 2 and self.age < 3:
+        elif self.age >= 2.0 and self.age < 3.0:
             return "I've had this for over two years but not more than three!" 
-        elif self.age >= 3.0 and self.age < 4:
+        elif self.age >= 3.0 and self.age < 4.0:
             return "I've had this for over three years but not more than four!" 
-        elif self.age >= 4 and self.age < 5:
+        elif self.age >= 4.0 and self.age < 5.0:
             return "I've had this for over four years but not more than five!" 
-        elif self.age >= 5:
+        elif self.age >= 5.0:
             return "I've had this for over five years!"
     
