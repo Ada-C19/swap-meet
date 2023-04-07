@@ -3,12 +3,13 @@ import uuid
 
 
 class Item:
-    def __init__(self, id=None):
+    def __init__(self, condition, id=None):
         if id:
             self.id = id
         else:
             # using uuid to generate random id
             self.id = int(uuid.uuid4())
+        self.condition = condition
 
     def get_category(self):
         return "Item"

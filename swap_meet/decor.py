@@ -2,7 +2,7 @@ import uuid
 
 
 class Decor:
-    def __init__(self, width=0, length=0, id=None):
+    def __init__(self, condition, width=0, length=0, id=None):
         if id:
             self.id = id
         else:
@@ -11,6 +11,7 @@ class Decor:
 
         self.width = width
         self.length = length
+        self.condition = condition
 
     def get_category(self):
         return "Decor"

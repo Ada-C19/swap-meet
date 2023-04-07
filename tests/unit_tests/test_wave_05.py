@@ -122,7 +122,7 @@ def test_items_have_condition_as_float():
         assert item.condition == pytest.approx(3.5)
 
 
-@pytest.mark.skip
+# @pytest.mark.skip
 def test_items_have_condition_descriptions_that_are_the_same_regardless_of_type():
     items = [
         Clothing(condition=5),
