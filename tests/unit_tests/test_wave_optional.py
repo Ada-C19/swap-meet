@@ -57,7 +57,7 @@ def test_swap_by_newest_reordered():
 
 
 # @pytest.mark.skip
-def test_swap_by_neweest_no_inventory():
+def test_swap_by_newest_no_inventory():
     # Arrange
     # me
     tai = Vendor(inventory=[])

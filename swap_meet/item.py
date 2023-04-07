@@ -12,12 +12,15 @@ class Item:
         self.age = age
 
     def get_category(self):
+        """This function returns the category of the item"""
         return "Item"
 
     def __str__(self):
+        """This function a string with the object type and id"""
         return f"An object of type {self.get_category()} with id {self.id}."
 
     def condition_description(self):
+        """This function returns a string depending on the condition of the item"""
         if self.condition == 0:
             return "Wear a hazmat suit for pickup"
         elif self.condition == 1:

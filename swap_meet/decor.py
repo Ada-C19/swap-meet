@@ -9,7 +9,9 @@ class Decor(Item):
         self.length = length
 
     def get_category(self):
+        """This function returns the category of the item"""
         return "Decor"
 
     def __str__(self):
+        """This function returns a string with the type of the object and it's id"""
         return f"An object of type Decor with id {self.id}. It takes up a {self.width} by {self.length} sized space."

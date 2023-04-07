@@ -8,7 +8,9 @@ class Electronics(Item):
         self.type = type
 
     def get_category(self):
+        """This function returns the category of the item"""
         return "Electronics"
 
     def __str__(self):
+        """This function returns a string with the type of the object and it's id"""
         return f"An object of type {self.get_category()} with id {self.id}. This is a {self.type} device."

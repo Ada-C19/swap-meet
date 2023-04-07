@@ -8,7 +8,9 @@ class Clothing(Item):
         self.fabric = fabric
 
     def get_category(self):
+        """This function returns the category of the item"""
         return "Clothing"
 
     def __str__(self):
+        """This function returns a string with the type of the object and it's id"""
         return f"An object of type {self.get_category()} with id {self.id}. It is made from {self.fabric} fabric."
