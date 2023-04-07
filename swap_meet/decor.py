@@ -7,8 +7,7 @@ class Decor(Item):
     
     
     def __str__(self):
-        my_string = f'{self.id}'
-        return f"An object of type {self.get_category()} with id {my_string}. It takes up a {self.width} by {self.length} sized space."
+        return f"An object of type {self.get_category()} with id {self.id}. It takes up a {self.width} by {self.length} sized space."
     
 
     pass

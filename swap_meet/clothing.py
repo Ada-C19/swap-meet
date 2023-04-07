@@ -6,8 +6,7 @@ class Clothing(Item):
         
     
     def __str__(self):
-        my_string = f'{self.id}'
-        return f"An object of type {self.get_category()} with id {my_string}. It is made from {self.fabric} fabric."
+        return f"An object of type {self.get_category()} with id {self.id}. It is made from {self.fabric} fabric."
     
     
 

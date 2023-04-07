@@ -1,23 +1,24 @@
-
 class Vendor:
     def __init__(self, inventory=None):
         if inventory is None:
-           inventory = []
+            inventory = []
+
         self.inventory = inventory
 
-    
+
     def add(self, item):
         """Adds item to the inventory"""
         self.inventory.append(item)
         return item
-    
+
     def remove(self, item):
         """Removes the matching item from the inventory"""
         if item in self.inventory:
             self.inventory.remove(item)
             return item
+        
         return False
-    
+
     # ----- Wave 2 -----------------------------
 
     def get_by_id(self, id):
@@ -25,6 +26,7 @@ class Vendor:
         for item in self.inventory:
             if item.id == id:
                 return item
+
         return None
     
     # ----- Wave 3 -----------------------------
@@ -36,12 +38,12 @@ class Vendor:
         and adds it to self.inventory"""
         if my_item not in self.inventory or their_item not in other_vendor.inventory:
             return False
-        else:
-            self.inventory.remove(my_item)
-            other_vendor.inventory.append(my_item)
-            other_vendor.inventory.remove(their_item)
-            self.inventory.append(their_item)
-            return True    
+
+        self.inventory.remove(my_item)
+        other_vendor.inventory.append(my_item)
+        other_vendor.inventory.remove(their_item)
+        self.inventory.append(their_item)
+        return True
     
     # ----- Wave 4 -----------------------------
     def swap_first_item(self, other_vendor): 
@@ -49,11 +51,13 @@ class Vendor:
         Removes the first item from the other_vendor's inventory, and adds the instances first item"""
         if len(self.inventory) == 0 or len(other_vendor.inventory) == 0:
             return False
+
         self_first_element = self.inventory.pop(0)
         other_first_element = other_vendor.inventory.pop(0)
         self.inventory.append(other_first_element)
         other_vendor.inventory.append(self_first_element)
         return True
+
     # --- Wave 6 -------------------------------
     def get_by_category(self, category):
         """Argument: a string. 
