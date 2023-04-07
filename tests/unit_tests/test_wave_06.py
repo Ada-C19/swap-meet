@@ -33,7 +33,7 @@ def test_get_no_matching_items_by_category():
 
     items = vendor.get_by_category("Electronics")
 
-    assert len(items == 0)
+    assert items == []
     # *********************************************************************
     # ****** Complete Assert Portion of this test **********
     # *********************************************************************
