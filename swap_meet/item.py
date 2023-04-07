@@ -1,11 +1,13 @@
 import uuid 
 class Item:
-    def __init__(self, id = None, condition=0):
+    def __init__(self, id = None, condition=0, age=0):
         self.id = uuid.uuid4().int if id is None else id
         self.condition = condition
-    
+        self.age = age
     def get_category(self):
         return "Item"
+    def tell_age(self):
+        return f"The {self.get_category()} is {self.age} years old"
     
     def __str__(self):
         return f"An object of type Item with id {self.id}."

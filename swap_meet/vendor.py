@@ -1,4 +1,4 @@
-from swap_meet.item import Item
+# from swap_meet.item import Item
 
 class Vendor:
     
@@ -69,4 +69,7 @@ class Vendor:
         their_best_item = other_vendor.get_best_by_category(my_priority)
         
         return self.swap_items(other_vendor, my_best_item, their_best_item)
-        
+    def swap_by_newest(self,other_vendor):
+        my_new_item = min(self.inventory, key = lambda item: item.age)
+        their_new_item = min(other_vendor.inventory, key = lambda item: item.age )
+        return self.swap_items(other_vendor,my_new_item,their_new_item)
