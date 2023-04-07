@@ -19,3 +19,16 @@ class Decor(Item):
     def __str__(self):
         return f"An object of type Decor with id {self.id}. It takes up a {self.width} by {self.length} sized space."
 
+    def condition_description(self):
+        if self.condition == 5:
+            return "Brand spankin new to you!"
+        if self. condition == 4:
+            return "I can fix that"
+        if self.condition == 3:
+            return "Faded but it's a look"
+        if self.condition == 2:
+            return  "Mmm interesting"
+        if self. condition == 1:
+            return "Might give me health issues"
+        else:
+            return "Don't do it"

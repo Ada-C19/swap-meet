@@ -22,3 +22,6 @@ class Item:
 # Wave 03
     def __str__(self):
         return f"An object of type Item with id {self.id}."
+    
+# Wave 05
+

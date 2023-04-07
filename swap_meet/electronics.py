@@ -13,3 +13,17 @@ class Electronics(Item):
 
     def __str__(self):
         return f"An object of type Electronics with id {self.id}. This is a {self.type} device."
+
+    def condition_description(self):
+        if self.condition == 5:
+            return "Great find!"
+        if self. condition == 4:
+            return "Twas in good care"
+        if self.condition == 3:
+            return "Morally right"
+        if self.condition == 2:
+            return "Do it for the turtles"
+        if self. condition == 1:
+            return "Rethinking thrifting"
+        else:
+            return "I mean it's free"
