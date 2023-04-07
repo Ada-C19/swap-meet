@@ -1,13 +1,16 @@
 import uuid
 
 class Item:
-    
+    '''
+    id, condition, and age should all be ints or floats
+    if id not specified, a unique id will be generated
+    '''
     def __init__(self, id=None, condition=0, age=0):
         if not id:
             id = uuid.uuid4().int
         valid_types = [int, float]
         if type(id) not in valid_types or type(condition) not in valid_types or type(age) not in valid_types:
-            raise ValueError
+            raise TypeError
         self.id = id
         self.condition = condition
         self.age = age

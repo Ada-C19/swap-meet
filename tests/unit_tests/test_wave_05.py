@@ -150,11 +150,11 @@ def test_items_have_age_if_no_variable_passed_in():
 
 def test_condition_age_id_attributes_of_item_class_raise_exception_if_not_int():
     # Arrange/Act/Assert
-    with pytest.raises(ValueError):
+    with pytest.raises(TypeError):
         test_id = Clothing(id="Furby")
-    with pytest.raises(ValueError):
+    with pytest.raises(TypeError):
         test_condition = Decor(condition="Millie")
-    with pytest.raises(ValueError):
+    with pytest.raises(TypeError):
         test_age = Electronics(age="Waffles")
 
 

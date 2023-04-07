@@ -1,6 +1,11 @@
 from swap_meet.item import Item
 
 class Vendor:
+    '''
+    if passing an inventory into an instance of Vendor,
+    the inventory should be a list of instances of the
+    Item class or its subclasses
+    '''
     def __init__(self, inventory=None):
         if inventory is None:
             inventory = []
