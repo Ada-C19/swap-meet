@@ -2,10 +2,9 @@ from .item import Item
 
 
 class Clothing(Item):
-    def __init__(self, id=0, fabric = "Unknown"):
-        super().__init__(id, category="Clothing")
+    def __init__(self,id=0, category="Clothing", fabric = "Unknown", condition=0):
+        super().__init__(id, category, condition)
         self.fabric = fabric
-        # self.fabric = "Unknown" if fabric is None else fabric
 
     def __str__(self):
         item_descript = super().__str__()
