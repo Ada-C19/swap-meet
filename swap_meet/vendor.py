@@ -15,10 +15,10 @@ class Vendor:
         return item
     
     def get_by_id(self, id):
-        for item in self.inventory:
-            if item.id == id:
-                return item
-        return None
+        try:
+            return [item for item in self.inventory if item.id == id][0]
+        except IndexError:    
+            return None
     
     def swap_items(self, other_vendor, my_item, their_item):
         if my_item not in self.inventory or their_item not in other_vendor.inventory:
@@ -36,11 +36,7 @@ class Vendor:
         return self.swap_items(other_vendor, self.inventory[0], other_vendor.inventory[0])
     
     def get_by_category(self, category):
-        same_category_items = []
-        
-        for item in self.inventory:
-            if item.get_category() == category:
-                same_category_items.append(item)
+        same_category_items = [item for item in self.inventory if item.get_category() == category]
         return same_category_items
     
     def get_best_by_category(self, category):
@@ -63,4 +59,36 @@ class Vendor:
             return False 
         
         self.swap_items(other_vendor, self_item_vendor_wants, vendor_item_self_wants)
+        return True
+    
+    
+    '''Optional part of projects'''
+    
+    def get_by_newest(self):
+        '''Function returns most recently created item (latest version(youngest age)) from inventory.
+            If year hasnt been given through argument, or inventory is empty - returns False.'''
+            
+        if not self.inventory:
+            return False
+        
+        latest = None
+        for item in self.inventory:
+            if not item.year:
+                return False
+            
+            if latest is None:
+                latest = item
+            elif item.calculate_age() < latest.calculate_age():
+                latest = item
+                
+        return latest
+    
+    def swap_by_newest(self, other_vendor):
+        my_item = self.get_by_newest()
+        their_item = other_vendor.get_by_newest()
+        
+        if not my_item or not their_item:
+            return False
+        
+        self.swap_items(other_vendor, my_item, their_item)
         return True
