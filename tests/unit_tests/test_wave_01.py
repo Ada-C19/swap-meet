@@ -1,6 +1,7 @@
 # The following line imports the Vendor class from the module vendor inside the swap_meet package.
 import pytest
 from swap_meet.vendor import Vendor
+from swap_meet.item import Item
 
 
 def test_vendor_has_inventory():
@@ -16,10 +17,12 @@ def test_vendor_takes_optional_inventory():
     assert "b" in vendor.inventory
     assert "c" in vendor.inventory
 
-
+'''
+rewrote this test due to type restricting
+'''
 def test_adding_to_inventory():
     vendor = Vendor()
-    item = "new item"
+    item = Item()
 
     result = vendor.add(item)
 
