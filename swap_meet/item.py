@@ -1,7 +1,10 @@
 import uuid
 
-item_uuid = uuid.uuid4()
-item_uuid_integer = int(item_uuid)
 
 class Item:
-    pass
+    def __init__(self, id=None):
+        self.id = id or uuid.uuid4().int
+
+    def get_category(self):
+        return self.__class__.__name__
+
