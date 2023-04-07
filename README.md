@@ -134,7 +134,7 @@ In Wave 4 we will write one method, `swap_first_item`.
 In Wave 5 we will create three additional modules with three additional classes.
 
 Our new modules should be defined as follows:
-- `Clothing`
+- **`Clothing`******
   - Has an attribute `id` that is by default a unique integer
   - Has an attribute `fabric` that is by default the string "Unknown"
     - This attribute describes what fabric the clothing is made from; some example values might be `"Striped"`, `"Cotton"`, or `"Floral"`
