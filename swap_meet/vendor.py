@@ -73,7 +73,8 @@ class Vendor:
 
         for stuff in self.inventory(category_condition):
             if stuff.condition_description() < best_condition:
-                best_condition = 
+                best_condition = category_condition
+                return
 
             return 
 
