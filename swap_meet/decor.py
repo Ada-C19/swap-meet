@@ -6,6 +6,6 @@ class Decor(Item):
         self.width = width
         self.length = length
 
-    def __repr__(self):
-        return super().__repr__() + f" It takes up a {self.width} by {self.length} sized space."
-        
+
+    def __str__(self):
+        return super().__str__() + f" It takes up a {self.width} by {self.length} sized space."
