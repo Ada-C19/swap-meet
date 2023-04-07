@@ -10,3 +10,6 @@ class Electronics:
             self.id = int(uuid.uuid4())
 
         self.type = type
+
+    def get_category(self):
+        return "Electronics"
