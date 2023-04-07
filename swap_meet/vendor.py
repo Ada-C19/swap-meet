@@ -51,12 +51,11 @@ class Vendor:
         Removes the first item from the other_vendor's inventory, and adds the instances first item"""
         if len(self.inventory) == 0 or len(other_vendor.inventory) == 0:
             return False
+        
+        self.swap_items(other_vendor, self.inventory[0], other_vendor.inventory[0])
 
-        self_first_element = self.inventory.pop(0)
-        other_first_element = other_vendor.inventory.pop(0)
-        self.inventory.append(other_first_element)
-        other_vendor.inventory.append(self_first_element)
         return True
+        
 
     # --- Wave 6 -------------------------------
     def get_by_category(self, category):
@@ -91,3 +90,4 @@ class Vendor:
         their_best = other_vendor.get_best_by_category(my_priority)
         self.swap_items(other_vendor,my_best,their_best)
         return True
+
