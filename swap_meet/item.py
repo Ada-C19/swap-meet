@@ -34,5 +34,7 @@ class Item:
                 return "Good find, just one or two problems with this one"
             elif self.condition == 5:
                 return "Perfect condition! Someone probably accidently gave this away, but I guess you got lucky"
+            else:
+                return "Condition must be between range 1-5"
         else:
             print("Condition must be numerical")
