@@ -68,3 +68,16 @@ class Vendor:
         their_best = other_vendor.get_best_by_category(my_priority)
         # Swap the best items
         return self.swap_items(other_vendor, my_best, their_best)
+
+    def swap_by_newest(self, other_vendor):
+        # Get our youngest items from each inventory
+        try:
+            my_newest = min(self.inventory, key=lambda i: i.age)
+            their_newest = min(other_vendor.inventory, key=lambda i: i.age)
+        except ValueError as err:
+            print(f"{err}. One or more inventories are missing.")
+            return None
+
+        # Swap the newest items
+        return self.swap_items(other_vendor, my_newest, their_newest)
+
