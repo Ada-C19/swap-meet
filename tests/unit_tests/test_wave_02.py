@@ -20,6 +20,11 @@ def test_items_use_custom_id_if_passed():
     assert isinstance(item.id, int)
     assert item.id == 12345
 
+def test_items_assigns_default_id_if_use_string():
+    item = Item(id="string")
+    assert isinstance(item.id, int)
+    assert len(str(item.id)) >= 32
+
 
 def test_item_obj_returns_text_item_for_category():
     item = Item()
