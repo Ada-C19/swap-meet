@@ -3,7 +3,7 @@ class Item:
     """
     A class that represents item.
     Each Item have:
-    an attribute named id, which is a quique integer as default; 
+    an attribute named id, which is an unique integer as default; 
     an attribute named condition, which is an integer representing the item's condition, default value is 0 (the poorest);
     an attribute named age, which is an integer representing the item's age, default value is 0.
     """
@@ -45,7 +45,7 @@ class Item:
         elif self.condition == 3:
             return "It's not down for the count - it's still got some fight left in it!"
         elif self.condition == 2:
-            return "Don't judge this item by its appearence. It's still got some tricks up its sleeve and plenty of use left."
+            return "Don't judge this item by its appearance. It's still got some tricks up its sleeve and plenty of use left."
         elif self.condition == 1:
             return "This item may not have much life left in it, but it's not quite ready to give up the ghost yet."
         else:
