@@ -1,7 +1,7 @@
 import uuid
 
 class Item:
-    # each item will have an attribute named id
+    # Each item will have an attribute named id
     #initialize an instance of item optionally pass in an int
     def __init__(self, id=None, condition=0):
         if id is None:
@@ -34,5 +34,4 @@ class Item:
                 return'cute'
             if self.condition  == 5:
                 return'ugly'
-            
             
