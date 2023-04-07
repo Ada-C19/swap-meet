@@ -5,6 +5,9 @@ class Item:
     def __init__(self, id=None, condition=0, age=0):
         if not id:
             id = uuid.uuid4().int
+        valid_types = [int, float]
+        if type(id) not in valid_types or type(condition) not in valid_types or type(age) not in valid_types:
+            raise ValueError
         self.id = id
         self.condition = condition
         self.age = age

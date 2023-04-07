@@ -148,6 +148,16 @@ def test_items_have_age_if_no_variable_passed_in():
     assert shirt.age == 0
 
 
+def test_condition_age_id_attributes_of_item_class_raise_exception_if_not_int():
+    # Arrange/Act/Assert
+    with pytest.raises(ValueError):
+        test_id = Clothing(id="Furby")
+    with pytest.raises(ValueError):
+        test_condition = Decor(condition="Millie")
+    with pytest.raises(ValueError):
+        test_age = Electronics(age="Waffles")
+
+
 # ~~~~~ Helper Functions ~~~~~
 
 def check_for_default_uuid_length_id(to_check):
