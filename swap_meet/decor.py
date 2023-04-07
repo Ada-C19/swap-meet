@@ -11,3 +11,6 @@ class Decor:
 
         self.width = width
         self.length = length
+
+    def get_category(self):
+        return "Decor"

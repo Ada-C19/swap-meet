@@ -49,7 +49,7 @@ def test_decor_has_default_uuid_length_id():
     check_for_default_uuid_length_id(decor)
 
 
-@pytest.mark.skip
+# @pytest.mark.skip
 def test_decor_has_expected_category_and_custom_id():
     decor = Decor(id=TEST_CUSTOM_ID)
     check_category_and_custom_id(decor, TEST_CUSTOM_ID, "Decor")
