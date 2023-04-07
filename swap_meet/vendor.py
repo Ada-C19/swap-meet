@@ -1,3 +1,4 @@
+
 from .item import Item
 
 class Vendor:
@@ -49,4 +50,50 @@ class Vendor:
             other_vendor.remove(other_first)
             self.inventory.remove(my_first)
             
-            return self.inventory and other_vendor.inventory 
+            return self.inventory and other_vendor.inventory
+        
+    def get_by_category(self, category):
+        #try:
+            return [item for item in self.inventory if item.category==category]
+        #except: 
+            
+    #    for item in self.inventory:
+    #        if item.category == category: 
+    #           
+    #             return item 
+        # variable = self.get_by_category(category)
+        #max(variable, key= lambda item: item.condition)
+    def get_best_by_category(self, category):
+        invent_category = self.get_by_category(category)
+        if not invent_category:
+            return None
+        result= max(invent_category, key= lambda item: item.condition)
+        return result
+        
+            
+
+    def swap_best_by_category(self, other_vendor, my_priority, their_priority):
+        mine= self.get_best_by_category(their_priority)
+        theirs = other_vendor.get_best_by_category(my_priority)
+        #if not other_vendor.inventory or self.inventory:
+            #return False
+        if not mine or not theirs:
+            return False 
+        try:
+            for item in mine: 
+                if item.category not in their_priority:
+                    return False
+            for item in theirs:
+                if item.category not in my_priority:
+                    return False
+        except:
+            self.swap_items(other_vendor, mine, theirs) 
+            return self.inventory and other_vendor.inventory
+    
+            # if their_priority not in self.inventory:
+            #     return False
+            # elif my_priority not in other_vendor.inventory:
+            #     return False
+
+
+    #
