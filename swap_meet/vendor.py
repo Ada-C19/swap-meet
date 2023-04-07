@@ -72,4 +72,19 @@ class Vendor:
                 highest_condition = item.condition
         return best_item
 
-    # def swap_best_by_category(self, other_vendor, my_priority, their_priority):
+    def swap_best_by_category(self, other_vendor, my_priority, their_priority):
+        my_best_item = self.get_best_by_category(their_priority)
+        their_best_item = other_vendor.get_best_by_category(my_priority)
+
+        if not my_best_item:
+            return False
+        if not their_best_item:
+            return False
+
+        self.remove(my_best_item)
+        other_vendor.remove(their_best_item)
+
+        self.add(their_best_item)
+        other_vendor.add(my_best_item)
+
+        return True
