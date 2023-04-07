@@ -1,4 +1,3 @@
-
 class Vendor:
     def __init__(self, inventory = None):
         # If there is no inventory, set self.inventory to an empty list
@@ -21,6 +20,8 @@ class Vendor:
     
 
     def get_by_id(self, id):
+        if not isinstance(id, int):
+            raise TypeError("id must be an integer")
         # Iterate through the inventory to find an item with a matching id
         for item in self.inventory:  
             # If an item with a matching id is found, return it  
@@ -84,3 +85,17 @@ class Vendor:
         their_item = other_vendor.get_best_by_category(my_priority)
         self.swap_items(other_vendor, my_item, their_item)
         return True
+    def swap_by_newest(self, other_vendor):
+        # Sort the inventory of both vendors by the age of the items
+        my_inventory_sorted = sorted(self.inventory, key=lambda item: item.age)
+        their_inventory_sorted = sorted(other_vendor.inventory, key=lambda item: item.age)
+        # Find the newest item in each inventory
+        my_newest_item = my_inventory_sorted[0] if my_inventory_sorted else None
+        their_newest_item = their_inventory_sorted[0] if their_inventory_sorted else None
+
+        # If either vendor does not have any items, return False
+        if not my_newest_item or not their_newest_item:
+            return False
+
+        # Swap the newest items
+        return self.swap_items(other_vendor, my_newest_item, their_newest_item)

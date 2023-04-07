@@ -1,9 +1,9 @@
 from swap_meet.item import Item
 
 class Electronics(Item):
-    def __init__(self, id=None, type="Unknown", condition = 0):
+    def __init__(self, id=None, type="Unknown", condition = 0, age = 0):
         # call the superclass constructor to set the id attribute
-        super().__init__(id, condition)
+        super().__init__(id, condition, age)
         
         # set the type attribute
         self.type = type

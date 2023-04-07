@@ -136,6 +136,8 @@ def test_swap_items_from_their_empty_returns_false():
     assert len(jolie.inventory) == 0  # Ensure that jolie still has no items
     assert nobodys_item not in fatimah.inventory  # Ensure that fatimah does not have nobodys_item
     assert item_b in fatimah.inventory  # Ensure that fatimah still has item_b
+    assert nobodys_item not in jolie.inventory  # Ensure that jolie does not have nobodys_item
+    assert item_b not in jolie.inventory  # Ensure that jolie does not have item_b
     # raise Exception("Complete this test according to comments below.")
     # *********************************************************************
     # ****** Complete Assert Portion of this test **********

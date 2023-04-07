@@ -1,8 +1,8 @@
 from swap_meet.item import Item
 class Clothing(Item):
-    def __init__(self, fabric="Unknown", id=None, condition = 0):
+    def __init__(self, fabric="Unknown", id=None, condition = 0, age = 0):
         # Initialize a new instance of Clothing
-        super().__init__(id, condition)
+        super().__init__(id, condition, age)
         self.fabric = fabric
     
     def __str__(self):
