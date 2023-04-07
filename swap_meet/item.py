@@ -24,7 +24,6 @@ class Item:
         elif self.condition == 5:
             return "brand new"
 
-        
     
 
     def __str__(self):
