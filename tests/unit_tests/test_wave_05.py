@@ -35,6 +35,13 @@ def test_clothing_has_expected_to_str_with_custom_fabric():
     )
     assert str(clothing) == expected_str
 
+
+def test_fabric_attribute_raises_exception_if_not_str():
+    # Arrange/Act/Assert
+    with pytest.raises(TypeError):
+        test_width = Clothing(fabric=7)
+
+
 # ~~~~~ Decor Tests ~~~~~
 
 
@@ -65,6 +72,15 @@ def test_decor_has_expected_to_str_with_custom_size():
     )
     assert str(decor) == expected_str
 
+
+def test_width_length_attributes_raise_exception_if_not_int_or_float():
+    # Arrange/Act/Assert
+    with pytest.raises(TypeError):
+        test_width = Decor(width="Furby")
+    with pytest.raises(TypeError):
+        test_length = Decor(length="Millie")
+
+
 # ~~~~~ Electronics Tests ~~~~~
 
 
@@ -94,6 +110,12 @@ def test_electronics_has_expected_to_str_with_custom_type():
         "This is a Mobile Phone device."
     )
     assert str(electronics) == expected_str
+
+
+def test_type_attribute_raises_exception_if_not_str():
+    # Arrange/Act/Assert
+    with pytest.raises(TypeError):
+        test_width = Electronics(type=7)
 
 
 # ~~~~~ Item Tests ~~~~~
@@ -148,7 +170,7 @@ def test_items_have_age_if_no_variable_passed_in():
     assert shirt.age == 0
 
 
-def test_condition_age_id_attributes_of_item_class_raise_exception_if_not_int():
+def test_condition_age_id_attributes_raise_exception_if_not_int_or_float():
     # Arrange/Act/Assert
     with pytest.raises(TypeError):
         test_id = Clothing(id="Furby")
