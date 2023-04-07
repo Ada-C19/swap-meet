@@ -2,6 +2,7 @@ import pytest
 from swap_meet.vendor import Vendor
 from swap_meet.item import Item
 
+<<<<<<< HEAD
 
 
 #@pytest.mark.skip
@@ -11,6 +12,9 @@ from swap_meet.item import Item
 
 # @pytest.mark.skip
 
+=======
+#@pytest.mark.skip
+>>>>>>> ed992ea7e2f3f2ca68d133e2726bcd090ed06f94
 def test_swap_first_item_returns_true():
     item_a = Item()
     item_b = Item()
@@ -41,12 +45,15 @@ def test_swap_first_item_returns_true():
 
 
 #@pytest.mark.skip
+<<<<<<< HEAD
 
 # @pytest.mark.skip
 
 
 # @pytest.mark.skip
 
+=======
+>>>>>>> ed992ea7e2f3f2ca68d133e2726bcd090ed06f94
 def test_swap_first_item_from_my_empty_returns_false():
     fatimah = Vendor(
         inventory=[]
@@ -64,6 +71,7 @@ def test_swap_first_item_from_my_empty_returns_false():
     assert len(jolie.inventory) == 2
     assert not result
 
+<<<<<<< HEAD
 
 
 #@pytest.mark.skip
@@ -73,6 +81,10 @@ def test_swap_first_item_from_my_empty_returns_false():
 
 # @pytest.mark.skip
 
+=======
+
+# @pytest.mark.skip
+>>>>>>> ed992ea7e2f3f2ca68d133e2726bcd090ed06f94
 def test_swap_first_item_from_their_empty_returns_false():
     item_a = Item()
     item_b = Item()
