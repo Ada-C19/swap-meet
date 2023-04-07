@@ -1,12 +1,12 @@
 class Vendor:
     def __init__(self, inventory = None):
         self.inventory = inventory or []
-    #add takes in one item and adds it to inventory
+
     def add(self, item):
         self.item = item
         self.inventory.append(item)
         return item
-    #remove takes in one item and removes the matching item
+
     def remove(self,item):
         self.item = item
         if item in self.inventory:
@@ -44,19 +44,20 @@ class Vendor:
             
             return True
 
-"""
-Understanding
-"swap_first_item" for instances of class named "Vendor". 
-takes one argument which, another instance of Vendor 
-instance = friend who vendor will swap items with.
-
-Application
-swap first item of inventory
-call method with first item of friends inv
-remove first item from inv
-add to friends(vice versa)
-if calling instance or friend instance has empty inv
-return false
-"""
-
-
+    def get_by_category(self, category):
+        # if inventory = None:
+        #     return []
+        #     returns list of objects in inventory with corrilating category
+        pass
+    def get_best_by_category(self, category):
+        # if no item return none
+        # looks for inventory with highest rated item and its matching category
+        # returns corisponing item
+        # returns single item even if duplicate
+        pass
+    def swap_best_by_category(self, other_vendor, my_priority, their_priority):
+        # best item in inv that matches their_priority is swapped with best item in other other_vendor that matches  my_priority
+        # if none return False
+        # else:
+        # return True
+        pass
