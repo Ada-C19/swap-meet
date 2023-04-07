@@ -2,9 +2,12 @@ import uuid
 class Item:
     """
     A class that represents item.
-    Each Item have an attribute named id, which is a quique integer as default; an attribute named condition, which is an integer represent the item's condition, default value is 0 (the poorest).
+    Each Item have:
+    an attribute named id, which is a quique integer as default; 
+    an attribute named condition, which is an integer representing the item's condition, default value is 0 (the poorest);
+    an attribute named age, which is an integer representing the item's age, default value is 0.
     """
-    def __init__(self, id=None, condition=0):
+    def __init__(self, id=None, condition=0, age=0):
         # when manually set id, check if it's an integer, if not: raise TypeError.
         if id:
             if isinstance(id, int):
@@ -14,11 +17,13 @@ class Item:
         # when id is not provided, generate an id with integer.
         else:
             self.id = uuid.uuid4().int
-            
+        # If condition out of range, raise ValueError.    
         if condition > 5:
             raise ValueError("Condition value range from 0 to 5.")
         else:
             self.condition = condition
+        
+        self.age = age
     
     def get_category(self):  
         """

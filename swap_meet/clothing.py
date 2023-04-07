@@ -4,8 +4,8 @@ class Clothing(Item):
     """
     A subclass of Item class, representing clothing item.
     """
-    def __init__(self, id=None, fabric="Unknown", condition=0):
-        super().__init__(id, condition)
+    def __init__(self, id=None, fabric="Unknown", condition=0, age=0):
+        super().__init__(id, condition, age)
         self.fabric = fabric
     
     def __str__(self):

@@ -4,8 +4,8 @@ class Electronics(Item):
     """
     A subclass of Item class, representing electronic item.
     """
-    def __init__(self, id=None, type="Unknown", condition=0):
-        super().__init__(id, condition)
+    def __init__(self, id=None, type="Unknown", condition=0, age=0):
+        super().__init__(id, condition, age)
         self.type = type
     
     def __str__(self):
