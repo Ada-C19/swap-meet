@@ -71,7 +71,7 @@ class Vendor:
 
         if my_best_item is None or their_best_item is None:
             return False
-
+        
         self.inventory.remove(my_best_item)
         other_vendor.inventory.remove(their_best_item)
         self.inventory.append(their_best_item)
