@@ -5,7 +5,9 @@ from swap_meet.clothing import Clothing
 from swap_meet.decor import Decor
 from swap_meet.electronics import Electronics
 
-@pytest.mark.skip
+# @pytest.mark.skip
+
+
 def test_get_items_by_category():
     item_a = Clothing()
     item_b = Electronics()
@@ -21,6 +23,7 @@ def test_get_items_by_category():
     assert len(items) == 2
     assert item_a in items
     assert item_c in items
+
 
 @pytest.mark.skip
 def test_get_no_matching_items_by_category():
@@ -38,6 +41,7 @@ def test_get_no_matching_items_by_category():
     # ****** Complete Assert Portion of this test **********
     # *********************************************************************
 
+
 @pytest.mark.skip
 def test_best_by_category():
     item_a = Clothing(condition=2.0)
@@ -54,6 +58,7 @@ def test_best_by_category():
     assert best_item.get_category() == "Clothing"
     assert best_item.condition == pytest.approx(4.0)
 
+
 @pytest.mark.skip
 def test_best_by_category_no_matches_is_none():
     item_a = Decor(condition=2.0)
@@ -66,6 +71,7 @@ def test_best_by_category_no_matches_is_none():
     best_item = tai.get_best_by_category("Electronics")
 
     assert best_item is None
+
 
 @pytest.mark.skip
 def test_best_by_category_with_duplicates():
@@ -83,6 +89,7 @@ def test_best_by_category_with_duplicates():
     # Assert
     assert best_item.get_category() == "Clothing"
     assert best_item.condition == pytest.approx(4.0)
+
 
 @pytest.mark.skip
 def test_swap_best_by_category():
@@ -119,6 +126,7 @@ def test_swap_best_by_category():
     # - That tai and jesse's inventories are the correct length
     # - That all the correct items are in tai and jesse's inventories, including the items which were swapped from one vendor to the other
 
+
 @pytest.mark.skip
 def test_swap_best_by_category_reordered():
     # Arrange
@@ -152,6 +160,7 @@ def test_swap_best_by_category_reordered():
     # - That tai and jesse's inventories are the correct length
     # - That all the correct items are in tai and jesse's inventories, and that the items that were swapped are not there
 
+
 @pytest.mark.skip
 def test_swap_best_by_category_no_inventory_is_false():
     tai = Vendor(
@@ -178,6 +187,7 @@ def test_swap_best_by_category_no_inventory_is_false():
     assert item_b in jesse.inventory
     assert item_c in jesse.inventory
 
+
 @pytest.mark.skip
 def test_swap_best_by_category_no_other_inventory_is_false():
     item_a = Clothing(condition=2.0)
@@ -203,6 +213,7 @@ def test_swap_best_by_category_no_other_inventory_is_false():
     assert item_a in tai.inventory
     assert item_b in tai.inventory
     assert item_c in tai.inventory
+
 
 @pytest.mark.skip
 def test_swap_best_by_category_no_match_is_false():
@@ -236,6 +247,7 @@ def test_swap_best_by_category_no_match_is_false():
     # - That result is falsy
     # - That tai and jesse's inventories are the correct length
     # - That all the correct items are in tai and jesse's inventories
+
 
 @pytest.mark.skip
 def test_swap_best_by_category_no_other_match_is_false():

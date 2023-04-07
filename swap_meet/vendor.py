@@ -63,3 +63,11 @@ class Vendor:
         self.inventory[0], other_vendor.inventory[0] = other_vendor.inventory[0], self.inventory[0]
 
         return True
+
+    def get_by_category(self, category):
+
+        category_list = []
+        for each_item in self.inventory:
+            if each_item.get_category() == category:
+                category_list.append(each_item)
+        return category_list
