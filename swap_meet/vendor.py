@@ -50,3 +50,16 @@ class Vendor:
         other_vendor.inventory[their_item_idx] = temp
 
         return True
+
+    def swap_first_item(self, other_vendor):
+
+        # check if any is empty
+        if self.inventory == []:
+            return False
+
+        if other_vendor.inventory == []:
+            return False
+# swap the first items
+        self.inventory[0], other_vendor.inventory[0] = other_vendor.inventory[0], self.inventory[0]
+
+        return True
