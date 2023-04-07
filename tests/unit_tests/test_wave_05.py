@@ -43,7 +43,7 @@ def test_clothing_has_expected_to_str_with_custom_fabric():
 # ~~~~~ Decor Tests ~~~~~
 
 
-@pytest.mark.skip
+# @pytest.mark.skip
 def test_decor_has_default_uuid_length_id():
     decor = Decor()
     check_for_default_uuid_length_id(decor)

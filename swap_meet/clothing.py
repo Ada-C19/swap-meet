@@ -18,5 +18,6 @@ class Clothing:
     def stringify(self):
         return f"An object of type Clothing with id {self.id}. It is made from {self.fabric} fabric."
 
+# calling the stringfy method
     def __str__(self):
         return self.stringify()
