@@ -13,16 +13,6 @@ class Clothing(Item):
         return f"An object of type Clothing with id {self.id}. It is made from {self.fabric} fabric."
 
 
-    # def __str__(self):
-        # return f"An object of type {self.__class__.__name__} with id {self.id}."
-        # f"An object of type Clothing with id {self.id}. It is made from {self.fabric} fabric."
 
 
-        # def __init__(self, id=None, fabric="Unknown",) 
-        # self.fabric = fabric
 
-    # def get_category(self):
-    #     return "Clothing"
-    
-    # def stringify(self):
-    #     return f"An object of type {self.id}. It is made from {self.fabric} fabric."

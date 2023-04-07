@@ -27,9 +27,3 @@ class Item:
             return "Pretty good"
         else:
             return "Peak"
-
-# #class Item:
-#     def __init__(self, id = None, condition = 0, category = None):
-#         self.category = category
-#         self.condition = condition
-#         self.id = id #or uuid.uuid4()
