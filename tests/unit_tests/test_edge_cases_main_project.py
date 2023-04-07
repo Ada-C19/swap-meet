@@ -69,7 +69,22 @@ def test_int_valued_optional_parameters_accept_string_convertable_to_int():
     assert item_b.length == 0
 
 #@pytest.mark.skip
-def test_contition_description_functions_if_condition_is_passed():
+def test_contition_description_functions_if_float_condition_is_passed():
+    item = Item(condition=3)
+    expected_description_for_int = print('3.5 green bottles\n' 
+                    'Hanging on the wall\n'
+                    '3.5 green bottles\n'
+                    'Hanging on the wall\n'
+                    'And if one green bottle\n'
+                    'Should accidentally fall\n'
+                    'There will be 2.5 green bottles\n'
+                    'Hanging on the wall.')
+
+    assert isinstance(item.condition, int)
+    assert print(item.condition_description()) == expected_description_for_int
+    
+#@pytest.mark.skip
+def test_contition_description_functions_if_float_condition_is_passed():
     item = Item(condition=3.5)
     expected_description_for_float = print('3.5 green bottles\n' 
                     'Hanging on the wall\n'
