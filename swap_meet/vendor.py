@@ -73,5 +73,10 @@ class Vendor:
             other_vendor.add(self.get_best_by_category(their_priority))
             self.remove(self.get_best_by_category(their_priority))
             return True
+        # item_wanted_by_vendor = other_vendor.get_best_by_category(my_priority)
+        # item_wanted_by_other_vendor = self.get_best_by_category(their_priority)
+        # if item_wanted_by_vendor == None or item_wanted_by_other_vendor == None:
+        #     return False
+        # return self.swap_items(other_vendor, item_wanted_by_other_vendor, item_wanted_by_vendor)
         
 

@@ -1,10 +1,10 @@
-import uuid #import just the uuid4()
+from uuid import uuid4()
 
 
 class Item:
     def __init__(self, id = None, condition = 0):
         if id == None:
-            self.id = uuid.uuid4().int
+            self.id = uuid4().int
         else:
             self.id = id
         if condition == 0:
