@@ -4,7 +4,7 @@ condition_descriptions = {
     0: "Ewww! Put that down right now and wash your hands!",
     1: "This item is disintegrating as we speak!",
     2: "There's nothing to write home about here...",
-    3: "This item is in a pretty good condition.",
+    3: "This item is in a fair condition.",
     4: "This item is in a pretty good condition.",
     5: "This item is like brand new. Amazing!",
 }
