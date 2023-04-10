@@ -227,3 +227,184 @@ Should a project be completed before submission, and there is a desire for optio
 - What is our test suite missing?
   - Identify gaps or edge cases it'd be helpful to cover
   - Write tests for the cases you identify
+
+
+
+
+
+# *********************************************************************
+
+# *********************************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### Wave 1
+
+In Wave 1 we will create the `Vendor` class.
+
+class Vendor:
+    def __init__(self, inventory=none): 
+    if none:
+    self.inventory = []
+    esle inventory = inventory
+
+
+  def add(self, item)
+  inventory.append
+  return added_item
+
+  def remove(self, item):
+  if item in inventory
+  inventory.remove
+  return removed_item
+  if no item return false
+
+
+### Wave 2
+
+
+class Item:
+def __init__ (self, id): we can optionally pass in an integer with the keyword argument `id` to manually set the `Item`'s `id`
+self.id = int (unique)
+
+def get_category(self):
+return class name in a string
+
+
+import the [`uuid` package](https://docs.python.org/3/library/uuid.html) in `item.py` to create large ***unique*** numbers 
+`UUID` objects have [an attribute `int`](https://docs.python.org/3/library/uuid.html#uuid.UUID.int) which allow us to access their value as an integer
+
+
+class Vendor:
+def __init__(self)
+
+def get_by_id(self, item_id)   #takes one argument: an integer, representing an `Item`'s `id` -> 
+ween vendor and item for this method?
+return item_in_inventor_with_item_id or None
+
+### Wave 3
+
+class Item
+def __str__(self, item):
+returns `"An object of type Item with id <id value>."`
+For example, if we had an `Item` instance `item_a = Item(id=12345)`
+
+
+class Vendor
+
+def swap_items(self, other_vendor, my_item, their_item): -> my_item plans to give
+remove my_item from self.vendor append to other_vendor
+remove their_item from other_vendor append self.vendor[]
+return True
+
+if not my_item in vendor or not their_item in other_vendor:
+return False
+
+
+
+### Wave 4
+
+In Wave 4 we will write one method, `swap_first_item`.
+
+class Vendor:
+def swap_first_item(self, other_vendor):
+remove.self.inventory[0]
+append.other_vendor_inventory[0]
+remove.other_vendor_inventory_item[0]
+append.self_vendor.inventory
+return True
+if []empty == False
+
+
+### Wave 5
+from swap_meet.item import Item
+class Clothing(self, fabric):
+self.fabric = "Unknown"
+id get id from Item class
+
+def get_category(self, fabric, id):
+returns clothing
+returns `"An object of type Clothing with id <id value>. It is made from <fabric value>.
+
+
+from swap_meet.item import Item
+class Decor(self, width, length, id):
+get id from Item class
+self.width = 0
+self.lenght = 0
+
+def get_category(self, width, length, id)
+returns `"An object of type Decor with id <id value>. It takes up a <width value> by <length value> sized space."
+
+
+from swap_meet.item import Item
+class Electronics(self, type):
+get id from Item class
+self.type = "Unnown"
+
+
+def get_category(self, type):
+get id from Item class
+returns `"An object of type Electronics with id <id value>. This is a <type value> device."`
+
+
+
+
+### Wave 6
+
+class Vendor:
+def get_by_category(self, "string_category"):
+return category_list
+if no item in inventory_list == "string_category":
+return []
+
+def get_best_by_category(self, "string_category"):
+if category is highest_condition:
+return category_item
+else:
+if inventory doesn't match category_item return None
+if duplicates return set(category_item)
+
+def swap_best_by_category(self, other_vendor, my_priority, their_priority):
+best_item.self.inventory match best_item.their_inventory <-> swap
+returns True
+if self.vendor and other_vendor no match no swap and other way around
+returns False
+
+
+
+
+### DRYing up the code
+
+To further reduce the amount of repeated code in your project, consider how `swap_best_by_category` and `swap_first_item` might be able to make use of `swap_items`. Is there a way that these methods could incorporate a call to `swap_items` into the body of these methods?
+
+Try it out and see if the tests still pass! If you can't get them to pass with this refactor, you can always return to the most recent working commit before you submit the project!
+
+## Optional Enhancements
+
+Should a project be completed before submission, and there is a desire for optional enhancements, consider this idea:
+
+- `Item`s have age
+  - Add an `age` attribute to all `Item`s
+  - Implement a `Vendor` method named `swap_by_newest`, using any logic that seems appropriate
+  - Write unit tests for `swap_by_newest`
+
+- Take a look for error handling opportunities
+  - What issues could arise if we pass a string (or any object other than an integer) for the `id` of an Item? How could we prevent that?
+  - What other opportunities for error handling do you see?
+
+- What is our test suite missing?
+  - Identify gaps or edge cases it'd be helpful to cover
+  - Write tests for the cases you identify
