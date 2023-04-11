@@ -1,25 +1,35 @@
 # The following line imports the Vendor class from the module vendor inside the swap_meet package.
 import pytest
 from swap_meet.vendor import Vendor
+from swap_meet.item import Item
 
-@pytest.mark.skip
+
 def test_vendor_has_inventory():
     vendor = Vendor()
     assert len(vendor.inventory) == 0
 
-@pytest.mark.skip
+'''
+updated test to accomodate new functionality that only allows instances
+of Item or its subclasses to be in the inventory list attribute
+'''
 def test_vendor_takes_optional_inventory():
-    inventory = ["a", "b", "c"]
+    item_a = Item()
+    item_b = Item()
+    item_c = Item()
+    inventory = [item_a, item_b, item_c]
     vendor = Vendor(inventory=inventory)
     assert len(vendor.inventory) == 3
-    assert "a" in vendor.inventory
-    assert "b" in vendor.inventory
-    assert "c" in vendor.inventory
+    assert item_a in vendor.inventory
+    assert item_b in vendor.inventory
+    assert item_c in vendor.inventory
 
-@pytest.mark.skip
+'''
+updated tests to accomodate new functionality that only allows add method
+to add instances of Item or its subclasses to the inventory list attribute
+'''
 def test_adding_to_inventory():
     vendor = Vendor()
-    item = "new item"
+    item = Item()
 
     result = vendor.add(item)
 
@@ -27,29 +37,38 @@ def test_adding_to_inventory():
     assert item in vendor.inventory
     assert result == item
 
-@pytest.mark.skip
+'''
+updated test to accomodate new functionality that only allows instances
+of Item or its subclasses to be in the inventory list attribute
+'''
 def test_removing_from_inventory_returns_item():
-    item = "item to remove"
+    remove_item = Item()
+    item_a = Item()
+    item_b = Item()
+    item_c = Item()
     vendor = Vendor(
-        inventory=["a", "b", "c", item]
+        inventory=[item_a, item_b, item_c, remove_item]
     )
 
-    result = vendor.remove(item)
+    result = vendor.remove(remove_item)
 
     assert len(vendor.inventory) == 3
-    assert item not in vendor.inventory
-    assert result == item
+    assert remove_item not in vendor.inventory
+    assert result == remove_item
 
-@pytest.mark.skip
+'''
+updated test to accomodate new functionality that only allows instances
+of Item or its subclasses to be in the inventory list attribute
+'''
 def test_removing_not_found_is_false():
-    item = "item to remove"
+    remove_item = Item()
+    item_a = Item()
+    item_b = Item()
+    item_c = Item()
     vendor = Vendor(
-        inventory=["a", "b", "c"]
+        inventory=[item_a, item_b, item_c]
     )
 
-    result = vendor.remove(item)
+    result = vendor.remove(remove_item)
 
-    raise Exception("Complete this test according to comments below.")
-    # *********************************************************************
-    # ****** Complete Assert Portion of this test **********
-    # *********************************************************************
+    assert result == False

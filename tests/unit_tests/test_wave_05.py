@@ -7,17 +7,17 @@ TEST_CUSTOM_ID = 12345
 
 # ~~~~~ Clothing Tests ~~~~~
 
-@pytest.mark.skip
+
 def test_clothing_has_default_uuid_length_id():
     clothing = Clothing()
     check_for_default_uuid_length_id(clothing)
 
-@pytest.mark.skip
+
 def test_clothing_has_expected_category_and_custom_id():
     clothing = Clothing(id=TEST_CUSTOM_ID)
     check_category_and_custom_id(clothing, TEST_CUSTOM_ID, "Clothing")
 
-@pytest.mark.skip
+
 def test_clothing_has_expected_default_to_str():
     clothing = Clothing(id=TEST_CUSTOM_ID)
     expected_str = (
@@ -26,7 +26,7 @@ def test_clothing_has_expected_default_to_str():
     )
     assert str(clothing) == expected_str
 
-@pytest.mark.skip
+
 def test_clothing_has_expected_to_str_with_custom_fabric():
     clothing = Clothing(id=TEST_CUSTOM_ID, fabric="Pinstriped")
     expected_str = (
@@ -35,19 +35,26 @@ def test_clothing_has_expected_to_str_with_custom_fabric():
     )
     assert str(clothing) == expected_str
 
+
+def test_fabric_attribute_raises_exception_if_not_str():
+    # Arrange/Act/Assert
+    with pytest.raises(TypeError):
+        test_width = Clothing(fabric=7)
+
+
 # ~~~~~ Decor Tests ~~~~~
 
-@pytest.mark.skip
+
 def test_decor_has_default_uuid_length_id():
     decor = Decor()
     check_for_default_uuid_length_id(decor)
 
-@pytest.mark.skip
+
 def test_decor_has_expected_category_and_custom_id():
     decor = Decor(id=TEST_CUSTOM_ID)
     check_category_and_custom_id(decor, TEST_CUSTOM_ID, "Decor")
 
-@pytest.mark.skip
+
 def test_decor_has_expected_default_to_str():
     decor = Decor(id=TEST_CUSTOM_ID)
     expected_str = (
@@ -56,7 +63,7 @@ def test_decor_has_expected_default_to_str():
     )
     assert str(decor) == expected_str
 
-@pytest.mark.skip
+
 def test_decor_has_expected_to_str_with_custom_size():
     decor = Decor(id=TEST_CUSTOM_ID, width=3, length=12)
     expected_str = (
@@ -65,19 +72,28 @@ def test_decor_has_expected_to_str_with_custom_size():
     )
     assert str(decor) == expected_str
 
+
+def test_width_length_attributes_raise_exception_if_not_int_or_float():
+    # Arrange/Act/Assert
+    with pytest.raises(TypeError):
+        test_width = Decor(width="Furby")
+    with pytest.raises(TypeError):
+        test_length = Decor(length="Millie")
+
+
 # ~~~~~ Electronics Tests ~~~~~
 
-@pytest.mark.skip
+
 def test_electronics_has_default_uuid_length_id():
     electronics = Electronics()
     check_for_default_uuid_length_id(electronics)
 
-@pytest.mark.skip
+
 def test_electronics_has_expected_category_and_custom_id():
     electronics = Electronics(id=TEST_CUSTOM_ID)
     check_category_and_custom_id(electronics, TEST_CUSTOM_ID, "Electronics")
 
-@pytest.mark.skip
+
 def test_electronics_has_expected_default_to_str():
     electronics = Electronics(id=TEST_CUSTOM_ID)
     expected_str = (
@@ -86,7 +102,7 @@ def test_electronics_has_expected_default_to_str():
     )
     assert str(electronics) == expected_str
 
-@pytest.mark.skip
+
 def test_electronics_has_expected_to_str_with_custom_type():
     electronics = Electronics(id=TEST_CUSTOM_ID, type="Mobile Phone")
     expected_str = (
@@ -96,9 +112,15 @@ def test_electronics_has_expected_to_str_with_custom_type():
     assert str(electronics) == expected_str
 
 
+def test_type_attribute_raises_exception_if_not_str():
+    # Arrange/Act/Assert
+    with pytest.raises(TypeError):
+        test_width = Electronics(type=7)
+
+
 # ~~~~~ Item Tests ~~~~~
 
-@pytest.mark.skip
+
 def test_items_have_condition_as_float():
     items = [
         Clothing(condition=3.5),
@@ -108,7 +130,7 @@ def test_items_have_condition_as_float():
     for item in items:
         assert item.condition == pytest.approx(3.5)
 
-@pytest.mark.skip
+
 def test_items_have_condition_descriptions_that_are_the_same_regardless_of_type():
     items = [
         Clothing(condition=5),
@@ -127,6 +149,36 @@ def test_items_have_condition_descriptions_that_are_the_same_regardless_of_type(
         assert item.condition_description() == one_condition_description
 
     assert one_condition_description != five_condition_description
+
+
+def test_items_have_age_as_float():
+    items = [
+        Clothing(age=3.5),
+        Decor(age=3.5),
+        Electronics(age=3.5)
+    ]
+
+    for item in items:
+        assert item.age == pytest.approx(3.5)
+
+
+def test_items_have_age_if_no_variable_passed_in():
+    # Arrange/Act
+    shirt = Clothing()
+
+    # Assert
+    assert shirt.age == 0
+
+
+def test_condition_age_id_attributes_raise_exception_if_not_int_or_float():
+    # Arrange/Act/Assert
+    with pytest.raises(TypeError):
+        test_id = Clothing(id="Furby")
+    with pytest.raises(TypeError):
+        test_condition = Decor(condition="Millie")
+    with pytest.raises(TypeError):
+        test_age = Electronics(age="Waffles")
+
 
 # ~~~~~ Helper Functions ~~~~~
 
