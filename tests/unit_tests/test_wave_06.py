@@ -197,11 +197,11 @@ def test_swap_best_by_category_no_match_is_false():
         other_vendor=jesse, my_priority="Clothing", their_priority="Clothing"
     )
 
-    result == False
-    len(tai.inventory) == 3
-    len(jesse.inventory) == 3
-    tai.inventory == [item_a, item_b, item_c]
-    jesse.inventory == [item_d, item_e, item_f]
+    assert result == False
+    assert len(tai.inventory) == 3
+    assert len(jesse.inventory) == 3
+    assert tai.inventory == [item_a, item_b, item_c]
+    assert jesse.inventory == [item_d, item_e, item_f]
 
 
 # @pytest.mark.skip
@@ -222,8 +222,8 @@ def test_swap_best_by_category_no_other_match_is_false():
         other_vendor=jesse, my_priority="Electronics", their_priority="Decor"
     )
 
-    result == False
-    len(tai.inventory) == 3
-    len(jesse.inventory) == 3
-    tai.inventory == [item_c, item_b, item_a]
-    jesse.inventory == [item_f, item_e, item_d]
+    assert result == False
+    assert len(tai.inventory) == 3
+    assert len(jesse.inventory) == 3
+    assert tai.inventory == [item_c, item_b, item_a]
+    assert jesse.inventory == [item_f, item_e, item_d]
