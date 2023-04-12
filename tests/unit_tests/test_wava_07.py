@@ -22,11 +22,9 @@ def test_swap_by_newest_returns_true():
     assert result
     assert len(fatimah.inventory) == 3
     assert len(jolie.inventory) == 2
-    assert item_a not in fatimah.inventory
     assert item_b in fatimah.inventory
     assert item_c in fatimah.inventory
     assert item_e in fatimah.inventory
-    assert item_e not in jolie.inventory
     assert item_a in jolie.inventory
     assert item_d in jolie.inventory
 
