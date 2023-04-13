@@ -49,11 +49,8 @@ class Vendor:
 
     def get_best_by_category(self, category):
         matching_category = self.get_by_category(category)
-        best_item = None
-        if matching_category:
-            best_item = max(matching_category, key=lambda item: item.condition)
+        return max(matching_category, default=None, key=lambda item: item.condition)
 
-        return best_item
         
     def swap_best_by_category(self, other_vendor, my_priority, their_priority):
         if not self.inventory or not other_vendor.inventory:
