@@ -12,9 +12,16 @@ class Item:
         return f"An object of type Item with id {self.id}."
     
     def condition_description(self):
-        if self.condition > 4:
-            return "Great"
-        elif self.condition > 1:
-            return "Okay"
-        else:
-            return "Uh-oh"
+        try:
+            condition = {
+            5:"Mint condition",
+            4:"Great",
+            3:"Decent",
+            2:"It's okay",
+            1:"Needs TLC",
+            0:"Pass on this"
+        }
+            print(condition[self.condition])
+            return condition[self.condition]
+        except KeyError: 
+            print("That is not a valid condition rating.")
