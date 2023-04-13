@@ -1,13 +1,11 @@
 import uuid
 from .item import Item
 class Decor(Item):
-    def __init__(self, id=uuid.uuid1().int, width=0, length=0, condition=0, age=0):
-        super().__init__(condition=0, age=0)
-        self.condition = condition
-        self.id = id
+    def __init__(self, id=None, width=0, length=0, condition=0, age=0):
+        super().__init__(id, condition, age)
         self.width = width
         self.length = length
-        self.age = age
+        
     
     def get_category(self):
         return "Decor"
