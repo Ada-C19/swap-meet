@@ -1,8 +1,7 @@
 import uuid 
 
 class Vendor:
-    def __init__(self, id=None,inventory=[]):
-        self.id = uuid.uuid4().int
+    def __init__(self, inventory=[]):
         self.inventory = inventory #each vendor will have an attribute named :inventory (an empty list)
         
     def add(self, item):
@@ -12,13 +11,7 @@ class Vendor:
         return item 
     
     def remove(self, item): 
-        #when this happens: remove takes in one item and removes matching item from inventory
-        # for current_item in self.inventory:
-        #     if current_item == item:
-        #         self.inventory.remove(item)
-        #         return item #If no matching item found in inventory it returns False
-        #     else:
-        #         return False #item that was removed
+        
         if item not in self.inventory:
             return False
         else:
@@ -26,16 +19,39 @@ class Vendor:
             return item
     
     def get_by_id(self, id):
-        return self.id
+        for item in self.inventory:
+            if item.id == id:
+                return item
+            else:
+                return None
+
+test_id = 12345
+item_custom_id = Item(id=test_id)
+vendor = Vendor(
+        inventory=[Item(), Item(), item_custom_id]
+    )
+
+result_item = vendor.get_by_id(test_id)
+print(result_item)
+
+    # def swap_first_item(self, other_vendor):
+    #     if self.inventory(other_vendor) == None or self.inventory == None:
+    #         return False
+    #     else:
+    #         #consider first item in instances inventory
+    #         #consider first item in friends inventory
+    #         #removes first item from this inventory andd adds it to friends
+    #         #
+    #         return True
     
-# vendor = Vendor()
-# item = "new item"
-# result = vendor.add(item)
-# print(result)
-# print(vendor.inventory)
-# ---------------- WAVE 2 --------------------
-#create get_by_id method
-#instances of vendor have an instance method named get_by_id
-#takes in one argument (int) which reps items id 
-#this method returns item with matching id from inventory
-#if there is no item with matching id, the method should return None
+
+# ---------------- WAVE 4 --------------------
+# In Wave 4 we will write one method, swap_first_item.
+
+# Instances of Vendor have an instance method named swap_first_item
+# It takes one argument: an instance of another Vendor (other_vendor), representing the friend that the vendor is swapping with
+# This method considers the first item in the instance's inventory, and the first item in the friend's inventory
+# It removes the first item from its inventory, and adds the friend's first item
+# It removes the first item from the friend's inventory, and adds the instances first item
+# It returns True
+# If either itself or the friend have an empty inventory, the method returns Fals
