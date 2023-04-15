@@ -1,16 +1,19 @@
 
 
 class Clothing:
-    pass
-#     def __init__(self, id=None, fabric="unknown"):
-#         self.id = uuid.uuid4().int
-#         self.fabric = fabric
 
-#     def clothing(self):
-#         self.clothing = self.fabric   
+    def __init__(self, id=None, fabric="unknown"):
+        self.id = uuid.uuid4().int
+        if not fabric == "unknown":
+            self.fabric = fabric
+        else:
+            self.fabric = user_input
 
-#     def get_category(self):
-#         return self.clothing 
+    def clothing(self):
+        self.clothing = self.fabric   
+
+    def get_category(self):
+        return self.clothing 
     
 
 

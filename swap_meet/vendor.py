@@ -41,20 +41,16 @@ class Vendor:
             return True 
     # these functions will return uuid objects **(not int)**  
 
-        
-
-
-
-
-# def swap
-#         if self.inventory(other_vendor) == None or self.inventory(my_item) == None:
-#             return False
-#         else:
-#             #consider first item in instances inventory
-#             #consider first item in friends inventory
-#             #removes first item from this inventory andd adds it to friends
-#             #
-#             return True
+    def swap_first_item(self, other_vendor):
+        if other_vendor.inventory == [] or self.inventory == []:
+            return False
+        else:
+            #look at the syntax here
+            self.remove(self.inventory[0])
+            other_vendor.remove(other_vendor.inventory[0])
+            other_vendor.add(self.inventory[0]) 
+            self.add(other_vendor.inventory[0])
+            return True
     
 
 # ---------------- WAVE 4 --------------------
