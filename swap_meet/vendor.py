@@ -1,4 +1,7 @@
-import uuid 
+import uuid
+
+from item import Item
+
 
 class Vendor:
     def __init__(self, inventory=[]):
@@ -20,19 +23,21 @@ class Vendor:
     
     def get_by_id(self, id):
         for item in self.inventory:
+            print(item.id)
+            print(id)
             if item.id == id:
                 return item
             else:
                 return None
 
-test_id = 12345
-item_custom_id = Item(id=test_id)
-vendor = Vendor(
-        inventory=[Item(), Item(), item_custom_id]
-    )
+# test_id = 12345
+# item_custom_id = Item(id=test_id)
+# vendor = Vendor(
+#         inventory=[Item(), Item(), item_custom_id]
+#     )
 
-result_item = vendor.get_by_id(test_id)
-print(result_item)
+# result_item = vendor.get_by_id(test_id)
+# print("result", result_item)
 
     # def swap_first_item(self, other_vendor):
     #     if self.inventory(other_vendor) == None or self.inventory == None:

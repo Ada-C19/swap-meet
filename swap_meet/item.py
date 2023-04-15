@@ -1,14 +1,18 @@
 import uuid
 
 class Item:
-    def __init__(self, id=None):
-    
-        # if id is not manually assigned
-        if id is None:
+    def __init__(self, id=None):        
+        print("id", id)
+        #if id is not manually assigned
+        if id == None:
             self.id = uuid.uuid4().int
         #if id is manually assigned
         else:
             self.id = id
+        # if id is not None:
+        #         self.id = id 
+        # else:
+        #     self.id = uuid.uuid4().int
         
     def get_category(self):
         return self.__class__.__name__
