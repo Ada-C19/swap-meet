@@ -17,12 +17,4 @@ class Item:
     def __str__(self):
         return f"An object of type {self.get_category()} with id {self.id}."    
 
-    # def swap_meets(self, other_vendor, my_item, their_item):
-    #     if not self.inventory(my_item) or not self.inventory(their_item): 
-    #         return False
-    #     else:
-    #         self.inventory.add(their_item)
-    #         self.inventory.remove(my_item)
-    #         #self.inventory.append(their_item)
-    #         return True 
-    # # these functions will return uuid objects **(not int)**  
+    
