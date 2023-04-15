@@ -1,6 +1,6 @@
 import uuid
 
-from item import Item
+#from item import Item
 
 
 class Vendor:
@@ -27,27 +27,20 @@ class Vendor:
             print(id)
             if item.id == id:
                 return item
-            else:
-                return None
+        return None
+    
 
-# test_id = 12345
-# item_custom_id = Item(id=test_id)
-# vendor = Vendor(
-#         inventory=[Item(), Item(), item_custom_id]
-#     )
-
-# result_item = vendor.get_by_id(test_id)
-# print("result", result_item)
-
-    # def swap_first_item(self, other_vendor):
-    #     if self.inventory(other_vendor) == None or self.inventory == None:
-    #         return False
-    #     else:
-    #         #consider first item in instances inventory
-    #         #consider first item in friends inventory
-    #         #removes first item from this inventory andd adds it to friends
-    #         #
-    #         return True
+    def swap_first_item(self, other_vendor):
+        
+        
+        if self.inventory(other_vendor) == None or self.inventory == None:
+            return False
+        else:
+            #consider first item in instances inventory
+            #consider first item in friends inventory
+            #removes first item from this inventory andd adds it to friends
+            #
+            return True
     
 
 # ---------------- WAVE 4 --------------------

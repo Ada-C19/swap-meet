@@ -9,15 +9,13 @@ class Item:
         #if id is manually assigned
         else:
             self.id = id
-        # if id is not None:
-        #         self.id = id 
-        # else:
-        #     self.id = uuid.uuid4().int
+        
         
     def get_category(self):
         return self.__class__.__name__
         
-        
+    def __str__(self):
+        return f"An object of type {self.get_category()} with id {self.id}."    
 
     # def swap_meets(self, other_vendor, my_item, their_item):
     #     if not self.inventory(my_item) or not self.inventory(their_item): 
