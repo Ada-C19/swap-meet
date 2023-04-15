@@ -16,14 +16,14 @@ class Electronics(Item):
 
     def condition_description(self):
         if self.condition == 5:
-            return "Great find!"
+            return "Thrift Gem!"
         if self. condition == 4:
-            return "Twas in good care"
+            return "Still has the tag"
         if self.condition == 3:
-            return "Morally right"
+            return "Sustainable"
         if self.condition == 2:
-            return "Do it for the turtles"
+            return "Fair trade"
         if self. condition == 1:
-            return "Rethinking thrifting"
+            return "Only a dollar"
         else:
-            return "I mean it's free"
+            return "Thrift Bust"

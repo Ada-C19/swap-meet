@@ -1,10 +1,12 @@
+# simon? -- or whoever may be grading this project, please disregard
+# this commit I am working on the projects over the break to do 
+#corrections pls lmk if I should wait until after already graded that
+# I can go over them thank you!
 
 class Vendor:
     
 # Wave 01
-    def __init__(self, inventory = None):
-        if inventory is None:
-            inventory = []
+    def __init__(self, inventory = []):
         self.inventory = inventory
     
     def add(self, item):
@@ -111,34 +113,34 @@ class Vendor:
             
 
     def swap_best_by_category(self,  other_vendor,my_priority,their_priority):
-            # my_best_item = self.get_best_by_category(their_priority)
-            # their_best_item = self.get_best_by_category(my_priority)
-            # think this would be part of a solution to the asserts i am not
-            # passing but couldn't get it to work before due date will try later
-            # as im trying to swap best item by category
-            my_best_item = None
-            their_best_item = None
-            # check best item in my inventory that matches their_priority category
-            for item in self.inventory:
-                if item.category == their_priority:
-                # If the Vendor has no item that matches their_priority category, it returns False
-                    if my_best_item is None:
-                        my_best_item = item
-                #  check best item in other_vendor's inventory that matches my_priority
-                for item in other_vendor.inventory:
-                    if item.category == my_priority:
-                    # If other_vendor has no item that matches my_priority category, it returns False
-                        if their_best_item is None:
-                            their_best_item = item
+        # my_best_item = self.get_best_by_category(their_priority)
+        # their_best_item = self.get_best_by_category(my_priority)
+        # think this would be part of a solution to the asserts i am not
+        # passing but couldn't get it to work before due date will try later
+        # as im trying to swap best item by category
+        my_best_item = None
+        their_best_item = None
+        # check best item in my inventory that matches their_priority category
+        for item in self.inventory:
+            if item.category == their_priority:
+            # If the Vendor has no item that matches their_priority category, it returns False
+                if my_best_item is None:
+                    my_best_item = item
+            #  check best item in other_vendor's inventory that matches my_priority
+            for item in other_vendor.inventory:
+                if item.category == my_priority:
+                # If other_vendor has no item that matches my_priority category, it returns False
+                    if their_best_item is None:
+                        their_best_item = item
 
-                    # if it is in inventory swap items
-                    if my_best_item is not None and their_best_item is not None:
-                        # self.inventory.remove(my_best_item)
-                        # other_vendor.inventory.append(my_best_item)
-                        # other_vendor.inventory.remove(their_best_item)
-                        # self.inventory.append(their_best_item)
-                        # my attempt to drying code with swap_items
-                        self.swap_items(other_vendor, my_best_item, their_best_item)
-                        return True
+                # if it is in inventory swap items
+                if my_best_item is not None and their_best_item is not None:
+                    # self.inventory.remove(my_best_item)
+                    # other_vendor.inventory.append(my_best_item)
+                    # other_vendor.inventory.remove(their_best_item)
+                    # self.inventory.append(their_best_item)
+                    # my attempt to drying code with swap_items
+                    self.swap_items(other_vendor, my_best_item, their_best_item)
+                    return True
 
-                return False
+        return False

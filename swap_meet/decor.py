@@ -21,14 +21,14 @@ class Decor(Item):
 
     def condition_description(self):
         if self.condition == 5:
-            return "Brand spankin new to you!"
+            return "Thrift Gem!"
         if self. condition == 4:
-            return "I can fix that"
+            return "Still has the tag"
         if self.condition == 3:
-            return "Faded but it's a look"
+            return "Sustainable"
         if self.condition == 2:
-            return  "Mmm interesting"
+            return "Fair trade"
         if self. condition == 1:
-            return "Might give me health issues"
+            return "Only a dollar"
         else:
-            return "Don't do it"
+            return "Thrift Bust"
