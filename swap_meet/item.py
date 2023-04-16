@@ -2,7 +2,6 @@ import uuid
 
 class Item:
     def __init__(self, id=None):        
-        print("id", id)
         #if id is not manually assigned
         if id == None:
             self.id = uuid.uuid4().int
@@ -17,4 +16,6 @@ class Item:
     def __str__(self):
         return f"An object of type {self.get_category()} with id {self.id}."    
 
-    
+
+    def condition_description(self):
+        return f"{self.get_category()} heavily used. Condition rated 0."

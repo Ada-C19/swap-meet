@@ -1,7 +1,15 @@
-class Decor:
-    def __init__(self, condition=0):
-        self.conition = condition
+from swap_meet.item import Item
 
+class Decor (Item):
+    def __init__(self, condition=0, width, length):
+        super().__init__(id)
+        self.condition = condition
+        self.width = width
+        self.length = length
+        
+
+    def condition_description(self):
+        pass
 
 # ------------------ WAVE 5 -----------------------
 # Has an attribute id that is by default a unique integer

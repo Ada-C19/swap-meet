@@ -1,32 +1,26 @@
+from swap_meet.item import Item
 
+class Clothing(Item):
+    # May have to change fabric default values to None
+    def __init__(self, id, fabric="unknown"):
+        super().__init__(id)
+        if fabric == None:
+            self.fabric = "unknown"
 
-class Clothing:
-
-    def __init__(self, id=None, fabric="unknown"):
-        self.id = uuid.uuid4().int
-        if not fabric == "unknown":
-            self.fabric = fabric
         else:
-            self.fabric = user_input
-
+            self.fabric = fabric
+            
     def clothing(self):
-        self.clothing = self.fabric   
+            self.clothing = self.fabric   
 
     def get_category(self):
         return self.clothing 
     
+    def __str__(self):
+        if self.fabric == "unknown":
+            return f"An object of type {self.get_category()} with id {self.id}. It is made from Unknown fabric."    
+        else:
+            return f"An object of type {self.clothing()} with id {self.id}. It is made from {self.fabric} fabric."    
 
-
-# ------------------ WAVE 5 -----------------------
-# Clothing
-
-# Has an attribute id that is by default a unique integer
-# Has an attribute fabric that is by default the string "Unknown"
-# This attribute describes what fabric the clothing is made from; some example values might be "Striped", "Cotton", or "Floral"
-# When we instantiate an instance of Clothing, we can optionally pass in a string with the keyword argument fabric
-# Has a function get_category that returns "Clothing"
-# Has a stringify method that returns "An object of type Clothing with id <id value>. It is made from <fabric value> fabric."
-
-    
-
-    
+    def condition_description(self):
+        pass

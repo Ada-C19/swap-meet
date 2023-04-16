@@ -1,13 +1,18 @@
-class Electronics:
-    pass
-#     def __init__(self, id, type, condition=0):
-#         self.id = id
-#         self.type = None
+from swap_meet.item import Item
 
-#     def get_category(self):    
-#         return # 
+class Electronics(Item):
+    def __init__(self, type, condition=0):
+        super().__init__(id)
+        self.type = None
+        self.condition = condition
+
+    def get_category(self):    
+        pass
         
-#         #electronics = "Stereo" key="type"
+    def condition_description(self):
+        pass
+    
+        #electronics = "Stereo" key="type"
 
 
 # ------------------ WAVE 5 -----------------------
