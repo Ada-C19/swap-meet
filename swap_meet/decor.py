@@ -1,15 +1,31 @@
 from swap_meet.item import Item
 
 class Decor (Item):
-    def __init__(self, condition=0, width, length):
-        super().__init__(id)
-        self.condition = condition
+    def __init__(self, id=None, condition=0, width=0, length=0):
+        super().__init__(id, condition)
         self.width = width
         self.length = length
         
 
     def condition_description(self):
-        pass
+        if self.condition == 0:
+            return f"Item condition is rated 0. This item is barely holding on!"
+        elif self.condition == 1:
+            return f"Items condition is rated 1. This item is hanging on by a thread!"
+        elif self.condition == 2:
+            return f"Items condition is rated 2. This item is living on a prayer."
+        elif self.condition == 3:
+            return f"Items condition is rated 3. This item is in working order."
+        elif self.condition == 4:
+            return f"Items condition is rated 4. This item is in good condition."
+        else:
+            return f"Items condition is rated 5. This item is in excellent condition."
+
+    def get_category(self):
+        return self.__class__.__name__
+    
+    def __str__(self):
+        return f"An object of type {self.get_category()} with id {self.id}. It takes up a {self.width} by {self.length} sized space."
 
 # ------------------ WAVE 5 -----------------------
 # Has an attribute id that is by default a unique integer
