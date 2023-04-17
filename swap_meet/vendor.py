@@ -46,21 +46,39 @@ class Vendor:
             return False
         else:
             #look at the syntax here
+            other_vendor.add(self.inventory[0])
             self.remove(self.inventory[0])
-            other_vendor.remove(other_vendor.inventory[0])
-            other_vendor.add(self.inventory[0]) 
             self.add(other_vendor.inventory[0])
+            other_vendor.remove(other_vendor.inventory[0])
             return True
-        # ERROR: assert item_d in fatimah.inventory 
-        #item_a = Item()
-        # item_b = Item()
-        # item_c = Item()
-        # fatimah = Vendor(
-        #     inventory=[item_a, item_b, item_c]
-        # )
     
-        # item_d = Item()
-        # item_e = Item()
-        # jolie = Vendor(
-        #     inventory=[item_d, item_e]
-        # )
+    def get_by_category(self, category):
+        objects = []
+
+        for item in self.inventory:
+            if item.get_category() == category:
+                objects.append(item)
+        return objects
+    
+    def get_best_by_category(self, category):
+    
+        items = self.get_by_category(category)
+        if items == []:
+            return None
+        else:
+            highest_condition = items[0]
+            for item in items:
+                if item.condition >= highest_condition.condition:
+                    highest_condition = item
+            return highest_condition
+    
+    def swap_best_by_category(self, other_vendor, my_priority, their_priority):
+        my_best_item = self.get_best_by_category(their_priority)
+
+        their_best_item = other_vendor.get_best_by_category(my_priority)
+
+        if my_best_item == None or their_best_item == None:
+            return False
+        else:
+            self.swap_items(other_vendor, my_best_item, their_best_item)
+            return True
