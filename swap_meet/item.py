@@ -1,9 +1,11 @@
 import uuid
+import math
 
 class Item:
     def __init__(self, id=None, condition=0, age=0):
-        if not isinstance(id, int) and id is not None:
+        if id and not isinstance(id,int):
             raise TypeError("id must be an integer")
+        
         self.id = uuid.uuid4().int if id is None else id
         self.condition = condition
         self.age = age
@@ -15,18 +17,14 @@ class Item:
         return f"An object of type {self.get_category()} with id {self.id}."
 
     def condition_description(self):
-        if self.condition == 0:
-            return "Throw it away!"
-        elif self.condition <= 1:
-            return "It's seen better days"
-        elif self.condition <=2:
-            return "Meh"
-        elif self.condition <=3:
-            return "It's alright"
-        elif self.condition <=4:
-            return "Pretty good!"
-        elif self.condition <=5:
-            return "Practically new"
-        else:
-            return "Invalid condition rating."
+        condition = math.ceil(self.condition)
+        DESCRIPTIONS = {
+            0: "Throw it away!",
+            1: "It's seen better days",
+            2: "Meh",
+            3: "It's alright",
+            4: "Pretty good!",
+            5: "Practically new"
+        }
+        return DESCRIPTIONS.get(condition, "Invalid condition rating.")
         
