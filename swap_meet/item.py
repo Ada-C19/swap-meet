@@ -18,5 +18,5 @@ class Item():
     
     def condition_description(self):
         item_condition = ["mint", "like new", "gently used", "vintage", "heavily used", "worn"]
-        return item_condition[self.condition]
+        return item_condition[int(self.condition)]
 
