@@ -4,7 +4,7 @@ import uuid
 class Item:
     def __init__(self, id=None, condition=0, age=0):
         self.id = id if id is not None else uuid.uuid1().int
-        self.condition = condition
+        self.condition = round(condition)
         self.age = age
 
     def __str__(self):
