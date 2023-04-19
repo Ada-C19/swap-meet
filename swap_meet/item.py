@@ -18,7 +18,5 @@ class Item():
     
     def condition_description(self):
         item_condition = ["mint", "like new", "gently used", "vintage", "heavily used", "worn"]
-        for i in range(6):
-            if i == self.condition:
-                return item_condition[i]
+        return item_condition[self.condition]
 
