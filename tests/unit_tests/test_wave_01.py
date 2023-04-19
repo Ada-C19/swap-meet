@@ -47,9 +47,10 @@ def test_removing_not_found_is_false():
     )
 
     result = vendor.remove(item)
+    inventory = ["a", "b", "c"]
 
     assert result == False
-    assert ["a", "b", "c"]
+    assert inventory == ["a", "b", "c"]
     # *********************************************************************
     # ****** Complete Assert Portion of this test **********
     # *********************************************************************
