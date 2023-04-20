@@ -1,6 +1,7 @@
 from .item import Item
-class Vendor:
 
+
+class Vendor:
     def __init__(self, inventory=None):
         if inventory is None:
             inventory = []
@@ -48,7 +49,11 @@ class Vendor:
         return True
 
     def get_by_category(self, category):
-        return [item_obj for item_obj in self.inventory if item_obj.get_category() == category]
+        return [
+            item_obj
+            for item_obj in self.inventory
+            if item_obj.get_category() == category
+        ]
 
     def get_best_by_category(self, category):
         category_list = self.get_by_category(category)
