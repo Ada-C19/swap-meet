@@ -52,7 +52,7 @@ class Vendor:
         return best
     
     def swap_best_by_category(self, other_vendor, my_priority, their_priority):
-        vendor_item_self_wants =  other_vendor.get_best_by_category(my_priority) 
+        vendor_item_self_wants = other_vendor.get_best_by_category(my_priority) 
         self_item_vendor_wants = self.get_best_by_category(their_priority)
         
         if not vendor_item_self_wants or not self_item_vendor_wants:
