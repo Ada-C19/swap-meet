@@ -89,7 +89,8 @@ In Wave 2 we will create the `Item` class and the `Vendor` class' `get_by_id` me
     - Specifically, you'll need to choose which of the `uuid` package's functions to use, so be sure to consider which function will work best for creating a unique integer
     - Note that this package's functions return `UUID` objects, not integers as such, **but** `UUID` objects have [an attribute `int`](https://docs.python.org/3/library/uuid.html#uuid.UUID.int) which allow us to access their value as an integer
 - When we initialize an instance of `Item`, we can optionally pass in an integer with the keyword argument `id` to manually set the `Item`'s `id`
-- Each `Item` will have a function named `get_category`, which will return a string holding the name of the class
+- Each `Item` will have a function named `get_category`, which will return a string holding the name of the class (named Vendor instance, ex: "Clothing", "Decor", "Electronics ")
+  
 
 - Instances of `Vendor` have an instance method named `get_by_id`
   - This method takes one argument: an integer, representing an `Item`'s `id`
