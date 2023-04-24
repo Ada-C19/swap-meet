@@ -21,42 +21,6 @@ You envision an app where vendors can swap items between different inventories. 
 
 For this project, given some features that the vendors want, create a set of classes, following the directions below. The directions will lead you to create many class definitions, their attributes and instance methods, and some other cool features. Vendors will be able to swap items based on values like quality, category, or id!
 
-## Setup and Workflow
-
-Refer to [the viewing-party README](https://github.com/AdaGold/viewing-party) for detailed instructions on the One-Time Project Setup, Project Development Workflow, and Details About How to Run Tests.
-
-For this project, there are tests that you must complete for Waves 01, 03, and 06.
-
-## Integration Tests
-
-We provided **integration tests** for this project. The integration tests provided in this project do not cover all the test cases verified by the unit tests. While unit tests are small, fast, and should cover most of our program's behavior down to individual functions, integration tests verify that the various pieces of a program are working together correctly. For this project, the integration tests mainly verify that the functions work together when invoked correctly. We could classify them as the subset of Integration Tests called *Smoke Tests*, tests that check basic functionality of the application.
-
-The integration tests for this project are in the directory `tests/integration_tests`, and the tests have the decorator `@pytest.mark.integration_test` provided by the `pytest-integration` package. Marking these tests as integration tests makes them run after the unit tests. The isolated nature and specficity of *unit tests* make them a much better tool for debugging. Hence, we want to run the unit tests before the integration tests.
-
-For more on different types of software testing, [here is a helpful resource](https://www.atlassian.com/continuous-delivery/software-testing/types-of-software-testing).
-
-*The integration tests use the package `pytest-integration`. To insure that `pytest` is using the version installed in your `venv` and not the globally installed `pytest`, deactivate and reactive your virtual environment after you've installed the requirements. This step is important to make sure the integration tests run after the unit tests.*
-
-## Code Coverage
-
-Code coverage is a term used to describe how much application code is executed when a particular test suite is run. It is a good practice to check our code coverage, to understand how much of our code is exercised by tests vs how much is still untested. A test suite with a high percentage of coverage is likely to be testing more throughly and have fewer bugs. A code coverage tool can partner with our testing suite to give us a report illustrating the coverage of our tests.
-
-Given that Ada provided all test cases in this project, we should anticipate high code coverage.
-
-Review the [code coverage exercise](https://github.com/adaGold/code-coverage-exercise) on how to use `pytest-cov` to generate a code coverage report. We will need to change the directory where the application code is located from `student` to `swap_meet`.
-
-`pytest --cov=swap_meet --cov-report html --cov-report term`
-
-*Note: Code coverage is disabled for integration tests, since unit tests should cover all the code.* [source](https://pypi.org/project/pytest-integration/#:~:text=Overview,integration%20tests%20are%20not%20run)
-
-## Project Directions
-
-This project is designed such that one could puzzle together how to implement this project without many directions. Being able to use tests to drive project completion is a skill that needs to be developed; programmers often take years to develop this skill competently.
-
-When our test failures leave us confused and stuck, let's use the detailed project requirements below.
-
-At submission time, no matter where you are, submit the project via Learn.
-
 ### Wave 1
 
 In Wave 1 we will create the `Vendor` class.
